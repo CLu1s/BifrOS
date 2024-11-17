@@ -9,7 +9,7 @@ import {
 
 const Topbar = () => {
   return (
-    <Navbar position={"static"} className={"border-b"}>
+    <Navbar position={"static"} className={"border-b h-[4rem]"}>
       <NavbarBrand>
         <p className="font-bold text-inherit">BifrOS</p>
       </NavbarBrand>

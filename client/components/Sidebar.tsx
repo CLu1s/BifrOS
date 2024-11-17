@@ -39,7 +39,7 @@ const Sidebar = () => {
   ));
 
   return (
-    <div className="pt-2 w-20 lg:w-44 border-r flex flex-col justify-start gap-2 ">
+    <div className="pt-2 w-16 lg:w-44 border-r flex flex-col justify-start gap-2 ">
       {renderMobileLinks}
     </div>
   );

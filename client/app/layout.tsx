@@ -5,6 +5,7 @@ import "./globals.css";
 import Providers from "@/providers";
 import Sidebar from "@/components/Sidebar";
 import Topbar from "@/components/Topbar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,12 +32,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}  antialiased`}>
+      <body className={`${inter.className}  antialiased h-screen`}>
         <Providers>
           <Topbar />
           <div className={"flex flex-row"}>
             <Sidebar />
-            {children}
+            <div className={"flex flex-col flex-1"}>
+              <ScrollArea
+                className={"h-[calc(100vh-4rem)] w-full rounded-md border"}
+              >
+                {children}
+              </ScrollArea>
+            </div>
           </div>
         </Providers>
       </body>
