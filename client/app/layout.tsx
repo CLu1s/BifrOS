@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
+import Sidebar from "@/components/Sidebar";
+import Topbar from "@/components/Topbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +32,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}  antialiased`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Topbar />
+          <div className={"flex flex-row"}>
+            <Sidebar />
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
