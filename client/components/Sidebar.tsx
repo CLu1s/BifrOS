@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@nextui-org/button";
-import { House } from "lucide-react";
+import { House, Pickaxe } from "lucide-react";
 
 const links = [
   {
@@ -11,7 +11,7 @@ const links = [
     href: "/",
   },
   {
-    icon: <House className={"h-4 w-4"} />,
+    icon: <Pickaxe className={"h-4 w-4"} />,
     label: "Home",
     href: "/scrapper",
   },
@@ -24,6 +24,7 @@ const links = [
 
 const Sidebar = () => {
   const pathname = usePathname();
+
   const renderMobileLinks = links.map((link) => (
     <Button
       as={Link}

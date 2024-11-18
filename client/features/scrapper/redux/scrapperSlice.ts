@@ -1,23 +1,36 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Execution } from "@/features/scrapper/types";
 
 export type ScrapperState = {
-  loading: boolean;
+  loadingState: "idle" | "loading" | "success" | "error";
+  executions: Execution[];
 };
 
 const initialState: ScrapperState = {
-  loading: false,
+  loadingState: "idle",
+  executions: [],
 };
 
 const scrapperSlice = createSlice({
   name: "scrapper",
   initialState,
   reducers: {
-    setLoading: (state, action: PayloadAction<boolean>) => {
-      state.loading = action.payload;
+    setLoadingState: (
+      state,
+      action: PayloadAction<"idle" | "loading" | "success" | "error">,
+    ) => {
+      state.loadingState = action.payload;
+    },
+    setExecutions: (state, action: PayloadAction<Execution[]>) => {
+      state.executions = action.payload;
+    },
+    addExecution: (state, action: PayloadAction<Execution>) => {
+      state.executions.push(action.payload);
     },
   },
 });
 
-export const { setLoading } = scrapperSlice.actions;
+export const { setLoadingState, setExecutions, addExecution } =
+  scrapperSlice.actions;
 export const scrapperReducer = scrapperSlice.reducer;
 export default scrapperSlice;

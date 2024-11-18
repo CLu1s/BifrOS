@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 export const createFirebaseApp = () => {
   const clientCredentials = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -20,6 +21,14 @@ export const createFirebaseApp = () => {
       if ("measurementId" in clientCredentials) {
         getAnalytics();
       }
+    }
+    // Firestore emulator connection (only in development)
+    if (process.env.NEXT_PUBLIC_USE_FIRESTORE_EMULATOR === "true") {
+      const db = getFirestore(app);
+      const [host, port] =
+        process.env.NEXT_PUBLIC_FIRESTORE_EMULATOR_HOST.split(":");
+      connectFirestoreEmulator(db, host, Number(port));
+      console.log(`Connected to Firestore emulator at ${host}:${port}`);
     }
     return app;
   }
