@@ -10,6 +10,28 @@ export type Metric = {
 export type Execution = {
   executionId: string;
   metrics: Metric;
-  result: Record<string, any[]>;
+  result: Record<string, KodanshaResult[]>;
   timestamp: number;
+};
+
+export type LinkType = {
+  name: string;
+  url: string;
+};
+
+export type KodanshaResult = {
+  linksToStores: LinkType[];
+  readableUrl: string;
+  relativeName: string;
+  seriesName: string;
+  thumbnail: {
+    width: number;
+    height: number;
+    fileSize: number;
+    url: string;
+  };
+  price: number;
+  fullPrice: number;
+  discountPrice: number;
+  ageRating: string;
 };

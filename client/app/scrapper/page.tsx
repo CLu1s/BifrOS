@@ -1,4 +1,4 @@
-import ScrapperDashboard from "@/features/pages/dashboard";
+import ScrapperDashboard from "@/features/scrapper/pages/Dashboard";
 
 const ScraperPage = () => {
   return <ScrapperDashboard />;
