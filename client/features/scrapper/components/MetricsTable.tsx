@@ -4,15 +4,12 @@ import { AgGridReact } from "ag-grid-react";
 
 export function MetricsTable(props: {
   rowData: Metric[];
-  columnDefs: (
-    | { headerName: string; field: string; onCellClicked: (e) => void }
-    | {
-        headerName: string;
-        field: string;
-      }
-    | { headerName: string; field: string }
-    | { headerName: string; field: string }
-  )[];
+  columnDefs: {
+    headerName: string;
+    field: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onCellClicked?: (e: any) => void;
+  }[];
 }) {
   return (
     <Card>
@@ -21,6 +18,7 @@ export function MetricsTable(props: {
       </CardHeader>
       <CardBody>
         <div style={{ height: 300 }}>
+          {/*  @ts-expect-error error */}
           <AgGridReact rowData={props.rowData} columnDefs={props.columnDefs} />
         </div>
       </CardBody>

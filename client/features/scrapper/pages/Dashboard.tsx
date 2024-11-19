@@ -51,7 +51,7 @@ const ScrapperDashboard = () => {
     {
       field: "duration",
       headerName: "Duration",
-      valueFormatter: (params: { value: string }) => {
+      valueFormatter: (params: { value: number }) => {
         return `${params.value / 1000}s`;
       },
     },
