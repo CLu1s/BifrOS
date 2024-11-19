@@ -23,7 +23,7 @@ export function ControlPanel(props: {
               Start Scrapper
             </Button>
           </div>
-          <div className={"flex flex-col gap-2"}>
+          <div className={"flex justify-end flex-col gap-2 w-4/12"}>
             <div className={"flex gap-2 justify-between"}>
               <h3 className={" font-medium"}>State</h3>
               <p>{props.loadinState}</p>

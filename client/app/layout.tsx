@@ -27,10 +27,12 @@ export default function RootLayout({
           <Topbar />
           <div className={"flex flex-row"}>
             <Sidebar />
-            <div className={"flex flex-col flex-1"}>
-              <ScrollArea
-                className={"h-[calc(100vh-4rem)] w-full rounded-md border p-2"}
-              >
+            <div
+              className={
+                "container max-w-screen-2xl m-auto flex flex-col flex-1  "
+              }
+            >
+              <ScrollArea className={"h-[calc(100vh-4rem)] w-full   "}>
                 {children}
               </ScrollArea>
             </div>

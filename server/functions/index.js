@@ -6,7 +6,8 @@
  *
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
-
+import { getFirestore } from "firebase-admin/firestore";
+const db = getFirestore();
 import { onRequest } from "firebase-functions/v2/https";
 import { nanoid } from "nanoid";
 import logger from "firebase-functions/logger";
@@ -16,6 +17,7 @@ import {
   buildKodanshaMail,
 } from "./lib/kodansha.js";
 import { saveExecution, sendMail, filterPromosByNew } from "./helpers/index.js";
+import { parseURL } from "./lib/bookmarks.js";
 import { registerSuccessfulTask } from "./lib/metrics.js";
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
@@ -69,4 +71,27 @@ const checkKodansha = onRequest(async (request, response) => {
   }
 });
 
-export { checkKodansha };
+const saveBookmark = onRequest(async (request, response) => {
+  if (request.method !== "POST") {
+    response.status(405).send("Method not allowed");
+  }
+  const ogData = await parseURL(request.body.url);
+  const bookmarkID = `bookmark-${Date.now()}`;
+  const executionRef = db
+    .collection("bookmarker")
+    .doc("myData")
+    .collection("bookmarks")
+    .doc(bookmarkID);
+  try {
+    const result = {
+      id: bookmarkID,
+      ...ogData,
+    };
+    await executionRef.set(result);
+    response.status(200).send(result);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export { checkKodansha, saveBookmark };

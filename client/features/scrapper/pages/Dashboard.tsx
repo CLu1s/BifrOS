@@ -78,7 +78,7 @@ const ScrapperDashboard = () => {
   };
 
   return (
-    <div className={"flex flex-col gap-4"}>
+    <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1 className={"text-2xl font-bold"}>Scrapper</h1>
       <ControlPanel
         loadinState={loadinState}

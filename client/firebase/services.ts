@@ -1,5 +1,6 @@
 import {
   collection,
+  deleteDoc,
   doc,
   DocumentData,
   FieldValue,
@@ -33,6 +34,11 @@ export const incrementCounter = async (
 export const saveOnFirestore = async (path: string, data: any) => {
   const db = getFirestore();
   return setDoc(doc(db, path), data);
+};
+
+export const deleteFromFirestore = async (path: string) => {
+  const db = getFirestore();
+  return deleteDoc(doc(db, path));
 };
 
 export const updateFirestore = async (path: string, data: any) => {

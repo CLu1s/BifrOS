@@ -37,7 +37,6 @@ const Sidebar = () => {
       variant={pathname == link.href ? "shadow" : "light"}
       key={link.href}
       color={"primary"}
-      className={"mx-auto lg:hidden"}
       isIconOnly
     >
       {link.icon}
@@ -58,8 +57,8 @@ const Sidebar = () => {
 
   return (
     <div className="pt-2 px-2 w-16 lg:w-44 border-r flex flex-col justify-start gap-2 ">
-      {renderMobileLinks}
-      {renderDesktopLinks}
+      <div className={"mx-auto lg:hidden"}>{renderMobileLinks}</div>
+      <div className="lg:flex flex-col gap-2  hidden">{renderDesktopLinks}</div>
     </div>
   );
 };
