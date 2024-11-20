@@ -1,9 +1,11 @@
 "use client";
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { addBookmark } from "@/features/bookmarks/redux/bookmarksSlice";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { Input } from "@/components/ui/input";
 
 type Inputs = {
   url: string;
@@ -11,7 +13,12 @@ type Inputs = {
 
 function CreateNewBookmark() {
   const dispatch = useDispatch();
-  const { resetField, register, handleSubmit } = useForm<Inputs>();
+  const { resetField, register, handleSubmit, setFocus } = useForm<Inputs>();
+
+  useEffect(() => {
+    setFocus("url");
+  }, [setFocus]);
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const toastId = toast.loading("Adding bookmark");
     const { url } = data;
@@ -27,7 +34,6 @@ function CreateNewBookmark() {
       });
       const result = await response.json();
       dispatch(addBookmark(result));
-
       resetField("url");
       toast.success("Bookmark added", {
         id: toastId,
