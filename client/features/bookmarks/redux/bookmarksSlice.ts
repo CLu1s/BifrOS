@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Execution } from "@/features/scrapper/types";
 import { Bookmark } from "@/features/bookmarks/types";
 
 export type BookmarkState = {
@@ -23,13 +22,15 @@ const bookmarkSlice = createSlice({
       state.loadingState = action.payload;
     },
     setBookmarks: (state, action: PayloadAction<Bookmark[]>) => {
-      state.bookmarks = action.payload;
+      state.bookmarks = [...action.payload];
     },
     addBookmark: (state, action: PayloadAction<Bookmark>) => {
-      state.bookmarks.push(action.payload);
+      const newItem = action.payload;
+      state.bookmarks = [...state.bookmarks, newItem];
     },
     removeBookmark: (state, action: PayloadAction<string>) => {
-      state.bookmarks = state.bookmarks.filter(
+      const items = [...state.bookmarks];
+      state.bookmarks = items.filter(
         (bookmark) => bookmark.id !== action.payload,
       );
     },

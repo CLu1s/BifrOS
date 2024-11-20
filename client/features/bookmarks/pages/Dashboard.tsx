@@ -16,7 +16,6 @@ const BookmarksDashboard = () => {
       const data = (await readDocsFromFirestore(
         "bookmarker/myData/bookmarks",
       )) as Bookmark[];
-      console.log(data);
       dispatch(setBookmarks(data));
     })();
   }, []);

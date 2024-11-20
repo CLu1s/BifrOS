@@ -23,7 +23,7 @@ function CreateNewBookmark() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: url.trim() }),
       });
       const result = await response.json();
       dispatch(addBookmark(result));
