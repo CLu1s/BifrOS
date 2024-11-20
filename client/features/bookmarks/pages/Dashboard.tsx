@@ -1,9 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CreateNewBookmark from "@/features/bookmarks/components/CreateNewBookmark";
 import { readDocsFromFirestore } from "@/firebase/services";
-import { Execution } from "@/features/scrapper/types";
-import { setExecutions } from "@/features/scrapper/redux/scrapperSlice";
 import { useDispatch } from "react-redux";
 import { Bookmark } from "@/features/bookmarks/types";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";

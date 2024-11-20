@@ -8,6 +8,7 @@
  */
 import { getFirestore } from "firebase-admin/firestore";
 const db = getFirestore();
+import cors from "cors";
 import { onRequest } from "firebase-functions/v2/https";
 import { nanoid } from "nanoid";
 import logger from "firebase-functions/logger";
@@ -26,6 +27,12 @@ import { registerSuccessfulTask } from "./lib/metrics.js";
 //   logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
+
+const corsMiddleware = cors({
+  origin: ["https://bifr-os.vercel.app", "http://localhost"], // Cambia a "*" para permitir cualquier origen
+  methods: ["POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+});
 
 const checkKodansha = onRequest(async (request, response) => {
   const startTime = Date.now();
@@ -72,26 +79,44 @@ const checkKodansha = onRequest(async (request, response) => {
 });
 
 const saveBookmark = onRequest(async (request, response) => {
-  if (request.method !== "POST") {
-    response.status(405).send("Method not allowed");
-  }
-  const ogData = await parseURL(request.body.url);
-  const bookmarkID = `bookmark-${Date.now()}`;
-  const executionRef = db
-    .collection("bookmarker")
-    .doc("myData")
-    .collection("bookmarks")
-    .doc(bookmarkID);
-  try {
-    const result = {
-      id: bookmarkID,
-      ...ogData,
-    };
-    await executionRef.set(result);
-    response.status(200).send(result);
-  } catch (error) {
-    console.log(error);
-  }
+  corsMiddleware(request, response, async () => {
+    // Validación del método
+    if (request.method !== "POST") {
+      return response.status(405).send("Method not allowed");
+    }
+
+    try {
+      // Extraer URL del cuerpo de la solicitud
+      const { url } = request.body;
+      if (!url) {
+        return response.status(400).send("Missing 'url' in request body");
+      }
+
+      // Procesar la URL y generar datos
+      const ogData = await parseURL(url);
+      const bookmarkID = `bookmark-${Date.now()}`;
+
+      // Referencia al documento en Firestore
+      const executionRef = db
+        .collection("bookmarker")
+        .doc("myData")
+        .collection("bookmarks")
+        .doc(bookmarkID);
+
+      // Guardar en Firestore
+      const result = {
+        id: bookmarkID,
+        ...ogData,
+      };
+      await executionRef.set(result);
+
+      // Responder con éxito
+      return response.status(200).json(result);
+    } catch (error) {
+      console.error("Error saving bookmark:", error);
+      return response.status(500).send("Internal Server Error");
+    }
+  });
 });
 
 export { checkKodansha, saveBookmark };

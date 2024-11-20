@@ -32,8 +32,7 @@ function CreateNewBookmark() {
       toast.success("Bookmark added", {
         id: toastId,
       });
-    } catch (error) {
-      console.error(error);
+    } catch {
       toast.error("Failed to extract metadata", {
         id: toastId,
       });
