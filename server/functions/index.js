@@ -7,19 +7,14 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 import { getFirestore } from "firebase-admin/firestore";
-const db = getFirestore();
 import cors from "cors";
 import { onRequest } from "firebase-functions/v2/https";
-import { nanoid } from "nanoid";
 import logger from "firebase-functions/logger";
-import {
-  checkPromos,
-  groupBy as kodanshaGroupBy,
-  buildKodanshaMail,
-} from "./lib/kodansha.js";
-import { saveExecution, sendMail, filterPromosByNew } from "./helpers/index.js";
+import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
+import { saveExecution } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
-import { registerSuccessfulTask } from "./lib/metrics.js";
+
+const db = getFirestore();
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 
@@ -42,12 +37,10 @@ const checkKodansha = onRequest(async (request, response) => {
 
   try {
     const responsePromos = await checkPromos();
-    const groupedByName = kodanshaGroupBy(responsePromos);
     // const mailData = buildKodanshaMail(groupedByName);
 
-    const path = "scrapper/kodansha/history";
     // check if the promo already exists
-    newPromos = groupedByName; //await filterPromosByNew(groupedByName);
+    newPromos = kodanshaGroupBy(responsePromos); //await filterPromosByNew(groupedByName);
     const keys = Object.keys(newPromos);
     if (keys.length > 0) {
       const endTime = Date.now();
