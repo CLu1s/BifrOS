@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { scrapperReducer } from "@/features/scrapper/redux/scrapperSlice";
 import { bookmarkReducer } from "@/features/bookmarks/redux/bookmarksSlice";
+import { wallpaperReducer } from "@/features/wallpapers/redux/wallpaperSlice";
 
 export const store = configureStore({
   reducer: {
     scrapper: scrapperReducer,
     bookmark: bookmarkReducer,
+    wallpaper: wallpaperReducer,
   },
 });
 

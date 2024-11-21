@@ -13,6 +13,7 @@ import logger from "firebase-functions/logger";
 import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
 import { saveExecution } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
+import { getCollections } from "./lib/wallpaper.js";
 
 const db = getFirestore();
 // Create and deploy your first functions
@@ -79,7 +80,7 @@ const saveBookmark = onRequest(async (request, response) => {
     }
 
     try {
-      // Extraer URL del cuerpo de la solicitud
+      // Extraer URL del url de la solicitud
       const { url } = request.body;
       if (!url) {
         return response.status(400).send("Missing 'url' in request body");
@@ -112,4 +113,29 @@ const saveBookmark = onRequest(async (request, response) => {
   });
 });
 
-export { checkKodansha, saveBookmark };
+const getCollectionPage = onRequest(async (request, response) => {
+  corsMiddleware(request, response, async () => {
+    // Validación del método
+    if (request.method !== "GET") {
+      return response.status(405).send("Method not allowed");
+    }
+
+    try {
+      // Extraer URL del cuerpo de la solicitud
+      const { collection, page } = request.query;
+
+      if (!collection || !page) {
+        return response.status(400).send("Missing 'url' in request body");
+      }
+      const result = await getCollections(collection, Number(page));
+
+      // Responder con éxito
+      return response.status(200).json(result);
+    } catch (error) {
+      console.error("Error saving bookmark:", error);
+      return response.status(500).send("Internal Server Error");
+    }
+  });
+});
+
+export { checkKodansha, saveBookmark, getCollectionPage };

@@ -1,0 +1,26 @@
+import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "@/store";
+import { WallpaperSlice } from "./wallpaperSlice";
+
+export const selectScrapper = (state: RootState): WallpaperSlice =>
+  state.wallpaper;
+
+export const selectLoadingState = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.loadingState,
+);
+
+export const selectConfig = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.config,
+);
+
+export const selectCollectionsInfo = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.collectionsInfo,
+);
+
+export const selectActiveCollection = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.activeCollection,
+);
