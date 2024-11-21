@@ -1,6 +1,5 @@
-import { CollectionInfo } from "../types";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import Container from "@/features/wallpapers/components/Container";
+import Queue from "@/features/wallpapers/components/Queue";
 
 const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
 const KEY = process.env.WALLHAVEN_KEY;
@@ -28,7 +27,7 @@ async function getAllCollections() {
       ...collectionsJson.data,
       {
         id: "top",
-        label: "Top Collections",
+        label: "Vertical Top",
         views: 0,
         public: 1,
         count: topCollectionJson.meta.total,
@@ -36,7 +35,7 @@ async function getAllCollections() {
       },
       {
         id: "htop",
-        label: "HTop Collections",
+        label: "Horizontal Top",
         views: 0,
         public: 1,
         count: htopCollectionsJson.meta.total,
@@ -61,39 +60,10 @@ export default async function WallpaperDashboard() {
   return (
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1 className={"text-2xl font-bold"}>Wallpaper Dashboard</h1>
-      <Card>
-        <CardHeader>
-          <h3 className={"text-2xl font-bold"}> Wallpaper Collections</h3>
-        </CardHeader>
-        <CardBody>
-          <div className="flex m-auto flex-col lg:flex-row gap-2 lg:gap-8">
-            {collections.data.map((collection: CollectionInfo) => (
-              <div
-                key={collection.id}
-                className="flex lg:flex-col justify-between lg:gap-2 bg-gray-100 p-4 rounded-md"
-              >
-                <h3 className={"text-lg font-medium text-center"}>
-                  {collection.label}
-                </h3>
-                <div className={"flex m-auto  gap-2"}>
-                  <div className={"flex flex-col justify-center text-center"}>
-                    <div className={"font-medium text-lg"}>
-                      {collection.count}
-                    </div>
-                    <div className={"font-medium text-sm"}> Count</div>
-                  </div>
-                  <div className={"flex flex-col justify-center text-center"}>
-                    <div className={"font-medium text-lg"}>
-                      {collection.views}
-                    </div>
-                    <div className={"font-medium text-sm"}> Views</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </CardBody>
-      </Card>
+      <div className={"grid grid-cols-2 gap-8"}>
+        <Queue type={"portrait"} />
+        <Queue type={"landscape"} />
+      </div>
       <Container
         collectionsInfo={JSON.stringify(collections.data)}
         config={JSON.stringify(userConfig)}

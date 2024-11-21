@@ -43,3 +43,12 @@ export interface Settings {
   tag_blacklist: string[];
   user_blacklist: string[];
 }
+
+export type QueueElement = {
+  id: string;
+  order: number;
+  name?: string;
+  url: string;
+  addedAt: string;
+  isActive: boolean;
+};

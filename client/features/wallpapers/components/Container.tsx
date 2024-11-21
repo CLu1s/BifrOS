@@ -6,10 +6,12 @@ import {
   setActiveCollection,
   setCollectionsInfo,
   setConfig,
+  setQueue,
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import DisplayCollection from "@/features/wallpapers/components/DisplayCollection";
 import { Button, ButtonGroup } from "@nextui-org/react";
-import { CollectionInfo } from "@/features/wallpapers/types";
+import { CollectionInfo, QueueElement } from "@/features/wallpapers/types";
+import { readDocsFromFirestore } from "@/firebase/services";
 
 type Props = {
   collectionsInfo: string;
@@ -24,6 +26,18 @@ const Container = ({ collectionsInfo, config }: Props) => {
     dispatch(setConfig(configData));
     dispatch(setCollectionsInfo(collectionsInfoData));
   }, [collectionsInfo, collectionsInfoData, config, configData, dispatch]);
+  useEffect(() => {
+    (async () => {
+      const landscape = (await readDocsFromFirestore(
+        "wallpapers/myData/landscape-queue",
+      )) as QueueElement[];
+      const portrait = (await readDocsFromFirestore(
+        "wallpapers/myData/portrait-queue",
+      )) as QueueElement[];
+      dispatch(setQueue({ landscape, portrait }));
+      console.log(landscape, portrait);
+    })();
+  }, []);
 
   const handleCollectionClick = (collection: CollectionInfo) => {
     dispatch(setActiveCollection(collection));

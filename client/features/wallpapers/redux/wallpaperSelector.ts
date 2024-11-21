@@ -24,3 +24,13 @@ export const selectActiveCollection = createSelector(
   selectScrapper,
   (wallpaper) => wallpaper.activeCollection,
 );
+
+export const portraitQueue = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.queue.portrait,
+);
+
+export const landscapeQueue = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.queue.landscape,
+);

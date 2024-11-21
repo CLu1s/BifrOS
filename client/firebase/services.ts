@@ -43,6 +43,12 @@ export const deleteFromFirestore = async (path: string) => {
 
 export const updateFirestore = async (path: string, data: any) => {
   const db = getFirestore();
+  try {
+    await updateDoc(doc(db, path), data);
+  } catch (e) {
+    console.log("updateFirestore error", e);
+    await setDoc(doc(db, path), data, { merge: true });
+  }
   return updateDoc(doc(db, path), data);
 };
 
