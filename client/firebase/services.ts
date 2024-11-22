@@ -64,6 +64,13 @@ export const readDocsFromFirestore = async (path: string) => {
   return querySnapshot.docs.map((doc) => doc.data());
 };
 
+export const queryFirestore = async (
+  query: Query<DocumentData, DocumentData>,
+) => {
+  const querySnapshot = await getDocs(query);
+  return querySnapshot.docs.map((doc) => doc.data());
+};
+
 export const listenToFirestore = (
   query: Query<DocumentData, DocumentData>,
   callback: (querySnapshot: QuerySnapshot<DocumentData, DocumentData>) => void,

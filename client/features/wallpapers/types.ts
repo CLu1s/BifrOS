@@ -46,9 +46,12 @@ export interface Settings {
 
 export type QueueElement = {
   id: string;
+  queue: "landscape-queue" | "portrait-queue";
+  type: "portrait" | "landscape";
   order: number;
   name?: string;
   url: string;
+  whPath: string;
   addedAt: string;
   isActive: boolean;
 };

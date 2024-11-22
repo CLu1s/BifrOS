@@ -1,7 +1,6 @@
 "use client";
 import { useDisclosure } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import { readDocsFromFirestore } from "@/firebase/services";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoadingState } from "@/features/scrapper/redux/scrapperSelectors";
 import {
@@ -9,11 +8,12 @@ import {
   setExecutions,
   setLoadingState,
 } from "@/features/scrapper/redux/scrapperSlice";
-import { Execution, KodanshaResult } from "@/features/scrapper/types";
+import { KodanshaResult } from "@/features/scrapper/types";
 import useScrapper from "@/features/scrapper/hooks/useScrapper";
 import { ControlPanel } from "@/features/scrapper/components/ControlPanel";
 import { MetricsTable } from "@/features/scrapper/components/MetricsTable";
 import { ModalDetail } from "@/features/scrapper/components/ModalDetail";
+import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
 
 const ScrapperDashboard = () => {
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const ScrapperDashboard = () => {
   ];
   useEffect(() => {
     (async () => {
-      const data = (await readDocsFromFirestore("scraper")) as Execution[];
+      const data = await getScraperDocsFromFirebase();
       dispatch(setExecutions(data));
     })();
   }, []);

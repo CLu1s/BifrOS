@@ -14,6 +14,7 @@ import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
 import { saveExecution } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
 import { getCollections, getWallpaperFromQueue } from "./lib/wallpaper.js";
+import { logActivityInDB } from "./lib/activities.js";
 
 const db = getFirestore();
 // Create and deploy your first functions
@@ -56,6 +57,13 @@ const checkKodansha = onRequest(async (request, response) => {
 
       data = await saveExecution({ result: newPromos, metrics });
       // sendMail(mailData);
+      logActivityInDB({
+        type: "scraper",
+        description: `New Kodansha promos found (${keys.length})`,
+        timestamp: new Date().toISOString(),
+        metadata: { count: keys.length },
+      });
+
       logger.info("New Kodansha promos found", newPromos.length);
     } else {
       logger.info("No new Kodansha promos found");
@@ -103,7 +111,12 @@ const saveBookmark = onRequest(async (request, response) => {
         ...ogData,
       };
       await executionRef.set(result);
-
+      logActivityInDB({
+        type: "bookmarker",
+        description: `Bookmark saved: ${url}`,
+        timestamp: new Date().toISOString(),
+        metadata: { url },
+      });
       // Responder con éxito
       return response.status(200).json(result);
     } catch (error) {
@@ -153,11 +166,16 @@ const getWallpaper = onRequest(async (request, response) => {
         return response.status(400).send("Missing 'type' in request body");
       }
       const result = await getWallpaperFromQueue(type);
-      console.log("result", result);
+      logActivityInDB({
+        type: "wallpaper",
+        description: `Wallpaper served: ${result.whPath}`,
+        timestamp: new Date().toISOString(),
+        metadata: { result },
+      });
       // Responder con éxito
       return response.status(200).json(result);
     } catch (error) {
-      console.error("Error saving bookmark:", error);
+      console.error("Error getWallpaper:", error);
       return response.status(500).send("Internal Server Error");
     }
   });

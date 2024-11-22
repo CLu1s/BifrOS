@@ -1,21 +1,18 @@
 "use client";
 import { useEffect } from "react";
 import CreateNewBookmark from "@/features/bookmarks/components/CreateNewBookmark";
-import { readDocsFromFirestore } from "@/firebase/services";
 import { useDispatch } from "react-redux";
-import { Bookmark } from "@/features/bookmarks/types";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 import BookmarkContainer from "@/features/bookmarks/components/BookmarkContainer";
+import { getBookmarksFromFirestore } from "@/features/lib";
 
 const BookmarksDashboard = () => {
   const dispatch = useDispatch();
   const { bookmarks } = useBookmark();
   useEffect(() => {
     (async () => {
-      const data = (await readDocsFromFirestore(
-        "bookmarker/myData/bookmarks",
-      )) as Bookmark[];
+      const data = await getBookmarksFromFirestore();
       dispatch(setBookmarks(data));
     })();
   }, []);

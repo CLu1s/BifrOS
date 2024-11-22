@@ -24,7 +24,6 @@ async function getAllCollections() {
   const htopCollectionsJson = await htopCollections.json();
   return {
     data: [
-      ...collectionsJson.data,
       {
         id: "top",
         label: "Vertical Top",
@@ -41,6 +40,7 @@ async function getAllCollections() {
         count: htopCollectionsJson.meta.total,
         per_page: htopCollectionsJson.meta.per_page,
       },
+      ...collectionsJson.data,
     ],
   };
 }
@@ -60,9 +60,8 @@ export default async function WallpaperDashboard() {
   return (
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1 className={"text-2xl font-bold"}>Wallpaper Dashboard</h1>
-      <div className={"grid grid-cols-2 gap-8"}>
-        <Queue type={"portrait"} />
-        <Queue type={"landscape"} />
+      <div className={"flex w-full gap-8"}>
+        <Queue />
       </div>
       <Container
         collectionsInfo={JSON.stringify(collections.data)}

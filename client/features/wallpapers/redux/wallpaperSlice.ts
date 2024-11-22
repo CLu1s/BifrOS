@@ -78,6 +78,15 @@ const wallpaperSlice = createSlice({
       copy.push(action.payload.element);
       state.queue[action.payload.type] = copy;
     },
+    removeFromQueue: (
+      state,
+      action: PayloadAction<{ id: string; type: "portrait" | "landscape" }>,
+    ) => {
+      const copy = [...state.queue[action.payload.type]];
+      const index = copy.findIndex((el) => el.id === action.payload.id);
+      copy.splice(index, 1);
+      state.queue[action.payload.type] = copy;
+    },
   },
 });
 
@@ -88,6 +97,7 @@ export const {
   setCollectionsInfo,
   setQueue,
   addToQueue,
+  removeFromQueue,
 } = wallpaperSlice.actions;
 export const wallpaperReducer = wallpaperSlice.reducer;
 export default wallpaperSlice;

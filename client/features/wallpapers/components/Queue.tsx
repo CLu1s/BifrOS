@@ -1,39 +1,45 @@
 "use client";
 
-import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Image, Button } from "@nextui-org/react";
 import { type QueueElement } from "@/features/wallpapers/types";
 import React from "react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { CircleX } from "lucide-react";
 
-type Props = {
-  type: "landscape" | "portrait";
-};
+const Queue = () => {
+  const { all, removeImage } = useWallpapers();
 
-const Queue = ({ type }: Props) => {
-  const { getQueue } = useWallpapers();
-  const cols = type === "portrait" ? "grid-cols-2  " : "grid-cols-1 ";
-
-  const showQueue = getQueue(type).map((image: QueueElement) => (
-    <div key={image.id}>
+  const showQueue = all.map((image: QueueElement) => (
+    <div key={image.id} className="border-none  relative shrink-0">
+      <Button
+        isIconOnly
+        variant={"light"}
+        color={"danger"}
+        className={"absolute z-40 right-1"}
+        size={"sm"}
+        onPress={() => removeImage(image)}
+      >
+        <CircleX />
+      </Button>
       <Image
         key={image.id}
         alt={image.url}
         src={image.url}
-        className={"max-h-[310px]"}
+        height={200}
+        width={240}
       />
     </div>
   ));
 
   return (
-    <Card>
+    <Card className={" px-10 w-full "}>
       <CardHeader>
-        <h3 className={"text-xl font-bold capitalize "}>Queue {type}</h3>
+        <h2 className="text-2xl font-bold">Queue</h2>
       </CardHeader>
-      <CardBody>
-        <ScrollArea className={"max-h-[40rem] w-full   "}>
-          <div className={`grid  ${cols} gap-2 lg:gap-8`}>{showQueue}</div>
-        </ScrollArea>
+      <CardBody
+        className={"max-w-full  overflow-x-auto overflow-y-hidden pb-10"}
+      >
+        <div className={` flex gap-2 lg:gap-6  `}>{showQueue}</div>
       </CardBody>
     </Card>
   );

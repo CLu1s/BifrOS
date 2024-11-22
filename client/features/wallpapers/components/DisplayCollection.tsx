@@ -39,7 +39,7 @@ const DisplayCollection = () => {
   return (
     <div>
       <div
-        className="w-full max-h-[71vh] overflow-y-auto  flex flex-col  gap-4  p-6 "
+        className="w-full max-h-[83vh] overflow-y-auto  flex flex-col  gap-4  p-6 "
         id="scrollableDiv"
       >
         <InfiniteScroll
@@ -66,7 +66,7 @@ const DisplayCollection = () => {
             </div>
           }
           className={
-            "container m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3   gap-4 2xl:gap-8 w-full"
+            " m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5   gap-4 2xl:gap-8 w-full"
           }
         >
           {renderPages}

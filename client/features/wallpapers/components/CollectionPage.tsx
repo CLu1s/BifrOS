@@ -26,7 +26,7 @@ const fetcher = (...args: any[]) =>
     },
   }).then((res) => res.json());
 interface Props {
-  collectionID: number | string | undefined;
+  collectionID: string | number;
   // userConfig: CollectionConfig | undefined;
   index: number;
 }
@@ -34,12 +34,12 @@ const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPERS_PAGE;
 
 const CollectionPage = ({ collectionID, index }: Props) => {
   const dispatch = useDispatch();
-  const { all } = useWallpapers();
-  const { getNextQueueNumberOrder } = useWallpapers();
+  const { getNextQueueNumberOrder, all, find } = useWallpapers();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selectedImage, setSelectedImage] = React.useState<ImageType | null>(
     null,
   );
+  const info = find(collectionID);
   const { data, error, isLoading } = useSWR(
     `${API_URL}?collection=${collectionID}&page=${index}`,
     fetcher,
@@ -48,16 +48,20 @@ const CollectionPage = ({ collectionID, index }: Props) => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
   if (!data) return <div>No data</div>;
-
   const addImageToQueue = async (image: ImageType) => {
     const find = all.find((el) => el.id === image.id);
     if (find) return;
+    const isPortrait = info?.label.toLowerCase().includes("vertical");
+
     const element: QueueElement = {
       id: image.id,
       url: image.path,
       addedAt: new Date().toISOString(),
       isActive: false,
       order: getNextQueueNumberOrder(),
+      type: isPortrait ? "portrait" : "landscape",
+      queue: `${isPortrait ? "portrait" : "landscape"}-queue`,
+      whPath: image.url,
     };
 
     try {
@@ -77,6 +81,9 @@ const CollectionPage = ({ collectionID, index }: Props) => {
       console.log(error);
     }
   };
+  const type = info?.label.toLowerCase().includes("vertical")
+    ? "portrait"
+    : "landscape";
 
   const renderImage = () => {
     return data.data.map((image: ImageType) => (
@@ -94,7 +101,11 @@ const CollectionPage = ({ collectionID, index }: Props) => {
   return (
     <>
       {renderImage()}
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size={"5xl"}>
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size={type === "portrait" ? "xl" : "5xl"}
+      >
         <ModalContent>
           {(onClose) => (
             <>
