@@ -13,7 +13,7 @@ import logger from "firebase-functions/logger";
 import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
 import { saveExecution } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
-import { getCollections } from "./lib/wallpaper.js";
+import { getCollections, getWallpaperFromQueue } from "./lib/wallpaper.js";
 
 const db = getFirestore();
 // Create and deploy your first functions
@@ -138,4 +138,29 @@ const getCollectionPage = onRequest(async (request, response) => {
   });
 });
 
-export { checkKodansha, saveBookmark, getCollectionPage };
+const getWallpaper = onRequest(async (request, response) => {
+  corsMiddleware(request, response, async () => {
+    // Validación del método
+    if (request.method !== "GET") {
+      return response.status(405).send("Method not allowed");
+    }
+
+    try {
+      // Extraer URL del cuerpo de la solicitud
+      const { type } = request.query;
+
+      if (!type) {
+        return response.status(400).send("Missing 'type' in request body");
+      }
+      const result = await getWallpaperFromQueue(type);
+      console.log("result", result);
+      // Responder con éxito
+      return response.status(200).json(result);
+    } catch (error) {
+      console.error("Error saving bookmark:", error);
+      return response.status(500).send("Internal Server Error");
+    }
+  });
+});
+
+export { checkKodansha, saveBookmark, getCollectionPage, getWallpaper };

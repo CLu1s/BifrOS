@@ -17,9 +17,9 @@ const useWallpapers = () => {
 
   const getNextQueueNumberOrder = () => {
     const all = [...landscape, ...portrait];
-
+    if (all.length === 0) return 1;
     const queueNumbers = all.map((element) => element.order);
-    const maxNumber = Math.max(...queueNumbers);
+    const maxNumber = Math.max(...queueNumbers, 0);
     return maxNumber + 1;
   };
   return {

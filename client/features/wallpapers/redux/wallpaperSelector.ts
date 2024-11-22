@@ -25,12 +25,10 @@ export const selectActiveCollection = createSelector(
   (wallpaper) => wallpaper.activeCollection,
 );
 
-export const portraitQueue = createSelector(
-  selectScrapper,
-  (wallpaper) => wallpaper.queue.portrait,
+export const portraitQueue = createSelector(selectScrapper, (wallpaper) =>
+  wallpaper.queue.portrait.toSorted((a, b) => a.order - b.order),
 );
 
-export const landscapeQueue = createSelector(
-  selectScrapper,
-  (wallpaper) => wallpaper.queue.landscape,
+export const landscapeQueue = createSelector(selectScrapper, (wallpaper) =>
+  wallpaper.queue.landscape.toSorted((a, b) => a.order - b.order),
 );

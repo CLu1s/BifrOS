@@ -1,6 +1,9 @@
+import { getFirestore } from "firebase-admin/firestore";
+
 const COLLECTION_URL = "https://wallhaven.cc/api/v1/collections/Raku/";
 export const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
 const KEY = process.env.WALLHAVEN_KEY;
+const db = getFirestore();
 
 export const getCollections = async (id, page = 1) => {
   let collection = id;
@@ -8,7 +11,6 @@ export const getCollections = async (id, page = 1) => {
     collection = "810757";
   }
 
-  const apiKey = `apikey=${KEY}`;
   try {
     if (collection === "top") {
       const collections = await fetch(
@@ -29,5 +31,30 @@ export const getCollections = async (id, page = 1) => {
   } catch (e) {
     console.log(e);
     return null;
+  }
+};
+
+export const getWallpaperFromQueue = async (type) => {
+  const random = Math.random() >= 0.5 ? "portrait" : "landscape";
+  const queueType = type === "any" ? random : type;
+  try {
+    const ref = db
+      .collection("wallpapers")
+      .doc("myData")
+      .collection(`${queueType}-queue`);
+    const wallpaper = await ref.orderBy("order").limit(1).get();
+    const wallpaperData = wallpaper.docs[0].data();
+    await ref.doc(wallpaper.docs[0].id).delete();
+    return wallpaperData;
+  } catch (e) {
+    const newType = queueType === "portrait" ? "landscape" : "portrait";
+    const ref = db
+      .collection("wallpapers")
+      .doc("myData")
+      .collection(`${newType}-queue`);
+    const wallpaper = await ref.orderBy("order").limit(1).get();
+    const wallpaperData = wallpaper.docs[0].data();
+    await ref.doc(wallpaper.docs[0].id).delete();
+    return wallpaperData;
   }
 };
