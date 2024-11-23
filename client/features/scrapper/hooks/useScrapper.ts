@@ -1,5 +1,6 @@
 import { selectExecutions } from "@/features/scrapper/redux/scrapperSelectors";
 import { useSelector } from "react-redux";
+import { isBefore } from "date-fns";
 
 const useScrapper = () => {
   const executions = useSelector(selectExecutions);
@@ -8,7 +9,7 @@ const useScrapper = () => {
       return execution.metrics;
     })
     .sort((a, b) => {
-      return a.timestamp - b.timestamp;
+      return isBefore(new Date(a.timestamp), new Date(b.timestamp)) ? 1 : -1;
     });
   return {
     executions,

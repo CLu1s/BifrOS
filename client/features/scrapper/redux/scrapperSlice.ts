@@ -25,7 +25,9 @@ const scrapperSlice = createSlice({
       state.executions = action.payload;
     },
     addExecution: (state, action: PayloadAction<Execution>) => {
-      state.executions.push(action.payload);
+      const copy = [...state.executions];
+      copy.unshift(action.payload);
+      state.executions = copy;
     },
   },
 });

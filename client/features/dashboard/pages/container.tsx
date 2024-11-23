@@ -20,6 +20,8 @@ import { setExecutions } from "@/features/scrapper/redux/scrapperSlice";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { getBookmarksFromFirestore } from "@/features/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
+import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
+import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -60,13 +62,20 @@ const Container = () => {
   return (
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1>Dashboard</h1>
-      <div className={"grid grid-cols-3 gap-4"}>
-        <div className={"col-span-2"}>
+      <div className={"grid grid-cols-3  gap-4"}>
+        <div className={"col-span-2  "}>
           <RecentActivity activities={activities} />
         </div>
-        <div className={"col-span-1"}>
+        <div className={"col-span-1 "}>
           <Generals />
         </div>
+        <div className={"col-span-2 grid  max-h-96"}>
+          <LastScraperResult />
+        </div>
+        <div className={"flex flex-col gap-4 col-span-1"}>
+          <NextInQueue />
+        </div>
+        <RecentActivity activities={activities} />
       </div>
     </div>
   );

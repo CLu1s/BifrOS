@@ -85,7 +85,7 @@ const ScrapperDashboard = () => {
         onPress={startScrapper}
         metrics={metrics}
       />
-      <MetricsTable rowData={metrics.reverse()} columnDefs={colDefs} />
+      <MetricsTable rowData={metrics} columnDefs={colDefs} />
       <ModalDetail
         open={isOpen}
         onOpenChange={onOpenChange}

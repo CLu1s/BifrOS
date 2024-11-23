@@ -20,11 +20,16 @@ export function ModalDetail(props: {
 
   const renderModalData = () => {
     return Object.entries(props.modalData).map(([key, value]) => {
+      const copyValue = [...value];
+      const sortedValue = copyValue.sort((a, b) => {
+        return a.relativeName.localeCompare(b.relativeName);
+      });
+
       return (
         <div key={key} className="flex flex-col gap-2 ">
           <h2 className={"text-xl font-semibold"}>{key}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3  gap-2 lg:gap-4">
-            {value.map((result, index) => (
+            {sortedValue.map((result, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-2 bg-gray-100 p-2 rounded-md"

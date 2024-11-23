@@ -8,7 +8,7 @@ const Generals = () => {
   const { all } = useWallpapers();
   const { metrics, executions } = useScrapper();
   const { bookmarks } = useBookmark();
-  console.log("metrics", metrics);
+
   return (
     <Card className={"p-2"}>
       <CardHeader>

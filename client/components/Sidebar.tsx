@@ -13,7 +13,7 @@ const links = [
   {
     icon: <Pickaxe className={"h-4 w-4"} />,
     label: "Scraper",
-    href: "/scrapper",
+    href: "/scraper",
   },
   {
     icon: <BookMarked className={"h-4 w-4"} />,

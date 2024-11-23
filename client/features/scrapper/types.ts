@@ -4,14 +4,14 @@ export type Metric = {
   errorMessage: number;
   executionId: string;
   status: string;
-  timestamp: number;
+  timestamp: string;
 };
 
 export type Execution = {
   executionId: string;
   metrics: Metric;
   result: Record<string, KodanshaResult[]>;
-  timestamp: number;
+  timestamp: string;
 };
 
 export type LinkType = {

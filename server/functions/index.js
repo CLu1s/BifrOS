@@ -13,7 +13,11 @@ import logger from "firebase-functions/logger";
 import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
 import { saveExecution } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
-import { getCollections, getWallpaperFromQueue } from "./lib/wallpaper.js";
+import {
+  getCollections,
+  getSafeWallpaper,
+  getWallpaperFromQueue,
+} from "./lib/wallpaper.js";
 import { logActivityInDB } from "./lib/activities.js";
 
 const db = getFirestore();
@@ -165,6 +169,16 @@ const getWallpaper = onRequest(async (request, response) => {
       if (!type) {
         return response.status(400).send("Missing 'type' in request body");
       }
+      if (type === "ss") {
+        const result = await getSafeWallpaper();
+        logActivityInDB({
+          type: "wallpaper",
+          description: `Safe Wallpaper served: ${result.short_url}`,
+          timestamp: new Date().toISOString(),
+          metadata: { result },
+        });
+        return response.status(200).json(result);
+      }
       const result = await getWallpaperFromQueue(type);
       logActivityInDB({
         type: "wallpaper",
@@ -175,7 +189,12 @@ const getWallpaper = onRequest(async (request, response) => {
       // Responder con éxito
       return response.status(200).json(result);
     } catch (error) {
-      console.error("Error getWallpaper:", error);
+      logActivityInDB({
+        type: "wallpaper",
+        description: `Error getting wallpaper: ${error}`,
+        timestamp: new Date().toISOString(),
+      });
+
       return response.status(500).send("Internal Server Error");
     }
   });

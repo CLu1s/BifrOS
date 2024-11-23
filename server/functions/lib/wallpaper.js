@@ -58,3 +58,19 @@ export const getWallpaperFromQueue = async (type) => {
     return wallpaperData;
   }
 };
+
+export const getSafeWallpaper = async () => {
+  const KEY = process.env.WALLHAVEN_KEY;
+  const ENDPOINT = `https://wallhaven.cc/api/v1/collections/Raku/1651782?apikey=${KEY}`;
+  const response = await fetch(ENDPOINT);
+  const { meta } = await response.json();
+  const { last_page, per_page } = meta;
+  const page = Math.floor(Math.random() * last_page) + 1;
+  const wallpaperIndex = Math.floor(Math.random() * per_page);
+  const url = `https://wallhaven.cc/api/v1/collections/Raku/1651782?apikey=${KEY}&page=${page}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const { data: wallpapers } = data;
+  return wallpapers[wallpaperIndex];
+};
