@@ -7,13 +7,11 @@ const LastScraperResult = () => {
   const { executions } = useScrapper();
   if (!(executions.length > 0)) return null;
   const { result } = executions[0];
-  console.log(result);
   const keys = Object.keys(result).sort((a, b) => {
     return a.localeCompare(b);
   });
   // getting the first element of the executions array of each key
   const elements = keys.map((key) => result[key][0]);
-  console.log(elements);
 
   return (
     <Card className={"p-2"}>

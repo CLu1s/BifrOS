@@ -22,6 +22,7 @@ import { getBookmarksFromFirestore } from "@/features/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
 import NextInQueue from "@/features/wallpapers/components/NextInQueue";
+import Favorites from "@/features/bookmarks/components/Favorites";
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -69,13 +70,15 @@ const Container = () => {
         <div className={"col-span-1 "}>
           <Generals />
         </div>
+        <div className={"col-span-3"}>
+          <Favorites />
+        </div>
         <div className={"col-span-2 grid  max-h-96"}>
           <LastScraperResult />
         </div>
         <div className={"flex flex-col gap-4 col-span-1"}>
           <NextInQueue />
         </div>
-        <RecentActivity activities={activities} />
       </div>
     </div>
   );

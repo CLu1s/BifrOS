@@ -6,4 +6,5 @@ export type Bookmark = {
   ogTitle: string;
   url: string;
   timestamp: number;
+  isFavorite: boolean;
 };

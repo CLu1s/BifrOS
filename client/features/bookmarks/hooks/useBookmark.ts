@@ -11,7 +11,8 @@ const useBookmark = () => {
         })
       : [];
   }, [bookmarks]);
-  return { bookmarks: orderedBookmarks };
+  const favorites = orderedBookmarks.filter((bookmark) => bookmark.isFavorite);
+  return { bookmarks: orderedBookmarks, favorites };
 };
 
 export default useBookmark;

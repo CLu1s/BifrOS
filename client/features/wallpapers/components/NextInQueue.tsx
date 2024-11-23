@@ -30,6 +30,7 @@ const NextInQueue = () => {
               width={200}
               height={200}
               alt="landscape"
+              className={"rounded object-cover"}
             />
             <p>Wallpapers on portrait queue:</p>
             <p> {portrait.length} </p>

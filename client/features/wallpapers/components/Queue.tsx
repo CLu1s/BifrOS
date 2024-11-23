@@ -27,6 +27,7 @@ const Queue = () => {
         src={image.url}
         height={200}
         width={240}
+        className={"rounded object-cover"}
       />
     </div>
   ));

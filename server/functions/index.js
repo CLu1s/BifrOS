@@ -113,6 +113,7 @@ const saveBookmark = onRequest(async (request, response) => {
       const result = {
         id: bookmarkID,
         ...ogData,
+        isFavorite: false,
       };
       await executionRef.set(result);
       logActivityInDB({

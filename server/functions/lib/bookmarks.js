@@ -29,8 +29,6 @@ export async function parseURL(url) {
     };
     const ogData = await ogs(options);
     const { ogImage, favicon, ogDescription, ogTitle } = ogData.result;
-    console.log(ogData.result);
-
     return {
       ogImage: ogImage ? ogImage[0]?.url : "",
       favicon: favicon ? buildFaviconUrl(extractBaseUrl(url), favicon) : "",
