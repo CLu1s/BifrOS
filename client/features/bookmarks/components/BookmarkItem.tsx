@@ -32,7 +32,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex gap-4 w-full justify-between text-start hover:bg-neutral-100 p-6  border rounded-xl"
+        "flex flex-col lg:flex-row gap-4 w-full justify-between text-start hover:bg-neutral-100 p-6  border rounded-xl"
       }
     >
       <div className={"flex gap-4"}>
@@ -41,13 +41,13 @@ function BookmarkItem({ data }: { data: Bookmark }) {
             <Image
               src={data.ogImage}
               alt={data.ogTitle}
-              className={"h-14 min-w-14 object-cover rounded"}
+              className={"min-h-14 min-w-14 object-cover rounded"}
             />
           ) : (
             <Image
               src={data.favicon}
               alt={data.ogTitle}
-              className={"w-14 h-14 object-cover rounded"}
+              className={"min-h-14 min-w-14 object-cover rounded"}
             />
           )}
         </div>

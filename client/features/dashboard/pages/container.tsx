@@ -63,17 +63,17 @@ const Container = () => {
   return (
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1>Dashboard</h1>
-      <div className={"grid grid-cols-3  gap-4"}>
-        <div className={"col-span-2  "}>
+      <div className={"grid grid-cols-1 lg:grid-cols-3 gap-4"}>
+        <div className={"col-span-1 lg:col-span-2 w-full  "}>
           <RecentActivity activities={activities} />
         </div>
         <div className={"col-span-1 "}>
           <Generals />
         </div>
-        <div className={"col-span-3"}>
+        <div className={" col-span-1 lg:col-span-3"}>
           <Favorites />
         </div>
-        <div className={"col-span-2 grid  max-h-96"}>
+        <div className={" col-span-1 lg:col-span-2 grid  max-h-96"}>
           <LastScraperResult />
         </div>
         <div className={"flex flex-col gap-4 col-span-1"}>

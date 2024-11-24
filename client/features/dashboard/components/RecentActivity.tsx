@@ -23,7 +23,7 @@ const RecentActivity = ({ activities }: Props) => {
   });
 
   return (
-    <Card className={"p-2"}>
+    <Card className={"p-2 w-full"}>
       <CardHeader>
         <h2 className={"text-xl font-semibold"}>Recent Activity</h2>
       </CardHeader>

@@ -56,8 +56,10 @@ const Sidebar = () => {
   ));
 
   return (
-    <div className="pt-2 px-2 w-16 lg:w-44 border-r flex flex-col justify-start gap-2 ">
-      <div className={"mx-auto lg:hidden"}>{renderMobileLinks}</div>
+    <div className="pt-2 px-2 w-14 lg:w-44 border-r flex flex-col justify-start  gap-2 ">
+      <div className={"mx-auto lg:hidden flex flex-col gap-2"}>
+        {renderMobileLinks}
+      </div>
       <div className="lg:flex flex-col gap-2  hidden">{renderDesktopLinks}</div>
     </div>
   );

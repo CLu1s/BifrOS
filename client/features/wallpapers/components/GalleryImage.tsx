@@ -9,9 +9,10 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
   return (
     <Card isFooterBlurred radius="lg" className="border-none">
       <Image
-        className={"min-h-[310px]"}
+        className={"min-h-[310px] object-cover"}
         alt={props.image.url}
         src={props.image.thumbs.large}
+        height={370}
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
         <Button
