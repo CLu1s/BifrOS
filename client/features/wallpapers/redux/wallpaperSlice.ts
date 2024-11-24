@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   CollectionInfo,
+  Image,
   QueueElement,
   Settings,
 } from "@/features/wallpapers/types";
@@ -11,6 +12,8 @@ export type WallpaperSlice = {
   collectionsInfo: CollectionInfo[];
   activeCollection: CollectionInfo | null;
   queue: { portrait: QueueElement[]; landscape: QueueElement[] };
+  isModalOpen: boolean;
+  modalImage: QueueElement | Image | null;
 };
 
 const initialState: WallpaperSlice = {
@@ -33,6 +36,8 @@ const initialState: WallpaperSlice = {
     portrait: [],
     landscape: [],
   },
+  isModalOpen: false,
+  modalImage: null,
 };
 
 const wallpaperSlice = createSlice({
@@ -87,6 +92,14 @@ const wallpaperSlice = createSlice({
       copy.splice(index, 1);
       state.queue[action.payload.type] = copy;
     },
+    openModal: (state, action: PayloadAction<QueueElement | Image>) => {
+      state.isModalOpen = true;
+      state.modalImage = action.payload;
+    },
+    closeModal: (state) => {
+      state.isModalOpen = false;
+      state.modalImage = null;
+    },
   },
 });
 
@@ -98,6 +111,8 @@ export const {
   setQueue,
   addToQueue,
   removeFromQueue,
+  openModal,
+  closeModal,
 } = wallpaperSlice.actions;
 export const wallpaperReducer = wallpaperSlice.reducer;
 export default wallpaperSlice;

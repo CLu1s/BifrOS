@@ -1,5 +1,7 @@
-import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import { QueueImage } from "@/features/wallpapers/components/QueueImage";
+import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 
 const NextInQueue = () => {
   const { getQueue } = useWallpapers();
@@ -7,38 +9,28 @@ const NextInQueue = () => {
   const landscape = getQueue("landscape");
 
   return (
-    <Card className={"p-2"}>
-      <CardHeader>
-        <h2 className={"text-xl font-semibold"}>Next wallpaper in queue </h2>
-      </CardHeader>
-      <CardBody>
-        <div className={"flex gap-2 m-auto"}>
-          <div className={"flex flex-col gap-2 text-center"}>
-            <Image
-              src={landscape[0]?.url}
-              width={200}
-              height={200}
-              alt="landscape"
-              className={"rounded object-cover"}
-            />
+    <>
+      <Card className={"p-2"}>
+        <CardHeader>
+          <h2 className={"text-xl font-semibold"}>Next wallpaper in queue </h2>
+        </CardHeader>
+        <CardBody>
+          <div className={"grid grid-cols-1  2xl:grid-cols-2 gap-4  m-auto"}>
+            <div className={"flex flex-col gap-2 text-center"}>
+              <QueueImage image={landscape[0]} />
 
-            <p>Wallpapers on landscape queue:</p>
-            <p>{landscape.length} </p>
+              <p>Wallpapers on landscape queue: {landscape.length}</p>
+            </div>
+            <div className={"flex flex-col gap-2 text-center"}>
+              <QueueImage image={portrait[0]} />
+
+              <p>Wallpapers on portrait queue: {portrait.length}</p>
+            </div>
           </div>
-          <div className={"flex flex-col gap-2 text-center"}>
-            <Image
-              src={portrait[0]?.url}
-              width={200}
-              height={200}
-              alt="landscape"
-              className={"rounded object-cover"}
-            />
-            <p>Wallpapers on portrait queue:</p>
-            <p> {portrait.length} </p>
-          </div>
-        </div>
-      </CardBody>
-    </Card>
+        </CardBody>
+      </Card>
+      <GalleryModal />
+    </>
   );
 };
 

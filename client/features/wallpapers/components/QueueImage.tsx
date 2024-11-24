@@ -1,32 +1,37 @@
 import { Button, Card, CardFooter, Image, Link } from "@nextui-org/react";
 import React from "react";
-import type { Image as ImageType } from "../types";
+import type { QueueElement } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
+import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 
-export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
+export function QueueImage(props: { image: QueueElement }) {
   const { openModal } = useActions();
+  const { removeImage } = useWallpapers();
+  if (!props.image) return null;
 
   return (
-    <Card isFooterBlurred radius="lg" className="border-none">
+    <Card isFooterBlurred radius="lg" className="border-none shrink-0">
       <Image
-        className={"min-h-[310px]"}
+        className={" object-cover"}
         alt={props.image.url}
-        src={props.image.thumbs.large}
+        src={props.image.url}
+        height={310}
+        width={250}
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
         <Button
           className="text-tiny text-white bg-black/20"
-          variant="flat"
-          color="default"
+          variant="light"
+          color="danger"
           radius="lg"
           size="sm"
-          onPress={props.onPress}
+          onPress={() => removeImage(props.image)}
         >
-          Add to queue
+          Remove
         </Button>
         <Button
           className="text-tiny text-white bg-black/20"
-          variant="flat"
+          variant="light"
           color="default"
           radius="lg"
           size="sm"
@@ -38,15 +43,15 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
         </Button>
         <Button
           as={Link}
-          href={props.image.url}
+          href={props.image.whPath}
           target={"_blank"}
           className="text-tiny text-white bg-black/20"
-          variant="flat"
+          variant="light"
           color="default"
           radius="lg"
           size="sm"
         >
-          See on WH
+          WH
         </Button>
       </CardFooter>
     </Card>

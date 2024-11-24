@@ -27,27 +27,44 @@ async function checkPromos() {
   );
   const { status } = await response.json();
   const { fullCount } = status;
-  const result = await fetch(
-    `https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=0&count=${fullCount}&api-version=1.4`,
+  let allData = [];
+  let fromIndex = 0;
+  const pageSize = 50; // Número de elementos por solicitud
+
+  while (fromIndex < fullCount) {
+    const result = await fetch(
+      `https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=${fromIndex}&count=${pageSize}&api-version=1.4`,
+    );
+    const { response: pageData } = await result.json();
+    allData = allData.concat(pageData);
+    fromIndex += pageSize;
+  }
+
+  const formatData = await Promise.all(
+    allData.map(async (item) => {
+      try {
+        const detail = await getDetails(item.content.readableUrl || "");
+        const thumbnails = item.content.thumbnails || [];
+        const variants = item.content.variants || [];
+        return {
+          seriesName: item.content.seriesName || "Unknown",
+          relativeName: item.content.relativeName || "Unknown",
+          readableUrl: `https://kodansha.us/product/${item.content.readableUrl || ""}/`,
+          linksToStores: detail,
+          thumbnail: thumbnails[0] || "No thumbnail available",
+          price: variants[0]?.price || "N/A",
+          fullPrice: variants[0]?.fullPrice || "N/A",
+          discountPrice: variants[0]?.discountPrice || "N/A",
+          ageRating: item.content.ageRating || "Unrated",
+        };
+      } catch (e) {
+        console.error(`Error processing item: ${item.content.seriesName}`, e);
+        return null;
+      }
+    }),
   );
-  const { response: data } = await result.json();
 
-  const formatData = data.map(async (item) => {
-    const detail = await getDetails(item.content.readableUrl);
-    return {
-      seriesName: item.content.seriesName,
-      relativeName: item.content.relativeName,
-      readableUrl: `https://kodansha.us/product/${item.content.readableUrl}/`,
-      linksToStores: detail,
-      thumbnail: item.content.thumbnails[0],
-      price: item.content.variants[0].price,
-      fullPrice: item.content.variants[0].fullPrice,
-      discountPrice: item.content.variants[0].discountPrice,
-      ageRating: item.content.ageRating,
-    };
-  });
-
-  return await Promise.all(formatData);
+  return formatData.filter((item) => item !== null);
 }
 
 function groupBy(object) {

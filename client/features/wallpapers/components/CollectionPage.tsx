@@ -1,15 +1,6 @@
 import type { Image as ImageType, QueueElement } from "../types";
 import React from "react";
-import {
-  Button,
-  Image,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  useDisclosure,
-} from "@nextui-org/react";
+
 import useSWR from "swr";
 import { useDispatch } from "react-redux";
 import { addToQueue } from "@/features/wallpapers/redux/wallpaperSlice";
@@ -35,10 +26,7 @@ const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPERS_PAGE;
 const CollectionPage = ({ collectionID, index }: Props) => {
   const dispatch = useDispatch();
   const { getNextQueueNumberOrder, all, find } = useWallpapers();
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [selectedImage, setSelectedImage] = React.useState<ImageType | null>(
-    null,
-  );
+
   const info = find(collectionID);
   const { data, error, isLoading } = useSWR(
     `${API_URL}?collection=${collectionID}&page=${index}`,
@@ -81,9 +69,6 @@ const CollectionPage = ({ collectionID, index }: Props) => {
       console.log(error);
     }
   };
-  const type = info?.label.toLowerCase().includes("vertical")
-    ? "portrait"
-    : "landscape";
 
   const renderImage = () => {
     return data.data.map((image: ImageType) => (
@@ -91,48 +76,10 @@ const CollectionPage = ({ collectionID, index }: Props) => {
         key={image.id}
         image={image}
         onPress={() => addImageToQueue(image)}
-        onPress1={() => {
-          setSelectedImage(image);
-          onOpen();
-        }}
       />
     ));
   };
-  return (
-    <>
-      {renderImage()}
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        size={type === "portrait" ? "xl" : "5xl"}
-      >
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
-              <ModalBody>
-                <Image
-                  key={selectedImage?.id}
-                  alt={selectedImage?.url}
-                  src={selectedImage?.path}
-                />
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
-  );
+  return <>{renderImage()}</>;
 };
 
 export default CollectionPage;

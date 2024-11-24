@@ -4,32 +4,49 @@ const COLLECTION_URL = "https://wallhaven.cc/api/v1/collections/Raku/";
 export const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
 const KEY = process.env.WALLHAVEN_KEY;
 const db = getFirestore();
+const cache = new Map();
 
-export const getCollections = async (id, page = 1) => {
-  let collection = id;
-  if (collection === null) {
-    collection = "810757";
+const buildUrl = (type, collection, page) => {
+  let url = `${COLLECTION_URL}${collection}?apikey=${KEY}&page=${page}`;
+  if (type === "search") {
+    url = `${SEARCH_URL}ratios=${collection}&sorting=toplist&order=desc&topRange=1w&page=${page}&apikey=${KEY}`;
+  }
+  return url;
+};
+
+export const getCollections = async (id = "810757", page = 1) => {
+  const cacheKey = `${id}_${page}`;
+  if (cache.has(cacheKey)) {
+    return cache.get(cacheKey);
   }
 
   try {
-    if (collection === "top") {
-      const collections = await fetch(
-        `${SEARCH_URL}ratios=portrait&sorting=toplist&order=desc&topRange=1w&page=${page}&apikey=${KEY}`,
-      );
-      return await collections.json();
-    } else if (collection === "htop") {
-      const collections = await fetch(
-        `${SEARCH_URL}ratios=landscape&sorting=toplist&order=desc&topRange=1w&page=${page}&apikey=${KEY}`,
-      );
-      return await collections.json();
-    } else {
-      const collections = await fetch(
-        `${COLLECTION_URL}${collection}?apikey=${KEY}&page=${page}`,
-      );
-      return await collections.json();
+    let url;
+    switch (id) {
+      case "top":
+        url = buildUrl("search", "portrait", page);
+        break;
+      case "htop":
+        url = buildUrl("search", "landscape", page);
+        break;
+      default:
+        url = buildUrl("collection", id, page);
+        break;
     }
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    cache.set(cacheKey, data); // Cachea el resultado
+    return data;
   } catch (e) {
-    console.log(e);
+    console.error(
+      `Error fetching collection ${id} on page ${page}:`,
+      e.message,
+    );
     return null;
   }
 };

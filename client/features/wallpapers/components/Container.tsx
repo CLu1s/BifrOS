@@ -13,6 +13,7 @@ import { Button, ButtonGroup } from "@nextui-org/react";
 import { CollectionInfo } from "@/features/wallpapers/types";
 import { selectActiveCollection } from "@/features/wallpapers/redux/wallpaperSelector";
 import { getQueueFromFirebase } from "@/features/wallpapers/lib";
+import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 
 type Props = {
   collectionsInfo: string;
@@ -40,7 +41,7 @@ const Container = ({ collectionsInfo, config }: Props) => {
     dispatch(setActiveCollection(collection));
   };
 
-  const buttons = collectionsInfoData.map((collection: any) => (
+  const buttons = collectionsInfoData.map((collection: CollectionInfo) => (
     <Button
       key={collection.id}
       onPress={() => handleCollectionClick(collection)}
@@ -54,6 +55,7 @@ const Container = ({ collectionsInfo, config }: Props) => {
     <div className={"flex flex-col gap-2"}>
       <ButtonGroup>{buttons}</ButtonGroup>
       <DisplayCollection />
+      <GalleryModal />
     </div>
   );
 };

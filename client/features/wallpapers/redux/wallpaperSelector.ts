@@ -32,3 +32,13 @@ export const portraitQueue = createSelector(selectScrapper, (wallpaper) =>
 export const landscapeQueue = createSelector(selectScrapper, (wallpaper) =>
   wallpaper.queue.landscape.toSorted((a, b) => a.order - b.order),
 );
+
+export const selectModalImage = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.modalImage,
+);
+
+export const selectIsModalOpen = createSelector(
+  selectScrapper,
+  (wallpaper) => wallpaper.isModalOpen,
+);

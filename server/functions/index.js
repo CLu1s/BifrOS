@@ -29,6 +29,12 @@ const db = getFirestore();
 //   response.send("Hello from Firebase!");
 // });
 
+const ERRORS = {
+  METHOD_NOT_ALLOWED: "Method not allowed",
+  INVALID_PARAMETERS: "Invalid 'collection' or 'page' parameter",
+  INTERNAL_ERROR: "Internal Server Error",
+};
+
 const corsMiddleware = cors({
   origin: ["https://bifr-os.vercel.app", "http://localhost"], // Cambia a "*" para permitir cualquier origen
   methods: ["POST"],
@@ -135,23 +141,30 @@ const getCollectionPage = onRequest(async (request, response) => {
   corsMiddleware(request, response, async () => {
     // Validación del método
     if (request.method !== "GET") {
-      return response.status(405).send("Method not allowed");
+      return response.status(405).send(ERRORS.METHOD_NOT_ALLOWED);
     }
 
     try {
       // Extraer URL del cuerpo de la solicitud
       const { collection, page } = request.query;
-
-      if (!collection || !page) {
-        return response.status(400).send("Missing 'url' in request body");
+      if (!collection || !page || isNaN(Number(page)) || Number(page) <= 0) {
+        return response.status(400).send(ERRORS.INVALID_PARAMETERS);
       }
       const result = await getCollections(collection, Number(page));
-
+      if (!result) {
+        return response.status(404).send("Collection not found or unavailable");
+      }
       // Responder con éxito
       return response.status(200).json(result);
     } catch (error) {
       console.error("Error saving bookmark:", error);
-      return response.status(500).send("Internal Server Error");
+      logActivityInDB({
+        type: "wallpaper",
+        description: `Error getting collection ${collection} page ${page}`,
+        timestamp: new Date().toISOString(),
+        metadata: { error },
+      });
+      return response.status(500).send(ERRORS.INTERNAL_ERROR);
     }
   });
 });
