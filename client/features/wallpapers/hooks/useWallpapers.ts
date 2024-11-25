@@ -1,4 +1,5 @@
 import {
+  getHistory,
   landscapeQueue,
   portraitQueue,
   selectCollectionsInfo,
@@ -13,6 +14,7 @@ const useWallpapers = () => {
   const landscape = useSelector(landscapeQueue);
   const portrait = useSelector(portraitQueue);
   const info = useSelector(selectCollectionsInfo);
+  const history = useSelector(getHistory);
 
   const removeImage = async (image: QueueElement) => {
     await deleteFromFirestore(`wallpapers/myData/${image.queue}/${image.id}`);
@@ -45,6 +47,7 @@ const useWallpapers = () => {
     find,
     removeImage,
     all: [...landscape, ...portrait].sort((a, b) => a.order - b.order),
+    history,
   };
 };
 

@@ -55,3 +55,7 @@ export type QueueElement = {
   addedAt: string;
   isActive: boolean;
 };
+
+export interface HistoryElement extends QueueElement {
+  timestamp: string;
+}

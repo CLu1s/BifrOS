@@ -50,8 +50,11 @@ const Sidebar = () => {
       key={link.href}
       color={"primary"}
       startContent={link.icon}
+      className={"flex w-full justify-between"}
     >
-      {link.label}
+      <span className={" w-full text-left flex justify-start"}>
+        {link.label}
+      </span>
     </Button>
   ));
 

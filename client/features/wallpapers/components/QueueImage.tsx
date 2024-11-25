@@ -4,9 +4,13 @@ import type { QueueElement } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 
-export function QueueImage(props: { image: QueueElement }) {
+export function QueueImage(props: {
+  image: QueueElement;
+  isHistory?: boolean;
+}) {
   const { openModal } = useActions();
   const { removeImage } = useWallpapers();
+  const { isHistory } = props;
   if (!props.image) return null;
 
   return (
@@ -19,16 +23,18 @@ export function QueueImage(props: { image: QueueElement }) {
         width={250}
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-        <Button
-          className="text-tiny text-white bg-black/20"
-          variant="light"
-          color="danger"
-          radius="lg"
-          size="sm"
-          onPress={() => removeImage(props.image)}
-        >
-          Remove
-        </Button>
+        {!isHistory && (
+          <Button
+            className="text-tiny text-white bg-black/20"
+            variant="light"
+            color="danger"
+            radius="lg"
+            size="sm"
+            onPress={() => removeImage(props.image)}
+          >
+            Remove
+          </Button>
+        )}
         <Button
           className="text-tiny text-white bg-black/20"
           variant="light"

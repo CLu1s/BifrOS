@@ -2,43 +2,50 @@ import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "@/store";
 import { WallpaperSlice } from "./wallpaperSlice";
 
-export const selectScrapper = (state: RootState): WallpaperSlice =>
+export const selectWallpaperState = (state: RootState): WallpaperSlice =>
   state.wallpaper;
 
 export const selectLoadingState = createSelector(
-  selectScrapper,
+  selectWallpaperState,
   (wallpaper) => wallpaper.loadingState,
 );
 
 export const selectConfig = createSelector(
-  selectScrapper,
+  selectWallpaperState,
   (wallpaper) => wallpaper.config,
 );
 
 export const selectCollectionsInfo = createSelector(
-  selectScrapper,
+  selectWallpaperState,
   (wallpaper) => wallpaper.collectionsInfo,
 );
 
 export const selectActiveCollection = createSelector(
-  selectScrapper,
+  selectWallpaperState,
   (wallpaper) => wallpaper.activeCollection,
 );
 
-export const portraitQueue = createSelector(selectScrapper, (wallpaper) =>
+export const portraitQueue = createSelector(selectWallpaperState, (wallpaper) =>
   wallpaper.queue.portrait.toSorted((a, b) => a.order - b.order),
 );
 
-export const landscapeQueue = createSelector(selectScrapper, (wallpaper) =>
-  wallpaper.queue.landscape.toSorted((a, b) => a.order - b.order),
+export const landscapeQueue = createSelector(
+  selectWallpaperState,
+  (wallpaper) =>
+    wallpaper.queue.landscape.toSorted((a, b) => a.order - b.order),
 );
 
 export const selectModalImage = createSelector(
-  selectScrapper,
+  selectWallpaperState,
   (wallpaper) => wallpaper.modalImage,
 );
 
 export const selectIsModalOpen = createSelector(
-  selectScrapper,
+  selectWallpaperState,
   (wallpaper) => wallpaper.isModalOpen,
+);
+
+export const getHistory = createSelector(
+  selectWallpaperState,
+  (wallpaper) => wallpaper.history,
 );

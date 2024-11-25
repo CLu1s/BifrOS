@@ -127,3 +127,20 @@ export const getSafeWallpaper = async () => {
   const { data: wallpapers } = data;
   return wallpapers[wallpaperIndex];
 };
+
+export const saveWallpaperHistory = async (data) => {
+  const id = `history_${Date.now()}`;
+
+  const saveData = {
+    ...data,
+    id,
+    timestamp: new Date().toISOString(),
+  };
+
+  const ref = db
+    .collection("wallpapers")
+    .doc("myData")
+    .collection(`history`)
+    .doc(id);
+  await ref.set(saveData);
+};
