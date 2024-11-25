@@ -1,16 +1,15 @@
 "use client";
 
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import { type QueueElement } from "@/features/wallpapers/types";
+import { HistoryElement } from "@/features/wallpapers/types";
 import React from "react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
 
-const Queue = () => {
-  const { all } = useWallpapers();
-
-  const showQueue = all.map((image: QueueElement) => (
-    <QueueImage key={image.id} image={image} />
+const History = () => {
+  const { history } = useWallpapers();
+  const showQueue = history.map((image: HistoryElement) => (
+    <QueueImage key={image.id} image={image} isHistory />
   ));
 
   return (
@@ -19,7 +18,7 @@ const Queue = () => {
       // className={" px-10 w-[calc(100vw-4.5rem)]  xl:w-[calc(100vw-15rem)] "}
     >
       <CardHeader>
-        <h2 className="text-2xl font-bold">In Queue: {all.length}</h2>
+        <h2 className="text-2xl font-bold">History {history.length}</h2>
       </CardHeader>
       <CardBody
         className={"max-w-full  overflow-x-auto overflow-y-hidden pb-10"}
@@ -29,4 +28,4 @@ const Queue = () => {
     </Card>
   );
 };
-export default Queue;
+export default History;

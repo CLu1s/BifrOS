@@ -1,3 +1,4 @@
+"use client";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";

@@ -28,7 +28,6 @@ const GalleryModal = () => {
         ? "portrait"
         : "landscape");
   const url = (image as ImageType)?.path || image?.url;
-  console.log(url);
 
   return (
     <Modal

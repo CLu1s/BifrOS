@@ -6,13 +6,17 @@ import {
   setActiveCollection,
   setCollectionsInfo,
   setConfig,
+  setHistory,
   setQueue,
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import DisplayCollection from "@/features/wallpapers/components/DisplayCollection";
 import { Button, ButtonGroup } from "@nextui-org/react";
 import { CollectionInfo } from "@/features/wallpapers/types";
 import { selectActiveCollection } from "@/features/wallpapers/redux/wallpaperSelector";
-import { getQueueFromFirebase } from "@/features/wallpapers/lib";
+import {
+  getHistoryFromFirebase,
+  getQueueFromFirebase,
+} from "@/features/wallpapers/lib";
 import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 
 type Props = {
@@ -34,6 +38,13 @@ const Container = ({ collectionsInfo, config }: Props) => {
     (async () => {
       const data = await getQueueFromFirebase();
       dispatch(setQueue(data));
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getHistoryFromFirebase();
+      dispatch(setHistory(data));
     })();
   }, []);
 

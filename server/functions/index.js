@@ -17,6 +17,7 @@ import {
   getCollections,
   getSafeWallpaper,
   getWallpaperFromQueue,
+  saveWallpaperHistory,
 } from "./lib/wallpaper.js";
 import { logActivityInDB } from "./lib/activities.js";
 
@@ -195,12 +196,14 @@ const getWallpaper = onRequest(async (request, response) => {
         return response.status(200).json(result);
       }
       const result = await getWallpaperFromQueue(type);
-      logActivityInDB({
+      const save = saveWallpaperHistory(result);
+      const log = logActivityInDB({
         type: "wallpaper",
         description: `Wallpaper served: ${result.whPath}`,
         timestamp: new Date().toISOString(),
         metadata: { result },
       });
+      await Promise.all([save, log]);
       // Responder con éxito
       return response.status(200).json(result);
     } catch (error) {
