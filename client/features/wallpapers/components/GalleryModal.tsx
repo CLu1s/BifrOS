@@ -42,7 +42,12 @@ const GalleryModal = () => {
               Modal Title
             </ModalHeader>
             <ModalBody>
-              <Image key={image?.id} alt={url} src={url} />
+              <Image
+                key={image?.id}
+                alt={url}
+                src={`/wh-proxy?url=${url}
+`}
+              />
             </ModalBody>
             <ModalFooter>
               <Button

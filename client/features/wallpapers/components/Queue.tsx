@@ -15,7 +15,7 @@ const Queue = () => {
 
   return (
     <Card
-      className={"px-4"}
+      className={"px-4 w-full"}
       // className={" px-10 w-[calc(100vw-4.5rem)]  xl:w-[calc(100vw-15rem)] "}
     >
       <CardHeader>

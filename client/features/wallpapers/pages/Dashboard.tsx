@@ -110,7 +110,7 @@ export default async function WallpaperDashboard() {
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1 className={"text-2xl font-bold"}>Wallpaper Dashboard</h1>
       <div className={"grid grid-cols-1 lg:grid-cols-3 gap-8"}>
-        <div className={"flex gap-8 col-span-1 lg:col-span-3"}>
+        <div className={"flex  gap-8 col-span-1 lg:col-span-3"}>
           <Queue />
         </div>
         <div className={"col-span-1"}>
