@@ -7,4 +7,11 @@ export type Bookmark = {
   url: string;
   timestamp: number;
   isFavorite: boolean;
+  category?: Category;
+};
+
+export type Category = {
+  id: string;
+  name: string;
+  color: string;
 };

@@ -1,14 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Bookmark } from "@/features/bookmarks/types";
+import { Bookmark, Category } from "@/features/bookmarks/types";
 
 export type BookmarkState = {
   loadingState: "idle" | "loading" | "success" | "error";
   bookmarks: Bookmark[];
+  categories: Category[];
+  selectedCategory: Category | null;
 };
 
 const initialState: BookmarkState = {
   loadingState: "idle",
   bookmarks: [],
+  categories: [],
+  selectedCategory: null,
 };
 
 const bookmarkSlice = createSlice({
@@ -44,6 +48,24 @@ const bookmarkSlice = createSlice({
         (bookmark) => bookmark.id !== action.payload,
       );
     },
+    setCategories: (state, action: PayloadAction<Category[]>) => {
+      state.categories = action.payload.sort((a, b) =>
+        a.name.localeCompare(b.name),
+      );
+    },
+    addCategory: (state, action: PayloadAction<Category>) => {
+      const newItem = action.payload;
+      state.categories = [...state.categories, newItem];
+    },
+    removeCategory: (state, action: PayloadAction<string>) => {
+      const items = [...state.categories];
+      state.categories = items.filter(
+        (category) => category.id !== action.payload,
+      );
+    },
+    setActiveCategory: (state, action: PayloadAction<Category | null>) => {
+      state.selectedCategory = action.payload;
+    },
   },
 });
 
@@ -53,6 +75,10 @@ export const {
   setBookmarks,
   removeBookmark,
   addBookmark,
+  setCategories,
+  addCategory,
+  removeCategory,
+  setActiveCategory,
 } = bookmarkSlice.actions;
 export const bookmarkReducer = bookmarkSlice.reducer;
 export default bookmarkSlice;

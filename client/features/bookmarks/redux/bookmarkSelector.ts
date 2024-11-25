@@ -14,3 +14,13 @@ export const selectBookmarks = createSelector(
   selectScrapper,
   (bookMarker) => bookMarker.bookmarks,
 );
+
+export const selectCategories = createSelector(
+  selectScrapper,
+  (bookMarker) => bookMarker.categories,
+);
+
+export const selectActiveCategory = createSelector(
+  selectScrapper,
+  (bookMarker) => bookMarker.selectedCategory,
+);
