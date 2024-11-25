@@ -32,7 +32,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex flex-col lg:flex-row gap-4 w-full justify-between text-start hover:bg-neutral-100 p-6  border rounded-xl"
+        "flex flex-col lg:flex-row gap-4 w-full justify-between text-start hover:bg-neutral-100 hover:text-black  p-6  border rounded-xl"
       }
     >
       <div className={"flex gap-4"}>
