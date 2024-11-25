@@ -51,7 +51,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex flex-col   gap-4 w-full justify-between text-start hover:bg-neutral-100 hover:text-black  p-6  border rounded-xl"
+        "flex flex-col   gap-4 w-full justify-between text-start hover:bg-neutral-700  p-6  border rounded-xl"
       }
     >
       <div className={"flex flex-col lg:flex-row"}>
@@ -74,7 +74,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
 
           <div className={"flex-col gap-2"}>
             <h2 className={"text-lg "}>{decodeURIComponent(data.ogTitle)}</h2>
-            <p className={"font-normal text-neutral-600 text-sm"}>
+            <p className={"font-normal text-neutral-400 text-sm"}>
               {decodeURIComponent(data.ogDescription)}
             </p>
           </div>

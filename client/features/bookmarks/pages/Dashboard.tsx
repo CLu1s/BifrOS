@@ -23,7 +23,7 @@ const BookmarksDashboard = () => {
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1 className={"text-2xl font-bold"}>Bookmarks</h1>
       <CreateNewBookmark />
-      <div className={"grid grid-cols-4 gap-4 border-t"}>
+      <div className={"grid grid-cols-1 lg:grid-cols-4 gap-4 border-t"}>
         <div className={"col-span-1 mt-2"}>
           <Categories />
         </div>
