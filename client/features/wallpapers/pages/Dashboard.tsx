@@ -5,23 +5,46 @@ const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
 const KEY = process.env.WALLHAVEN_KEY;
 const REVALIDATE = 3600;
 
+const buildUrl = (
+  sorting: "date_added" | "hot" | "toplist" | "views" | "relevance" | "random",
+  ratio?: "portrait" | "landscape",
+  topRange?: "1d" | "3d" | "1w" | "1M" | "3M" | "6M" | "1y",
+) => {
+  let url = `${SEARCH_URL}sorting=${sorting}&apikey=${KEY}`;
+  if (ratio) url += `&ratios=${ratio}`;
+  if (topRange) url += `&topRange=${topRange}`;
+  return url;
+};
+
 async function getAllCollections() {
   const collections = await fetch(
     `https://wallhaven.cc/api/v1/collections?apikey=${KEY}`,
     { next: { revalidate: REVALIDATE } },
   );
-  const topCollection = await fetch(
-    `${SEARCH_URL}ratios=portrait&sorting=toplist&order=desc&topRange=1w&apikey=${KEY}`,
-    { next: { revalidate: REVALIDATE } },
-  );
-  const htopCollections = await fetch(
-    `${SEARCH_URL}ratios=landscape&sorting=toplist&topRange=1w&order=desc&apikey=${KEY}`,
-    { next: { revalidate: REVALIDATE } },
-  );
+  const topCollection = await fetch(buildUrl("toplist", "portrait", "1w"), {
+    next: { revalidate: REVALIDATE },
+  });
+  const htopCollections = await fetch(buildUrl("toplist", "landscape", "1w"), {
+    next: { revalidate: REVALIDATE },
+  });
+
+  const randomCollections = await fetch(buildUrl("random"), {
+    next: { revalidate: REVALIDATE },
+  });
+
+  const hotCollections = await fetch(buildUrl("hot"), {
+    next: { revalidate: REVALIDATE },
+  });
+  const latesCollection = await fetch(buildUrl("date_added"), {
+    next: { revalidate: REVALIDATE },
+  });
 
   const collectionsJson = await collections.json();
   const topCollectionJson = await topCollection.json();
   const htopCollectionsJson = await htopCollections.json();
+  const randomCollectionsJson = await randomCollections.json();
+  const hotCollectionsJson = await hotCollections.json();
+  const latesCollectionJson = await latesCollection.json();
   return {
     data: [
       {
@@ -39,6 +62,30 @@ async function getAllCollections() {
         public: 1,
         count: htopCollectionsJson.meta.total,
         per_page: htopCollectionsJson.meta.per_page,
+      },
+      {
+        id: "latest",
+        label: "Latest",
+        views: 0,
+        public: 1,
+        count: latesCollectionJson.meta.total,
+        per_page: latesCollectionJson.meta.per_page,
+      },
+      {
+        id: "hot",
+        label: "Hot",
+        views: 0,
+        public: 1,
+        count: hotCollectionsJson.meta.total,
+        per_page: hotCollectionsJson.meta.per_page,
+      },
+      {
+        id: "random",
+        label: "Random",
+        views: 0,
+        public: 1,
+        count: randomCollectionsJson.meta.total,
+        per_page: randomCollectionsJson.meta.per_page,
       },
       ...collectionsJson.data,
     ],

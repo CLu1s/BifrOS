@@ -17,7 +17,6 @@ export function ModalDetail(props: {
   modalData: Record<string, KodanshaResult[]>;
 }) {
   const { onOpenChange } = props;
-
   const renderModalData = () => {
     return Object.entries(props.modalData).map(([key, value]) => {
       const copyValue = [...value];

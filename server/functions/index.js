@@ -151,6 +151,7 @@ const getCollectionPage = onRequest(async (request, response) => {
         return response.status(400).send(ERRORS.INVALID_PARAMETERS);
       }
       const result = await getCollections(collection, Number(page));
+
       if (!result) {
         return response.status(404).send("Collection not found or unavailable");
       }

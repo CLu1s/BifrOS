@@ -6,11 +6,14 @@ const KEY = process.env.WALLHAVEN_KEY;
 const db = getFirestore();
 const cache = new Map();
 
-const buildUrl = (type, collection, page) => {
-  let url = `${COLLECTION_URL}${collection}?apikey=${KEY}&page=${page}`;
+const buildUrl = ({ type, collectionID, page, ratio, sorting, topRange }) => {
+  let url = `${COLLECTION_URL}${collectionID}?apikey=${KEY}&page=${page}`;
   if (type === "search") {
-    url = `${SEARCH_URL}ratios=${collection}&sorting=toplist&order=desc&topRange=1w&page=${page}&apikey=${KEY}`;
+    url = `${SEARCH_URL}sorting=${sorting}&page=${page}&apikey=${KEY}`;
   }
+  if (ratio) url += `&ratios=${ratio}`;
+  if (topRange) url += `&topRange=${topRange ?? "1w"}`;
+
   return url;
 };
 
@@ -24,13 +27,46 @@ export const getCollections = async (id = "810757", page = 1) => {
     let url;
     switch (id) {
       case "top":
-        url = buildUrl("search", "portrait", page);
+        url = buildUrl({
+          type: "search",
+          sorting: "toplist",
+          ratio: "portrait",
+          topRange: "1w",
+          page,
+        });
         break;
       case "htop":
-        url = buildUrl("search", "landscape", page);
+        url = buildUrl({
+          type: "search",
+          sorting: "toplist",
+          ratio: "landscape",
+          topRange: "1w",
+          page,
+        });
+        break;
+      case "hot":
+        url = buildUrl({
+          type: "search",
+          sorting: "hot",
+          page,
+        });
+        break;
+      case "random":
+        url = buildUrl({
+          type: "search",
+          sorting: "random",
+          page,
+        });
+        break;
+      case "latest":
+        url = buildUrl({
+          type: "search",
+          sorting: "date_added",
+          page,
+        });
         break;
       default:
-        url = buildUrl("collection", id, page);
+        url = buildUrl({ type: "collection", collectionID: id, page });
         break;
     }
 

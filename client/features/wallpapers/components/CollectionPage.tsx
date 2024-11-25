@@ -36,6 +36,7 @@ const CollectionPage = ({ collectionID, index }: Props) => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
   if (!data) return <div>No data</div>;
+
   const addImageToQueue = async (image: ImageType) => {
     const find = all.find((el) => el.id === image.id);
     if (find) return;
