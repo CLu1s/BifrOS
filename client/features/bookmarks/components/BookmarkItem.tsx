@@ -54,7 +54,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
         "flex flex-col   gap-4 w-full justify-between text-start hover:bg-neutral-700  p-6  border rounded-xl"
       }
     >
-      <div className={"flex flex-col lg:flex-row"}>
+      <div className={"flex flex-col lg:flex-row justify-between"}>
         <div className={"flex gap-4"}>
           <div className={"w-14 h-14"}>
             {data.ogImage ? (
