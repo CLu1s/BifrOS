@@ -14,9 +14,9 @@ const Queue = () => {
   ));
 
   return (
-    <Card className={" px-10 w-full "}>
+    <Card className={" px-10 w-[calc(100vw-15rem)] "}>
       <CardHeader>
-        <h2 className="text-2xl font-bold">Queue</h2>
+        <h2 className="text-2xl font-bold">In Queue: {all.length}</h2>
       </CardHeader>
       <CardBody
         className={"max-w-full  overflow-x-auto overflow-y-hidden pb-10"}
