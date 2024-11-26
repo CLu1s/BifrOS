@@ -92,28 +92,3 @@ export const checkAnimeCornerScraper = async (lastElements) => {
   // Filter out null results
   return results.filter(Boolean);
 };
-
-export const getLast10ElementsFromDB = async () => {
-  const ref = db.collection("scraper");
-  const queryRef = ref
-    .where(
-      "metrics.url",
-      "==",
-      "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
-    )
-    .orderBy("timestamp")
-    .limit(10);
-  const snapshot = await queryRef.get();
-  if (snapshot.empty) {
-    return [];
-  }
-  const results = [];
-  snapshot.forEach((doc) => {
-    const data = {
-      id: doc.id,
-      ...doc.data(),
-    };
-    results.push(data);
-  });
-  return results;
-};

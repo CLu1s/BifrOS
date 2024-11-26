@@ -1,3 +1,5 @@
+import axios from "axios";
+
 async function getDetails(url) {
   const detail = await fetch(
     `https://api.kodansha.us/product/${url}?api-version=1.4`,
@@ -22,21 +24,21 @@ async function getDetails(url) {
 }
 
 async function checkPromos() {
-  const response = await fetch(
+  const { data } = await axios.get(
     "https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=0&count=24&api-version=1.4",
   );
-  const { status } = await response.json();
-  const { fullCount } = status;
+
+  const { fullCount } = data.status;
   let allData = [];
   let fromIndex = 0;
   const pageSize = 50; // Número de elementos por solicitud
-
   while (fromIndex < fullCount) {
-    const result = await fetch(
+    const responseCall = await axios.get(
       `https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=${fromIndex}&count=${pageSize}&api-version=1.4`,
     );
-    const { response: pageData } = await result.json();
-    allData = allData.concat(pageData);
+    const { response } = responseCall.data;
+
+    allData = allData.concat(response);
     fromIndex += pageSize;
   }
 

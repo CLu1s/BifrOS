@@ -84,4 +84,26 @@ async function sendMail({ text, html, subject }) {
   }
 }
 
+export const getLastElementsFromDB = async (url, limit = 10) => {
+  const ref = db.collection("scraper");
+  const queryRef = ref
+    .where("metrics.url", "==", url)
+    .orderBy("timestamp")
+    .limit(limit);
+  const snapshot = await queryRef.get();
+  if (snapshot.empty) {
+    return [];
+  }
+  const results = [];
+  snapshot.forEach((doc) => {
+    const data = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    results.push(data);
+  });
+
+  return results;
+};
+
 export { saveExecution, sendMail, destructuredDate, filterPromosByNew };

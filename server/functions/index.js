@@ -11,7 +11,11 @@ import cors from "cors";
 import { onRequest } from "firebase-functions/v2/https";
 import logger from "firebase-functions/logger";
 import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
-import { buildMetrics, saveExecution } from "./helpers/index.js";
+import {
+  buildMetrics,
+  getLastElementsFromDB,
+  saveExecution,
+} from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
 import {
   getCollections,
@@ -20,10 +24,7 @@ import {
   saveWallpaperHistory,
 } from "./lib/wallpaper.js";
 import { logActivityInDB } from "./lib/activities.js";
-import {
-  checkAnimeCornerScraper,
-  getLast10ElementsFromDB,
-} from "./lib/animeCorner.js";
+import { checkAnimeCornerScraper } from "./lib/animeCorner.js";
 
 const db = getFirestore();
 // Create and deploy your first functions
@@ -46,6 +47,28 @@ const corsMiddleware = cors({
   allowedHeaders: ["Content-Type", "Authorization"],
 });
 
+function compareArrays(arr1, arr2) {
+  // Usar un Set para evitar duplicados en las diferencias
+  const differences = new Set();
+
+  // Agregar elementos que están en arr1 pero no en arr2
+  arr1.forEach((item) => {
+    if (!arr2.includes(item)) {
+      differences.add(item);
+    }
+  });
+
+  // Agregar elementos que están en arr2 pero no en arr1
+  arr2.forEach((item) => {
+    if (!arr1.includes(item)) {
+      differences.add(item);
+    }
+  });
+
+  // Convertir el Set en un array y retornarlo
+  return Array.from(differences);
+}
+
 const checkKodansha = onRequest(async (request, response) => {
   const startTime = Date.now();
   let status = "success";
@@ -53,35 +76,45 @@ const checkKodansha = onRequest(async (request, response) => {
   let data = {};
 
   try {
-    const responsePromos = await checkPromos();
+    const promosPromise = checkPromos();
     // const mailData = buildKodanshaMail(groupedByName);
 
     // check if the promo already exists
+    const elementsInDBPromise = getLastElementsFromDB(
+      "https://kodansha.us/",
+      1,
+    );
+    const [responsePromos, elementsInDB] = await Promise.all([
+      promosPromise,
+      elementsInDBPromise,
+    ]);
+
     newPromos = kodanshaGroupBy(responsePromos); //await filterPromosByNew(groupedByName);
-    const keys = Object.keys(newPromos);
-    if (keys.length > 0) {
+    const promoKeys = Object.keys(newPromos);
+    const historyKeys = elementsInDB[0]
+      ? Object.keys(elementsInDB[0]?.result)
+      : [];
+    const newKeys = compareArrays(promoKeys, historyKeys);
+    if (newKeys.length > 0) {
       const metrics = buildMetrics({
         startTime,
         status,
         errorMessage: null,
         url: "https://kodansha.us/",
         urlsScraped: "https://kodansha.us/browse",
-        length: Object.keys(newPromos).length,
+        length: Object.keys(newKeys).length,
       });
 
       // sendMail(mailData);
-      await logActivityInDB({
-        type: "scraper",
-        description: `New Kodansha promos found (${keys.length})`,
-        timestamp: new Date().toISOString(),
-        metadata: { count: keys.length },
-      });
-      data = await saveExecution({ result: newPromos, metrics });
 
-      logger.info("New Kodansha promos found", newPromos.length);
-    } else {
-      logger.info("No new Kodansha promos found");
+      data = await saveExecution({ result: newPromos, metrics });
     }
+    await logActivityInDB({
+      type: "scraper",
+      description: `New Kodansha promos found (${newKeys.length})`,
+      timestamp: new Date().toISOString(),
+      metadata: { count: newKeys.length },
+    });
   } catch (err) {
     logger.error("Error in checkKodansha", err);
     status = "error";
@@ -229,10 +262,11 @@ const checkAnimeCorner = onRequest(async (request, response) => {
     }
     const startTime = Date.now();
 
-    const lastElements = await getLast10ElementsFromDB();
-    console.log(lastElements.length);
+    const lastElements = await getLastElementsFromDB(
+      "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
+      10,
+    );
     const results = await checkAnimeCornerScraper(lastElements);
-    console.log(results.length);
     const promises = results.map(async (result) => {
       const metrics = buildMetrics({
         startTime,
@@ -244,8 +278,6 @@ const checkAnimeCorner = onRequest(async (request, response) => {
       });
       await saveExecution({ result: result, metrics });
     });
-    console.log(promises.length);
-
     const logActivity = logActivityInDB({
       type: "scraper",
       description: `New rankings found (${results.length})`,
