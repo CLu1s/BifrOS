@@ -11,7 +11,7 @@ import cors from "cors";
 import { onRequest } from "firebase-functions/v2/https";
 import logger from "firebase-functions/logger";
 import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
-import { saveExecution } from "./helpers/index.js";
+import { buildMetrics, saveExecution } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
 import {
   getCollections,
@@ -20,6 +20,10 @@ import {
   saveWallpaperHistory,
 } from "./lib/wallpaper.js";
 import { logActivityInDB } from "./lib/activities.js";
+import {
+  checkAnimeCornerScraper,
+  getLast10ElementsFromDB,
+} from "./lib/animeCorner.js";
 
 const db = getFirestore();
 // Create and deploy your first functions
@@ -56,24 +60,23 @@ const checkKodansha = onRequest(async (request, response) => {
     newPromos = kodanshaGroupBy(responsePromos); //await filterPromosByNew(groupedByName);
     const keys = Object.keys(newPromos);
     if (keys.length > 0) {
-      const endTime = Date.now();
-      const metrics = {
-        timestamp: new Date(startTime).toISOString(),
-        duration: endTime - startTime,
+      const metrics = buildMetrics({
+        startTime,
         status,
         errorMessage: null,
-        urlsScraped: "https://kodansha.us/",
-        dataExtracted: Object.keys(newPromos).length,
-      };
+        url: "https://kodansha.us/",
+        urlsScraped: "https://kodansha.us/browse",
+        length: Object.keys(newPromos).length,
+      });
 
-      data = await saveExecution({ result: newPromos, metrics });
       // sendMail(mailData);
-      logActivityInDB({
+      await logActivityInDB({
         type: "scraper",
         description: `New Kodansha promos found (${keys.length})`,
         timestamp: new Date().toISOString(),
         metadata: { count: keys.length },
       });
+      data = await saveExecution({ result: newPromos, metrics });
 
       logger.info("New Kodansha promos found", newPromos.length);
     } else {
@@ -218,4 +221,52 @@ const getWallpaper = onRequest(async (request, response) => {
   });
 });
 
-export { checkKodansha, saveBookmark, getCollectionPage, getWallpaper };
+const checkAnimeCorner = onRequest(async (request, response) => {
+  corsMiddleware(request, response, async () => {
+    // Validación del método
+    if (request.method !== "GET") {
+      return response.status(405).send("Method not allowed");
+    }
+    const startTime = Date.now();
+
+    const lastElements = await getLast10ElementsFromDB();
+    console.log(lastElements.length);
+    const results = await checkAnimeCornerScraper(lastElements);
+    console.log(results.length);
+    const promises = results.map(async (result) => {
+      const metrics = buildMetrics({
+        startTime,
+        status: "success",
+        errorMessage: null,
+        url: "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
+        urlsScraped: result.link,
+        length: result.data.length,
+      });
+      await saveExecution({ result: result, metrics });
+    });
+    console.log(promises.length);
+
+    const logActivity = logActivityInDB({
+      type: "scraper",
+      description: `New rankings found (${results.length})`,
+      timestamp: new Date().toISOString(),
+      metadata: { count: results.length },
+    });
+
+    await Promise.all([...promises, logActivity]);
+
+    try {
+      return response.status(200).json(results);
+    } catch (error) {
+      return response.status(500).send("Internal Server Error");
+    }
+  });
+});
+
+export {
+  checkKodansha,
+  saveBookmark,
+  getCollectionPage,
+  getWallpaper,
+  checkAnimeCorner,
+};

@@ -1,6 +1,7 @@
 import sgMail from "@sendgrid/mail";
 import { getFirestore } from "firebase-admin/firestore";
 import { initializeApp } from "firebase-admin/app";
+import { nanoid } from "nanoid";
 initializeApp();
 const db = getFirestore();
 const { year, month, day } = destructuredDate();
@@ -24,8 +25,28 @@ const filterPromosByNew = async (promos, path = "") => {
   return promos.filter((promo) => !promosIds.includes(promo.link));
 };
 
+export const buildMetrics = ({
+  startTime,
+  status,
+  errorMessage,
+  url,
+  urlsScraped,
+  length,
+}) => {
+  const endTime = Date.now();
+  return {
+    timestamp: new Date(startTime).toISOString(),
+    duration: endTime - startTime,
+    status,
+    errorMessage,
+    url,
+    urlsScraped,
+    dataExtracted: length,
+  };
+};
+
 const saveExecution = async (newData) => {
-  const executionId = `execution-${Date.now()}`;
+  const executionId = `execution-${nanoid()}`;
   const executionRef = db.collection("scraper").doc(executionId);
   try {
     const data = {
