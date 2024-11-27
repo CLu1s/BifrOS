@@ -29,10 +29,7 @@ export function ModalDetail(props: {
           <h2 className={"text-xl font-semibold"}>{key}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3  gap-2 lg:gap-4">
             {sortedValue.map((result, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-2 bg-gray-100 p-2 rounded-md"
-              >
+              <div key={index} className="flex flex-col gap-2   p-2 rounded-md">
                 <div className="flex gap-4">
                   <div className={"flex  flex-col gap-2 justify-between"}>
                     <Link

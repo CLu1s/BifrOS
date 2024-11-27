@@ -1,13 +1,15 @@
 import * as cheerio from "cheerio";
 import axios from "axios";
-import { getFirestore } from "firebase-admin/firestore";
-
-const db = getFirestore();
 
 // Helper function to fetch and load HTML
 const fetchHTML = async (url) => {
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+      },
+    });
     return cheerio.load(data);
   } catch (error) {
     console.error(`Error fetching URL: ${url}`, error);

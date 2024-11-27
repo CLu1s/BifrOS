@@ -1,13 +1,22 @@
 import { Button, Card, CardFooter, Image, Link } from "@nextui-org/react";
-import React from "react";
+import React, { useMemo } from "react";
 import type { Image as ImageType } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
+import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 
 export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
   const { openModal } = useActions();
-
+  const { all } = useWallpapers();
+  const find = useMemo(
+    () => all.find((el) => el.id === props.image.id),
+    [all, props.image.id],
+  );
   return (
-    <Card isFooterBlurred radius="lg" className="border-none">
+    <Card
+      isFooterBlurred
+      radius="lg"
+      className={!!find ? "border-green-700 border" : "border-none "}
+    >
       <Image
         className={"min-h-[310px] object-cover"}
         alt={props.image.url}
@@ -21,9 +30,10 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
           color="default"
           radius="lg"
           size="sm"
+          isDisabled={!!find}
           onPress={props.onPress}
         >
-          Add to queue
+          {find ? "In Query" : "Add to queue"}
         </Button>
         <Button
           className="text-tiny text-white bg-black/20"

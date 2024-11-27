@@ -44,7 +44,13 @@ const LastScraperResult = () => {
               <p className={"font-semibold"}>{element.seriesName}</p>
               <div className={"flex gap-2"}>
                 <p>{element.ageRating}</p>
-                <p> ${element.discountPrice}</p>
+                <p>
+                  {" "}
+                  $
+                  {isNaN(element.discountPrice)
+                    ? element.fullPrice
+                    : element.discountPrice}
+                </p>
                 <span
                   className={
                     Math.floor(
@@ -54,10 +60,10 @@ const LastScraperResult = () => {
                       : "text-red-600"
                   }
                 >
-                  {Math.floor(
-                    100 - (element.discountPrice * 100) / element.fullPrice,
-                  )}
-                  %
+                  {!isNaN(element.discountPrice) &&
+                    Math.floor(
+                      100 - (element.discountPrice * 100) / element.fullPrice,
+                    ) + "% "}
                 </span>
                 <Link
                   href={element.readableUrl}

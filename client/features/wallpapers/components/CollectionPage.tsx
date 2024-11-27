@@ -25,9 +25,8 @@ const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPERS_PAGE;
 
 const CollectionPage = ({ collectionID, index }: Props) => {
   const dispatch = useDispatch();
-  const { getNextQueueNumberOrder, all, find } = useWallpapers();
+  const { getNextQueueNumberOrder, all } = useWallpapers();
 
-  const info = find(collectionID);
   const { data, error, isLoading } = useSWR(
     `${API_URL}?collection=${collectionID}&page=${index}`,
     fetcher,
@@ -40,7 +39,7 @@ const CollectionPage = ({ collectionID, index }: Props) => {
   const addImageToQueue = async (image: ImageType) => {
     const find = all.find((el) => el.id === image.id);
     if (find) return;
-    const isPortrait = info?.label.toLowerCase().includes("vertical");
+    const type = Number(image.ratio) < 1 ? "portrait" : "landscape";
 
     const element: QueueElement = {
       id: image.id,
@@ -48,8 +47,8 @@ const CollectionPage = ({ collectionID, index }: Props) => {
       addedAt: new Date().toISOString(),
       isActive: false,
       order: getNextQueueNumberOrder(),
-      type: isPortrait ? "portrait" : "landscape",
-      queue: `${isPortrait ? "portrait" : "landscape"}-queue`,
+      type: type,
+      queue: `${type}-queue`,
       whPath: image.url,
     };
 
