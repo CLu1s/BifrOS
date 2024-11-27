@@ -1,4 +1,5 @@
 export type Metric = {
+  url: string;
   dataExtracted: number;
   duration: number;
   errorMessage: number;
@@ -34,4 +35,18 @@ export type KodanshaResult = {
   fullPrice: number;
   discountPrice: number;
   ageRating: string;
+};
+
+export type AnimeCornerResult = {
+  id: string;
+  title: string;
+  link: string;
+  image: string;
+  data: AnimeCornerData[];
+};
+
+export type AnimeCornerData = {
+  rank: number;
+  score: number;
+  title: string;
 };

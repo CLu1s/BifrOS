@@ -23,6 +23,7 @@ import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
 import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 import Favorites from "@/features/bookmarks/components/Favorites";
+import LastAnimeCornerResult from "@/features/scrapper/components/LastAnimeCornerResult";
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -78,6 +79,7 @@ const Container = () => {
         </div>
         <div className={"flex flex-col gap-4 col-span-1"}>
           <NextInQueue />
+          <LastAnimeCornerResult />
         </div>
       </div>
     </div>

@@ -254,45 +254,43 @@ const getWallpaper = onRequest(async (request, response) => {
   });
 });
 
-const checkAnimeCorner = onRequest(async (request, response) => {
-  corsMiddleware(request, response, async () => {
-    // Validación del método
-    if (request.method !== "GET") {
-      return response.status(405).send("Method not allowed");
-    }
-    const startTime = Date.now();
+const animeCorner = onRequest(async (request, response) => {
+  // Validación del método
+  if (request.method !== "GET") {
+    return response.status(405).send("Method not allowed");
+  }
+  const startTime = Date.now();
 
-    const lastElements = await getLastElementsFromDB(
-      "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
-      10,
-    );
-    const results = await checkAnimeCornerScraper(lastElements);
-    const promises = results.map(async (result) => {
-      const metrics = buildMetrics({
-        startTime,
-        status: "success",
-        errorMessage: null,
-        url: "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
-        urlsScraped: result.link,
-        length: result.data.length,
-      });
-      await saveExecution({ result: result, metrics });
+  const lastElements = await getLastElementsFromDB(
+    "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
+    10,
+  );
+  const results = await checkAnimeCornerScraper(lastElements);
+  const promises = results.map(async (result) => {
+    const metrics = buildMetrics({
+      startTime,
+      status: "success",
+      errorMessage: null,
+      url: "https://animecorner.me/category/anime-corner/rankings/anime-of-the-week/",
+      urlsScraped: result.link,
+      length: result.data.length,
     });
-    const logActivity = logActivityInDB({
-      type: "scraper",
-      description: `New rankings found (${results.length})`,
-      timestamp: new Date().toISOString(),
-      metadata: { count: results.length },
-    });
-
-    await Promise.all([...promises, logActivity]);
-
-    try {
-      return response.status(200).json(results);
-    } catch (error) {
-      return response.status(500).send("Internal Server Error");
-    }
+    await saveExecution({ result: result, metrics });
   });
+  const logActivity = logActivityInDB({
+    type: "scraper",
+    description: `New rankings found (${results.length})`,
+    timestamp: new Date().toISOString(),
+    metadata: { count: results.length },
+  });
+
+  await Promise.all([...promises, logActivity]);
+
+  try {
+    return response.status(200).json(results);
+  } catch (error) {
+    return response.status(500).send("Internal Server Error");
+  }
 });
 
 export {
@@ -300,5 +298,5 @@ export {
   saveBookmark,
   getCollectionPage,
   getWallpaper,
-  checkAnimeCorner,
+  animeCorner,
 };

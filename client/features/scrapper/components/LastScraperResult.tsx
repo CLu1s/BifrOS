@@ -4,9 +4,9 @@ import useScrapper from "../hooks/useScrapper";
 import { Button } from "@nextui-org/button";
 
 const LastScraperResult = () => {
-  const { executions } = useScrapper();
-  if (!(executions.length > 0)) return null;
-  const { result } = executions[0];
+  const { kodanshaExecutions } = useScrapper();
+  if (!(kodanshaExecutions.length > 0)) return null;
+  const { result } = kodanshaExecutions[0];
   const keys = Object.keys(result).sort((a, b) => {
     return a.localeCompare(b);
   });
@@ -17,7 +17,7 @@ const LastScraperResult = () => {
     <Card className={"p-2"}>
       <CardHeader>
         <div className={"flex justify-between w-full"}>
-          <h2 className={"text-xl font-semibold"}>Last Scraper Results</h2>
+          <h2 className={"text-xl font-semibold"}>Last Kodansha Results</h2>
           <Button
             as={LocalLink}
             href={"/scraper"}
