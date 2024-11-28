@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add scrapper corner anime">
-      <change afterPath="$PROJECT_DIR$/client/app/feed/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/hooks/useActions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/redux/feedSelector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/redux/feedSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/features/feed/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/functions/lib/rssFeed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/lib/bookmarks.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/bookmarks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/lib/metrics.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/metrics.js" afterDir="false" />
-    </list>
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add  feed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +111,7 @@
       <workItem from="1732720779649" duration="1303000" />
       <workItem from="1732723120813" duration="4895000" />
       <workItem from="1732810910552" duration="7632000" />
-      <workItem from="1732819298269" duration="4166000" />
+      <workItem from="1732819298269" duration="4183000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -145,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732727412397</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add  feed">
+      <option name="closed" value="true" />
+      <created>1732823475602</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732823475602</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add scrapper corner anime" />
-    <option name="LAST_COMMIT_MESSAGE" value="add scrapper corner anime" />
+    <MESSAGE value="add  feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="add  feed" />
   </component>
 </project>
