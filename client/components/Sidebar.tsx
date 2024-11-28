@@ -2,13 +2,24 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@nextui-org/button";
-import { House, Pickaxe, BookMarked, Paintbrush } from "lucide-react";
+import {
+  House,
+  Newspaper,
+  Pickaxe,
+  BookMarked,
+  Paintbrush,
+} from "lucide-react";
 
 const links = [
   {
     icon: <House className={"h-4 w-4"} />,
     label: "Home",
     href: "/",
+  },
+  {
+    icon: <Newspaper className={"h-4 w-4"} />,
+    label: "Feed",
+    href: "/feed",
   },
   {
     icon: <Pickaxe className={"h-4 w-4"} />,

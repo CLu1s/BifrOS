@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { scrapperReducer } from "@/features/scrapper/redux/scrapperSlice";
 import { bookmarkReducer } from "@/features/bookmarks/redux/bookmarksSlice";
 import { wallpaperReducer } from "@/features/wallpapers/redux/wallpaperSlice";
+import { feedReducer } from "@/features/feed/redux/feedSlice";
 
 export const store = configureStore({
   reducer: {
     scrapper: scrapperReducer,
     bookmark: bookmarkReducer,
     wallpaper: wallpaperReducer,
+    feed: feedReducer,
   },
 });
 

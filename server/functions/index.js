@@ -25,8 +25,15 @@ import {
 } from "./lib/wallpaper.js";
 import { logActivityInDB } from "./lib/activities.js";
 import { checkAnimeCornerScraper } from "./lib/animeCorner.js";
-
+import {
+  cleanCache,
+  normalizeFeed,
+  saveFeedToFirestore,
+} from "./lib/rssFeed.js";
+import Parser from "rss-parser";
+import { onSchedule } from "firebase-functions/v2/scheduler";
 const db = getFirestore();
+
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 
@@ -293,10 +300,59 @@ const animeCorner = onRequest(async (request, response) => {
   }
 });
 
+const readFeeds = onRequest(async (request, response) => {
+  let parser = new Parser();
+  // Validación del método
+  if (request.method !== "GET") {
+    return response.status(405).send("Method not allowed");
+  }
+  const startTime = Date.now();
+  const feedsUrl = [
+    "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=w",
+    "https://myanimelist.net/rss/news.xml",
+    "https://www.livechart.me/feeds/headlines",
+  ];
+  const feeds = await Promise.all(
+    feedsUrl.map(async (url) => {
+      return await parser.parseURL(url);
+    }),
+  );
+
+  const normalizedFeeds = await Promise.all(
+    feeds.map(async (feed) => {
+      return await normalizeFeed(feed.items);
+    }),
+  );
+
+  const flatFeeds = normalizedFeeds.flat();
+  await saveFeedToFirestore(flatFeeds);
+  const stopTimeSave = Date.now();
+
+  void logActivityInDB({
+    type: "feed",
+    description: `New feeds cached ${flatFeeds.length} total time ${stopTimeSave - startTime} `,
+    timestamp: new Date().toISOString(),
+    metadata: { count: flatFeeds.length },
+  });
+
+  return response.status(200).send("ok");
+});
+const cleanExpiredCacheWeb = onRequest(async (request, response) => {
+  const result = await cleanCache();
+  return response.status(200).send(result);
+});
+
+const cleanExpiredCache = onSchedule("every 60 minutes", async (event) => {
+  await cleanCache();
+});
+
 export {
   checkKodansha,
   saveBookmark,
   getCollectionPage,
   getWallpaper,
   animeCorner,
+  readFeeds,
+  cleanExpiredCache,
+  cleanExpiredCacheWeb,
 };

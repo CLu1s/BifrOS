@@ -38,9 +38,10 @@ export async function parseURL(url) {
       timestamp: new Date().toISOString(),
     };
   } catch (error) {
+    console.error("Error al obtener datos Open Graph:", error);
     return {
       result: {
-        ogImage: [{ url: "/default_image.jpeg" }],
+        ogImage: "/default_image.jpeg",
         favicon: "",
         ogDescription: "",
         ogTitle: url,
