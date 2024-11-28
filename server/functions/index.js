@@ -338,8 +338,12 @@ const readFeeds = onRequest(async (request, response) => {
   return response.status(200).send("ok");
 });
 const cleanExpiredCacheWeb = onRequest(async (request, response) => {
-  const result = await cleanCache();
-  return response.status(200).send(result);
+  try {
+    const result = await cleanCache();
+    return response.status(200).send(result);
+  } catch (error) {
+    return response.status(500).send("Internal Server Error");
+  }
 });
 
 const cleanExpiredCache = onSchedule("every 60 minutes", async (event) => {

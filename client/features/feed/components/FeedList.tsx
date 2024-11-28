@@ -18,17 +18,27 @@ const FeedList = () => {
           {feed.title}
         </Link>
       </CardHeader>
-      <CardBody className="overflow-visible py-2">
-        <Image
-          alt="Card background"
-          className="object-cover w-full rounded-xl"
-          src={feed.imageUrl}
-          height={200}
-        />
+      <CardBody className="overflow-visible m-auto py-2">
+        <div className={"m-auto "}>
+          <Image
+            alt="Card background"
+            className="object-cover rounded-xl"
+            src={feed.imageUrl}
+            height={300}
+          />
+        </div>
       </CardBody>
     </Card>
   ));
-  return <div className={"grid grid-cols-3 gap-4"}>{feedList}</div>;
+  return (
+    <div
+      className={
+        " container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"
+      }
+    >
+      {feedList}
+    </div>
+  );
 };
 
 export default FeedList;
