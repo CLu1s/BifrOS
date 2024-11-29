@@ -1,34 +1,10 @@
 import useFeed from "@/features/feed/hooks/useFeed";
-import { Card, CardHeader, CardBody, Image, Link } from "@nextui-org/react";
+import { FeedElement } from "@/features/feed/components/FeedElement";
 
 const FeedList = () => {
   const { feeds } = useFeed();
   const feedList = feeds.map((feed) => (
-    <Card className="py-4" key={feed.id}>
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <p className="text-tiny uppercase font-bold">
-          {new Date(feed.pubDate).toDateString()}
-        </p>
-        <small className="text-default-500">{feed.source}</small>
-        <Link
-          href={feed.link}
-          target={"_blank"}
-          className="font-bold text-large"
-        >
-          {feed.title}
-        </Link>
-      </CardHeader>
-      <CardBody className="overflow-visible m-auto py-2">
-        <div className={"m-auto "}>
-          <Image
-            alt="Card background"
-            className="object-cover rounded-xl"
-            src={feed.imageUrl}
-            height={300}
-          />
-        </div>
-      </CardBody>
-    </Card>
+    <FeedElement key={feed.id} feed={feed} />
   ));
   return (
     <div

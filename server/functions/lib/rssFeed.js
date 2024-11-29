@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { parseURL } from "./bookmarks.js";
 import admin from "firebase-admin";
 const db = admin.firestore();
@@ -25,8 +24,8 @@ const extractSourceFromLink = (link) => {
   return url.hostname;
 };
 
-export const normalizeFeed = async (feed) => {
-  const items = feed.map(async (item) => {
+export const normalizeFeed = async (item) => {
+  try {
     let imageUrl = "";
     if (item.enclosure) {
       imageUrl = item.enclosure.url;
@@ -35,7 +34,7 @@ export const normalizeFeed = async (feed) => {
       imageUrl = ogData.ogImage;
     }
     return {
-      id: nanoid(),
+      id: sanitizeGUID(item.guid),
       title: item.title,
       link: item.link,
       imageUrl,
@@ -43,8 +42,10 @@ export const normalizeFeed = async (feed) => {
       source: extractSourceFromLink(item.link),
       content: item.content ?? "",
     };
-  });
-  return Promise.all(items);
+  } catch (e) {
+    console.log(e);
+    throw new Error("Failed to normalize feed.");
+  }
 };
 
 export const cleanCache = async () => {
@@ -53,9 +54,11 @@ export const cleanCache = async () => {
     .doc("cache")
     .collection("items");
   const now = admin.firestore.Timestamp.now();
-  const oneHourAgo = new Date(now.toDate().getTime() - 60 * 60 * 1000);
+  const sixHoursAgo = new Date(now.toDate().getTime() - 6 * 60 * 60 * 1000);
 
-  const snapshot = await collectionRef.where("cachedAt", "<", oneHourAgo).get();
+  const snapshot = await collectionRef
+    .where("cachedAt", "<", sixHoursAgo)
+    .get();
 
   if (!snapshot.empty) {
     const batch = db.batch();
@@ -67,4 +70,12 @@ export const cleanCache = async () => {
   } else {
     return "No expired cache found.";
   }
+};
+
+export const sanitizeGUID = (guid) => {
+  // normalize guid to be a valid id in firebase removing dots , https:// and /
+  return guid
+    .replace(/\./g, "")
+    .replace(/\//g, "")
+    .replace(/https:/g, "");
 };

@@ -4,10 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="fix dependenxies">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add more widgets to home">
+      <change afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/feed/components/LastestFeed.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/CreateNewBookmark.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/CreateNewBookmark.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/hooks/useActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/hooks/useBookmark.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/hooks/useBookmark.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/RecentActivity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/RecentActivity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/lib/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/lib/rssFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/rssFeed.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package.json" afterDir="false" />
     </list>
@@ -50,25 +66,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Shell Script.Firebase.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Firebase.executor": "Run",
+    "Shell Script.Unnamed.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros/client/features/feed",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="npm.dev">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/features/feed" />
+      <recent name="$PROJECT_DIR$/client/features/bookmarks/components" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/features/bookmarks" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Shell Script.Firebase">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -117,7 +146,8 @@
       <workItem from="1732720779649" duration="1303000" />
       <workItem from="1732723120813" duration="4895000" />
       <workItem from="1732810910552" duration="7632000" />
-      <workItem from="1732819298269" duration="5972000" />
+      <workItem from="1732819298269" duration="8191000" />
+      <workItem from="1732829637303" duration="16987000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -151,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732823509659</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix dependenxies">
+      <option name="closed" value="true" />
+      <created>1732825335057</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732825335057</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +199,7 @@
     <MESSAGE value="add scrapper corner anime" />
     <MESSAGE value="add  feed" />
     <MESSAGE value="fix dependenxies" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix dependenxies" />
+    <MESSAGE value="add more widgets to home" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more widgets to home" />
   </component>
 </project>

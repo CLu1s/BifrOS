@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 import BookmarkContainer from "@/features/bookmarks/components/BookmarkContainer";
-import { getBookmarksFromFirestore } from "@/features/lib";
+import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import Categories from "@/features/bookmarks/components/Categories";
 import { ScrollArea } from "@/components/ui/scroll-area";
 

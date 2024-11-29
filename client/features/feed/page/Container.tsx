@@ -1,22 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import { readDocsFromFirestore } from "@/firebase/services";
 import useActions from "@/features/feed/hooks/useActions";
 import FeedList from "@/features/feed/components/FeedList";
+import { getFeeds } from "@/features/feed/lib";
 
 const Container = () => {
   const { setFeeds } = useActions();
   useEffect(() => {
     (async () => {
-      const result = await readDocsFromFirestore("rssFeeds/cache/items");
-      const cleanData = result.map((item: any) => {
-        const { cachedAt, ...rest } = item;
-        return {
-          ...rest,
-        };
-      });
-      setFeeds(cleanData);
+      const result = await getFeeds();
+      setFeeds(result);
     })();
   }, []);
   return (

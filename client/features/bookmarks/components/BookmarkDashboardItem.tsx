@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { updateBookmark } from "@/features/bookmarks/redux/bookmarksSlice";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 
-function BookmarkItem({ data }: { data: Bookmark }) {
+function BookmarkDashboardItem({ data }: { data: Bookmark }) {
   const { categories, deleteBookmark } = useBookmark();
   const dispatch = useDispatch();
 
@@ -46,29 +46,30 @@ function BookmarkItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex flex-col   gap-4 w-full justify-between text-start hover:bg-neutral-700  p-6  border rounded-xl"
+        "flex flex-col shrink-0 gap-2 w-52 justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
       }
     >
       <div className={"flex flex-col lg:flex-row justify-between gap-4"}>
-        <div className={"flex gap-4"}>
-          <div className={"w-14 h-14"}>
-            {data.ogImage ? (
-              <Image
-                src={data.ogImage}
-                alt={data.ogTitle}
-                className={"min-h-14 min-w-14 object-cover rounded"}
-              />
-            ) : (
-              <Image
-                src={data.favicon}
-                alt={data.ogTitle}
-                className={"min-h-14 min-w-14 object-cover rounded"}
-              />
-            )}
-          </div>
+        <div className={"flex flex-col gap-4 w-full justify-center"}>
+          {data.ogImage ? (
+            <Image
+              src={data.ogImage}
+              alt={data.ogTitle}
+              className={"object-cover w-full rounded m-auto"}
+              height={200}
+            />
+          ) : (
+            <Image
+              src={data.favicon}
+              alt={data.ogTitle}
+              className={"object-cover rounded m-auto"}
+            />
+          )}
 
           <div className={"flex-col gap-2"}>
-            <h2 className={"text-lg "}>{decodeURIComponent(data.ogTitle)}</h2>
+            <h2 className={"text-lg "}>
+              {decodeURIComponent(data.ogTitle).slice(0, 30)}
+            </h2>
             <p
               className={
                 "font-normal text-neutral-400 text-sm h-14 overflow-hidden"
@@ -78,7 +79,9 @@ function BookmarkItem({ data }: { data: Bookmark }) {
             </p>
           </div>
         </div>
-        <div className={"flex gap-6"}>
+      </div>
+      <div className={"flex flex-col gap-4 justify-center"}>
+        <div className={"flex m-auto gap-6"}>
           <Button
             variant={"bordered"}
             isIconOnly
@@ -98,8 +101,6 @@ function BookmarkItem({ data }: { data: Bookmark }) {
             <Trash2 />
           </Button>
         </div>
-      </div>
-      <div>
         <Select
           label="Category"
           className="max-w-xs"
@@ -118,4 +119,4 @@ function BookmarkItem({ data }: { data: Bookmark }) {
   );
 }
 
-export default BookmarkItem;
+export default BookmarkDashboardItem;

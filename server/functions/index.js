@@ -28,10 +28,14 @@ import { checkAnimeCornerScraper } from "./lib/animeCorner.js";
 import {
   cleanCache,
   normalizeFeed,
+  sanitizeGUID,
   saveFeedToFirestore,
 } from "./lib/rssFeed.js";
 import Parser from "rss-parser";
 import { onSchedule } from "firebase-functions/v2/scheduler";
+import { PromisePool } from "@supercharge/promise-pool";
+import { nanoid } from "nanoid";
+
 const db = getFirestore();
 
 // Create and deploy your first functions
@@ -143,14 +147,14 @@ const saveBookmark = onRequest(async (request, response) => {
 
     try {
       // Extraer URL del url de la solicitud
-      const { url } = request.body;
+      const { url, id } = request.body;
       if (!url) {
         return response.status(400).send("Missing 'url' in request body");
       }
 
       // Procesar la URL y generar datos
       const ogData = await parseURL(url);
-      const bookmarkID = `bookmark-${Date.now()}`;
+      const bookmarkID = id ?? `bookmark-${nanoid()}`;
 
       // Referencia al documento en Firestore
       const executionRef = db
@@ -300,42 +304,66 @@ const animeCorner = onRequest(async (request, response) => {
   }
 });
 
-const readFeeds = onRequest(async (request, response) => {
+const readFeedsHook = onRequest(async (request, response) => {
   let parser = new Parser();
   // Validación del método
   if (request.method !== "GET") {
     return response.status(405).send("Method not allowed");
   }
-  const startTime = Date.now();
-  const feedsUrl = [
-    "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=w",
-    "https://myanimelist.net/rss/news.xml",
-    "https://www.livechart.me/feeds/headlines",
-  ];
-  const feeds = await Promise.all(
-    feedsUrl.map(async (url) => {
-      return await parser.parseURL(url);
-    }),
-  );
+  try {
+    const startTime = Date.now();
+    const feedsUrl = [
+      "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=w",
+      "https://myanimelist.net/rss/news.xml",
+      "https://www.livechart.me/feeds/headlines",
+      "https://www.animenewsnetwork.com/feature/rss.xml?ann-edition=w",
+    ];
+    const collectionRef = db.collection("rssFeeds/cache/items");
+    const feeds = await Promise.all(
+      feedsUrl.map(async (url) => {
+        return await parser.parseURL(url);
+      }),
+    );
+    const items = feeds.map((feed) => feed.items).flat();
 
-  const normalizedFeeds = await Promise.all(
-    feeds.map(async (feed) => {
-      return await normalizeFeed(feed.items);
-    }),
-  );
+    const { results: normalizedFeeds, errors } =
+      await PromisePool.withConcurrency(2)
+        .withConcurrency(15)
+        .for(items)
+        .process(async (item) => {
+          const existingDoc = await collectionRef
+            .doc(sanitizeGUID(item.guid))
+            .get();
+          if (!existingDoc.exists) {
+            return await normalizeFeed(item);
+          }
+          return null;
+        });
+    if (errors.length > 0) {
+      logger.error("Error in readFeedsHook", errors);
+    }
 
-  const flatFeeds = normalizedFeeds.flat();
-  await saveFeedToFirestore(flatFeeds);
-  const stopTimeSave = Date.now();
+    const flatFeeds = normalizedFeeds.filter((feed) => feed !== null);
+    if (flatFeeds.length > 0) {
+      await saveFeedToFirestore(flatFeeds);
+    }
+    const stopTimeSave = Date.now();
 
-  void logActivityInDB({
-    type: "feed",
-    description: `New feeds cached ${flatFeeds.length} total time ${stopTimeSave - startTime} `,
-    timestamp: new Date().toISOString(),
-    metadata: { count: flatFeeds.length },
-  });
+    void logActivityInDB({
+      type: "feed",
+      description: `New feeds cached ${flatFeeds.length} total time ${stopTimeSave - startTime} `,
+      timestamp: new Date().toISOString(),
+      metadata: { count: flatFeeds.length },
+    });
 
-  return response.status(200).send("ok");
+    return response
+      .status(200)
+      .send(`ok ${stopTimeSave - startTime}ms ${flatFeeds.length}`);
+  } catch (error) {
+    console.error("Error reading feeds", error);
+    logger.error("Error in readFeedsHook", error);
+    return response.status(500).send("Internal Server Error");
+  }
 });
 const cleanExpiredCacheWeb = onRequest(async (request, response) => {
   try {
@@ -346,7 +374,7 @@ const cleanExpiredCacheWeb = onRequest(async (request, response) => {
   }
 });
 
-const cleanExpiredCache = onSchedule("every 60 minutes", async (event) => {
+const cleanExpiredCache = onSchedule("every 6 hours", async (event) => {
   await cleanCache();
 });
 
@@ -356,7 +384,7 @@ export {
   getCollectionPage,
   getWallpaper,
   animeCorner,
-  readFeeds,
+  readFeedsHook,
   cleanExpiredCache,
   cleanExpiredCacheWeb,
 };

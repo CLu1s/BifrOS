@@ -3,13 +3,21 @@ import { useDispatch } from "react-redux";
 import {
   addCategory,
   setActiveCategory,
+  addBookmark,
   setCategories,
+  removeBookmark,
 } from "@/features/bookmarks/redux/bookmarksSlice";
 
 const useActions = () => {
   const dispatch = useDispatch();
   const actions = bindActionCreators(
-    { setCategories, addCategory, setActiveCategory },
+    {
+      setCategories,
+      addCategory,
+      setActiveCategory,
+      addBookmark,
+      removeBookmark,
+    },
     dispatch,
   );
 
