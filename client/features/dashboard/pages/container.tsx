@@ -39,7 +39,7 @@ const Container = () => {
     (async () => {
       const db = getFirestore();
       const ref = collection(db, "activities");
-      const q = query(ref, orderBy("timestamp", "desc"), limit(5));
+      const q = query(ref, orderBy("timestamp", "desc"), limit(7));
       const data = (await queryFirestore(q)) as Activity[];
       setActivities(data);
     })();

@@ -41,6 +41,7 @@ export const normalizeFeed = async (item) => {
       pubDate: item.pubDate,
       source: extractSourceFromLink(item.link),
       content: item.content ?? "",
+      category: item.category ?? "",
     };
   } catch (e) {
     console.log(e);

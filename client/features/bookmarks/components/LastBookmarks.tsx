@@ -4,7 +4,7 @@ import BookmarkDashboardItem from "@/features/bookmarks/components/BookmarkDashb
 
 const LastBookmarks = () => {
   const { bookmarks } = useBookmark();
-  const recentBookmarks = bookmarks.slice(0, 5);
+  const recentBookmarks = bookmarks.slice(0, 9);
   const renderBookmarks = recentBookmarks.map((bookmark) => (
     <BookmarkDashboardItem key={bookmark.id} data={bookmark} />
   ));
@@ -15,7 +15,9 @@ const LastBookmarks = () => {
         <h2 className={"text-xl font-semibold"}>Latest Bookmarks</h2>
       </CardHeader>
       <CardBody>
-        <div className={"flex justify-start gap-4"}>{renderBookmarks}</div>
+        <div className={"flex justify-start gap-2 overflow-hidden 2xl:gap-4"}>
+          {renderBookmarks}
+        </div>
       </CardBody>
     </Card>
   );

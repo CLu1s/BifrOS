@@ -312,20 +312,38 @@ const readFeedsHook = onRequest(async (request, response) => {
   }
   try {
     const startTime = Date.now();
+
     const feedsUrl = [
-      "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=w",
-      "https://myanimelist.net/rss/news.xml",
-      "https://www.livechart.me/feeds/headlines",
-      "https://www.animenewsnetwork.com/feature/rss.xml?ann-edition=w",
+      {
+        url: "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=w",
+        category: "anime",
+      },
+      { url: "https://myanimelist.net/rss/news.xml", category: "anime" },
+      { url: "https://animecorner.me/feed/", category: "anime" },
+      { url: "https://www.livechart.me/feeds/headlines", category: "anime" },
+      { url: "https://www.smashingmagazine.com/feed/", category: "tech" },
+      { url: "https://medium.com/feed/airbnb-engineering", category: "tech" },
+      { url: "https://stackoverflow.blog/feed/", category: "tech" },
+      { url: "https://netflixtechblog.com/feed", category: "tech" },
+      {
+        url: "https://www.animenewsnetwork.com/feature/rss.xml?ann-edition=w",
+        category: "anime",
+      },
+      { url: "https://dev.to/feed", category: "tech" },
     ];
+
     const collectionRef = db.collection("rssFeeds/cache/items");
     const feeds = await Promise.all(
       feedsUrl.map(async (url) => {
-        return await parser.parseURL(url);
+        const feed = await parser.parseURL(url.url);
+        return { ...feed, category: url.category };
       }),
     );
-    const items = feeds.map((feed) => feed.items).flat();
-
+    const items = feeds
+      .map((feed) =>
+        feed.items.map((item) => ({ ...item, category: feed.category })),
+      )
+      .flat();
     const { results: normalizedFeeds, errors } =
       await PromisePool.withConcurrency(2)
         .withConcurrency(15)
@@ -374,7 +392,7 @@ const cleanExpiredCacheWeb = onRequest(async (request, response) => {
   }
 });
 
-const cleanExpiredCache = onSchedule("every 6 hours", async (event) => {
+const cleanExpiredCache = onSchedule("every 12 hours", async (event) => {
   await cleanCache();
 });
 

@@ -6,4 +6,5 @@ export type Feed = {
   pubDate: string;
   source: string;
   content: string;
+  category?: string;
 };

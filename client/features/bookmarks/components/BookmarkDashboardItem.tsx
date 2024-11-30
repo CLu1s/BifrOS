@@ -15,7 +15,6 @@ import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 function BookmarkDashboardItem({ data }: { data: Bookmark }) {
   const { categories, deleteBookmark } = useBookmark();
   const dispatch = useDispatch();
-
   const isFavoriteClass = data.isFavorite
     ? "hover:border-yellow-500 hover:text-yellow-500  bg-yellow-500 text-white"
     : "border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white";
@@ -46,7 +45,7 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex flex-col shrink-0 gap-2 w-52 justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
+        "flex flex-col shrink-0 gap-2 w-60 justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
       }
     >
       <div className={"flex flex-col lg:flex-row justify-between gap-4"}>
@@ -75,7 +74,7 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
                 "font-normal text-neutral-400 text-sm h-14 overflow-hidden"
               }
             >
-              {decodeURIComponent(data.ogDescription)}
+              {data.ogDescription}
             </p>
           </div>
         </div>
