@@ -11,17 +11,19 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
     () => all.find((el) => el.id === props.image.id),
     [all, props.image.id],
   );
+  const type = Number(props.image.ratio) < 1;
   return (
     <Card
       isFooterBlurred
       radius="lg"
-      className={!!find ? "border-green-700 border" : "border-none "}
+      className={!!find ? "border-green-700 border" : "border-none  "}
     >
       <Image
-        className={"min-h-[310px] object-cover"}
+        className={"h-60 w-[422px] object-cover object-top"}
         alt={props.image.url}
-        src={props.image.thumbs.large}
-        height={370}
+        src={type ? props.image.thumbs.original : props.image.thumbs.large}
+        height={240}
+        width={422}
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
         <Button

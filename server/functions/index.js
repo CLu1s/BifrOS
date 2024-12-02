@@ -333,12 +333,18 @@ const readFeedsHook = onRequest(async (request, response) => {
     ];
 
     const collectionRef = db.collection("rssFeeds/cache/items");
-    const feeds = await Promise.all(
-      feedsUrl.map(async (url) => {
-        const feed = await parser.parseURL(url.url);
-        return { ...feed, category: url.category };
-      }),
-    );
+
+    const { results: feeds, errors: parseErrors } =
+      await PromisePool.withConcurrency(5)
+        .for(feedsUrl)
+        .process(async (url) => {
+          const feed = await parser.parseURL(url.url);
+          return { ...feed, category: url.category };
+        });
+    if (parseErrors.length > 0) {
+      logger.error("Error in readFeedsHook", parseErrors);
+    }
+
     const items = feeds
       .map((feed) =>
         feed.items.map((item) => ({ ...item, category: feed.category })),
@@ -346,7 +352,7 @@ const readFeedsHook = onRequest(async (request, response) => {
       .flat();
     const { results: normalizedFeeds, errors } =
       await PromisePool.withConcurrency(2)
-        .withConcurrency(15)
+        .withConcurrency(10)
         .for(items)
         .process(async (item) => {
           const existingDoc = await collectionRef
