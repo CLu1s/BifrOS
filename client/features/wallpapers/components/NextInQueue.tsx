@@ -16,7 +16,11 @@ const NextInQueue = () => {
           <h2 className={"text-xl font-semibold"}>Next wallpaper in queue </h2>
         </CardHeader>
         <CardBody>
-          <div className={"grid grid-cols-1  2xl:grid-cols-2 gap-4  m-auto"}>
+          <div
+            className={
+              "grid grid-cols-1 lg:grid-cols-2  2xl:grid-cols-2 gap-4  m-auto"
+            }
+          >
             <div className={"flex flex-col gap-2 text-center"}>
               <QueueImage image={landscape[0]} />
 

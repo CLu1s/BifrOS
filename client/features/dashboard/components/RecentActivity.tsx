@@ -18,13 +18,13 @@ const RecentActivity = ({ activities }: Props) => {
     return (
       <li key={id} className={"flex gap-4"}>
         <span>{icons[type]}</span>
-        <span>{description}</span>
+        <span className={"truncate"}>{description}</span>
       </li>
     );
   });
 
   return (
-    <Card className={"p-2 w-full h-full"}>
+    <Card className={"p-2 w-full "}>
       <CardHeader>
         <h2 className={"text-xl font-semibold"}>Recent Activity</h2>
       </CardHeader>

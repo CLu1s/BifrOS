@@ -14,7 +14,7 @@ const LastScraperResult = () => {
   const elements = keys.map((key) => result[key][0]);
 
   return (
-    <Card className={"p-2"}>
+    <Card>
       <CardHeader>
         <div className={"flex justify-between w-full"}>
           <h2 className={"text-xl font-semibold"}>Last Kodansha Results</h2>
@@ -31,7 +31,7 @@ const LastScraperResult = () => {
       </CardHeader>
       <CardBody>
         <div
-          className={"grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-8 gap-4"}
+          className={"grid grid-cols-1 lg:grid-cols-6 2xl:grid-cols-8 gap-4"}
         >
           {elements.map((element) => (
             <div key={element.relativeName} className={"flex flex-col gap-1"}>

@@ -77,26 +77,30 @@ const Container = () => {
   return (
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
       <h1>Dashboard</h1>
-      <div className={"grid grid-cols-1 lg:grid-cols-3 gap-4"}>
-        <div className={"col-span-1 lg:col-span-2 w-full  "}>
+      <div className={"grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-5 gap-8"}>
+        <div className={"col-span-1 flex flex-col gap-2 "}>
+          <Favorites />
+        </div>
+        <div className={"col-span-1 lg:col-span-1 w-full  "}>
           <RecentActivity activities={activities} />
         </div>
         <div className={"col-span-1 flex flex-col gap-2 "}>
           <Generals />
-          <Favorites />
-        </div>
-        <div className={"flex gap-4 w-full col-span-1 lg:col-span-3"}>
-          <LastestFeed />
-        </div>
-        <div className={"flex gap-4 w-full col-span-1 lg:col-span-3"}>
-          <LastBookmarks />
-        </div>
-        <div className={" col-span-1 lg:col-span-2     "}>
-          <LastScraperResult />
         </div>
 
-        <div className={"flex flex-col gap-4 col-span-1"}>
+        <div className={" w-full col-span-1 lg:col-span-3"}>
+          <LastestFeed />
+        </div>
+        <div className={"w-full col-span-1 lg:col-span-2"}>
+          <LastBookmarks />
+        </div>
+        <div className={" col-span-1 lg:col-span-3     "}>
+          <LastScraperResult />
+        </div>
+        <div className={" gap-4 col-span-2  2xl:col-span-1"}>
           <NextInQueue />
+        </div>
+        <div className={"gap-4 col-span-1"}>
           <LastAnimeCornerResult />
         </div>
       </div>

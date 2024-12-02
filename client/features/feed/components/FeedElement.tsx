@@ -25,8 +25,8 @@ export function FeedElement(props: { feed: Feed }) {
     await createBookmark(url, id);
   };
   return (
-    <Card className="py-4 relative shrink-0">
-      <div className="absolute top-2 right-2 z-40">
+    <Card className="py-4 w-full relative">
+      <div className="absolute top-1 right-1 z-40">
         <Button
           isIconOnly
           variant={"light"}
@@ -36,26 +36,26 @@ export function FeedElement(props: { feed: Feed }) {
           <Bookmark className={"h-8 w-8"} />
         </Button>
       </div>
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <p className="text-tiny uppercase font-bold">
+      <CardHeader className="pb-0  gap-0 lg:gap-2 flex-col items-start">
+        <p className="text-tiny uppercase font-medium">{props.feed.source}</p>
+        <small className="text-default-500">
           {new Date(props.feed.pubDate).toDateString()}
-        </p>
-        <small className="text-default-500">{props.feed.source}</small>
+        </small>
         <Link
           href={props.feed.link}
           target={"_blank"}
-          className="font-bold text-large"
+          className="font-semibold text-large leading-5 lg:leading-6 "
         >
           {props.feed.title}
         </Link>
       </CardHeader>
-      <CardBody className="overflow-visible m-auto py-2">
+      <CardBody className="hidden lg:flex  m-auto py-2">
         <div className={"m-auto "}>
           <Image
             alt="Card background"
-            className="object-cover rounded-xl"
+            className="h-60 w-[422px] object-contain  rounded-xl"
             src={props.feed.imageUrl}
-            height={300}
+            height={150}
           />
         </div>
       </CardBody>

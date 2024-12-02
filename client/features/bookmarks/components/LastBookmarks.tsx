@@ -4,18 +4,22 @@ import BookmarkDashboardItem from "@/features/bookmarks/components/BookmarkDashb
 
 const LastBookmarks = () => {
   const { bookmarks } = useBookmark();
-  const recentBookmarks = bookmarks.slice(0, 9);
+  const recentBookmarks = bookmarks.slice(0, 4);
   const renderBookmarks = recentBookmarks.map((bookmark) => (
     <BookmarkDashboardItem key={bookmark.id} data={bookmark} />
   ));
 
   return (
-    <Card className={"p-2 w-full"}>
+    <Card className={" w-full"}>
       <CardHeader>
         <h2 className={"text-xl font-semibold"}>Latest Bookmarks</h2>
       </CardHeader>
       <CardBody>
-        <div className={"flex justify-start gap-2 overflow-hidden 2xl:gap-4"}>
+        <div
+          className={
+            "grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-2 2xl:gap-4"
+          }
+        >
           {renderBookmarks}
         </div>
       </CardBody>

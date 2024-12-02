@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add more widgets to home">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="improve ux">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/RecentActivity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/RecentActivity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LastestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LastestFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/NextInQueue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/NextInQueue.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +139,7 @@
       <workItem from="1732819298269" duration="8191000" />
       <workItem from="1732829637303" duration="17880000" />
       <workItem from="1732991790035" duration="8271000" />
-      <workItem from="1733155242469" duration="3770000" />
+      <workItem from="1733155242469" duration="7274000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -189,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733006547204</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="improve ux">
+      <option name="closed" value="true" />
+      <created>1733159923626</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733159923626</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +216,7 @@
     <MESSAGE value="add  feed" />
     <MESSAGE value="fix dependenxies" />
     <MESSAGE value="add more widgets to home" />
-    <option name="LAST_COMMIT_MESSAGE" value="add more widgets to home" />
+    <MESSAGE value="improve ux" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve ux" />
   </component>
 </project>

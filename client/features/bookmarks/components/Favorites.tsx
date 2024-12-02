@@ -9,7 +9,7 @@ const Favorites = () => {
         <h2 className={"text-xl font-semibold"}>Bookmarks Favorites</h2>
       </CardHeader>
       <CardBody>
-        <div className={"flex justify-start gap-6 "}>
+        <div className={"flex flex-wrap justify-start gap-6 "}>
           {favorites.length > 0 ? (
             favorites.map((favorite) => (
               <Link

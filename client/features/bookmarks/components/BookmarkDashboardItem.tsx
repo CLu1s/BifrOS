@@ -45,7 +45,7 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex flex-col shrink-0 gap-2 w-60 justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
+        "flex flex-col shrink-0 gap-2  justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
       }
     >
       <div className={"flex flex-col lg:flex-row justify-between gap-4"}>
@@ -55,7 +55,7 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
               src={data.ogImage}
               alt={data.ogTitle}
               className={"object-cover w-full rounded m-auto"}
-              height={200}
+              height={150}
             />
           ) : (
             <Image
@@ -78,41 +78,6 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
             </p>
           </div>
         </div>
-      </div>
-      <div className={"flex flex-col gap-4 justify-center"}>
-        <div className={"flex m-auto gap-6"}>
-          <Button
-            variant={"bordered"}
-            isIconOnly
-            onClick={markAsFavorite}
-            className={isFavoriteClass}
-          >
-            <Star />
-          </Button>
-          <Button
-            variant={"bordered"}
-            className={
-              "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
-            }
-            isIconOnly
-            onClick={handleDelete}
-          >
-            <Trash2 />
-          </Button>
-        </div>
-        <Select
-          label="Category"
-          className="max-w-xs"
-          onClick={(e) => e.preventDefault()}
-          size={"sm"}
-          onSelectionChange={onCategorySelected}
-          selectionMode={"single"}
-          defaultSelectedKeys={[data.category?.id ?? ""]}
-        >
-          {categories.map((category) => (
-            <SelectItem key={category.id}>{category.name}</SelectItem>
-          ))}
-        </Select>
       </div>
     </a>
   );

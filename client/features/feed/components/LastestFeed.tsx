@@ -6,9 +6,7 @@ const LastestFeed = () => {
   const { mostRecentFeed } = useFeed();
 
   const renderFeeds = mostRecentFeed.map((feed) => (
-    <div className={"w-60 shrink-0"} key={feed.id}>
-      <FeedElement feed={feed} />
-    </div>
+    <FeedElement key={feed.id} feed={feed} />
   ));
   return (
     <Card className={"p-2 w-full shrink-0"}>
@@ -16,7 +14,7 @@ const LastestFeed = () => {
         <h2 className={"text-xl font-semibold"}>Latest Feed</h2>
       </CardHeader>
       <CardBody>
-        <div className={"flex justify-between gap-2 2xl:gap-4  "}>
+        <div className={"grid grid-cols-1 lg:grid-cols-4 gap-4"}>
           {renderFeeds}
         </div>
       </CardBody>
