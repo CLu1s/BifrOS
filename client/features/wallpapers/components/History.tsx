@@ -18,12 +18,10 @@ const History = () => {
       // className={" px-10 w-[calc(100vw-4.5rem)]  xl:w-[calc(100vw-15rem)] "}
     >
       <CardHeader>
-        <h2 className="text-2xl font-bold">History {history.length}</h2>
+        <h2 className="text-2xl font-bold">History</h2>
       </CardHeader>
-      <CardBody
-        className={"max-w-full  overflow-x-auto overflow-y-hidden pb-10"}
-      >
-        <div className={` flex gap-2 lg:gap-6  `}>{showQueue}</div>
+      <CardBody className={" h-[650px] xl:h-[800px] overflow-auto   pb-10"}>
+        <div className={` grid grid-cols-1 gap-2 lg:gap-6  `}>{showQueue}</div>
       </CardBody>
     </Card>
   );

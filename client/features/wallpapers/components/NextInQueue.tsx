@@ -18,7 +18,7 @@ const NextInQueue = () => {
         <CardBody>
           <div
             className={
-              "grid grid-cols-1 lg:grid-cols-2  2xl:grid-cols-2 gap-4  m-auto"
+              "grid grid-cols-1 lg:grid-cols-1  2xl:grid-cols-1 gap-4  m-auto"
             }
           >
             <div className={"flex flex-col gap-2 text-center"}>

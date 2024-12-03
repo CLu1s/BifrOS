@@ -2,6 +2,9 @@ import Container from "@/features/wallpapers/components/Container";
 import Queue from "@/features/wallpapers/components/Queue";
 import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 import History from "@/features/wallpapers/components/History";
+import PageLayout from "@/components/PageLayout";
+import { Wallpaper } from "lucide-react";
+import Jumbo from "@/features/wallpapers/components/Jumbo";
 
 const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
 const KEY = process.env.WALLHAVEN_KEY;
@@ -107,25 +110,26 @@ export default async function WallpaperDashboard() {
     getUserConfig(),
   ]);
   return (
-    <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
-      <h1 className={"text-2xl font-bold"}>Wallpaper Dashboard</h1>
-      <div className={"grid grid-cols-1 lg:grid-cols-3 gap-8"}>
-        <div className={"flex  gap-8 col-span-1 lg:col-span-3"}>
-          <Queue />
-        </div>
-        <div className={"col-span-1"}>
-          <NextInQueue />
-        </div>
-        <div className={"col-span-1 lg:col-span-2"}>
-          <History />
-        </div>
-        <div className={"col-span-1 lg:col-span-3"}>
-          <Container
-            collectionsInfo={JSON.stringify(collections.data)}
-            config={JSON.stringify(userConfig)}
-          />
-        </div>
+    <PageLayout title={"Wallpaper"}>
+      <div className={"col-span-1 lg:col-span-2"}>
+        <Jumbo />
       </div>
-    </div>
+      <div className={"col-span-1"}>
+        <NextInQueue />
+      </div>
+      <div className={"flex  gap-8 col-span-1 lg:col-span-2"}>
+        <Queue />
+      </div>
+      <div className={"col-span-1"}>
+        <History />
+      </div>
+
+      <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>
+        <Container
+          collectionsInfo={JSON.stringify(collections.data)}
+          config={JSON.stringify(userConfig)}
+        />
+      </div>
+    </PageLayout>
   );
 }

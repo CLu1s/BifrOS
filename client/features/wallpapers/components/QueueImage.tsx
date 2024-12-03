@@ -16,11 +16,13 @@ export function QueueImage(props: {
   return (
     <Card isFooterBlurred radius="lg" className="border-none shrink-0">
       <Image
-        className={" object-cover"}
+        className={
+          " h-40 xl:h-60 w-[722px] xl:w-[922px]   object-cover object-top"
+        }
         alt={props.image.url}
         src={props.image.url}
-        height={310}
-        width={250}
+        height={200}
+        width={400}
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
         {!isHistory && (

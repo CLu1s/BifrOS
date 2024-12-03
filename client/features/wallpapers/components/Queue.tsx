@@ -15,16 +15,16 @@ const Queue = () => {
 
   return (
     <Card
-      className={"px-4 w-full"}
+      className={"p-2 w-full"}
       // className={" px-10 w-[calc(100vw-4.5rem)]  xl:w-[calc(100vw-15rem)] "}
     >
       <CardHeader>
-        <h2 className="text-2xl font-bold">In Queue: {all.length}</h2>
+        <h2 className="text-xl font-bold">In Queue: {all.length}</h2>
       </CardHeader>
-      <CardBody
-        className={"max-w-full  overflow-x-auto overflow-y-hidden pb-10"}
-      >
-        <div className={` flex gap-2 lg:gap-6  `}>{showQueue}</div>
+      <CardBody className={" h-[650px] overflow-auto   pb-10"}>
+        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-4`}>
+          {showQueue}
+        </div>
       </CardBody>
     </Card>
   );
