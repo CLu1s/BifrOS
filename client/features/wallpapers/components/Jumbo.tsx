@@ -8,7 +8,7 @@ import { Image as ImageType } from "../types";
 const Jumbo = () => {
   const { addImageToQueue } = useWallpapers();
   const [index, setIndex] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
+  const [lastPage, setLastPage] = useState(0);
   const length = 63;
 
   useEffect(() => {
@@ -20,18 +20,23 @@ const Jumbo = () => {
 
   const { data, error, isLoading } = fetchCollectionPage({
     collectionID: "hot",
-    index: lastPage,
+    index: lastPage > 0 ? lastPage : 1,
   });
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
   if (!data) return <div>No data</div>;
   const metadata = data?.meta as { last_page: number };
-  if (metadata && metadata?.last_page !== lastPage) {
-    setLastPage(metadata.last_page);
+  console.log(metadata, lastPage);
+  if (metadata && lastPage === 0) {
+    setLastPage(Math.round(Math.random() * metadata.last_page));
     setIndex(1);
   }
   const images = data.data as ImageType[];
+  if (index > images.length) {
+    setLastPage(Math.round(Math.random() * metadata.last_page));
+    setIndex(1);
+  }
   return (
     <div className="">
       <button onClick={() => addImageToQueue(images[index])} type="button">
