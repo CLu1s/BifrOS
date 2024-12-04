@@ -9,7 +9,7 @@ const Jumbo = () => {
   const { addImageToQueue } = useWallpapers();
   const [index, setIndex] = useState(1);
   const [lastPage, setLastPage] = useState(1);
-  const length = 64;
+  const length = 63;
 
   useEffect(() => {
     const interval = setInterval(() => {
