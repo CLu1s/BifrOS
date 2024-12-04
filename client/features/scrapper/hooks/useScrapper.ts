@@ -5,7 +5,7 @@ import { Execution } from "@/features/scrapper/types";
 
 const sortExecutions = (executions: Execution[]) => {
   return executions.sort((a, b) => {
-    return isBefore(new Date(b.timestamp), new Date(a.timestamp)) ? 1 : -1;
+    return isBefore(new Date(a.timestamp), new Date(b.timestamp)) ? 1 : -1;
   });
 };
 

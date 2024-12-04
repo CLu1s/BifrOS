@@ -28,6 +28,7 @@ import LastBookmarks from "@/features/bookmarks/components/LastBookmarks";
 import LastestFeed from "@/features/feed/components/LastestFeed";
 import useActions from "@/features/feed/hooks/useActions";
 import { getFeeds } from "@/features/feed/lib";
+import PageLayout from "@/components/PageLayout";
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -75,36 +76,33 @@ const Container = () => {
   }, []);
 
   return (
-    <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
-      <h1>Dashboard</h1>
-      <div className={"grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-5 gap-8"}>
-        <div className={"col-span-1 flex flex-col gap-2 "}>
-          <Favorites />
-        </div>
-        <div className={"col-span-1 lg:col-span-1 w-full  "}>
-          <RecentActivity activities={activities} />
-        </div>
-        <div className={"col-span-1 flex flex-col gap-2 "}>
-          <Generals />
-        </div>
-
-        <div className={" w-full col-span-1 lg:col-span-3"}>
-          <LastestFeed />
-        </div>
-        <div className={"w-full col-span-1 lg:col-span-2"}>
-          <LastBookmarks />
-        </div>
-        <div className={" col-span-1 lg:col-span-3     "}>
-          <LastScraperResult />
-        </div>
-        <div className={" gap-4 col-span-2  2xl:col-span-1"}>
-          <NextInQueue />
-        </div>
-        <div className={"gap-4 col-span-1"}>
-          <LastAnimeCornerResult />
-        </div>
+    <PageLayout title={"Bienvenido"}>
+      <div className={"col-span-1 "}>
+        <Favorites />
       </div>
-    </div>
+      <div className={"col-span-1 lg:col-span-1 "}>
+        <RecentActivity activities={activities} />
+      </div>
+      <div className={"col-span-1   "}>
+        <Generals />
+      </div>
+
+      <div className={" col-span-1 lg:col-span-3"}>
+        <LastestFeed />
+      </div>
+      <div className={" col-span-1 lg:col-span-2"}>
+        <LastBookmarks />
+      </div>
+      <div className={" col-span-1 lg:col-span-3 "}>
+        <LastScraperResult />
+      </div>
+      <div className={" col-span-1 lg:col-span-2  2xl:col-span-1"}>
+        <NextInQueue />
+      </div>
+      <div className={"col-span-1"}>
+        <LastAnimeCornerResult />
+      </div>
+    </PageLayout>
   );
 };
 

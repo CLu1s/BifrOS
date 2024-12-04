@@ -52,19 +52,11 @@ function BookmarkItem({ data }: { data: Bookmark }) {
       <div className={"flex flex-col lg:flex-row justify-between gap-4"}>
         <div className={"flex gap-4"}>
           <div className={"w-14 h-14"}>
-            {data.ogImage ? (
-              <Image
-                src={data.ogImage}
-                alt={data.ogTitle}
-                className={"min-h-14 min-w-14 object-cover rounded"}
-              />
-            ) : (
-              <Image
-                src={data.favicon}
-                alt={data.ogTitle}
-                className={"min-h-14 min-w-14 object-cover rounded"}
-              />
-            )}
+            <Image
+              src={data.ogImage || data.favicon || "/vercel.svg"}
+              alt={data.ogTitle}
+              className={"min-h-14 min-w-14 object-cover rounded"}
+            />
           </div>
 
           <div className={"flex-col gap-2"}>

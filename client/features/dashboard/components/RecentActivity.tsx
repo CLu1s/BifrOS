@@ -18,7 +18,7 @@ const RecentActivity = ({ activities }: Props) => {
     return (
       <li key={id} className={"flex gap-4"}>
         <span>{icons[type]}</span>
-        <span className={"truncate"}>{description}</span>
+        <span>{description}</span>
       </li>
     );
   });

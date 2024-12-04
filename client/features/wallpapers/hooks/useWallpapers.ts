@@ -5,9 +5,15 @@ import {
   selectCollectionsInfo,
 } from "@/features/wallpapers/redux/wallpaperSelector";
 import { useDispatch, useSelector } from "react-redux";
-import type { QueueElement } from "@/features/wallpapers/types";
-import { deleteFromFirestore } from "@/firebase/services";
-import { removeFromQueue } from "@/features/wallpapers/redux/wallpaperSlice";
+import type {
+  Image as ImageType,
+  QueueElement,
+} from "@/features/wallpapers/types";
+import { deleteFromFirestore, saveOnFirestore } from "@/firebase/services";
+import {
+  addToQueue,
+  removeFromQueue,
+} from "@/features/wallpapers/redux/wallpaperSlice";
 
 const useWallpapers = () => {
   const dispatch = useDispatch();
@@ -15,7 +21,7 @@ const useWallpapers = () => {
   const portrait = useSelector(portraitQueue);
   const info = useSelector(selectCollectionsInfo);
   const history = useSelector(getHistory);
-
+  const all = [...landscape, ...portrait].sort((a, b) => a.order - b.order);
   const removeImage = async (image: QueueElement) => {
     await deleteFromFirestore(`wallpapers/myData/${image.queue}/${image.id}`);
     dispatch(removeFromQueue({ id: image.id, type: image.type }));
@@ -41,12 +47,47 @@ const useWallpapers = () => {
     return info.find((el) => el.id === id);
   };
 
+  const addImageToQueue = async (image: ImageType) => {
+    const find = all.find((el) => el.id === image.id);
+    if (find) return;
+    const type = Number(image.ratio) < 1 ? "portrait" : "landscape";
+
+    const element: QueueElement = {
+      id: image.id,
+      url: image.path,
+      addedAt: new Date().toISOString(),
+      isActive: false,
+      order: getNextQueueNumberOrder(),
+      type: type,
+      queue: `${type}-queue`,
+      whPath: image.url,
+    };
+
+    try {
+      const type = Number(image.ratio) < 1 ? "portrait" : "landscape";
+
+      await saveOnFirestore(
+        `wallpapers/myData/${type}-queue/${image.id}`,
+        element,
+      );
+      dispatch(
+        addToQueue({
+          element,
+          type,
+        }),
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     getNextQueueNumberOrder,
     getQueue,
     find,
     removeImage,
-    all: [...landscape, ...portrait].sort((a, b) => a.order - b.order),
+    all,
+    addImageToQueue,
     history,
   };
 };
