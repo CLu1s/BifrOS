@@ -4,6 +4,9 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 
 const FeedList = () => {
   const { feeds, feedKeys, todayFeed } = useFeed();
+
+  const container =
+    "container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-20";
   const items = [
     <AccordionItem
       key={"Today"}
@@ -11,11 +14,7 @@ const FeedList = () => {
       title={"Today"}
       className={"capitalize text-2xl font-bold"}
     >
-      <div
-        className={
-          " container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"
-        }
-      >
+      <div className={container}>
         {todayFeed.map((feed) => {
           return <FeedElement key={feed.id} feed={feed} />;
         })}
@@ -30,11 +29,7 @@ const FeedList = () => {
         title={key}
         className={" text-2xl font-bold"}
       >
-        <div
-          className={
-            " container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"
-          }
-        >
+        <div className={container}>
           {feeds[key].map((feed) => {
             return <FeedElement key={feed.id} feed={feed} />;
           })}

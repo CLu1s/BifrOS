@@ -11,7 +11,6 @@ import {
   limit,
   orderBy,
 } from "firebase/firestore";
-import Generals from "@/features/dashboard/components/Generals";
 import { useDispatch } from "react-redux";
 import { getQueueFromFirebase } from "@/features/wallpapers/lib";
 import { setQueue } from "@/features/wallpapers/redux/wallpaperSlice";
@@ -25,7 +24,7 @@ import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 import Favorites from "@/features/bookmarks/components/Favorites";
 import LastAnimeCornerResult from "@/features/scrapper/components/LastAnimeCornerResult";
 import LastBookmarks from "@/features/bookmarks/components/LastBookmarks";
-import LastestFeed from "@/features/feed/components/LastestFeed";
+import LatestFeed from "@/features/feed/components/LatestFeed";
 import useActions from "@/features/feed/hooks/useActions";
 import { getFeeds } from "@/features/feed/lib";
 import PageLayout from "@/components/PageLayout";
@@ -83,14 +82,11 @@ const Container = () => {
       <div className={"col-span-1 lg:col-span-1 "}>
         <RecentActivity activities={activities} />
       </div>
-      <div className={"col-span-1   "}>
-        <Generals />
-      </div>
 
-      <div className={" col-span-1 lg:col-span-3"}>
-        <LastestFeed />
+      <div className={" col-span-1 lg:col-span-2 2xl:col-span-2"}>
+        <LatestFeed />
       </div>
-      <div className={" col-span-1 lg:col-span-2"}>
+      <div className={" col-span-1 lg:col-span-1"}>
         <LastBookmarks />
       </div>
       <div className={" col-span-1 lg:col-span-3 "}>

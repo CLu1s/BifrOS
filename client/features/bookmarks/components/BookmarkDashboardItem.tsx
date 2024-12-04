@@ -45,38 +45,36 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
       href={data.url}
       target={"_blank"}
       className={
-        "flex flex-col shrink-0 gap-2  justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
+        " shrink-0 gap-2  justify-between text-start hover:bg-neutral-700  p-2  border rounded-xl"
       }
     >
-      <div className={"flex flex-col lg:flex-row justify-between gap-4"}>
-        <div className={"flex flex-col gap-4 w-full justify-center"}>
-          {data.ogImage ? (
-            <Image
-              src={data.ogImage}
-              alt={data.ogTitle}
-              className={"object-cover w-full rounded m-auto"}
-              height={150}
-            />
-          ) : (
-            <Image
-              src={data.favicon}
-              alt={data.ogTitle}
-              className={"object-cover rounded m-auto"}
-            />
-          )}
+      <div className={"grid grid-cols-5  gap-4 w-full justify-center"}>
+        {data.ogImage ? (
+          <Image
+            src={data.ogImage}
+            alt={data.ogTitle}
+            className={"object-cover w-full rounded m-auto"}
+            height={50}
+          />
+        ) : (
+          <Image
+            src={data.favicon}
+            alt={data.ogTitle}
+            className={"object-cover rounded m-auto"}
+          />
+        )}
 
-          <div className={"flex-col gap-2"}>
-            <h2 className={"text-lg "}>
-              {decodeURIComponent(data.ogTitle).slice(0, 30)}
-            </h2>
+        <div className={" col-span-4 flex flex-col gap-2"}>
+          <h2 className={"text-sm "}>{decodeURIComponent(data.ogTitle)}</h2>
+          {data.ogDescription && (
             <p
               className={
-                "font-normal text-neutral-400 text-sm h-14 overflow-hidden"
+                "font-normal text-neutral-400 text-tiny h-12 overflow-hidden"
               }
             >
               {data.ogDescription}
             </p>
-          </div>
+          )}
         </div>
       </div>
     </a>

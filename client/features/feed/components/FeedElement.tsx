@@ -24,6 +24,7 @@ export function FeedElement(props: { feed: Feed }) {
     }
     await createBookmark(url, id);
   };
+
   return (
     <Card className="py-4 w-full relative">
       <div className="absolute top-1 right-1 z-40">
@@ -31,25 +32,12 @@ export function FeedElement(props: { feed: Feed }) {
           isIconOnly
           variant={"light"}
           onPress={() => saveBookmark(props.feed.link, props.feed.id)}
-          className={findBookmark(props.feed.link) ? "text-yellow-500" : ""}
+          className={`${findBookmark(props.feed.link) && "text-yellow-500"}`}
         >
-          <Bookmark className={"h-8 w-8"} />
+          <Bookmark className={"h-6 w-6"} />
         </Button>
       </div>
-      <CardHeader className="pb-0  gap-0 lg:gap-2 flex-col items-start">
-        <p className="text-tiny uppercase font-medium">{props.feed.source}</p>
-        <small className="text-default-500">
-          {new Date(props.feed.pubDate).toDateString()}
-        </small>
-        <Link
-          href={props.feed.link}
-          target={"_blank"}
-          className="font-semibold text-large leading-5 lg:leading-6 "
-        >
-          {props.feed.title}
-        </Link>
-      </CardHeader>
-      <CardBody className="hidden lg:flex  m-auto py-2">
+      <CardHeader className="pb-0  gap-0 lg:gap-0.5 flex-col items-start">
         <div className={"m-auto "}>
           <Image
             alt="Card background"
@@ -58,6 +46,19 @@ export function FeedElement(props: { feed: Feed }) {
             height={150}
           />
         </div>
+      </CardHeader>
+      <CardBody className=" m-auto py-2">
+        <Link
+          href={props.feed.link}
+          target={"_blank"}
+          className="font-semibold text-medium leading-5  "
+        >
+          {props.feed.title}
+        </Link>
+        <p className="text-tiny font-medium">{props.feed.source}</p>
+        <small className="text-tiny text-default-500">
+          {new Date(props.feed.pubDate).toDateString()}
+        </small>
       </CardBody>
     </Card>
   );

@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="improve ux wallpaper">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="rewrite galleries tabs">
+      <change afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LastestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/lib/wallpaper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/wallpaper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,27 +58,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Shell Script.Firebase.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/features/feed&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Firebase.executor": "Run",
+    "Shell Script.Unnamed.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros/client/features/feed/components",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/features/feed/components" />
       <recent name="$PROJECT_DIR$/client/features/feed" />
       <recent name="$PROJECT_DIR$/client/features/bookmarks/components" />
     </key>
@@ -133,7 +144,7 @@
       <workItem from="1732991790035" duration="8271000" />
       <workItem from="1733155242469" duration="7323000" />
       <workItem from="1733180944810" duration="3769000" />
-      <workItem from="1733326304662" duration="3543000" />
+      <workItem from="1733326304662" duration="7937000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -223,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733329183111</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="change max index">
+      <option name="closed" value="true" />
+      <created>1733333324015</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733333324015</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +255,8 @@
     <MESSAGE value="add more widgets to home" />
     <MESSAGE value="improve ux" />
     <MESSAGE value="improve ux wallpaper" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve ux wallpaper" />
+    <MESSAGE value="change max index" />
+    <MESSAGE value="rewrite galleries tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="rewrite galleries tabs" />
   </component>
 </project>

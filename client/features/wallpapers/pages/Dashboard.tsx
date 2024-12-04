@@ -3,7 +3,6 @@ import Queue from "@/features/wallpapers/components/Queue";
 import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 import History from "@/features/wallpapers/components/History";
 import PageLayout from "@/components/PageLayout";
-import { Wallpaper } from "lucide-react";
 import Jumbo from "@/features/wallpapers/components/Jumbo";
 
 const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
@@ -26,10 +25,10 @@ async function getAllCollections() {
     `https://wallhaven.cc/api/v1/collections?apikey=${KEY}`,
     { next: { revalidate: REVALIDATE } },
   );
-  const topCollection = await fetch(buildUrl("toplist", "portrait", "1w"), {
+  const topCollection = await fetch(buildUrl("toplist", undefined, "1w"), {
     next: { revalidate: REVALIDATE },
   });
-  const htopCollections = await fetch(buildUrl("toplist", "landscape", "1w"), {
+  const htopCollections = await fetch(buildUrl("toplist", "landscape", "3d"), {
     next: { revalidate: REVALIDATE },
   });
 
@@ -53,20 +52,20 @@ async function getAllCollections() {
   return {
     data: [
       {
-        id: "top",
-        label: "Vertical Top",
-        views: 0,
-        public: 1,
-        count: topCollectionJson.meta.total,
-        per_page: topCollectionJson.meta.per_page,
-      },
-      {
-        id: "htop",
-        label: "Horizontal Top",
+        id: "toplist3d",
+        label: "Top 3D",
         views: 0,
         public: 1,
         count: htopCollectionsJson.meta.total,
         per_page: htopCollectionsJson.meta.per_page,
+      },
+      {
+        id: "toplist",
+        label: "Top 1W",
+        views: 0,
+        public: 1,
+        count: topCollectionJson.meta.total,
+        per_page: topCollectionJson.meta.per_page,
       },
       {
         id: "latest",

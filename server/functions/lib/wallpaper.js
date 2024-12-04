@@ -26,21 +26,20 @@ export const getCollections = async (id = "810757", page = 1) => {
   try {
     let url;
     switch (id) {
-      case "top":
+      case "toplist":
         url = buildUrl({
           type: "search",
           sorting: "toplist",
-          ratio: "portrait",
           topRange: "1w",
           page,
         });
         break;
-      case "htop":
+      case "toplist3d":
         url = buildUrl({
           type: "search",
           sorting: "toplist",
           ratio: "landscape",
-          topRange: "1w",
+          topRange: "3d",
           page,
         });
         break;
