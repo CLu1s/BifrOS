@@ -1,6 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "@/store";
 import { WallpaperSlice } from "./wallpaperSlice";
+import { orderQueue } from "@/features/wallpapers/lib";
 
 export const selectWallpaperState = (state: RootState): WallpaperSlice =>
   state.wallpaper;
@@ -26,13 +27,12 @@ export const selectActiveCollection = createSelector(
 );
 
 export const portraitQueue = createSelector(selectWallpaperState, (wallpaper) =>
-  wallpaper.queue.portrait.toSorted((a, b) => a.order - b.order),
+  wallpaper.queue.portrait.toSorted(orderQueue),
 );
 
 export const landscapeQueue = createSelector(
   selectWallpaperState,
-  (wallpaper) =>
-    wallpaper.queue.landscape.toSorted((a, b) => a.order - b.order),
+  (wallpaper) => wallpaper.queue.landscape.toSorted(orderQueue),
 );
 
 export const selectModalImage = createSelector(

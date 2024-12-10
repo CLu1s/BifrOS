@@ -94,7 +94,7 @@ export const getWallpaperFromQueue = async (type) => {
       .collection("wallpapers")
       .doc("myData")
       .collection(`${queueType}-queue`);
-    const wallpaper = await ref.orderBy("order").limit(1).get();
+    const wallpaper = await ref.orderBy("order", "desc").limit(1).get();
     const wallpaperData = wallpaper.docs[0].data();
     await ref.doc(wallpaper.docs[0].id).delete();
     return wallpaperData;

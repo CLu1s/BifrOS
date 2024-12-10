@@ -1,6 +1,7 @@
-import { queryFirestore, readDocsFromFirestore } from "@/firebase/services";
+import { queryFirestore } from "@/firebase/services";
 import { HistoryElement, QueueElement } from "@/features/wallpapers/types";
 import { collection, getFirestore, orderBy, query } from "firebase/firestore";
+
 export * from "./fetchers";
 
 export async function historyFromFirebaseFetcher() {
@@ -9,3 +10,5 @@ export async function historyFromFirebaseFetcher() {
   const q = query(ref, orderBy("timestamp", "desc"));
   return (await queryFirestore(q)) as HistoryElement[];
 }
+export const orderQueue = (a: QueueElement, b: QueueElement) =>
+  b.order - a.order;

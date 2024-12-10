@@ -79,6 +79,7 @@
       <recent name="$PROJECT_DIR$/client/features/bookmarks/components" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" />
       <recent name="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -155,7 +156,7 @@
       <workItem from="1733671810824" duration="180000" />
       <workItem from="1733689685879" duration="2000" />
       <workItem from="1733757713090" duration="4000" />
-      <workItem from="1733837957933" duration="4894000" />
+      <workItem from="1733837957933" duration="5465000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
