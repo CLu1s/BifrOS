@@ -4,6 +4,7 @@ import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 import History from "@/features/wallpapers/components/History";
 import PageLayout from "@/components/PageLayout";
 import Jumbo from "@/features/wallpapers/components/Jumbo";
+import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 
 const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
 const KEY = process.env.WALLHAVEN_KEY;
@@ -68,14 +69,6 @@ async function getAllCollections() {
         per_page: topCollectionJson.meta.per_page,
       },
       {
-        id: "latest",
-        label: "Latest",
-        views: 0,
-        public: 1,
-        count: latesCollectionJson.meta.total,
-        per_page: latesCollectionJson.meta.per_page,
-      },
-      {
         id: "hot",
         label: "Hot",
         views: 0,
@@ -83,6 +76,15 @@ async function getAllCollections() {
         count: hotCollectionsJson.meta.total,
         per_page: hotCollectionsJson.meta.per_page,
       },
+      {
+        id: "latest",
+        label: "Latest",
+        views: 0,
+        public: 1,
+        count: latesCollectionJson.meta.total,
+        per_page: latesCollectionJson.meta.per_page,
+      },
+
       {
         id: "random",
         label: "Random",
@@ -109,26 +111,28 @@ export default async function WallpaperDashboard() {
     getUserConfig(),
   ]);
   return (
-    <PageLayout title={"Wallpaper"}>
-      <div className={"col-span-1 lg:col-span-2"}>
-        <Jumbo />
-      </div>
-      <div className={"col-span-1"}>
-        <NextInQueue />
-      </div>
-      <div className={"flex  gap-8 col-span-1 lg:col-span-2"}>
-        <Queue />
-      </div>
-      <div className={"col-span-1"}>
-        <History />
-      </div>
+    <FetcherWallpaperContainer>
+      <PageLayout title={"Wallpaper"}>
+        <div className={"col-span-1 lg:col-span-2"}>
+          <Jumbo />
+        </div>
+        <div className={"col-span-1"}>
+          <NextInQueue />
+        </div>
+        <div className={"flex  gap-8 col-span-1 lg:col-span-2"}>
+          <Queue />
+        </div>
+        <div className={"col-span-1"}>
+          <History />
+        </div>
 
-      <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>
-        <Container
-          collectionsInfo={JSON.stringify(collections.data)}
-          config={JSON.stringify(userConfig)}
-        />
-      </div>
-    </PageLayout>
+        <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>
+          <Container
+            collectionsInfo={JSON.stringify(collections.data)}
+            config={JSON.stringify(userConfig)}
+          />
+        </div>
+      </PageLayout>
+    </FetcherWallpaperContainer>
   );
 }

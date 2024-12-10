@@ -27,7 +27,6 @@ const Jumbo = () => {
   if (error) return <div>Error</div>;
   if (!data) return <div>No data</div>;
   const metadata = data?.meta as { last_page: number };
-  console.log(metadata, lastPage);
   if (metadata && lastPage === 0) {
     setLastPage(Math.round(Math.random() * metadata.last_page));
     setIndex(1);

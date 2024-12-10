@@ -4,6 +4,7 @@ import { Feed } from "@/features/feed/types";
 
 const useFeed = () => {
   const feeds = useSelector(selectFeeds);
+
   const groupedByCategory = feeds.reduce(
     (acc, feed) => {
       const { category } = feed;
@@ -35,11 +36,22 @@ const useFeed = () => {
     );
   });
 
+  const normalizeFeeds = (feeds: any[]) => {
+    return feeds.map((feed) => {
+      const { cachedAt, ...rest } = feed;
+      return {
+        ...rest,
+      };
+    });
+  };
+
   return {
     feeds: groupedByCategory,
     feedKeys,
     mostRecentFeed: feedKeysByCategory,
     todayFeed,
+    feedsLength: feeds.length,
+    normalizeFeeds,
   };
 };
 

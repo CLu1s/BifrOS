@@ -13,10 +13,7 @@ import DisplayCollection from "@/features/wallpapers/components/DisplayCollectio
 import { Button, ButtonGroup } from "@nextui-org/react";
 import { CollectionInfo } from "@/features/wallpapers/types";
 import { selectActiveCollection } from "@/features/wallpapers/redux/wallpaperSelector";
-import {
-  getHistoryFromFirebase,
-  getQueueFromFirebase,
-} from "@/features/wallpapers/lib";
+
 import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 
 type Props = {
@@ -34,19 +31,6 @@ const Container = ({ collectionsInfo, config }: Props) => {
     dispatch(setConfig(configData));
     dispatch(setCollectionsInfo(collectionsInfoData));
   }, [collectionsInfo, collectionsInfoData, config, configData, dispatch]);
-  useEffect(() => {
-    (async () => {
-      const data = await getQueueFromFirebase();
-      dispatch(setQueue(data));
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const data = await getHistoryFromFirebase();
-      dispatch(setHistory(data));
-    })();
-  }, []);
 
   const handleCollectionClick = (collection: CollectionInfo) => {
     dispatch(setActiveCollection(collection));

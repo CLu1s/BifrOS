@@ -3,17 +3,7 @@ import { HistoryElement, QueueElement } from "@/features/wallpapers/types";
 import { collection, getFirestore, orderBy, query } from "firebase/firestore";
 export * from "./fetchers";
 
-export async function getQueueFromFirebase() {
-  const landscape = (await readDocsFromFirestore(
-    "wallpapers/myData/landscape-queue",
-  )) as QueueElement[];
-  const portrait = (await readDocsFromFirestore(
-    "wallpapers/myData/portrait-queue",
-  )) as QueueElement[];
-  return { landscape, portrait };
-}
-
-export async function getHistoryFromFirebase() {
+export async function historyFromFirebaseFetcher() {
   const db = getFirestore();
   const ref = collection(db, "wallpapers/myData/history");
   const q = query(ref, orderBy("timestamp", "desc"));

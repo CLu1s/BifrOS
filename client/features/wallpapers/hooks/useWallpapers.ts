@@ -14,17 +14,21 @@ import {
   addToQueue,
   removeFromQueue,
 } from "@/features/wallpapers/redux/wallpaperSlice";
+import useFetchers from "@/features/wallpapers/hooks/useFetchers";
 
 const useWallpapers = () => {
+  const { revalidateCache } = useFetchers();
   const dispatch = useDispatch();
   const landscape = useSelector(landscapeQueue);
   const portrait = useSelector(portraitQueue);
   const info = useSelector(selectCollectionsInfo);
   const history = useSelector(getHistory);
   const all = [...landscape, ...portrait].sort((a, b) => a.order - b.order);
+
   const removeImage = async (image: QueueElement) => {
     await deleteFromFirestore(`wallpapers/myData/${image.queue}/${image.id}`);
     dispatch(removeFromQueue({ id: image.id, type: image.type }));
+    revalidateCache();
   };
 
   const getQueue = (type: "landscape" | "portrait") => {
@@ -70,6 +74,7 @@ const useWallpapers = () => {
         `wallpapers/myData/${type}-queue/${image.id}`,
         element,
       );
+      revalidateCache();
       dispatch(
         addToQueue({
           element,

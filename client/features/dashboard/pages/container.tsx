@@ -11,12 +11,8 @@ import {
   limit,
   orderBy,
 } from "firebase/firestore";
-import { useDispatch } from "react-redux";
-import { getQueueFromFirebase } from "@/features/wallpapers/lib";
-import { setQueue } from "@/features/wallpapers/redux/wallpaperSlice";
 import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
 import { setExecutions } from "@/features/scrapper/redux/scrapperSlice";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
@@ -26,15 +22,16 @@ import LastAnimeCornerResult from "@/features/scrapper/components/LastAnimeCorne
 import LastBookmarks from "@/features/bookmarks/components/LastBookmarks";
 import LatestFeed from "@/features/feed/components/LatestFeed";
 import useActions from "@/features/feed/hooks/useActions";
-import { getFeeds } from "@/features/feed/lib";
 import PageLayout from "@/components/PageLayout";
+import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
+import { useDispatch } from "react-redux";
 
 const Container = () => {
   const dispatch = useDispatch();
   const { setFeeds } = useActions();
 
-  const { all } = useWallpapers();
   const [activities, setActivities] = useState<Activity[]>([]);
+
   useEffect(() => {
     (async () => {
       const db = getFirestore();
@@ -42,14 +39,6 @@ const Container = () => {
       const q = query(ref, orderBy("timestamp", "desc"), limit(7));
       const data = (await queryFirestore(q)) as Activity[];
       setActivities(data);
-    })();
-  }, []);
-
-  useEffect(() => {
-    if (all.length > 0) return;
-    (async () => {
-      const data = await getQueueFromFirebase();
-      dispatch(setQueue(data));
     })();
   }, []);
 
@@ -64,13 +53,6 @@ const Container = () => {
     (async () => {
       const data = await getBookmarksFromFirestore();
       dispatch(setBookmarks(data));
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const result = await getFeeds();
-      setFeeds(result);
     })();
   }, []);
 
@@ -93,7 +75,9 @@ const Container = () => {
         <LastScraperResult />
       </div>
       <div className={" col-span-1 lg:col-span-2  2xl:col-span-1"}>
-        <NextInQueue />
+        <FetcherWallpaperContainer>
+          <NextInQueue />
+        </FetcherWallpaperContainer>
       </div>
       <div className={"col-span-1"}>
         <LastAnimeCornerResult />

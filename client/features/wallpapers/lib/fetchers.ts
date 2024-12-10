@@ -16,5 +16,13 @@ interface Props {
 const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPERS_PAGE;
 
 export const fetchCollectionPage = ({ collectionID, index }: Props) => {
-  return useSWR(`${API_URL}?collection=${collectionID}&page=${index}`, fetcher);
+  return useSWR(
+    `${API_URL}?collection=${collectionID}&page=${index}`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    },
+  );
 };
