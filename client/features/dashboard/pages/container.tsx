@@ -25,6 +25,7 @@ import useActions from "@/features/feed/hooks/useActions";
 import PageLayout from "@/components/PageLayout";
 import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 import { useDispatch } from "react-redux";
+import { Execution } from "@/features/scrapper/types";
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,8 @@ const Container = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await getScraperDocsFromFirebase();
+      const data =
+        (await getScraperDocsFromFirebase()) as unknown as Execution[];
       dispatch(setExecutions(data));
     })();
   }, []);

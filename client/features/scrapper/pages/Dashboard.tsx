@@ -8,7 +8,7 @@ import {
   setExecutions,
   setLoadingState,
 } from "@/features/scrapper/redux/scrapperSlice";
-import { KodanshaResult } from "@/features/scrapper/types";
+import { Execution, KodanshaResult } from "@/features/scrapper/types";
 import useScrapper from "@/features/scrapper/hooks/useScrapper";
 import { ControlPanel } from "@/features/scrapper/components/ControlPanel";
 import { MetricsTable } from "@/features/scrapper/components/MetricsTable";
@@ -58,7 +58,8 @@ const ScrapperDashboard = () => {
   ];
   useEffect(() => {
     (async () => {
-      const data = await getScraperDocsFromFirebase();
+      const data =
+        (await getScraperDocsFromFirebase()) as unknown as Execution[];
       dispatch(setExecutions(data));
     })();
   }, []);
