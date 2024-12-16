@@ -24,3 +24,8 @@ export const selectActiveCategory = createSelector(
   selectScrapper,
   (bookMarker) => bookMarker.selectedCategory,
 );
+
+export const selectFilterByTerm = createSelector(
+  selectScrapper,
+  (bookMarker) => bookMarker.filterByTerm,
+);

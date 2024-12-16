@@ -1,10 +1,9 @@
 "use client";
-
 import BookmarkItem from "./BookmarkItem";
-import { Bookmark } from "@/features/bookmarks/types";
+import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 
-function BookmarkContainer(props: { bookmarks: Bookmark[] }) {
-  const { bookmarks } = props;
+function BookmarkContainer() {
+  const { bookmarks } = useBookmark();
 
   const dataToRender = bookmarks.map((url) => {
     return <BookmarkItem key={url.id} data={url} />;
@@ -13,7 +12,9 @@ function BookmarkContainer(props: { bookmarks: Bookmark[] }) {
   return (
     <div className={"w-full"}>
       <h1>URLs</h1>
-      <div className={"flex flex-col gap-2"}>{dataToRender}</div>
+      <div className={"flex flex-col 2xl:grid grid-cols-3 gap-2"}>
+        {dataToRender}
+      </div>
     </div>
   );
 }

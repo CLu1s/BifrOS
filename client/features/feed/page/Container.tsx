@@ -3,15 +3,13 @@
 import { useEffect } from "react";
 import useActions from "@/features/feed/hooks/useActions";
 import FeedList from "@/features/feed/components/FeedList";
-import { getFeeds } from "@/features/feed/lib";
 import useFeed from "@/features/feed/hooks/useFeed";
 import useFetchers from "@/features/feed/hooks/useFetchers";
-import { setFeeds } from "@/features/feed/redux/feedSlice";
 
 const Container = () => {
   const { setFeeds } = useActions();
   const { feeds, normalizeFeeds, feedsLength } = useFeed();
-  const { feeds: data, isLoading, isError, isValidating } = useFetchers();
+  const { feeds: data, isLoading, isError, isValidating } = useFetchers(true);
   useEffect(() => {
     if (
       !isLoading &&

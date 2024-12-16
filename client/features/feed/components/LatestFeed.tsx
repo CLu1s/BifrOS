@@ -9,6 +9,7 @@ const LatestFeed = () => {
   const { setFeeds } = useActions();
   const { mostRecentFeed, feeds, normalizeFeeds, feedsLength } = useFeed();
   const { feeds: data, isLoading, isError, isValidating } = useFetchers();
+
   useEffect(() => {
     if (
       !isLoading &&

@@ -6,6 +6,7 @@ import {
   addBookmark,
   setCategories,
   removeBookmark,
+  setFilterByTerm,
 } from "@/features/bookmarks/redux/bookmarksSlice";
 
 const useActions = () => {
@@ -17,6 +18,7 @@ const useActions = () => {
       setActiveCategory,
       addBookmark,
       removeBookmark,
+      setFilterByTerm,
     },
     dispatch,
   );

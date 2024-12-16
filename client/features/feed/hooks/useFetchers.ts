@@ -1,12 +1,26 @@
-import { readDocsFromFirestore } from "@/firebase/services";
+import { queryFirestore, readDocsFromFirestore } from "@/firebase/services";
 import useSWR, { useSWRConfig } from "swr";
 import { Feed } from "@/features/feed/types";
+import {
+  collection,
+  getFirestore,
+  limit,
+  orderBy,
+  query,
+} from "firebase/firestore";
 
-const useFetchers = () => {
+const useFetchers = (full = false) => {
   const { mutate } = useSWRConfig();
+  const db = getFirestore();
   const key = "rssFeeds/cache/items";
+
+  const ref = collection(db, key);
+
+  const q = query(ref, orderBy("pubDate", "desc"), limit(10));
+  const queryResults = useSWR(full ? null : key, () => queryFirestore(q));
+
   const { data, isLoading, error, isValidating } = useSWR(
-    key,
+    full ? key : null,
     readDocsFromFirestore,
   );
 
@@ -15,10 +29,10 @@ const useFetchers = () => {
   };
 
   return {
-    feeds: data as Feed[],
-    isLoading,
-    isError: error,
-    isValidating: isValidating,
+    feeds: (data || queryResults.data) as Feed[],
+    isLoading: isLoading || queryResults.isLoading,
+    isError: error || queryResults.error,
+    isValidating: isValidating || queryResults.isValidating,
     revalidateCache,
   };
 };

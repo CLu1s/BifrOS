@@ -2,16 +2,18 @@ import {
   selectActiveCategory,
   selectBookmarks,
   selectCategories,
+  selectFilterByTerm,
 } from "@/features/bookmarks/redux/bookmarkSelector";
 import { useSelector } from "react-redux";
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
 import { toast } from "react-hot-toast";
 import useActions from "./useActions";
 import { deleteFromFirestore } from "@/firebase/services";
 
 const useBookmark = () => {
-  const { addBookmark, removeBookmark } = useActions();
+  const { addBookmark, removeBookmark, setFilterByTerm } = useActions();
   const bookmarks = useSelector(selectBookmarks);
+  const filterByTerm = useSelector(selectFilterByTerm);
   const categories = useSelector(selectCategories);
   const activeCategory = useSelector(selectActiveCategory);
   const numberOfBookmarksByCategory = useMemo(() => {
@@ -35,14 +37,28 @@ const useBookmark = () => {
             if (!activeCategory) return true;
             return i.category?.id === activeCategory.id;
           })
+          .filter((bookmark) => {
+            if (!filterByTerm) return true;
+
+            return (
+              bookmark.ogTitle
+                .toLowerCase()
+                .includes(filterByTerm.toLowerCase()) ||
+              bookmark.url.toLowerCase().includes(filterByTerm.toLowerCase()) ||
+              bookmark.ogDescription
+                .toLowerCase()
+                .includes(filterByTerm.toLowerCase())
+            );
+          })
           .sort((a, b) => {
             return a.timestamp > b.timestamp ? -1 : 1;
           })
       : [];
-  }, [bookmarks, activeCategory]);
+  }, [bookmarks, activeCategory, filterByTerm]);
+
   const favorites = orderedBookmarks.filter((bookmark) => bookmark.isFavorite);
 
-  const createBookmark = async (url: string, id?: string) => {
+  const createBookmark = useCallback(async (url: string, id?: string) => {
     const toastId = toast.loading("Adding bookmark");
     try {
       const serverUrl = process.env.NEXT_PUBLIC_SAVE_BOOKMARK_URL || "";
@@ -65,12 +81,12 @@ const useBookmark = () => {
       });
       return;
     }
-  };
+  }, []);
 
-  const deleteBookmark = async (id: string) => {
+  const deleteBookmark = useCallback(async (id: string) => {
     removeBookmark(id);
     await deleteFromFirestore(`bookmarker/myData/bookmarks/${id}`);
-  };
+  }, []);
 
   return {
     bookmarks: orderedBookmarks,
@@ -78,7 +94,9 @@ const useBookmark = () => {
     categories,
     numberOfBookmarksByCategory,
     createBookmark,
+    filterByTerm,
     deleteBookmark,
+    setFilterByTerm,
   };
 };
 

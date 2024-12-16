@@ -6,6 +6,7 @@ export type BookmarkState = {
   bookmarks: Bookmark[];
   categories: Category[];
   selectedCategory: Category | null;
+  filterByTerm: string;
 };
 
 const initialState: BookmarkState = {
@@ -13,6 +14,7 @@ const initialState: BookmarkState = {
   bookmarks: [],
   categories: [],
   selectedCategory: null,
+  filterByTerm: "",
 };
 
 const bookmarkSlice = createSlice({
@@ -66,6 +68,9 @@ const bookmarkSlice = createSlice({
     setActiveCategory: (state, action: PayloadAction<Category | null>) => {
       state.selectedCategory = action.payload;
     },
+    setFilterByTerm: (state, action: PayloadAction<string>) => {
+      state.filterByTerm = action.payload;
+    },
   },
 });
 
@@ -79,6 +84,7 @@ export const {
   addCategory,
   removeCategory,
   setActiveCategory,
+  setFilterByTerm,
 } = bookmarkSlice.actions;
 export const bookmarkReducer = bookmarkSlice.reducer;
 export default bookmarkSlice;
