@@ -1,4 +1,3 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 import BookmarkDashboardItem from "@/features/bookmarks/components/BookmarkDashboardItem";
 
@@ -10,16 +9,14 @@ const LastBookmarks = () => {
   ));
 
   return (
-    <Card className={" w-full"}>
-      <CardHeader>
-        <h2 className={"text-xl font-semibold"}>Latest Bookmarks</h2>
-      </CardHeader>
-      <CardBody>
+    <div className={"flex flex-col gap-4 w-full"}>
+      <h2 className={"text-lg font-semibold"}>Latest</h2>
+      <div>
         <div className={"grid grid-cols-1  gap-2 2xl:gap-4"}>
           {renderBookmarks}
         </div>
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 };
 

@@ -5,8 +5,7 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 const FeedList = () => {
   const { feeds, feedKeys, todayFeed } = useFeed();
 
-  const container =
-    "container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-20";
+  const container = "container m-auto flex flex-col gap-4 lg:px-20";
   const items = [
     <AccordionItem
       key={"Today"}

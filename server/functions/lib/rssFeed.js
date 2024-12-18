@@ -1,4 +1,5 @@
 import { parseURL } from "./bookmarks.js";
+import { format } from "date-fns";
 import admin from "firebase-admin";
 const db = admin.firestore();
 
@@ -11,7 +12,11 @@ export const saveFeedToFirestore = async (feed) => {
     const batch = db.batch();
     feed.forEach((item) => {
       const docRef = feedRef.doc(item.id);
-      batch.set(docRef, { ...item, cachedAt: admin.firestore.Timestamp.now() });
+      batch.set(docRef, {
+        ...item,
+        cachedAt: admin.firestore.Timestamp.now(),
+        dateInSec: parseInt(format(new Date(item.pubDate), "T")),
+      });
     });
     await batch.commit();
   } catch (e) {

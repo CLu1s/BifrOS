@@ -8,7 +8,7 @@ import useFetchers from "@/features/feed/hooks/useFetchers";
 
 const Container = () => {
   const { setFeeds } = useActions();
-  const { feeds, normalizeFeeds, feedsLength } = useFeed();
+  const { normalizeFeeds, feedsLength } = useFeed();
   const { feeds: data, isLoading, isError, isValidating } = useFetchers(true);
   useEffect(() => {
     if (
@@ -20,7 +20,7 @@ const Container = () => {
       const normalizedData = normalizeFeeds(data);
       setFeeds(normalizedData);
     }
-  }, [isLoading, isError, isValidating, feeds]);
+  }, [isLoading, isError, isValidating, data, feedsLength]);
 
   return (
     <div className={"flex flex-col gap-8 m-2 lg:m-10"}>

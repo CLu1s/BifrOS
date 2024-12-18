@@ -16,7 +16,7 @@ const useFetchers = (full = false) => {
 
   const ref = collection(db, key);
 
-  const q = query(ref, orderBy("pubDate", "desc"), limit(10));
+  const q = query(ref, orderBy("dateInSec", "desc"), limit(16));
   const queryResults = useSWR(full ? null : key, () => queryFirestore(q));
 
   const { data, isLoading, error, isValidating } = useSWR(

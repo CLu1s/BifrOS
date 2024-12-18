@@ -17,19 +17,16 @@ import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
 import NextInQueue from "@/features/wallpapers/components/NextInQueue";
-import Favorites from "@/features/bookmarks/components/Favorites";
 import LastAnimeCornerResult from "@/features/scrapper/components/LastAnimeCornerResult";
-import LastBookmarks from "@/features/bookmarks/components/LastBookmarks";
 import LatestFeed from "@/features/feed/components/LatestFeed";
-import useActions from "@/features/feed/hooks/useActions";
 import PageLayout from "@/components/PageLayout";
 import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 import { useDispatch } from "react-redux";
 import { Execution } from "@/features/scrapper/types";
+import BookmarkWidget from "@/features/bookmarks/components/BookmarkWidget";
 
 const Container = () => {
   const dispatch = useDispatch();
-  const { setFeeds } = useActions();
 
   const [activities, setActivities] = useState<Activity[]>([]);
 
@@ -60,19 +57,17 @@ const Container = () => {
 
   return (
     <PageLayout title={"Bienvenido"}>
-      <div className={"col-span-1 "}>
-        <Favorites />
+      <div className={"col-span-2 2xl:col-span-1"}>
+        <BookmarkWidget />
       </div>
       <div className={"col-span-1 lg:col-span-1 "}>
         <RecentActivity activities={activities} />
       </div>
 
-      <div className={" col-span-1 lg:col-span-2 2xl:col-span-2"}>
+      <div className={" col-span-1 lg:col-span-3 2xl:col-span-3"}>
         <LatestFeed />
       </div>
-      <div className={" col-span-1 lg:col-span-1"}>
-        <LastBookmarks />
-      </div>
+
       <div className={" col-span-1 lg:col-span-3 "}>
         <LastScraperResult />
       </div>

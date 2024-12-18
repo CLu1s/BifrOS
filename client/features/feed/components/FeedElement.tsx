@@ -1,11 +1,4 @@
-import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Image,
-  Link,
-} from "@nextui-org/react";
+import { Button, Image, Link } from "@nextui-org/react";
 import { Feed } from "@/features/feed/types";
 import { Bookmark } from "lucide-react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
@@ -26,28 +19,17 @@ export function FeedElement(props: { feed: Feed }) {
   };
 
   return (
-    <Card className="py-4 w-full relative">
-      <div className="absolute top-1 right-1 z-40">
-        <Button
-          isIconOnly
-          variant={"light"}
-          onPress={() => saveBookmark(props.feed.link, props.feed.id)}
-          className={`${findBookmark(props.feed.link) && "text-yellow-500"}`}
-        >
-          <Bookmark className={"h-6 w-6"} />
-        </Button>
+    <div className="grid grid-cols-12 gap-4 w-full relative">
+      <div className={"col-span-2 2xl:col-span-1"}>
+        <Image
+          alt="Card background"
+          className="w-full h-full object-cover  rounded "
+          src={props.feed.imageUrl}
+          width={128}
+          height={64}
+        />
       </div>
-      <CardHeader className="pb-0  gap-0 lg:gap-0.5 flex-col items-start">
-        <div className={"m-auto "}>
-          <Image
-            alt="Card background"
-            className="h-60 w-[422px] object-contain  rounded-xl"
-            src={props.feed.imageUrl}
-            height={150}
-          />
-        </div>
-      </CardHeader>
-      <CardBody className=" m-auto py-2">
+      <div className={"col-span-9"}>
         <Link
           href={props.feed.link}
           target={"_blank"}
@@ -59,7 +41,17 @@ export function FeedElement(props: { feed: Feed }) {
         <small className="text-tiny text-default-500">
           {new Date(props.feed.pubDate).toDateString()}
         </small>
-      </CardBody>
-    </Card>
+      </div>
+      <div className=" top-1 right-1 z-40">
+        <Button
+          isIconOnly
+          variant={"light"}
+          onPress={() => saveBookmark(props.feed.link, props.feed.id)}
+          className={`${findBookmark(props.feed.link) && "text-yellow-500"}`}
+        >
+          <Bookmark className={"h-6 w-6"} />
+        </Button>
+      </div>
+    </div>
   );
 }

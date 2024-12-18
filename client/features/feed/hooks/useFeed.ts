@@ -18,10 +18,10 @@ const useFeed = () => {
     {} as Record<string, Feed[]>,
   );
   const feedKeys = Object.keys(groupedByCategory);
-  const NUMBER_OF_FEEDS = 8;
+  const NUMBER_OF_FEEDS = 16;
   const numberOfFeedsByCategory = Math.ceil(NUMBER_OF_FEEDS / feedKeys.length);
   const feedKeysByCategory = feedKeys
-    .map((key, index) => {
+    .map((key) => {
       return groupedByCategory[key].slice(0, numberOfFeedsByCategory);
     })
     .flat();

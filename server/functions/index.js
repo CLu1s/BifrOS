@@ -53,9 +53,14 @@ const ERRORS = {
 };
 
 const corsMiddleware = cors({
-  origin: ["https://bifr-os.vercel.app", "http://localhost"], // Cambia a "*" para permitir cualquier origen
-  methods: ["POST"],
+  origin: [
+    "https://bifr-os.vercel.app",
+    "http://localhost",
+    "chrome-extension://ofcjfdmpkmfdafdmloddoiilmfhpmeoo",
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 204, // Evita errores en algunos navegadores
 });
 
 function compareArrays(arr1, arr2) {
@@ -339,6 +344,9 @@ const readFeedsHook = onRequest(async (request, response) => {
         .for(feedsUrl)
         .process(async (url) => {
           const feed = await parser.parseURL(url.url);
+          if (url.category === "reddit") {
+            console.log("reddit feed", feed.items.length);
+          }
           return { ...feed, category: url.category };
         });
     if (parseErrors.length > 0) {
