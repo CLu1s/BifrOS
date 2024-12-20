@@ -36,6 +36,7 @@ const Jumbo = () => {
     setLastPage(Math.round(Math.random() * metadata.last_page));
     setIndex(1);
   }
+  if (!images[index] || !images[index].path) return <div>No data</div>;
   return (
     <div className="">
       <button onClick={() => addImageToQueue(images[index])} type="button">

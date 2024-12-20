@@ -35,7 +35,7 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
           isDisabled={!!find}
           onPress={props.onPress}
         >
-          {find ? "In Query" : "Add to queue"}
+          {find ? "In Queue" : "Add to queue"}
         </Button>
         <Button
           className="text-tiny text-white bg-black/20"
