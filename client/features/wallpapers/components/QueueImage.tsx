@@ -3,6 +3,8 @@ import React from "react";
 import type { QueueElement } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import { cn } from "@/lib/utils";
+import { Smartphone } from "lucide-react";
 
 export function QueueImage(props: {
   image: QueueElement;
@@ -12,9 +14,17 @@ export function QueueImage(props: {
   const { removeImage } = useWallpapers();
   const { isHistory } = props;
   if (!props.image) return null;
-
+  const isVertical = props.image.type === "portrait";
   return (
-    <Card isFooterBlurred radius="lg" className="border-none shrink-0">
+    <Card isFooterBlurred radius="lg" className="relative border-none shrink-0">
+      <div
+        className={cn(
+          "absolute top-2 right-2 z-40 text-black/40 bg-gray-300/40 rounded-xl p-1",
+          !isVertical && "rotate-90",
+        )}
+      >
+        <Smartphone />
+      </div>
       <Image
         className={
           " h-40 xl:h-60 w-[722px] xl:w-[922px]   object-cover object-top"

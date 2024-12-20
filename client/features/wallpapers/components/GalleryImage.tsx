@@ -3,6 +3,8 @@ import React, { useMemo } from "react";
 import type { Image as ImageType } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import { cn } from "@/lib/utils";
+import { Smartphone } from "lucide-react";
 
 export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
   const { openModal } = useActions();
@@ -11,17 +13,30 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
     () => all.find((el) => el.id === props.image.id),
     [all, props.image.id],
   );
-  const type = Number(props.image.ratio) < 1;
+  const isVertical = Number(props.image.ratio) < 1;
   return (
     <Card
       isFooterBlurred
       radius="lg"
-      className={!!find ? "border-green-700 border" : "border-none  "}
+      className={cn(
+        "relative",
+        !!find ? "border-green-700 border" : "border-none  ",
+      )}
     >
+      <div
+        className={cn(
+          "absolute top-2 right-2 z-40 text-black/40 bg-gray-300/40 rounded-xl p-1",
+          !isVertical && "rotate-90",
+        )}
+      >
+        <Smartphone />
+      </div>
       <Image
         className={"h-60 w-[422px] object-cover object-top"}
         alt={props.image.url}
-        src={type ? props.image.thumbs.original : props.image.thumbs.large}
+        src={
+          isVertical ? props.image.thumbs.original : props.image.thumbs.large
+        }
         height={240}
         width={422}
       />
