@@ -4,36 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add type image indicator">
-      <change afterPath="$PROJECT_DIR$/client/components/ui/button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/separator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/sheet.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/skeleton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/ui/tooltip.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/hooks/use-mobile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/providers/SidebarProvider.tsx" afterDir="false" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="refactor layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/AppSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFetchers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/page/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/scrapper/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/pages/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/providers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/providers/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +178,7 @@
       <workItem from="1735998014075" duration="755000" />
       <workItem from="1736698494743" duration="851000" />
       <workItem from="1736719002669" duration="4760000" />
-      <workItem from="1736731862505" duration="6039000" />
+      <workItem from="1736731862505" duration="6419000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -365,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734721203230</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="refactor layout">
+      <option name="closed" value="true" />
+      <created>1736737946083</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1736737946083</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,6 +371,7 @@
     <MESSAGE value="impove iu" />
     <MESSAGE value="fix crashing error" />
     <MESSAGE value="add type image indicator" />
-    <option name="LAST_COMMIT_MESSAGE" value="add type image indicator" />
+    <MESSAGE value="refactor layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor layout" />
   </component>
 </project>

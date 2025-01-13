@@ -9,6 +9,7 @@ import Topbar from "@/components/Topbar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import AppSidebar from "@/components/AppSidebar";
 import { Toaster } from "react-hot-toast";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +45,7 @@ export default function RootLayout({
           <Providers>
             <div className={"flex flex-row"}>
               <AppSidebar />
-
+              <SidebarTrigger />
               {children}
             </div>
           </Providers>

@@ -7,7 +7,7 @@ const FeedList = () => {
   const { feeds, feedKeys, todayFeed } = useFeed();
 
   const container =
-    "container m-auto grid grid-cols-3 2xl:grid-cols-4 gap-4 lg:px-20";
+    "container m-auto grid grid-cols-1 lg:grid-cols-1 2xl:grid-cols-3 gap-4 lg:px-20";
   const items = [
     <AccordionItem
       key={"Today"}
