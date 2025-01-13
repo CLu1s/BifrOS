@@ -29,15 +29,12 @@ import Queue from "@/features/wallpapers/components/Queue";
 const Container = () => {
   const dispatch = useDispatch();
 
-  const [activities, setActivities] = useState<Activity[]>([]);
-
   useEffect(() => {
     (async () => {
       const db = getFirestore();
       const ref = collection(db, "activities");
       const q = query(ref, orderBy("timestamp", "desc"), limit(7));
       const data = (await queryFirestore(q)) as Activity[];
-      setActivities(data);
     })();
   }, []);
 

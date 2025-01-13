@@ -4,11 +4,7 @@ import "./globals.css";
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import Providers from "@/providers";
-
-import Topbar from "@/components/Topbar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import AppSidebar from "@/components/AppSidebar";
-import { Toaster } from "react-hot-toast";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });

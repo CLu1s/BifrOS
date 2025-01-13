@@ -1,7 +1,6 @@
 import useFeed from "@/features/feed/hooks/useFeed";
 import { FeedElement } from "@/features/feed/components/FeedElement";
 import { Accordion, AccordionItem } from "@nextui-org/react";
-import PageLayout from "@/components/PageLayout";
 
 const FeedList = () => {
   const { feeds, feedKeys, todayFeed } = useFeed();

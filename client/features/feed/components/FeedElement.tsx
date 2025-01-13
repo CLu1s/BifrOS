@@ -1,4 +1,4 @@
-import { Button, Image, Link } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import { Feed } from "@/features/feed/types";
 import { Bookmark } from "lucide-react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
