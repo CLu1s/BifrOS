@@ -24,6 +24,7 @@ import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherW
 import { useDispatch } from "react-redux";
 import { Execution } from "@/features/scrapper/types";
 import BookmarkWidget from "@/features/bookmarks/components/BookmarkWidget";
+import Queue from "@/features/wallpapers/components/Queue";
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -58,26 +59,20 @@ const Container = () => {
   return (
     <PageLayout title={"Bienvenido"}>
       <div className={"col-span-2 2xl:col-span-1"}>
-        <BookmarkWidget />
-      </div>
-      <div className={"col-span-1 lg:col-span-1 "}>
-        <RecentActivity activities={activities} />
+        <LatestFeed />
       </div>
 
-      <div className={" col-span-1 lg:col-span-3 2xl:col-span-3"}>
-        <LatestFeed />
+      <div className={" col-span-1 lg:col-span-3 2xl:col-span-1"}>
+        <BookmarkWidget />
       </div>
 
       <div className={" col-span-1 lg:col-span-3 "}>
         <LastScraperResult />
       </div>
-      <div className={" col-span-1 lg:col-span-2  2xl:col-span-1"}>
+      <div className={" col-span-1 lg:col-span-2  2xl:col-span-2"}>
         <FetcherWallpaperContainer>
-          <NextInQueue />
+          <Queue />
         </FetcherWallpaperContainer>
-      </div>
-      <div className={"col-span-1"}>
-        <LastAnimeCornerResult />
       </div>
     </PageLayout>
   );

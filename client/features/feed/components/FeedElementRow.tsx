@@ -18,26 +18,29 @@ export function FeedElementRow(props: { feed: Feed }) {
     await createBookmark(url, id);
   };
 
+  const habdleBookmark = (e: any) => {
+    e.preventDefault();
+    void saveBookmark(props.feed.link, props.feed.id);
+  };
+
   return (
-    <div className=" w-full flex justify-between">
-      <div className="flex  gap-2">
-        <div className={"col-span-1 "}>
-          <Image
+    <Link
+      href={props.feed.link}
+      className=" w-full flex justify-between relative "
+    >
+      <div className="flex flex-col gap-2">
+        <div className={"col-span-1 h-32 "}>
+          <img
             alt="Card background"
-            className="min-w-[45px] object-cover  rounded"
+            className=" h-full w-full object-cover  rounded-lg"
             src={props.feed.imageUrl}
-            height={45}
-            width={45}
           />
         </div>
-        <div className={"flex flex-col col-span-5"}>
-          <Link
-            href={props.feed.link}
-            target={"_blank"}
-            className=" text-sm leading-4  "
-          >
+        <div className={"flex flex-col h-24 col-span-5"}>
+          <h3 className={" text-sm leading-4 2xl:text-sm"}>
             {props.feed.title}
-          </Link>
+          </h3>
+
           <div className={"flex  gap-4 col-span-4"}>
             <p className="text-tiny font-medium text-neutral-500">
               {props.feed.source}
@@ -45,16 +48,16 @@ export function FeedElementRow(props: { feed: Feed }) {
           </div>
         </div>
       </div>
-      <div className=" ">
+      <div className="absolute top-0">
         <Button
           isIconOnly
           variant={"light"}
-          onPress={() => saveBookmark(props.feed.link, props.feed.id)}
+          onPress={habdleBookmark}
           className={`${findBookmark(props.feed.link) && "text-yellow-500"}`}
         >
           <Bookmark className={"h-6 w-6"} />
         </Button>
       </div>
-    </div>
+    </Link>
   );
 }

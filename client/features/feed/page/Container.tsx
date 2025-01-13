@@ -5,6 +5,7 @@ import useActions from "@/features/feed/hooks/useActions";
 import FeedList from "@/features/feed/components/FeedList";
 import useFeed from "@/features/feed/hooks/useFeed";
 import useFetchers from "@/features/feed/hooks/useFetchers";
+import PageLayout from "@/components/PageLayout";
 
 const Container = () => {
   const { setFeeds } = useActions();
@@ -23,10 +24,9 @@ const Container = () => {
   }, [isLoading, isError, isValidating, data, feedsLength]);
 
   return (
-    <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
-      <h1 className={"text-2xl font-bold"}>Feed</h1>
+    <PageLayout title={"Feed"}>
       {isLoading ? <div>Loading</div> : <FeedList />}
-    </div>
+    </PageLayout>
   );
 };
 

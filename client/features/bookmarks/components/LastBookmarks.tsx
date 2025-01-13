@@ -3,7 +3,7 @@ import BookmarkDashboardItem from "@/features/bookmarks/components/BookmarkDashb
 
 const LastBookmarks = () => {
   const { bookmarks } = useBookmark();
-  const recentBookmarks = bookmarks.slice(0, 5);
+  const recentBookmarks = bookmarks.slice(0, 12);
   const renderBookmarks = recentBookmarks.map((bookmark) => (
     <BookmarkDashboardItem key={bookmark.id} data={bookmark} />
   ));
@@ -12,7 +12,7 @@ const LastBookmarks = () => {
     <div className={"flex flex-col gap-4 w-full"}>
       <h2 className={"text-lg font-semibold"}>Latest</h2>
       <div>
-        <div className={"grid grid-cols-1  gap-2 2xl:gap-4"}>
+        <div className={"grid grid-cols-4  gap-2 2xl:gap-3"}>
           {renderBookmarks}
         </div>
       </div>

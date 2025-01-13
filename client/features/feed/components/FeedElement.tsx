@@ -19,30 +19,27 @@ export function FeedElement(props: { feed: Feed }) {
   };
 
   return (
-    <div className="grid grid-cols-12 gap-4 w-full relative">
-      <div className={"col-span-2 2xl:col-span-1"}>
-        <Image
+    <Link
+      href={props.feed.link}
+      target={"_blank"}
+      className="flex flex-col gap-4 w-full relative"
+    >
+      <div className={"col-span-2 2xl:col-span-1 h-32 w-full"}>
+        <img
           alt="Card background"
           className="w-full h-full object-cover  rounded "
           src={props.feed.imageUrl}
-          width={128}
-          height={64}
         />
       </div>
       <div className={"col-span-9"}>
-        <Link
-          href={props.feed.link}
-          target={"_blank"}
-          className="font-semibold text-medium leading-5  "
-        >
-          {props.feed.title}
-        </Link>
+        {props.feed.title}
+
         <p className="text-tiny font-medium">{props.feed.source}</p>
         <small className="text-tiny text-default-500">
           {new Date(props.feed.pubDate).toDateString()}
         </small>
       </div>
-      <div className=" top-1 right-1 z-40">
+      <div className="absolute top-1 right-1 z-40">
         <Button
           isIconOnly
           variant={"light"}
@@ -52,6 +49,6 @@ export function FeedElement(props: { feed: Feed }) {
           <Bookmark className={"h-6 w-6"} />
         </Button>
       </div>
-    </div>
+    </Link>
   );
 }

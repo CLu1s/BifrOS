@@ -1,11 +1,13 @@
 import useFeed from "@/features/feed/hooks/useFeed";
 import { FeedElement } from "@/features/feed/components/FeedElement";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import PageLayout from "@/components/PageLayout";
 
 const FeedList = () => {
   const { feeds, feedKeys, todayFeed } = useFeed();
 
-  const container = "container m-auto flex flex-col gap-4 lg:px-20";
+  const container =
+    "container m-auto grid grid-cols-3 2xl:grid-cols-4 gap-4 lg:px-20";
   const items = [
     <AccordionItem
       key={"Today"}
@@ -38,11 +40,9 @@ const FeedList = () => {
   });
 
   return (
-    <div className={" container m-auto  "}>
-      <Accordion defaultExpandedKeys={["Today"]}>
-        {items.concat(feedList)}
-      </Accordion>
-    </div>
+    <Accordion defaultExpandedKeys={["Today"]}>
+      {items.concat(feedList)}
+    </Accordion>
   );
 };
 

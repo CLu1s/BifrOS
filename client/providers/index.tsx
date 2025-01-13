@@ -5,16 +5,17 @@ import { store } from "@/store";
 import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import FirebaseProvider from "@/providers/FirebaseProvider";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <Provider store={store}>
-      {/*<ClerkProvider dynamic>*/}
-      <FirebaseProvider>
-        <NextUIProvider>{children}</NextUIProvider>
-      </FirebaseProvider>
-      {/*</ClerkProvider>*/}
-      <Toaster />
+      <SidebarProvider>
+        <FirebaseProvider>
+          <NextUIProvider>{children}</NextUIProvider>
+          <Toaster />
+        </FirebaseProvider>
+      </SidebarProvider>
     </Provider>
   );
 };

@@ -33,7 +33,9 @@ const LatestFeed = () => {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <div className={"grid grid-cols-1 lg:grid-cols-3 gap-4"}>
+          <div
+            className={"grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-3"}
+          >
             {renderFeeds}
           </div>
         )}

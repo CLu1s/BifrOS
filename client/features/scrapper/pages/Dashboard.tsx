@@ -14,6 +14,7 @@ import { ControlPanel } from "@/features/scrapper/components/ControlPanel";
 import { MetricsTable } from "@/features/scrapper/components/MetricsTable";
 import { ModalDetail } from "@/features/scrapper/components/ModalDetail";
 import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
+import PageLayout from "@/components/PageLayout";
 
 const ScrapperDashboard = () => {
   const dispatch = useDispatch();
@@ -79,8 +80,7 @@ const ScrapperDashboard = () => {
   };
 
   return (
-    <div className={"flex flex-col gap-8 m-2 lg:m-10"}>
-      <h1 className={"text-2xl font-bold"}>Scrapper</h1>
+    <PageLayout title={"Scrappers"}>
       <ControlPanel
         loadinState={loadinState}
         onPress={startScrapper}
@@ -92,7 +92,7 @@ const ScrapperDashboard = () => {
         onOpenChange={onOpenChange}
         modalData={modalData}
       />
-    </div>
+    </PageLayout>
   );
 };
 

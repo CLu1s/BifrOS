@@ -7,32 +7,57 @@ import {
   limit,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 
-const useFetchers = (full = false) => {
+const useFetchers = (readAllDocuments = false) => {
   const { mutate } = useSWRConfig();
   const db = getFirestore();
-  const key = "rssFeeds/cache/items";
+  const path = "rssFeeds/cache/items";
+  const animeKey = "rssFeeds/cache/items/anime";
+  const techKey = "rssFeeds/cache/items/tech";
+  const allKey = "rssFeeds/cache/items";
 
-  const ref = collection(db, key);
+  const ref = collection(db, path);
 
-  const q = query(ref, orderBy("dateInSec", "desc"), limit(16));
-  const queryResults = useSWR(full ? null : key, () => queryFirestore(q));
+  const a = query(
+    ref,
+    where("category", "==", "anime"),
+    orderBy("dateInSec", "desc"),
+    limit(8),
+  );
+  const q = query(
+    ref,
+    where("category", "==", "tech"),
+    orderBy("dateInSec", "desc"),
+    limit(8),
+  );
+  const queryAnimeResults = useSWR(readAllDocuments ? null : animeKey, () =>
+    queryFirestore(a),
+  );
+  const queryTechResults = useSWR(readAllDocuments ? null : techKey, () =>
+    queryFirestore(q),
+  );
+  const mergeResults = [
+    ...(queryAnimeResults.data || []),
+    ...(queryTechResults.data || []),
+  ];
 
   const { data, isLoading, error, isValidating } = useSWR(
-    full ? key : null,
+    readAllDocuments ? allKey : null,
     readDocsFromFirestore,
   );
 
   const revalidateCache = () => {
-    void mutate(key);
+    void mutate(techKey);
   };
 
   return {
-    feeds: (data || queryResults.data) as Feed[],
-    isLoading: isLoading || queryResults.isLoading,
-    isError: error || queryResults.error,
-    isValidating: isValidating || queryResults.isValidating,
+    feeds: (data || mergeResults) as Feed[],
+    isLoading:
+      isLoading || queryTechResults.isLoading || queryAnimeResults.isLoading,
+    isError: error || queryTechResults.error,
+    isValidating: isValidating || queryTechResults.isValidating,
     revalidateCache,
   };
 };
