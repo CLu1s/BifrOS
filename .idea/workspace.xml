@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="remove unsused vars">
+      <change afterPath="$PROJECT_DIR$/client/components/ui/accordion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/ui/tabs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/providers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/providers/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +98,7 @@
       <recent name="$PROJECT_DIR$/client/features/wallpapers/hooks" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Firebase">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -176,7 +186,10 @@
       <workItem from="1735998014075" duration="755000" />
       <workItem from="1736698494743" duration="851000" />
       <workItem from="1736719002669" duration="4760000" />
-      <workItem from="1736731862505" duration="6532000" />
+      <workItem from="1736731862505" duration="6689000" />
+      <workItem from="1736782126836" duration="2286000" />
+      <workItem from="1736869119428" duration="626000" />
+      <workItem from="1737310250060" duration="1070000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -362,7 +375,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736738377116</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="remove unsused vars">
+      <option name="closed" value="true" />
+      <created>1736738405722</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1736738405722</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

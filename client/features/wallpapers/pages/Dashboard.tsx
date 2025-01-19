@@ -112,7 +112,10 @@ export default async function WallpaperDashboard() {
   ]);
   return (
     <FetcherWallpaperContainer>
-      <PageLayout title={"Wallpaper"}>
+      <PageLayout
+        title={"Wallpaper"}
+        className={"grid grid-cols-1 2xl:grid-cols-4"}
+      >
         <div className={"col-span-1 lg:col-span-2"}>
           <Jumbo />
         </div>

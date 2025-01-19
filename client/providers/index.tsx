@@ -12,7 +12,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
     <Provider store={store}>
       <SidebarProvider>
         <FirebaseProvider>
-          <NextUIProvider>{children}</NextUIProvider>
+          {children}
           <Toaster />
         </FirebaseProvider>
       </SidebarProvider>

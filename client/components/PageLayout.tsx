@@ -1,16 +1,20 @@
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { className } from "postcss-selector-parser";
 
 const PageLayout = ({
   children,
+  className,
   title,
 }: {
   children: ReactNode[] | ReactNode;
   title: string;
+  className?: string;
 }) => {
   return (
-    <div className={"flex flex-col gap-8 m-2 lg:m-10 2xl:px-20 w-full"}>
+    <div className={"flex flex-col gap-8 2xl:px-2 w-full"}>
       <h1 className={"text-4xl font-bold"}>{title}</h1>
-      <div className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4"}>
+      <div className={cn("flex justify-center w-full", className)}>
         {children}
       </div>
     </div>

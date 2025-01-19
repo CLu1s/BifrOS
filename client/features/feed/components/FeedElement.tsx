@@ -1,4 +1,6 @@
-import { Button, Link } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
+
+import { Button } from "@/components/ui/button";
 import { Feed } from "@/features/feed/types";
 import { Bookmark } from "lucide-react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
@@ -41,10 +43,11 @@ export function FeedElement(props: { feed: Feed }) {
       </div>
       <div className="absolute top-1 right-1 z-40">
         <Button
-          isIconOnly
-          variant={"light"}
-          onPress={() => saveBookmark(props.feed.link, props.feed.id)}
-          className={`${findBookmark(props.feed.link) && "text-yellow-500"}`}
+          onClick={(e) => {
+            e.preventDefault();
+            saveBookmark(props.feed.link, props.feed.id);
+          }}
+          className={`${findBookmark(props.feed.link) && "text-yellow-500"} bg-gray-300/50`}
         >
           <Bookmark className={"h-6 w-6"} />
         </Button>
