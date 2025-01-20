@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { className } from "postcss-selector-parser";
 
 const PageLayout = ({
   children,
