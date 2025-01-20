@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="migrating to shad">
-      <change afterPath="$PROJECT_DIR$/server/functions/lib/humble/index.js" afterDir="false" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="fix search bookmark">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/hooks/useBookmark.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/hooks/useBookmark.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +188,7 @@
       <workItem from="1737310250060" duration="2440000" />
       <workItem from="1737312702479" duration="1904000" />
       <workItem from="1737345745632" duration="43000" />
-      <workItem from="1737387399562" duration="971000" />
+      <workItem from="1737387399562" duration="2353000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -391,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737311351880</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix search bookmark">
+      <option name="closed" value="true" />
+      <created>1737388733489</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1737388733489</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,6 +424,7 @@
     <MESSAGE value="refactor layout" />
     <MESSAGE value="remove unsused vars" />
     <MESSAGE value="migrating to shad" />
-    <option name="LAST_COMMIT_MESSAGE" value="migrating to shad" />
+    <MESSAGE value="fix search bookmark" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix search bookmark" />
   </component>
 </project>

@@ -38,16 +38,16 @@ const Jumbo = () => {
   }
   if (!images[index] || !images[index].path) return <div>No data</div>;
   return (
-    <div className="">
+    <div className="w-full h-full ">
       <button onClick={() => addImageToQueue(images[index])} type="button">
-        <Image
+        <img
           className={
-            " h-20 lg:h-60 xl:h-72 w-[722px] xl:w-[922px] object-cover object-top"
+            "h-[600px] w-[1073px] max-h-[600px] min-w-fit object-cover object-top"
           }
           alt={images[index].path}
           src={images[index].path}
-          height={700}
-          width={1200}
+          width={1000}
+          height={1000}
         />
       </button>
     </div>
