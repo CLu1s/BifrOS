@@ -39,10 +39,10 @@ const useBookmark = () => {
           })
           .filter((bookmark) => {
             if (!filterByTerm) return true;
-
+            console.log("bookmark", bookmark);
             return (
               bookmark.ogTitle
-                .toLowerCase()
+                ?.toLowerCase()
                 .includes(filterByTerm.toLowerCase()) ||
               bookmark.url.toLowerCase().includes(filterByTerm.toLowerCase()) ||
               bookmark.ogDescription

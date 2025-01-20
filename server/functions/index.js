@@ -35,6 +35,7 @@ import Parser from "rss-parser";
 import { onSchedule } from "firebase-functions/v2/scheduler";
 import { PromisePool } from "@supercharge/promise-pool";
 import { nanoid } from "nanoid";
+import humbleBundle from "./lib/humble/index.js";
 
 const db = getFirestore();
 
@@ -140,6 +141,14 @@ const checkKodansha = onRequest(async (request, response) => {
     } else {
       response.status(200).send(data);
     }
+  }
+});
+const checkHumbleBundle = onRequest(async (request, response) => {
+  try {
+    const result = await humbleBundle();
+    return response.status(200).json(result);
+  } catch (error) {
+    return response.status(500).send("Internal Server Error");
   }
 });
 
@@ -411,6 +420,7 @@ const cleanExpiredCache = onSchedule("every 12 hours", async (event) => {
 });
 
 export {
+  checkHumbleBundle,
   checkKodansha,
   saveBookmark,
   getCollectionPage,
