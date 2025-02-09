@@ -26,6 +26,7 @@ export function FeedElementRow(props: { feed: Feed }) {
   return (
     <Link
       href={props.feed.link}
+      target={"_blank"}
       className=" w-full flex justify-between relative "
     >
       <div className="flex flex-col gap-2">

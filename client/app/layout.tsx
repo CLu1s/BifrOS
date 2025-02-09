@@ -39,7 +39,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={` dark ${inter.className}  antialiased `}>
           <Providers>
-            <div className={"flex flex-row"}>
+            <div className={"flex flex-row w-full"}>
               <AppSidebar />
               <SidebarTrigger />
               {children}

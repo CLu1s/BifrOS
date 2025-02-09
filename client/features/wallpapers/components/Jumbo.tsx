@@ -1,6 +1,5 @@
 "use client";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
-import { Image } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import { fetchCollectionPage } from "@/features/wallpapers/lib";
 import { Image as ImageType } from "../types";
@@ -38,19 +37,19 @@ const Jumbo = () => {
   }
   if (!images[index] || !images[index].path) return <div>No data</div>;
   return (
-    <div className="w-full h-full ">
-      <button onClick={() => addImageToQueue(images[index])} type="button">
-        <img
-          className={
-            "h-[600px] w-[1073px] max-h-[600px] min-w-fit object-cover object-top"
-          }
-          alt={images[index].path}
-          src={images[index].path}
-          width={1000}
-          height={1000}
-        />
-      </button>
-    </div>
+    <button
+      className={"relative w-full aspect-square"}
+      onClick={() => addImageToQueue(images[index])}
+      type="button"
+    >
+      <img
+        className={
+          " absolute top-0 left-0 w-full rounded h-full object-cover object-top"
+        }
+        alt={images[index].path}
+        src={images[index].path}
+      />
+    </button>
   );
 };
 

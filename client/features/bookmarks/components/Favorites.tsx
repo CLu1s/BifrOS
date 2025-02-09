@@ -17,7 +17,7 @@ const Favorites = () => {
                 className={"flex flex-col  shrink-0 gap-2 text-center border"}
               >
                 <Image
-                  src={favorite.favicon}
+                  src={favorite.favicon || "/favicon.svg"}
                   alt={favorite.ogTitle}
                   height={45}
                   className={"rounded   object-cover"}
