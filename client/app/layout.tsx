@@ -39,9 +39,11 @@ export default function RootLayout({
       <html lang="en">
         <body className={` dark ${inter.className}  antialiased `}>
           <Providers>
-            <div className={"flex flex-row w-full"}>
+            <div className={"flex flex-row w-full relative"}>
               <AppSidebar />
-              <SidebarTrigger />
+              <div className={"fixed bottom-12 left-5 z-20"}>
+                <SidebarTrigger />
+              </div>
               {children}
             </div>
           </Providers>

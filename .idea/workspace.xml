@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="migrate jumbo">
-      <change afterPath="$PROJECT_DIR$/server/functions/lib/panini/index.js" afterDir="false" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="new features">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/hooks/useFetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/hooks/useFetchers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +95,7 @@
       <recent name="$PROJECT_DIR$/client/features/wallpapers/hooks" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Firebase">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -200,6 +194,8 @@
       <workItem from="1737659296024" duration="28000" />
       <workItem from="1738456130781" duration="33000" />
       <workItem from="1739129447990" duration="841000" />
+      <workItem from="1739130297513" duration="146000" />
+      <workItem from="1739201437135" duration="390000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -417,7 +413,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737389827406</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="new features">
+      <option name="closed" value="true" />
+      <created>1739130426058</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1739130426058</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,6 +449,7 @@
     <MESSAGE value="migrating to shad" />
     <MESSAGE value="fix search bookmark" />
     <MESSAGE value="migrate jumbo" />
-    <option name="LAST_COMMIT_MESSAGE" value="migrate jumbo" />
+    <MESSAGE value="new features" />
+    <option name="LAST_COMMIT_MESSAGE" value="new features" />
   </component>
 </project>
