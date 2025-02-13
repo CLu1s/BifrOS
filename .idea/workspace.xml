@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="new features">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="move button and add cols to dashboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ui/sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/lib/rssFeed.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/rssFeed.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +194,8 @@
       <workItem from="1738456130781" duration="33000" />
       <workItem from="1739129447990" duration="841000" />
       <workItem from="1739130297513" duration="146000" />
-      <workItem from="1739201437135" duration="390000" />
+      <workItem from="1739201437135" duration="447000" />
+      <workItem from="1739454714363" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -421,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739130426058</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="move button and add cols to dashboard">
+      <option name="closed" value="true" />
+      <created>1739201880077</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1739201880077</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,6 +458,7 @@
     <MESSAGE value="fix search bookmark" />
     <MESSAGE value="migrate jumbo" />
     <MESSAGE value="new features" />
-    <option name="LAST_COMMIT_MESSAGE" value="new features" />
+    <MESSAGE value="move button and add cols to dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="move button and add cols to dashboard" />
   </component>
 </project>

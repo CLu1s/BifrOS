@@ -31,7 +31,7 @@ const extractSourceFromLink = (link) => {
 
 export const normalizeFeed = async (item) => {
   try {
-    let imageUrl = "";
+    let imageUrl = "/default_image.jpeg";
     if (item.enclosure) {
       imageUrl = item.enclosure.url;
     } else {

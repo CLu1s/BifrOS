@@ -56,6 +56,7 @@ const ERRORS = {
 const corsMiddleware = cors({
   origin: [
     "https://bifr-os.vercel.app",
+    "https://bifros.luisluis.dev",
     "http://localhost",
     "chrome-extension://ofcjfdmpkmfdafdmloddoiilmfhpmeoo",
   ],
@@ -335,6 +336,10 @@ const readFeedsHook = onRequest(async (request, response) => {
       { url: "https://myanimelist.net/rss/news.xml", category: "anime" },
       { url: "https://animecorner.me/feed/", category: "anime" },
       { url: "https://www.livechart.me/feeds/headlines", category: "anime" },
+      {
+        url: "https://www.animenewsnetwork.com/all-reviews/rss.xml?ann-edition=w",
+        category: "anime",
+      },
       { url: "https://www.smashingmagazine.com/feed/", category: "tech" },
       { url: "https://medium.com/feed/airbnb-engineering", category: "tech" },
       { url: "https://stackoverflow.blog/feed/", category: "tech" },
@@ -343,7 +348,7 @@ const readFeedsHook = onRequest(async (request, response) => {
         url: "https://www.animenewsnetwork.com/feature/rss.xml?ann-edition=w",
         category: "anime",
       },
-      { url: "https://dev.to/feed", category: "tech" },
+      { url: "https://dev.to/feed", category: "dev.to" },
     ];
 
     const collectionRef = db.collection("rssFeeds/cache/items");
@@ -368,8 +373,7 @@ const readFeedsHook = onRequest(async (request, response) => {
       )
       .flat();
     const { results: normalizedFeeds, errors } =
-      await PromisePool.withConcurrency(2)
-        .withConcurrency(10)
+      await PromisePool.withConcurrency(10)
         .for(items)
         .process(async (item) => {
           const existingDoc = await collectionRef
