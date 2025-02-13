@@ -2,6 +2,7 @@ import { Button, Link } from "@nextui-org/react";
 import { Feed } from "@/features/feed/types";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 import { Bookmark } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function FeedElementRow(props: { feed: Feed }) {
   const { createBookmark, bookmarks, deleteBookmark } = useBookmark();
@@ -49,15 +50,16 @@ export function FeedElementRow(props: { feed: Feed }) {
           </div>
         </div>
       </div>
-      <div className="absolute top-0">
-        <Button
-          isIconOnly
-          variant={"light"}
-          onPress={habdleBookmark}
-          className={`${findBookmark(props.feed.link) && "text-yellow-500"}`}
+      <div className="absolute top-0 z-20">
+        <button
+          onClick={habdleBookmark}
+          className={cn(
+            "p-2 rounded hover:bg-yellow-500",
+            findBookmark(props.feed.link) && " bg-yellow-500  text-white",
+          )}
         >
-          <Bookmark className={"h-6 w-6"} />
-        </Button>
+          <Bookmark className={"h-6 w-6 "} />
+        </button>
       </div>
     </Link>
   );

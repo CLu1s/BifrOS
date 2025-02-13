@@ -31,7 +31,7 @@ const LastScraperResult = () => {
       </CardHeader>
       <CardBody>
         <div
-          className={"grid grid-cols-1 lg:grid-cols-5 2xl:grid-cols-7 gap-4"}
+          className={"grid grid-cols-2 lg:grid-cols-5 2xl:grid-cols-7 gap-4"}
         >
           {elements.map((element) => (
             <div key={element.relativeName} className={"flex flex-col gap-1"}>

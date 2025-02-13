@@ -19,26 +19,26 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
       isFooterBlurred
       radius="lg"
       className={cn(
-        "relative",
+        "relative m-auto w-full h-full",
         !!find ? "border-green-700 border" : "border-none  ",
       )}
     >
       <div
         className={cn(
-          "absolute top-2 right-2 z-40 text-black/40 bg-gray-300/40 rounded-xl p-1",
+          "absolute m-auto top-2 right-2 z-40 text-black/40 bg-gray-300/40 rounded-xl p-1",
           !isVertical && "rotate-90",
         )}
       >
         <Smartphone />
       </div>
-      <Image
-        className={"h-60 w-[422px] object-cover object-top"}
+      <img
+        className={
+          "min-h-[200px] max-h-[200px] h-full 2xl:max-h-[300px]  object-cover object-top"
+        }
         alt={props.image.url}
         src={
           isVertical ? props.image.thumbs.original : props.image.thumbs.large
         }
-        height={240}
-        width={422}
       />
       <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
         <Button

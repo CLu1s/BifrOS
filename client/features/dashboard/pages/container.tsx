@@ -38,11 +38,11 @@ const Container = () => {
       title={"Bienvenido"}
       className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4"}
     >
-      <div className={"col-span-2 2xl:col-span-1"}>
+      <div className={"col-span-1 lg:col-span-2"}>
         <LatestFeed />
       </div>
 
-      <div className={" col-span-1 lg:col-span-3 2xl:col-span-1"}>
+      <div className={" col-span-1 md:col-span-3 2xl:col-span-2"}>
         <BookmarkWidget />
       </div>
 
