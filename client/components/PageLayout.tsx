@@ -11,7 +11,7 @@ const PageLayout = ({
   className?: string;
 }) => {
   return (
-    <div className={"flex flex-col gap-8  px-4 w-full "}>
+    <div className={"flex flex-col gap-8 px-1 lg:px-4 w-full "}>
       <h1 className={"text-4xl font-bold"}>{title}</h1>
       <div className={cn("flex justify-center w-full ", className)}>
         {children}
