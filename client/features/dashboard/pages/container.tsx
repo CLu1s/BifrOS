@@ -38,18 +38,18 @@ const Container = () => {
       title={"Bienvenido"}
       className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4"}
     >
-      <div className={"col-span-1 lg:col-span-2"}>
+      <div className={"col-span-1 lg:col-span-1"}>
         <LatestFeed />
       </div>
 
-      <div className={" col-span-1 md:col-span-3 2xl:col-span-2"}>
+      <div className={" col-span-1 md:col-span-3 2xl:col-span-1"}>
         <BookmarkWidget />
       </div>
 
-      <div className={" col-span-1 lg:col-span-3 "}>
+      <div className={" col-span-1 lg:col-span-1 "}>
         <LastScraperResult />
       </div>
-      <div className={" col-span-1 lg:col-span-2  2xl:col-span-2"}>
+      <div className={" col-span-1 lg:col-span-2  2xl:col-span-1"}>
         <FetcherWallpaperContainer>
           <Queue />
         </FetcherWallpaperContainer>

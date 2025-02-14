@@ -21,9 +21,9 @@ const Queue = () => {
       <CardHeader>
         <h2 className="text-xl font-bold">In Queue: {all.length}</h2>
       </CardHeader>
-      <CardBody className={" h-[650px] overflow-auto   pb-10"}>
+      <CardBody className={" w-full max-h-[650px] overflow-auto   pb-10"}>
         <div
-          className={`grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4`}
+          className={`grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4`}
         >
           {showQueue}
         </div>
