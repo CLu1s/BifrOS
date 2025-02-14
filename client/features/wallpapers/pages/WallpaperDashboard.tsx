@@ -1,9 +1,7 @@
 import Container from "@/features/wallpapers/components/Container";
 import Queue from "@/features/wallpapers/components/Queue";
-import NextInQueue from "@/features/wallpapers/components/NextInQueue";
 import History from "@/features/wallpapers/components/History";
 import PageLayout from "@/components/PageLayout";
-import Jumbo from "@/features/wallpapers/components/Jumbo";
 import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 
 const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
