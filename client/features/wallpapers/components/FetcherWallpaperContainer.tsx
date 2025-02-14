@@ -7,7 +7,7 @@ import {
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import { useDispatch } from "react-redux";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
-
+import Spinner from "@/components/Spinner";
 const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
   const { all, history } = useWallpapers();
@@ -37,7 +37,7 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner />;
   if (isError) return <div>Error...</div>;
   return <>{children}</>;
 };

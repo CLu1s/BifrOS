@@ -7,15 +7,15 @@ import { setExecutions } from "@/features/scrapper/redux/scrapperSlice";
 import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
-import LatestFeed from "@/features/feed/components/LatestFeed";
 import PageLayout from "@/components/PageLayout";
 import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 import { useDispatch } from "react-redux";
 import { Execution } from "@/features/scrapper/types";
 import BookmarkWidget from "@/features/bookmarks/components/BookmarkWidget";
 import Queue from "@/features/wallpapers/components/Queue";
+import LatestFeedContainer from "@/features/feed/components/LatestFeedContainer";
 
-const Container = () => {
+const DashboardContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,26 +36,26 @@ const Container = () => {
   return (
     <PageLayout
       title={"Bienvenido"}
-      className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4"}
+      className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4 "}
     >
-      <div className={"col-span-1 lg:col-span-1"}>
-        <LatestFeed />
+      <div className={"col-span-1  lg:col-span-2 2xl:col-span-1"}>
+        <LatestFeedContainer />
       </div>
 
-      <div className={" col-span-1 md:col-span-3 2xl:col-span-1"}>
+      <div className={" col-span-1 md:col-span-2 2xl:col-span-1"}>
         <BookmarkWidget />
       </div>
 
-      <div className={" col-span-1 lg:col-span-1 "}>
+      <div className={" col-span-1 lg:col-span-2 2xl:col-span-1 "}>
         <LastScraperResult />
       </div>
-      <div className={" col-span-1 lg:col-span-2  2xl:col-span-1"}>
+      <div className={" col-span-1 lg:col-span-2 2xl:col-span-1"}>
         <FetcherWallpaperContainer>
-          <Queue />
+          <Queue showExtraButton />
         </FetcherWallpaperContainer>
       </div>
     </PageLayout>
   );
 };
 
-export default Container;
+export default DashboardContainer;

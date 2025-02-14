@@ -1,5 +1,5 @@
-import Container from "@/features/dashboard/pages/container";
+import DashboardContainer from "@/features/dashboard/pages/DashboardContainer";
 
 export default function Home() {
-  return <Container />;
+  return <DashboardContainer />;
 }

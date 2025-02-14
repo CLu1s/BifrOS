@@ -7,7 +7,7 @@ import useFeed from "@/features/feed/hooks/useFeed";
 import useFetchers from "@/features/feed/hooks/useFetchers";
 import PageLayout from "@/components/PageLayout";
 
-const Container = () => {
+const FeedContainer = () => {
   const { setFeeds } = useActions();
   const { normalizeFeeds, feedsLength } = useFeed();
   const { feeds: data, isLoading, isError, isValidating } = useFetchers(true);
@@ -30,4 +30,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default FeedContainer;

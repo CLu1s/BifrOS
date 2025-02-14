@@ -21,7 +21,7 @@ const History = () => {
         <h2 className="text-2xl font-bold">History</h2>
       </CardHeader>
       <CardBody className={" h-[650px] xl:h-[800px] overflow-auto   pb-10"}>
-        <div className={` grid grid-cols-1 gap-2 lg:gap-6  `}>{showQueue}</div>
+        <div className={` grid grid-cols-2 gap-2 lg:gap-6  `}>{showQueue}</div>
       </CardBody>
     </Card>
   );

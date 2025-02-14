@@ -1,5 +1,5 @@
-import Container from "@/features/feed/page/Container";
+import FeedContainer from "@/features/feed/page/FeedContainer";
 
 export default function FeedPage() {
-  return <Container />;
+  return <FeedContainer />;
 }
