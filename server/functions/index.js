@@ -54,12 +54,14 @@ const ERRORS = {
 };
 
 const corsMiddleware = cors({
-  origin: [
-    "https://bifr-os.vercel.app",
-    "https://bifros.luisluis.dev",
-    "http://localhost",
-    "chrome-extension://ofcjfdmpkmfdafdmloddoiilmfhpmeoo",
-  ],
+  origin: "*",
+  // origin: [
+  //   "https://bifr-os.vercel.app",
+  //   "https://bifros.luisluis.dev",
+  //   "http://localhost",
+  //   "chrome-extension://ofcjfdmpkmfdafdmloddoiilmfhpmeoo",
+  //   "anywhere",
+  // ],
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   optionsSuccessStatus: 204, // Evita errores en algunos navegadores

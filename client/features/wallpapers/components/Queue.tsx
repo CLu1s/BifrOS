@@ -26,9 +26,13 @@ const Queue = ({ showExtraButton }: Props) => {
         )
       }
     >
-      <div className={" w-full max-h-[650px] overflow-auto   pb-10"}>
+      <div
+        className={
+          " w-full lg:max-h-[800px]  2xl:max-h-[800px] overflow-auto   pb-10"
+        }
+      >
         <div
-          className={`grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4`}
+          className={`grid grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4 gap-4`}
         >
           {showQueue}
         </div>

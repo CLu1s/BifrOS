@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update loading state">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add padding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/CollectionPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/CollectionPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +203,12 @@
       <workItem from="1739472620484" duration="3500000" />
       <workItem from="1739503212809" duration="12000" />
       <workItem from="1739539040725" duration="3911000" />
-      <workItem from="1739542985045" duration="54000" />
+      <workItem from="1739542985045" duration="234000" />
+      <workItem from="1739588478840" duration="2146000" />
+      <workItem from="1739591867122" duration="358000" />
+      <workItem from="1739622913664" duration="599000" />
+      <workItem from="1739628576748" duration="612000" />
+      <workItem from="1739970226790" duration="1081000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -473,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739542943289</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add padding">
+      <option name="closed" value="true" />
+      <created>1739543050613</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1739543050613</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +498,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add scrapper corner anime" />
     <MESSAGE value="add  feed" />
     <MESSAGE value="fix dependenxies" />
     <MESSAGE value="add more widgets to home" />
@@ -506,6 +522,7 @@
     <MESSAGE value="add more feeds and fix wallpaper cors" />
     <MESSAGE value="update layouts" />
     <MESSAGE value="update loading state" />
-    <option name="LAST_COMMIT_MESSAGE" value="update loading state" />
+    <MESSAGE value="add padding" />
+    <option name="LAST_COMMIT_MESSAGE" value="add padding" />
   </component>
 </project>

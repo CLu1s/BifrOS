@@ -3,6 +3,7 @@ import React from "react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { GalleryImage } from "@/features/wallpapers/components/GalleryImage";
 import { fetchCollectionPage } from "@/features/wallpapers/lib";
+import Spinner from "@/components/Spinner";
 
 interface Props {
   collectionID: string | number;
@@ -18,7 +19,7 @@ const CollectionPage = ({ collectionID, index }: Props) => {
     index,
   });
   if (!collectionID) return <div>No collection ID</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner />;
   if (error) return <div>Error</div>;
   if (!data) return <div>No data</div>;
 
