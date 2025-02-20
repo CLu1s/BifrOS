@@ -1,5 +1,5 @@
 import { Metric } from "@/features/scrapper/types";
-import { Button, Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Button, Card, CardBody, CardHeader } from "@heroui/react";
 
 export function ControlPanel(props: {
   loadinState: "idle" | "loading" | "success" | "error";

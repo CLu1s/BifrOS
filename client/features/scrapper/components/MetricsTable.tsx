@@ -1,5 +1,5 @@
 import { Metric } from "@/features/scrapper/types";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@heroui/react";
 import { AgGridReact } from "ag-grid-react";
 
 export function MetricsTable(props: {

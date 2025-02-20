@@ -11,15 +11,15 @@ interface Props {
 }
 
 const Queue = ({ showExtraButton }: Props) => {
-  const { all } = useWallpapers();
+  const { queueList } = useWallpapers();
 
-  const showQueue = all.map((image: QueueElement) => (
+  const showQueue = queueList.map((image: QueueElement) => (
     <QueueImage key={image.id} image={image} />
   ));
 
   return (
     <Card
-      title={`In Queue: ${all.length}`}
+      title={`In Queue: ${queueList.length}`}
       renderExtra={
         showExtraButton && (
           <ExtraButton href={"/wallpapers"}>View More</ExtraButton>

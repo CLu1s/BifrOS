@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@heroui/react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
 import GalleryModal from "@/features/wallpapers/components/GalleryModal";

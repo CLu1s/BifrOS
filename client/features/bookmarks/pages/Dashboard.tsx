@@ -7,7 +7,7 @@ import BookmarkContainer from "@/features/bookmarks/components/BookmarkContainer
 import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import Categories from "@/features/bookmarks/components/Categories";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 const BookmarksDashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {

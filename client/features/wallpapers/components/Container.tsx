@@ -10,7 +10,7 @@ import {
   setQueue,
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import DisplayCollection from "@/features/wallpapers/components/DisplayCollection";
-import { Button, ButtonGroup } from "@nextui-org/react";
+import { Button, ButtonGroup } from "@heroui/react";
 import { CollectionInfo } from "@/features/wallpapers/types";
 import { selectActiveCollection } from "@/features/wallpapers/redux/wallpaperSelector";
 

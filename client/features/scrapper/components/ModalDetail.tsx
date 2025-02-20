@@ -4,8 +4,8 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-} from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
+} from "@heroui/react";
+import { Button } from "@heroui/react";
 import { AnimeCornerResult, KodanshaResult } from "@/features/scrapper/types";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import KodanshaResultRender from "@/features/scrapper/components/KodanshaResultRender";

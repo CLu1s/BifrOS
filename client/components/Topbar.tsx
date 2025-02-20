@@ -5,7 +5,7 @@ import {
   NavbarItem,
   Link,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 const Topbar = () => {
   return (

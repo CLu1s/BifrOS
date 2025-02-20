@@ -1,48 +1,56 @@
-import { Button, Card, CardFooter, Image, Link } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import React, { useMemo } from "react";
-import type { Image as ImageType } from "../types";
-import useActions from "@/features/wallpapers/hooks/useActions";
+import {
+  DropdownItemType,
+  GalleryImageBase,
+  GalleryImageBaseProps,
+} from "@/features/wallpapers/components/GalleryImageBase";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { cn } from "@/lib/utils";
-import { Smartphone } from "lucide-react";
+import useActions from "@/features/wallpapers/hooks/useActions";
+import { useRouter } from "next/navigation";
 
-export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
+interface Props extends GalleryImageBaseProps {
+  onPress: () => void;
+}
+
+export function GalleryImage(props: Props) {
+  const { image } = props;
+  const router = useRouter();
+  const { queueList } = useWallpapers();
   const { openModal } = useActions();
-  const { all } = useWallpapers();
   const find = useMemo(
-    () => all.find((el) => el.id === props.image.id),
-    [all, props.image.id],
+    () => queueList.find((el) => el.id === image.data.id),
+    [queueList, image.data.id],
   );
-  const isVertical = Number(props.image.ratio) < 1;
+
+  const items: DropdownItemType[] = [
+    {
+      key: "expand",
+      label: "Expand",
+      action: () => {
+        openModal(image);
+      },
+    },
+    {
+      key: "WH",
+      label: "See on Wallhaven",
+      action: () => {
+        router.push(image.data.url);
+      },
+    },
+  ];
+
   return (
-    <Card
-      isFooterBlurred
-      radius="lg"
-      className={cn(
-        "relative m-auto w-full h-full",
-        !!find ? "border-green-700 border" : "border-none  ",
-      )}
-    >
-      <div
-        className={cn(
-          "absolute m-auto top-2 right-2 z-40 text-black/40 bg-gray-300/40 rounded-xl p-1",
-          !isVertical && "rotate-90",
-        )}
-      >
-        <Smartphone />
-      </div>
-      <img
-        className={
-          "min-h-[200px] max-h-[200px] h-full 2xl:max-h-[300px]  object-cover object-top"
-        }
-        alt={props.image.url}
-        src={
-          isVertical ? props.image.thumbs.original : props.image.thumbs.large
-        }
+    <div className={"relative"}>
+      <GalleryImageBase
+        {...props}
+        dropdownItems={items}
+        className={cn(!!find ? "border-green-700 border" : "border-none  ")}
       />
-      <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+      <div className={"absolute bottom-2  z-40 w-full"}>
         <Button
-          className="text-tiny text-white bg-black/20"
+          className="text-tiny text-white bg-black/20 w-full"
           variant="flat"
           color="default"
           radius="lg"
@@ -52,31 +60,7 @@ export function GalleryImage(props: { image: ImageType; onPress: () => void }) {
         >
           {find ? "In Queue" : "Add to queue"}
         </Button>
-        <Button
-          className="text-tiny text-white bg-black/20"
-          variant="flat"
-          color="default"
-          radius="lg"
-          size="sm"
-          onPress={() => {
-            openModal(props.image);
-          }}
-        >
-          Expand
-        </Button>
-        <Button
-          as={Link}
-          href={props.image.url}
-          target={"_blank"}
-          className="text-tiny text-white bg-black/20"
-          variant="flat"
-          color="default"
-          radius="lg"
-          size="sm"
-        >
-          See on WH
-        </Button>
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }

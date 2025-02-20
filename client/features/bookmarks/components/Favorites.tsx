@@ -1,4 +1,4 @@
-import { Image, Link } from "@nextui-org/react";
+import { Image, Link } from "@heroui/react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 
 const Favorites = () => {

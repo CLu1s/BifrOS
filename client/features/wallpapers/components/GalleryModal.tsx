@@ -6,7 +6,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import React from "react";
 import useActions from "@/features/wallpapers/hooks/useActions";
 import { useSelector } from "react-redux";

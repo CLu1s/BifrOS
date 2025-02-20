@@ -118,12 +118,12 @@ export default async function WallpaperDashboard() {
         {/*  <Jumbo />*/}
         {/*</div>*/}
 
-        <div className={"col-span-1 lg:col-span-1 2xl:col-span-3"}>
-          <Queue />
-        </div>
-        <div className={"col-span-1 lg:col-span-1 2xl:col-span-1"}>
-          <History />
-        </div>
+        {/*<div className={"col-span-1 lg:col-span-1 2xl:col-span-3"}>*/}
+        {/*  <Queue />*/}
+        {/*</div>*/}
+        {/*<div className={"col-span-1 lg:col-span-1 2xl:col-span-1"}>*/}
+        {/*  <History />*/}
+        {/*</div>*/}
 
         <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>
           <Container

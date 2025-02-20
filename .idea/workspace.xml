@@ -4,13 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add padding">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update wallpaper grid">
+      <change afterPath="$PROJECT_DIR$/client/features/wallpapers/classes/Image.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImageBase.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Spinner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Spinner.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Topbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Topbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Categories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Generals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Generals.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/RecentActivity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/RecentActivity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/ControlPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/ControlPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/KodanshaResultRender.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/KodanshaResultRender.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastAnimeCornerResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastAnimeCornerResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/MetricsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/MetricsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/ModalDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/ModalDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/pages/Dashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/CollectionPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/CollectionPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/NextInQueue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/NextInQueue.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/hooks/useWallpapers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/hooks/useWallpapers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/redux/wallpaperSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/redux/wallpaperSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/providers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/providers/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +53,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -59,7 +91,7 @@
     &quot;Shell Script.Firebase.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/features/feed/components&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/features/wallpapers/components&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -79,11 +111,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/features/wallpapers/components" />
       <recent name="$PROJECT_DIR$/client/features/feed/components" />
       <recent name="$PROJECT_DIR$/client/features/feed/hooks" />
       <recent name="$PROJECT_DIR$/client/features/feed/lib" />
       <recent name="$PROJECT_DIR$/client/features/feed/components" />
-      <recent name="$PROJECT_DIR$/client/features/feed" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" />
@@ -208,7 +240,9 @@
       <workItem from="1739591867122" duration="358000" />
       <workItem from="1739622913664" duration="599000" />
       <workItem from="1739628576748" duration="612000" />
-      <workItem from="1739970226790" duration="1081000" />
+      <workItem from="1739970226790" duration="2341000" />
+      <workItem from="1739997964328" duration="1555000" />
+      <workItem from="1740056580762" duration="5233000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -490,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739543050613</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="update wallpaper grid">
+      <option name="closed" value="true" />
+      <created>1739971444109</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1739971444109</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +540,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add  feed" />
     <MESSAGE value="fix dependenxies" />
     <MESSAGE value="add more widgets to home" />
     <MESSAGE value="improve ux" />
@@ -523,6 +564,7 @@
     <MESSAGE value="update layouts" />
     <MESSAGE value="update loading state" />
     <MESSAGE value="add padding" />
-    <option name="LAST_COMMIT_MESSAGE" value="add padding" />
+    <MESSAGE value="update wallpaper grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="update wallpaper grid" />
   </component>
 </project>

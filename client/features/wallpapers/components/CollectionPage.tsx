@@ -4,6 +4,7 @@ import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { GalleryImage } from "@/features/wallpapers/components/GalleryImage";
 import { fetchCollectionPage } from "@/features/wallpapers/lib";
 import Spinner from "@/components/Spinner";
+import { ImageWallpaper } from "@/features/wallpapers/classes/Image";
 
 interface Props {
   collectionID: string | number;
@@ -24,13 +25,16 @@ const CollectionPage = ({ collectionID, index }: Props) => {
   if (!data) return <div>No data</div>;
 
   const renderImage = () => {
-    return data.data.map((image: ImageType) => (
-      <GalleryImage
-        key={image.id}
-        image={image}
-        onPress={() => addImageToQueue(image)}
-      />
-    ));
+    return data.data.map((imageRaw: ImageType) => {
+      const image = new ImageWallpaper(imageRaw);
+      return (
+        <GalleryImage
+          key={image.data.id}
+          image={image}
+          onPress={() => addImageToQueue(image)}
+        />
+      );
+    });
   };
   return <>{renderImage()}</>;
 };

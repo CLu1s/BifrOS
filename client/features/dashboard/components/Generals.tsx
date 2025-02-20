@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@heroui/react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import useScrapper from "@/features/scrapper/hooks/useScrapper";
 import { format } from "date-fns";

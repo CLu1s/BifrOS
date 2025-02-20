@@ -16,6 +16,7 @@ import {
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import useFetchers from "@/features/wallpapers/hooks/useFetchers";
 import { orderQueue } from "@/features/wallpapers/lib";
+import { ImageWallpaper } from "@/features/wallpapers/classes/Image";
 
 const useWallpapers = () => {
   const { revalidateCache } = useFetchers();
@@ -24,11 +25,12 @@ const useWallpapers = () => {
   const portrait = useSelector(portraitQueue);
   const info = useSelector(selectCollectionsInfo);
   const history = useSelector(getHistory);
-  const all = [...landscape, ...portrait].sort(orderQueue);
+  const queueList = [...landscape, ...portrait].sort(orderQueue);
 
   const removeImage = async (image: QueueElement) => {
     await deleteFromFirestore(`wallpapers/myData/${image.queue}/${image.id}`);
-    dispatch(removeFromQueue({ id: image.id, type: image.type }));
+    const type = Number(image.ratio) < 1 ? "portrait" : "landscape";
+    dispatch(removeFromQueue({ id: image.id, type: type }));
     revalidateCache();
   };
 
@@ -52,27 +54,22 @@ const useWallpapers = () => {
     return info.find((el) => el.id === id);
   };
 
-  const addImageToQueue = async (image: ImageType) => {
-    const find = all.find((el) => el.id === image.id);
+  const addImageToQueue = async (image: ImageWallpaper) => {
+    const find = queueList.find((el) => el.id === image.data.id);
     if (find) return;
-    const type = Number(image.ratio) < 1 ? "portrait" : "landscape";
+    const type = image.getType();
 
     const element: QueueElement = {
-      id: image.id,
-      url: image.path,
+      ...image.data,
       addedAt: new Date().toISOString(),
       isActive: false,
       order: getNextQueueNumberOrder(),
-      type: type,
       queue: `${type}-queue`,
-      whPath: image.url,
     };
 
     try {
-      const type = Number(image.ratio) < 1 ? "portrait" : "landscape";
-
       await saveOnFirestore(
-        `wallpapers/myData/${type}-queue/${image.id}`,
+        `wallpapers/myData/${type}-queue/${image.data.id}`,
         element,
       );
       revalidateCache();
@@ -92,7 +89,7 @@ const useWallpapers = () => {
     getQueue,
     find,
     removeImage,
-    all,
+    queueList,
     addImageToQueue,
     history,
   };

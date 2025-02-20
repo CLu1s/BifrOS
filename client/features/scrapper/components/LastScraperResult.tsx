@@ -1,4 +1,4 @@
-import { Link, Image } from "@nextui-org/react";
+import { Link, Image } from "@heroui/react";
 
 import useScrapper from "../hooks/useScrapper";
 import Card, { ExtraButton } from "@/components/Card";

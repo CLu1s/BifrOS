@@ -3,7 +3,7 @@ import {
   CardBody,
   CardHeader,
   Button as ButtonUI,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import LocalLink from "next/link";
 import Spinner from "@/components/Spinner";
 

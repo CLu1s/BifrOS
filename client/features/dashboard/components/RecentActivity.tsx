@@ -1,4 +1,4 @@
-import { Card, CardHeader } from "@nextui-org/react";
+import { Card, CardHeader } from "@heroui/react";
 import { Activity } from "@/features/dashboard/types";
 import { Pickaxe, BookMarked, Paintbrush, Newspaper } from "lucide-react";
 import { ReactNode } from "react";

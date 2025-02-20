@@ -1,5 +1,5 @@
 import { KodanshaResult } from "@/features/scrapper/types";
-import { Accordion, AccordionItem, Image, Link } from "@nextui-org/react";
+import { Accordion, AccordionItem, Image, Link } from "@heroui/react";
 
 const KodanshaResultRender = ({
   data,

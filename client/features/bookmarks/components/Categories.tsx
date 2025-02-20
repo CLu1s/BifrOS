@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import {
   Modal,
   ModalContent,
@@ -6,7 +6,7 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { Plus } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";

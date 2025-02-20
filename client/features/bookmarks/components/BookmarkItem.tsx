@@ -4,7 +4,7 @@ import {
   Select,
   SelectItem,
   SharedSelection,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { Star, Trash2 } from "lucide-react";
 import { Bookmark } from "@/features/bookmarks/types";
 import { updateFirestore } from "@/firebase/services";

@@ -10,7 +10,7 @@ import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import Spinner from "@/components/Spinner";
 const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
-  const { all, history } = useWallpapers();
+  const { queueList, history } = useWallpapers();
   const {
     queue,
     isLoading,
@@ -25,11 +25,19 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
       !isLoading &&
       !isError &&
       !isValidating &&
-      newQueueLength !== all.length
+      newQueueLength !== queueList.length
     ) {
       dispatch(setQueue(queue));
     }
-  }, [isLoading, isError, isValidating, newQueueLength, all, queue, dispatch]);
+  }, [
+    isLoading,
+    isError,
+    isValidating,
+    newQueueLength,
+    queueList,
+    queue,
+    dispatch,
+  ]);
 
   useEffect(() => {
     if (history.length !== historyData.length) {
@@ -37,7 +45,16 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <div
+        className={
+          "relative w-[calc(100vw-64px)] flex justify-center items-center"
+        }
+      >
+        <Spinner />
+      </div>
+    );
   if (isError) return <div>Error...</div>;
   return <>{children}</>;
 };
