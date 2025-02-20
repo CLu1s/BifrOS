@@ -15,7 +15,6 @@ const useFetchers = () => {
   });
   const historyKey = "wallpapers/myData/history";
   const history = useSWR(historyKey, historyFromFirebaseFetcher);
-
   const revalidateCache = () => {
     void mutate(landscapeKey);
     void mutate(portraitKey);

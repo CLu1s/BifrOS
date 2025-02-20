@@ -19,7 +19,6 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
     history: historyData,
   } = useFetchers();
   const newQueueLength = queue.landscape.length + queue.portrait.length;
-
   useEffect(() => {
     if (
       !isLoading &&
@@ -43,7 +42,7 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
     if (history.length !== historyData.length) {
       dispatch(setHistory(historyData));
     }
-  }, []);
+  }, [historyData]);
 
   if (isLoading)
     return (

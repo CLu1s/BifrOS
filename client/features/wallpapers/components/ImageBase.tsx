@@ -9,10 +9,13 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@heroui/react";
-import { ImageWallpaper } from "@/features/wallpapers/classes/Image";
+import {
+  ImageQueueAdapter,
+  ImageWallpaper,
+} from "@/features/wallpapers/classes/Image";
 
 export interface GalleryImageBaseProps {
-  image: ImageWallpaper;
+  image: ImageWallpaper | ImageQueueAdapter;
   className?: string;
   dropdownItems?: DropdownItemType[];
 }
@@ -23,7 +26,7 @@ export interface DropdownItemType {
   action: () => void;
 }
 
-export function GalleryImageBase(props: GalleryImageBaseProps) {
+export function ImageBase(props: GalleryImageBaseProps) {
   const { dropdownItems, image } = props;
   const isVertical = image.isVertical();
   return (

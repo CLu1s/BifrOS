@@ -2,9 +2,9 @@ import { Button } from "@heroui/react";
 import React, { useMemo } from "react";
 import {
   DropdownItemType,
-  GalleryImageBase,
+  ImageBase,
   GalleryImageBaseProps,
-} from "@/features/wallpapers/components/GalleryImageBase";
+} from "@/features/wallpapers/components/ImageBase";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { cn } from "@/lib/utils";
 import useActions from "@/features/wallpapers/hooks/useActions";
@@ -29,7 +29,7 @@ export function GalleryImage(props: Props) {
       key: "expand",
       label: "Expand",
       action: () => {
-        openModal(image);
+        openModal(image.data);
       },
     },
     {
@@ -43,7 +43,7 @@ export function GalleryImage(props: Props) {
 
   return (
     <div className={"relative"}>
-      <GalleryImageBase
+      <ImageBase
         {...props}
         dropdownItems={items}
         className={cn(!!find ? "border-green-700 border" : "border-none  ")}

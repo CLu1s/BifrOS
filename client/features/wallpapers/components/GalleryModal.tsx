@@ -15,19 +15,17 @@ import {
   selectModalImage,
 } from "@/features/wallpapers/redux/wallpaperSelector";
 import { QueueElement, Image as ImageType } from "@/features/wallpapers/types";
+import { ImageQueueFactory } from "@/features/wallpapers/classes/Image";
 
 const GalleryModal = () => {
   const { closeModal } = useActions();
   const isOpen = useSelector(selectIsModalOpen);
   const image = useSelector(selectModalImage);
-  const type =
-    image &&
-    (Object.keys(image).includes("type")
-      ? (image as QueueElement).type
-      : Number((image as ImageType).ratio) < 1
-        ? "portrait"
-        : "landscape");
-  const url = (image as ImageType)?.path || image?.url;
+  if (!image) return null;
+  const imageWallpaper = ImageQueueFactory.createImage(image);
+  const type = imageWallpaper.getType();
+  console.log(image, imageWallpaper.data);
+  const url = imageWallpaper.data.path;
 
   return (
     <Modal
