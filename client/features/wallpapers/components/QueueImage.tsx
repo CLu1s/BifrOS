@@ -7,7 +7,10 @@ import {
   DropdownItemType,
   ImageBase,
 } from "@/features/wallpapers/components/ImageBase";
-import { ImageQueueFactory } from "@/features/wallpapers/classes/Image";
+import {
+  ImageHistory,
+  ImageQueueFactory,
+} from "@/features/wallpapers/classes/Image";
 import { useRouter } from "next/navigation";
 
 export function QueueImage(props: {
@@ -15,12 +18,13 @@ export function QueueImage(props: {
   isHistory?: boolean;
 }) {
   const { openModal } = useActions();
-  const { removeImage } = useWallpapers();
+  const { removeImage, addImageToQueue } = useWallpapers();
   const router = useRouter();
   const { isHistory } = props;
 
   if (!props.image) return null;
   const imageQueue = ImageQueueFactory.createImage(props.image);
+
   const items: DropdownItemType[] = [
     {
       key: "expand",
@@ -39,9 +43,17 @@ export function QueueImage(props: {
     },
   ];
 
+  if (isHistory && imageQueue instanceof ImageHistory) {
+    items.push({
+      key: "queue",
+      label: "Add to queue",
+      action: () => addImageToQueue(imageQueue),
+    });
+  }
+
   if (!isHistory) {
     items.push({
-      key: "remove",
+      key: "delete",
       label: "Remove",
       action: () => removeImage(props.image),
     });

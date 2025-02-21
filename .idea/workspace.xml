@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="reafactor classes image">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update wll api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/classes/Image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/classes/Image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/lib/wallpaper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/wallpaper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +211,7 @@
       <workItem from="1740056580762" duration="6500000" />
       <workItem from="1740073988917" duration="2635000" />
       <workItem from="1740084467582" duration="6156000" />
-      <workItem from="1740142138928" duration="1713000" />
+      <workItem from="1740142138928" duration="3493000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -515,7 +517,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740089967888</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="update wll api">
+      <option name="closed" value="true" />
+      <created>1740144144281</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1740144144281</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +533,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="improve ux" />
     <MESSAGE value="improve ux wallpaper" />
     <MESSAGE value="change max index" />
     <MESSAGE value="rewrite galleries tabs" />
@@ -548,6 +557,7 @@
     <MESSAGE value="update wallpaper grid" />
     <MESSAGE value="migrate nextui to heroui and add image classes" />
     <MESSAGE value="reafactor classes image" />
-    <option name="LAST_COMMIT_MESSAGE" value="reafactor classes image" />
+    <MESSAGE value="update wll api" />
+    <option name="LAST_COMMIT_MESSAGE" value="update wll api" />
   </component>
 </project>

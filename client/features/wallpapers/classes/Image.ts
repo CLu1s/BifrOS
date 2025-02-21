@@ -32,7 +32,7 @@ class ImageQueue extends ImageWallpaper {
   }
 }
 
-class ImageHistory extends ImageWallpaper {
+export class ImageHistory extends ImageWallpaper {
   readonly data: HistoryElement;
   constructor(image: HistoryElement) {
     super(image);
@@ -61,7 +61,7 @@ export class ImageQueueAdapter {
   }
 }
 
-class ImageHistoryAdapter extends ImageQueueAdapter {
+export class ImageHistoryAdapter extends ImageQueueAdapter {
   readonly data: HistoryElementOld;
   constructor(image: HistoryElementOld) {
     super(image);
@@ -87,8 +87,12 @@ export class ImageQueueFactory {
     if (!image) {
       throw new Error("Image is null");
     }
-    if ("timestamp" in image && "type" in image) {
-      return new ImageHistoryAdapter(image);
+
+    if ("timestamp" in image) {
+      if ("type" in image) {
+        return new ImageHistoryAdapter(image);
+      }
+      return new ImageHistory(image);
     }
 
     if ("thumbs" in image && !("queue" in image)) {

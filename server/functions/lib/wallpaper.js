@@ -128,7 +128,7 @@ export const getSafeWallpaper = async () => {
 };
 
 export const saveWallpaperHistory = async (data) => {
-  const id = `history_${Date.now()}`;
+  const id = data.id.includes("history_") ? data.id : `history_${Date.now()}`;
 
   const saveData = {
     ...data,
