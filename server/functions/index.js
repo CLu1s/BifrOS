@@ -251,7 +251,7 @@ const getWallpaper = onRequest(async (request, response) => {
       }
       if (type === "ss") {
         const result = await getSafeWallpaper();
-        logActivityInDB({
+        void logActivityInDB({
           type: "wallpaper",
           description: `Safe Wallpaper served: ${result.short_url}`,
           timestamp: new Date().toISOString(),
@@ -267,13 +267,24 @@ const getWallpaper = onRequest(async (request, response) => {
         timestamp: new Date().toISOString(),
         metadata: { result },
       });
+
       await Promise.all([save, log]);
-      // Responder con éxito
-      return response.status(200).json(result);
+
+      if ("whPath" in result) {
+        return response.status(200).json({
+          ...result,
+          path: result.url,
+        });
+      }
+
+      return response.status(200).json({
+        ...result,
+      });
     } catch (error) {
-      logActivityInDB({
+      console.error("Error getting wallpaper:", error);
+      void logActivityInDB({
         type: "wallpaper",
-        description: `Error getting wallpaper: ${error}`,
+        description: `Error getting wallpaper`,
         timestamp: new Date().toISOString(),
       });
 
