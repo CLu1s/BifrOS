@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 
 const Generals = () => {
-  const { all } = useWallpapers();
+  const { queueList } = useWallpapers();
   const { metrics, executions } = useScrapper();
   const { bookmarks } = useBookmark();
 
@@ -16,7 +16,7 @@ const Generals = () => {
       </CardHeader>
       <CardBody>
         <ul className={"flex flex-col gap-2"}>
-          <li>Wallpapers on queue: {all.length} </li>
+          <li>Wallpapers on queue: {queueList.length} </li>
           <li>Scrapper executions: {executions.length} </li>
           <li>
             Last scraper execution:{" "}

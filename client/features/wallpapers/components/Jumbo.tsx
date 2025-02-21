@@ -1,11 +1,9 @@
 "use client";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import React, { useEffect, useState } from "react";
 import { fetchCollectionPage } from "@/features/wallpapers/lib";
 import { Image as ImageType } from "../types";
 
 const Jumbo = () => {
-  const { addImageToQueue } = useWallpapers();
   const [index, setIndex] = useState(1);
   const [lastPage, setLastPage] = useState(0);
   const length = 63;
@@ -37,19 +35,13 @@ const Jumbo = () => {
   }
   if (!images[index] || !images[index].path) return <div>No data</div>;
   return (
-    <button
-      className={"relative w-full aspect-square"}
-      onClick={() => addImageToQueue(images[index])}
-      type="button"
-    >
-      <img
-        className={
-          " absolute top-0 left-0 w-full rounded h-full object-cover object-top"
-        }
-        alt={images[index].path}
-        src={images[index].path}
-      />
-    </button>
+    <img
+      className={
+        " absolute top-0 left-0 w-full rounded h-full object-cover object-top"
+      }
+      alt={images[index].path}
+      src={images[index].path}
+    />
   );
 };
 
