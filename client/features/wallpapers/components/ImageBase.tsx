@@ -77,6 +77,7 @@ export function ImageBase(props: GalleryImageBaseProps) {
         className={
           "min-h-[200px] max-h-[200px] h-full 2xl:max-h-[300px]  object-cover object-top"
         }
+        loading="lazy"
         alt={image.data.url}
         src={image.getThumbnail()}
       />

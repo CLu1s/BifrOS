@@ -51,6 +51,14 @@ async function getAllCollections() {
   return {
     data: [
       {
+        id: "hot",
+        label: "Hot",
+        views: 0,
+        public: 1,
+        count: hotCollectionsJson.meta.total,
+        per_page: hotCollectionsJson.meta.per_page,
+      },
+      {
         id: "toplist3d",
         label: "Top 3D",
         views: 0,
@@ -66,14 +74,7 @@ async function getAllCollections() {
         count: topCollectionJson.meta.total,
         per_page: topCollectionJson.meta.per_page,
       },
-      {
-        id: "hot",
-        label: "Hot",
-        views: 0,
-        public: 1,
-        count: hotCollectionsJson.meta.total,
-        per_page: hotCollectionsJson.meta.per_page,
-      },
+
       {
         id: "latest",
         label: "Latest",
@@ -82,7 +83,6 @@ async function getAllCollections() {
         count: latesCollectionJson.meta.total,
         per_page: latesCollectionJson.meta.per_page,
       },
-
       {
         id: "random",
         label: "Random",
@@ -122,7 +122,7 @@ export default async function WallpaperDashboard() {
           <Queue />
         </div>
         <div className={"col-span-1 lg:col-span-1 2xl:col-span-1"}>
-          <History />
+          <History showExtraButton isWidget />
         </div>
 
         <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>

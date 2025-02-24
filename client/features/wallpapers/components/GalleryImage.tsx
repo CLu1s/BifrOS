@@ -8,7 +8,6 @@ import {
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { cn } from "@/lib/utils";
 import useActions from "@/features/wallpapers/hooks/useActions";
-import { useRouter } from "next/navigation";
 
 interface Props extends GalleryImageBaseProps {
   onPress: () => void;
@@ -16,7 +15,6 @@ interface Props extends GalleryImageBaseProps {
 
 export function GalleryImage(props: Props) {
   const { image } = props;
-  const router = useRouter();
   const { queueList } = useWallpapers();
   const { openModal } = useActions();
   const find = useMemo(
@@ -36,7 +34,7 @@ export function GalleryImage(props: Props) {
       key: "WH",
       label: "See on Wallhaven",
       action: () => {
-        router.push(image.data.url);
+        window.open(image.data.url, "_blank");
       },
     },
   ];

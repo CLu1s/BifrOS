@@ -5,6 +5,7 @@ import React from "react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
 import Card, { ExtraButton } from "@/components/Card";
+import { cn } from "@/lib/utils";
 
 interface Props {
   showExtraButton?: boolean;
@@ -28,11 +29,14 @@ const Queue = ({ showExtraButton }: Props) => {
     >
       <div
         className={
-          " w-full lg:max-h-[800px]  2xl:max-h-[800px] overflow-auto   pb-10"
+          " w-full max-h-[600px] lg:max-h-[800px]  2xl:max-h-[800px] overflow-auto   pb-10"
         }
       >
         <div
-          className={`grid grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4 gap-4`}
+          className={cn(
+            `grid grid-cols-2 gap-4`,
+            "md:grid-cols-3 2xl:grid-cols-6",
+          )}
         >
           {showQueue}
         </div>

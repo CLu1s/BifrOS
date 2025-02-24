@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update wll api and wll dashboard">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update wallpaper layout">
+      <change afterPath="$PROJECT_DIR$/client/app/wallpapers/history/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Generals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Generals.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Jumbo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/hooks/useFetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/hooks/useFetchers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -211,7 +219,8 @@
       <workItem from="1740073988917" duration="2635000" />
       <workItem from="1740084467582" duration="6156000" />
       <workItem from="1740142138928" duration="3929000" />
-      <workItem from="1740148551119" duration="212000" />
+      <workItem from="1740148551119" duration="1036000" />
+      <workItem from="1740429913363" duration="3331000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -533,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740145728368</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="update wll api and wll dashboard">
+      <option name="closed" value="true" />
+      <created>1740148768920</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1740148768920</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +558,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="change max index" />
     <MESSAGE value="rewrite galleries tabs" />
     <MESSAGE value="fix index images error" />
     <MESSAGE value="improve bd reading" />
@@ -566,6 +582,7 @@
     <MESSAGE value="reafactor classes image" />
     <MESSAGE value="update wll api" />
     <MESSAGE value="update wll api and wll dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="update wll api and wll dashboard" />
+    <MESSAGE value="update wallpaper layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="update wallpaper layout" />
   </component>
 </project>

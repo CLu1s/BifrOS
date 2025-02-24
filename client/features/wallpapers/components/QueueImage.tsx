@@ -11,7 +11,6 @@ import {
   ImageHistory,
   ImageQueueFactory,
 } from "@/features/wallpapers/classes/Image";
-import { useRouter } from "next/navigation";
 
 export function QueueImage(props: {
   image: QueueElement;
@@ -19,7 +18,6 @@ export function QueueImage(props: {
 }) {
   const { openModal } = useActions();
   const { removeImage, addImageToQueue } = useWallpapers();
-  const router = useRouter();
   const { isHistory } = props;
 
   if (!props.image) return null;
@@ -38,7 +36,7 @@ export function QueueImage(props: {
       key: "WH",
       label: "See on Wallhaven",
       action: () => {
-        router.push(imageQueue.data.url);
+        window.open(imageQueue.data.url, "_blank");
       },
     },
   ];

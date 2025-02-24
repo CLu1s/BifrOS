@@ -8,7 +8,13 @@ import {
 import { useDispatch } from "react-redux";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import Spinner from "@/components/Spinner";
-const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
+const FetcherWallpaperContainer = ({
+  children,
+  allHistory,
+}: {
+  children: ReactNode;
+  allHistory?: boolean;
+}) => {
   const dispatch = useDispatch();
   const { queueList, history } = useWallpapers();
   const {
@@ -17,7 +23,7 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
     isError,
     isValidating,
     history: historyData,
-  } = useFetchers();
+  } = useFetchers(allHistory);
   const newQueueLength = queue.landscape.length + queue.portrait.length;
   useEffect(() => {
     if (
@@ -39,10 +45,11 @@ const FetcherWallpaperContainer = ({ children }: { children: ReactNode }) => {
   ]);
 
   useEffect(() => {
+    console.log("historyData", historyData, allHistory);
     if (history.length !== historyData.length) {
       dispatch(setHistory(historyData));
     }
-  }, [historyData]);
+  }, [historyData, allHistory]);
 
   if (isLoading)
     return (
