@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update kodansha results">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="sort kodansha results">
+      <change beforePath="$PROJECT_DIR$/server/functions/__test__/scrapper.test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +217,7 @@
       <workItem from="1740865785824" duration="2004000" />
       <workItem from="1740886439617" duration="4383000" />
       <workItem from="1740927101944" duration="3116000" />
-      <workItem from="1740930230254" duration="9235000" />
+      <workItem from="1740930230254" duration="9567000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -572,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740942860390</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="sort kodansha results">
+      <option name="closed" value="true" />
+      <created>1740943094658</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1740943094658</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +587,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="improve bd reading" />
     <MESSAGE value="aso;jdna" />
     <MESSAGE value="fix build errors" />
     <MESSAGE value="impove iu" />
@@ -605,6 +611,7 @@
     <MESSAGE value="update wallpaper layout" />
     <MESSAGE value="update server node version" />
     <MESSAGE value="update kodansha results" />
-    <option name="LAST_COMMIT_MESSAGE" value="update kodansha results" />
+    <MESSAGE value="sort kodansha results" />
+    <option name="LAST_COMMIT_MESSAGE" value="sort kodansha results" />
   </component>
 </project>

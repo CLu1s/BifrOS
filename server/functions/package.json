@@ -14,7 +14,6 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@firebase/testing": "^0.20.11",
     "@sendgrid/mail": "^8.1.4",
     "@supercharge/promise-pool": "^3.2.0",
     "cheerio": "^1.0.0",
