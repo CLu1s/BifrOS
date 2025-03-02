@@ -13,8 +13,10 @@ import logger from "firebase-functions/logger";
 import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
 import {
   buildMetrics,
+  getKodanshaPromos,
   getLastElementsFromDB,
   saveExecution,
+  saveKodanshaExecution,
 } from "./helpers/index.js";
 import { parseURL } from "./lib/bookmarks.js";
 import {
@@ -92,58 +94,46 @@ function compareArrays(arr1, arr2) {
 const checkKodansha = onRequest(async (request, response) => {
   const startTime = Date.now();
   let status = "success";
-  let newPromos = [];
-  let data = {};
 
   try {
-    const promosPromise = checkPromos();
-    // const mailData = buildKodanshaMail(groupedByName);
-
-    // check if the promo already exists
-    const elementsInDBPromise = getLastElementsFromDB(
-      "https://kodansha.us/",
-      1,
-    );
     const [responsePromos, elementsInDB] = await Promise.all([
-      promosPromise,
-      elementsInDBPromise,
+      checkPromos(),
+      getKodanshaPromos(),
     ]);
 
-    newPromos = kodanshaGroupBy(responsePromos); //await filterPromosByNew(groupedByName);
-    const promoKeys = Object.keys(newPromos);
-    const historyKeys = elementsInDB[0]
-      ? Object.keys(elementsInDB[0]?.result)
-      : [];
-    const newKeys = compareArrays(promoKeys, historyKeys);
-    if (newKeys.length > 0) {
+    // kodanshaGroupBy(responsePromos); //await filterPromosByNew(groupedByName);
+    const dbIDs = new Set(elementsInDB.ids);
+    const newPromosIDs = new Set(responsePromos.ids);
+    const newIDs = newPromosIDs.difference(dbIDs);
+    const idToDel = dbIDs.difference(newPromosIDs);
+    console.log("newIDs", newIDs.size);
+    if (newIDs.size > 0) {
+      console.log("New promos found", newIDs.size);
       const metrics = buildMetrics({
         startTime,
         status,
         errorMessage: null,
         url: "https://kodansha.us/",
         urlsScraped: "https://kodansha.us/browse",
-        length: Object.keys(newKeys).length,
+        length: newIDs.size,
       });
 
       // sendMail(mailData);
 
-      data = await saveExecution({ result: newPromos, metrics });
+      await saveKodanshaExecution(responsePromos.data, newIDs, idToDel);
     }
     await logActivityInDB({
       type: "scraper",
-      description: `New Kodansha promos found (${newKeys.length})`,
+      description: `New Kodansha promos found (${newIDs.size})`,
       timestamp: new Date().toISOString(),
-      metadata: { count: newKeys.length },
+      metadata: { count: newIDs.size },
+    });
+    response.status(200).send({
+      newIDs: Array.from(newIDs),
+      dbIDs: Array.from(dbIDs),
     });
   } catch (err) {
     logger.error("Error in checkKodansha", err);
-    status = "error";
-  } finally {
-    if (status === "error") {
-      response.status(500).send("Error in checkKodansha");
-    } else {
-      response.status(200).send(data);
-    }
   }
 });
 const checkHumbleBundle = onRequest(async (request, response) => {

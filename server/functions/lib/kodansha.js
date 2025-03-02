@@ -1,4 +1,5 @@
 import axios from "axios";
+import { nanoid } from "nanoid";
 
 async function getDetails(url) {
   const detail = await fetch(
@@ -23,15 +24,18 @@ async function getDetails(url) {
   );
 }
 
-async function checkPromos() {
+async function getPromosCount() {
   const { data } = await axios.get(
-    "https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=0&count=24&api-version=1.4",
+    "https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=0&count=5&api-version=1.4",
   );
-
   const { fullCount } = data.status;
+  return fullCount;
+}
+
+async function getDataPromotions(fullCount) {
   let allData = [];
   let fromIndex = 0;
-  const pageSize = 50; // Número de elementos por solicitud
+  const pageSize = 1000; // Número de elementos por solicitud
   while (fromIndex < fullCount) {
     const responseCall = await axios.get(
       `https://api.kodansha.us/discover/v2?sort=0&subCategory=0&includeSeries=false&isOnSale=true&category=0&fromIndex=${fromIndex}&count=${pageSize}&api-version=1.4`,
@@ -41,32 +45,34 @@ async function checkPromos() {
     allData = allData.concat(response);
     fromIndex += pageSize;
   }
+  return allData;
+}
 
-  const formatData = await Promise.all(
-    allData.map(async (item) => {
-      try {
-        const detail = await getDetails(item.content.readableUrl || "");
-        const thumbnails = item.content.thumbnails || [];
-        const variants = item.content.variants || [];
-        return {
-          seriesName: item.content.seriesName || "Unknown",
-          relativeName: item.content.relativeName || "Unknown",
-          readableUrl: `https://kodansha.us/product/${item.content.readableUrl || ""}/`,
-          linksToStores: detail,
-          thumbnail: thumbnails[0] || "No thumbnail available",
-          price: variants[0]?.price || "N/A",
-          fullPrice: variants[0]?.fullPrice || "N/A",
-          discountPrice: variants[0]?.discountPrice || "N/A",
-          ageRating: item.content.ageRating || "Unrated",
-        };
-      } catch (e) {
-        console.error(`Error processing item: ${item.content.seriesName}`, e);
-        return null;
-      }
-    }),
-  );
+function formatData(item) {
+  const { content } = item;
+  const variant = content.variants[0] || null;
 
-  return formatData.filter((item) => item !== null);
+  return {
+    ...variant,
+    ...content,
+    readableUrl: `https://kodansha.us/product/${item.content.readableUrl || ""}/`,
+    dbID: `kodansha-${content.id}`,
+    // linksToStores: detail,
+  };
+}
+
+async function checkPromos() {
+  const fullCount = await getPromosCount();
+  let allData = await getDataPromotions(fullCount);
+  const ids = [];
+  const formatedData = allData.map((item) => {
+    const formatedData = formatData(item);
+    ids.push(formatedData.dbID);
+    return formatedData;
+  });
+
+  const filter = formatedData.filter((item) => item !== null);
+  return { data: filter, ids };
 }
 
 function groupBy(object) {
@@ -78,10 +84,6 @@ function groupBy(object) {
     acc[keyWord].push({
       ...promo,
       relativeName: `${keyWord} ${promo.relativeName}`,
-      linksToStores: promo.linksToStores.map((link) => ({
-        name: link.name,
-        url: link.url,
-      })),
     });
     return acc;
   }, {});

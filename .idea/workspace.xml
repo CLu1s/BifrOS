@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update wallpaper layout">
-      <change afterPath="$PROJECT_DIR$/client/app/wallpapers/history/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/hooks/useFetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/hooks/useFetchers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/helpers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/lib/kodansha.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/kodansha.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,13 +67,14 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;HTML&quot;
+      &quot;HTML&quot;,
+      &quot;JSON&quot;
     ]
   }
 }</component>
@@ -220,7 +216,13 @@
       <workItem from="1740084467582" duration="6156000" />
       <workItem from="1740142138928" duration="3929000" />
       <workItem from="1740148551119" duration="1036000" />
-      <workItem from="1740429913363" duration="3331000" />
+      <workItem from="1740429913363" duration="3978000" />
+      <workItem from="1740494965422" duration="759000" />
+      <workItem from="1740506262812" duration="5964000" />
+      <workItem from="1740865785824" duration="2004000" />
+      <workItem from="1740886439617" duration="4383000" />
+      <workItem from="1740927101944" duration="3116000" />
+      <workItem from="1740930230254" duration="7082000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -550,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740148768920</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="update wallpaper layout">
+      <option name="closed" value="true" />
+      <created>1740433251632</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1740433251632</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
