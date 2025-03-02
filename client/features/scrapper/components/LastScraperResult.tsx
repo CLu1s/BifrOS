@@ -3,7 +3,7 @@ import Card, { ExtraButton } from "@/components/Card";
 import { useEffect, useState } from "react";
 import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
 import { Manga } from "@/features/scrapper/types";
-import { MangaList } from "@/features/scrapper/classes/MangaList";
+// import { MangaList } from "@/features/scrapper/classes/MangaList";
 
 const LastScraperResult = () => {
   const [data, setData] = useState<Manga[]>([]);
@@ -11,7 +11,7 @@ const LastScraperResult = () => {
   useEffect(() => {
     (async () => {
       const data = (await getScraperDocsFromFirebase()) as unknown as Manga[];
-      setData(data.sort((a, b) => a.seriesName.localeCompare(b.seriesName)));
+      setData(data.sort((a, b) => a.volumeName.localeCompare(b.volumeName)));
     })();
   }, []);
 
@@ -31,7 +31,7 @@ const LastScraperResult = () => {
               width={150}
               height={200}
             />
-            <p className={"font-semibold"}>{element.seriesName}</p>
+            <p className={"font-semibold"}>{element.volumeName}</p>
             <div className={"flex gap-2"}>
               <p>{element.ageRating}</p>
               <p>
