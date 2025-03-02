@@ -20,14 +20,6 @@ const DashboardContainer = () => {
 
   useEffect(() => {
     (async () => {
-      const data =
-        (await getScraperDocsFromFirebase()) as unknown as Execution[];
-      dispatch(setExecutions(data));
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
       const data = await getBookmarksFromFirestore();
       dispatch(setBookmarks(data));
     })();

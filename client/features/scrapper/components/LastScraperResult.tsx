@@ -1,17 +1,21 @@
 import { Link, Image } from "@heroui/react";
-
-import useScrapper from "../hooks/useScrapper";
 import Card, { ExtraButton } from "@/components/Card";
+import { useEffect, useState } from "react";
+import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
+import { Manga } from "@/features/scrapper/types";
+import { MangaList } from "@/features/scrapper/classes/MangaList";
 
 const LastScraperResult = () => {
-  const { kodanshaExecutions } = useScrapper();
-  if (!(kodanshaExecutions.length > 0)) return null;
-  const { result } = kodanshaExecutions[0];
-  const keys = Object.keys(result).sort((a, b) => {
-    return a.localeCompare(b);
-  });
-  // getting the first element of the executions array of each key
-  const elements = keys.map((key) => result[key][0]);
+  const [data, setData] = useState<Manga[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = (await getScraperDocsFromFirebase()) as unknown as Manga[];
+      setData(data.sort((a, b) => a.seriesName.localeCompare(b.seriesName)));
+    })();
+  }, []);
+
+  // const series = new MangaList(data).getSeries();
 
   return (
     <Card
@@ -19,10 +23,10 @@ const LastScraperResult = () => {
       renderExtra={<ExtraButton href={"/scraper"}>View More</ExtraButton>}
     >
       <div className={"grid grid-cols-2 lg:grid-cols-5 2xl:grid-cols-6 gap-4"}>
-        {elements.map((element) => (
-          <div key={element.relativeName} className={"flex flex-col gap-1"}>
+        {data.map((element) => (
+          <div key={element.dbID} className={"flex flex-col gap-1"}>
             <Image
-              src={"/proxy?url=" + element.thumbnail.url}
+              src={"/proxy?url=" + element.thumbnails[0].url}
               alt={element.relativeName}
               width={150}
               height={200}

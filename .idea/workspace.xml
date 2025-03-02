@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update wallpaper layout">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update server node version">
+      <change afterPath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/lib/kodansha.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/lib/kodansha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -222,7 +222,7 @@
       <workItem from="1740865785824" duration="2004000" />
       <workItem from="1740886439617" duration="4383000" />
       <workItem from="1740927101944" duration="3116000" />
-      <workItem from="1740930230254" duration="7082000" />
+      <workItem from="1740930230254" duration="9076000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -560,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740433251632</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="update server node version">
+      <option name="closed" value="true" />
+      <created>1740940907064</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1740940907064</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +576,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="rewrite galleries tabs" />
     <MESSAGE value="fix index images error" />
     <MESSAGE value="improve bd reading" />
     <MESSAGE value="aso;jdna" />
@@ -593,6 +600,7 @@
     <MESSAGE value="update wll api" />
     <MESSAGE value="update wll api and wll dashboard" />
     <MESSAGE value="update wallpaper layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="update wallpaper layout" />
+    <MESSAGE value="update server node version" />
+    <option name="LAST_COMMIT_MESSAGE" value="update server node version" />
   </component>
 </project>

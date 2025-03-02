@@ -15,6 +15,60 @@ export type Execution = {
   timestamp: string;
 };
 
+interface Thumbnail {
+  width: number;
+  height: number;
+  fileSize: number;
+  url: string;
+  color?: string; // Opcional, ya que no todos los thumbnails tienen el campo "color"
+}
+
+interface Variant {
+  type: string;
+  price: number;
+  fullPrice: number;
+  discountPrice: number;
+  isComingSoon: boolean;
+  isPreOrder: boolean;
+  priceType: string;
+  id: number;
+  description: string;
+  isOnSale: boolean;
+  usesDefaultProductImage: boolean;
+  thumbnails: Thumbnail[];
+}
+
+export interface Manga {
+  type: string;
+  price: number;
+  fullPrice: number;
+  discountPrice: number;
+  isComingSoon: boolean;
+  isPreOrder: boolean;
+  priceType: string;
+  id: number;
+  description: string;
+  isOnSale: boolean;
+  usesDefaultProductImage: boolean;
+  thumbnails: Thumbnail[];
+  ageRating: string;
+  volumeNumber: number;
+  volumeId: number;
+  seriesName: string;
+  volumeName: string;
+  seriesId: number;
+  seriesReadableUrl: string;
+  title: string;
+  relativeName: string;
+  readableUrl: string;
+  publishDate: string; // Puedes usar `Date` si prefieres trabajar con objetos de fecha
+  author: string;
+  printType: string;
+  variants: Variant[];
+  dbID: string;
+  last_update: string; // Puedes usar `Date` si prefieres trabajar con objetos de fecha
+}
+
 export type LinkType = {
   name: string;
   url: string;
