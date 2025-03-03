@@ -26,7 +26,7 @@ export class MangaSeries {
       this.thumbnail = manga.thumbnails[0].url;
     }
     if (!this.url) {
-      this.url = manga.readableUrl;
+      this.url = `https://kodansha.us/series/${manga.seriesReadableUrl}/`;
     }
     this.calculateAvgPrice();
     this.calculateAvgDiscountPercentage();

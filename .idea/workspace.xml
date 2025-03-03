@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="remove unsused pacja">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update manga display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +220,8 @@
       <workItem from="1740886439617" duration="4383000" />
       <workItem from="1740927101944" duration="3116000" />
       <workItem from="1740930230254" duration="10505000" />
-      <workItem from="1740970152682" duration="2487000" />
+      <workItem from="1740970152682" duration="3966000" />
+      <workItem from="1741013930191" duration="852000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -599,7 +599,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix build errors" />
     <MESSAGE value="impove iu" />
     <MESSAGE value="fix crashing error" />
     <MESSAGE value="add type image indicator" />
@@ -624,6 +623,7 @@
     <MESSAGE value="update kodansha results" />
     <MESSAGE value="sort kodansha results" />
     <MESSAGE value="remove unsused pacja" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unsused pacja" />
+    <MESSAGE value="update manga display" />
+    <option name="LAST_COMMIT_MESSAGE" value="update manga display" />
   </component>
 </project>

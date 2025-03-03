@@ -39,7 +39,7 @@ const LastScraperResult = () => {
                 key={key}
                 href={value.url}
                 target={"_blank"}
-                className={"flex flex-col text-left"}
+                className={"flex flex-col text-left gap-2"}
               >
                 <Image
                   src={"/proxy?url=" + value.thumbnail}
@@ -59,6 +59,10 @@ const LastScraperResult = () => {
                   </p>
                   <p className={"text-sm"}>
                     <span>Avg: </span>${value.avgPrice}
+                  </p>
+                  <p className={"text-sm"}>
+                    <span>Vols: </span>
+                    {value.volumes.length}
                   </p>
                 </span>
               </Link>
