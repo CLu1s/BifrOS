@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="sort kodansha results">
-      <change beforePath="$PROJECT_DIR$/server/functions/__test__/scrapper.test.js" beforeDir="false" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="remove unsused pacja">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +220,8 @@
       <workItem from="1740865785824" duration="2004000" />
       <workItem from="1740886439617" duration="4383000" />
       <workItem from="1740927101944" duration="3116000" />
-      <workItem from="1740930230254" duration="9567000" />
+      <workItem from="1740930230254" duration="10505000" />
+      <workItem from="1740970152682" duration="2487000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -579,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740943094658</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="remove unsused pacja">
+      <option name="closed" value="true" />
+      <created>1740943344609</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1740943344609</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +599,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aso;jdna" />
     <MESSAGE value="fix build errors" />
     <MESSAGE value="impove iu" />
     <MESSAGE value="fix crashing error" />
@@ -612,6 +623,7 @@
     <MESSAGE value="update server node version" />
     <MESSAGE value="update kodansha results" />
     <MESSAGE value="sort kodansha results" />
-    <option name="LAST_COMMIT_MESSAGE" value="sort kodansha results" />
+    <MESSAGE value="remove unsused pacja" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unsused pacja" />
   </component>
 </project>

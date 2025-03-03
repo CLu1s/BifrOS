@@ -3,7 +3,7 @@ import Card, { ExtraButton } from "@/components/Card";
 import { useEffect, useState } from "react";
 import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
 import { Manga } from "@/features/scrapper/types";
-// import { MangaList } from "@/features/scrapper/classes/MangaList";
+import { MangaList } from "@/features/scrapper/classes/MangaList";
 
 const LastScraperResult = () => {
   const [data, setData] = useState<Manga[]>([]);
@@ -15,56 +15,55 @@ const LastScraperResult = () => {
     })();
   }, []);
 
-  // const series = new MangaList(data).getSeries();
-
+  const series = new MangaList(data).getSeries();
+  console.log(series);
+  // <Image
+  //     src={"/proxy?url=" + element.thumbnails[0].url}
+  //     alt={element.relativeName}
+  //     width={150}
+  //     height={200}
+  // />;
   return (
     <Card
       title={"Last Kodansha Results"}
       renderExtra={<ExtraButton href={"/scraper"}>View More</ExtraButton>}
     >
       <div className={"grid grid-cols-2 lg:grid-cols-5 2xl:grid-cols-6 gap-4"}>
-        {data.map((element) => (
-          <div key={element.dbID} className={"flex flex-col gap-1"}>
-            <Image
-              src={"/proxy?url=" + element.thumbnails[0].url}
-              alt={element.relativeName}
-              width={150}
-              height={200}
-            />
-            <p className={"font-semibold"}>{element.volumeName}</p>
-            <div className={"flex gap-2"}>
-              <p>{element.ageRating}</p>
-              <p>
-                {" "}
-                $
-                {isNaN(element.discountPrice)
-                  ? element.fullPrice
-                  : element.discountPrice}
-              </p>
-              <span
-                className={
-                  Math.floor(
-                    100 - (element.discountPrice * 100) / element.fullPrice,
-                  ) > 40
-                    ? "text-green-600"
-                    : "text-red-600"
-                }
-              >
-                {!isNaN(element.discountPrice) &&
-                  Math.floor(
-                    100 - (element.discountPrice * 100) / element.fullPrice,
-                  ) + "% "}
-              </span>
+        {Array.from(series)
+          .sort(([aKey, aValue], [bKey, bValue]) =>
+            aValue.avgPrice > bValue.avgPrice ? 1 : -1,
+          )
+          .map(([key, value]) => {
+            return (
               <Link
-                href={element.readableUrl}
-                underline={"always"}
-                className={"font-semibold"}
+                key={key}
+                href={value.url}
+                target={"_blank"}
+                className={"flex flex-col text-left"}
               >
-                Link
+                <Image
+                  src={"/proxy?url=" + value.thumbnail}
+                  alt={key}
+                  width={150}
+                  height={200}
+                />
+                <h3 className={"text-sm text-left w-full"}>{value.title}</h3>
+                <span className={"flex flex-wrap justify-between w-full"}>
+                  <p className={"text-sm"}>
+                    <span>Lowest: </span>
+                    {value.lowestPrice}
+                  </p>
+                  <p className={"text-sm"}>
+                    <span>Highest: </span>
+                    {value.highestPrice}
+                  </p>
+                  <p className={"text-sm"}>
+                    <span>Avg: </span>${value.avgPrice}
+                  </p>
+                </span>
               </Link>
-            </div>
-          </div>
-        ))}
+            );
+          })}
       </div>
     </Card>
   );
