@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   showExtraButton?: boolean;
+  isWidget?: boolean;
 }
 
-const Queue = ({ showExtraButton }: Props) => {
+const Queue = ({ showExtraButton, isWidget }: Props) => {
   const { queueList } = useWallpapers();
 
   const showQueue = queueList.map((image: QueueElement) => (
@@ -35,7 +36,9 @@ const Queue = ({ showExtraButton }: Props) => {
         <div
           className={cn(
             `grid grid-cols-2 gap-4`,
-            "md:grid-cols-3 2xl:grid-cols-6",
+            isWidget
+              ? "md:grid-cols-3 2xl:grid-cols-3"
+              : "md:grid-cols-3 2xl:grid-cols-6",
           )}
         >
           {showQueue}

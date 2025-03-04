@@ -28,7 +28,11 @@ const LastScraperResult = () => {
       title={"Last Kodansha Results"}
       renderExtra={<ExtraButton href={"/scraper"}>View More</ExtraButton>}
     >
-      <div className={"grid grid-cols-2 lg:grid-cols-5 2xl:grid-cols-6 gap-4"}>
+      <div
+        className={
+          "grid grid-cols-2 lg:grid-cols-5  xl:grid-cols-6 2xl:grid-cols-7 gap-6 overflow-auto "
+        }
+      >
         {Array.from(series)
           .sort(([aKey, aValue], [bKey, bValue]) =>
             aValue.avgPrice > bValue.avgPrice ? 1 : -1,
@@ -44,10 +48,11 @@ const LastScraperResult = () => {
                 <Image
                   src={"/proxy?url=" + value.thumbnail}
                   alt={key}
-                  width={150}
-                  height={200}
+                  className={"w-full"}
                 />
-                <h3 className={"text-sm text-left w-full"}>{value.title}</h3>
+                <h3 className={"text-sm font-semibold text-left w-full"}>
+                  {value.title}
+                </h3>
                 <span className={"flex flex-wrap justify-between w-full"}>
                   <p className={"text-sm"}>
                     <span>Lowest: </span>

@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update manga display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/classes/MangaList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFetchers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +227,8 @@
       <workItem from="1740927101944" duration="3116000" />
       <workItem from="1740930230254" duration="10505000" />
       <workItem from="1740970152682" duration="3966000" />
-      <workItem from="1741013930191" duration="852000" />
+      <workItem from="1741013930191" duration="3993000" />
+      <workItem from="1741044468420" duration="2569000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -591,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740943344609</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="update manga display">
+      <option name="closed" value="true" />
+      <created>1741014867412</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1741014867412</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

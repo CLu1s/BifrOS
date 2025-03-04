@@ -21,7 +21,7 @@ export default function Card({
   isLoading,
 }: Props) {
   return (
-    <CardUI>
+    <CardUI className={"w-full"}>
       <CardHeader>
         <div className={"flex justify-between w-full"}>
           <h2 className={"text-xl font-semibold"}>{title}</h2>

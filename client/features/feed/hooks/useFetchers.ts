@@ -24,13 +24,13 @@ const useFetchers = (readAllDocuments = false) => {
     ref,
     where("category", "==", "anime"),
     orderBy("dateInSec", "desc"),
-    limit(8),
+    limit(15),
   );
   const q = query(
     ref,
     where("category", "==", "tech"),
     orderBy("dateInSec", "desc"),
-    limit(8),
+    limit(15),
   );
   const queryAnimeResults = useSWR(readAllDocuments ? null : animeKey, () =>
     queryFirestore(a),

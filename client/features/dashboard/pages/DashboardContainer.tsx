@@ -1,16 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-
-import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
-import { setExecutions } from "@/features/scrapper/redux/scrapperSlice";
 import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
 import PageLayout from "@/components/PageLayout";
 import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 import { useDispatch } from "react-redux";
-import { Execution } from "@/features/scrapper/types";
 import BookmarkWidget from "@/features/bookmarks/components/BookmarkWidget";
 import Queue from "@/features/wallpapers/components/Queue";
 import LatestFeedContainer from "@/features/feed/components/LatestFeedContainer";
@@ -28,22 +24,24 @@ const DashboardContainer = () => {
   return (
     <PageLayout
       title={"Bienvenido"}
-      className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4 "}
+      className={"grid grid-cols-1  md:grid-cols-[70%_30%] gap-4 "}
     >
-      <div className={"col-span-1  lg:col-span-2 2xl:col-span-1"}>
+      <div
+        className={
+          "grid grid-cols-1 order-3 md:order-2 xl:grid-rows-[650px_repeat(3,_minmax(700px,700px))] gap-4"
+        }
+      >
         <LatestFeedContainer />
-      </div>
-
-      <div className={" col-span-1 md:col-span-2 2xl:col-span-1"}>
-        <BookmarkWidget />
-      </div>
-
-      <div className={" col-span-1 lg:col-span-2 2xl:col-span-1 "}>
         <LastScraperResult />
       </div>
-      <div className={" col-span-1 lg:col-span-2 2xl:col-span-1"}>
+      <div
+        className={
+          "grid grid-cols-1 order-1 md:order-2 xl:grid-rows-[650px_repeat(3,_minmax(700px,700px))] gap-4"
+        }
+      >
+        <BookmarkWidget />
         <FetcherWallpaperContainer>
-          <Queue showExtraButton />
+          <Queue showExtraButton isWidget />
         </FetcherWallpaperContainer>
       </div>
     </PageLayout>
