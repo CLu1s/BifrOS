@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
 import LastScraperResult from "@/features/scrapper/components/LastScraperResult";
@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import BookmarkWidget from "@/features/bookmarks/components/BookmarkWidget";
 import Queue from "@/features/wallpapers/components/Queue";
 import LatestFeedContainer from "@/features/feed/components/LatestFeedContainer";
+import Cover from "@/features/dashboard/components/Cover";
+import { ExtraButton } from "@/components/Card";
 
 const DashboardContainer = () => {
   const dispatch = useDispatch();
@@ -24,25 +26,23 @@ const DashboardContainer = () => {
   return (
     <PageLayout
       title={"Bienvenido"}
-      className={"grid grid-cols-1  md:grid-cols-[70%_30%] gap-4 "}
+      className={"grid grid-cols-1  md:grid-cols-[60%_40%] gap-8 "}
     >
-      <div
-        className={
-          "grid grid-cols-1 order-3 md:order-2 xl:grid-rows-[650px_repeat(3,_minmax(700px,700px))] gap-4"
-        }
-      >
-        <LatestFeedContainer />
-        <LastScraperResult />
-      </div>
-      <div
-        className={
-          "grid grid-cols-1 order-1 md:order-2 xl:grid-rows-[650px_repeat(3,_minmax(700px,700px))] gap-4"
-        }
-      >
-        <BookmarkWidget />
+      <div className={"flex flex-col order-3 md:order-2   gap-8"}>
         <FetcherWallpaperContainer>
-          <Queue showExtraButton isWidget />
+          <Queue
+            extraButton={
+              <ExtraButton href={"/wallpapers"}>View More</ExtraButton>
+            }
+            isWidget
+          />
         </FetcherWallpaperContainer>
+
+        <LastScraperResult isWidget />
+      </div>
+      <div className={"flex flex-col order-1 md:order-2 gap-8"}>
+        <LatestFeedContainer />
+        <BookmarkWidget />
       </div>
     </PageLayout>
   );

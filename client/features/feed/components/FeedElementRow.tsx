@@ -28,20 +28,24 @@ export function FeedElementRow(props: { feed: Feed }) {
     <Link
       href={props.feed.link}
       target={"_blank"}
-      className=" w-full flex justify-between relative "
+      className="grid grid-rows-1 relative mb-2"
     >
-      <div className="flex flex-col gap-2">
-        <div className={"col-span-1 h-32 "}>
+      <div className="  grid grid-rows-2   gap-2">
+        <div className={"col-span-1 min-h-32 max-h-32"}>
           <img
             alt="Card background"
             className=" h-full w-full object-cover  rounded-lg"
             src={props.feed.imageUrl}
           />
         </div>
-        <div className={"flex flex-col h-24 col-span-5"}>
-          <h3 className={" text-sm leading-4 2xl:text-sm"}>
+        <div className={"flex flex-col    "}>
+          <p
+            className={
+              "text-sm leading-4 2xl:text-sm text-ellipsis whitespace-break-spaces"
+            }
+          >
             {props.feed.title}
-          </h3>
+          </p>
 
           <div className={"flex  gap-4 col-span-4"}>
             <p className="text-tiny font-medium text-neutral-500">

@@ -55,7 +55,7 @@ const History = ({ showExtraButton, allHistory, isWidget }: Props) => {
           className={cn(
             ` grid grid-cols-2  gap-2 lg:gap-6`,
             isWidget
-              ? "md:grid-cols-3 "
+              ? "md:grid-cols-2 "
               : "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6",
           )}
         >

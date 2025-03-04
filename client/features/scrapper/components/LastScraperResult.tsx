@@ -1,11 +1,16 @@
+"use client";
 import { Link, Image } from "@heroui/react";
 import Card, { ExtraButton } from "@/components/Card";
 import { useEffect, useState } from "react";
 import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
 import { Manga } from "@/features/scrapper/types";
 import { MangaList } from "@/features/scrapper/classes/MangaList";
+import { cn } from "@/lib/utils";
+interface Props {
+  isWidget?: boolean;
+}
 
-const LastScraperResult = () => {
+const LastScraperResult = ({ isWidget }: Props) => {
   const [data, setData] = useState<Manga[]>([]);
 
   useEffect(() => {
@@ -16,63 +21,73 @@ const LastScraperResult = () => {
   }, []);
 
   const series = new MangaList(data).getSeries();
-  console.log(series);
+  const sortedSeries = Array.from(series).sort(
+    ([aKey, aValue], [bKey, bValue]) =>
+      aValue.avgPrice > bValue.avgPrice ? 1 : -1,
+  );
+  const seriesList = isWidget ? sortedSeries.slice(0, 10) : sortedSeries;
   // <Image
   //     src={"/proxy?url=" + element.thumbnails[0].url}
   //     alt={element.relativeName}
   //     width={150}
   //     height={200}
   // />;
+  const difference = series.size - seriesList.length;
+
+  const buttonText = difference > 0 ? `View ${difference} More` : "View More";
   return (
     <Card
       title={"Last Kodansha Results"}
-      renderExtra={<ExtraButton href={"/scraper"}>View More</ExtraButton>}
+      renderExtra={
+        isWidget && (
+          <ExtraButton href={"/scraper/kodansha"}>{buttonText}</ExtraButton>
+        )
+      }
     >
       <div
-        className={
-          "grid grid-cols-2 lg:grid-cols-5  xl:grid-cols-6 2xl:grid-cols-7 gap-6 overflow-auto "
-        }
+        className={cn(
+          "grid grid-cols-2  gap-6 overflow-auto ",
+          isWidget
+            ? "lg:grid-cols-5  xl:grid-cols-5 2xl:grid-cols-5"
+            : "lg:grid-cols-5  xl:grid-cols-6 2xl:grid-cols-10",
+        )}
       >
-        {Array.from(series)
-          .sort(([aKey, aValue], [bKey, bValue]) =>
-            aValue.avgPrice > bValue.avgPrice ? 1 : -1,
-          )
-          .map(([key, value]) => {
-            return (
-              <Link
-                key={key}
-                href={value.url}
-                target={"_blank"}
-                className={"flex flex-col text-left gap-2"}
-              >
-                <Image
-                  src={"/proxy?url=" + value.thumbnail}
-                  alt={key}
-                  className={"w-full"}
-                />
-                <h3 className={"text-sm font-semibold text-left w-full"}>
-                  {value.title}
-                </h3>
-                <span className={"flex flex-wrap justify-between w-full"}>
-                  <p className={"text-sm"}>
-                    <span>Lowest: </span>
-                    {value.lowestPrice}
-                  </p>
-                  <p className={"text-sm"}>
-                    <span>Highest: </span>
-                    {value.highestPrice}
-                  </p>
-                  <p className={"text-sm"}>
-                    <span>Avg: </span>${value.avgPrice}
-                  </p>
-                  <p className={"text-sm"}>
-                    <span>Vols: </span>
-                    {value.volumes.length}
-                  </p>
-                </span>
-              </Link>
-            );
-          })}
+        {seriesList.map(([key, value]) => {
+          return (
+            <Link
+              key={key}
+              href={value.url}
+              target={"_blank"}
+              className={"flex flex-col text-left gap-2"}
+            >
+              <Image
+                src={"/proxy?url=" + value.thumbnail}
+                alt={key}
+                className={"w-full"}
+              />
+              <h3 className={"text-sm font-semibold text-left w-full"}>
+                {value.title}
+              </h3>
+              <span className={"flex flex-wrap justify-between w-full"}>
+                <p className={"text-sm"}>
+                  <span>Lowest: </span>
+                  {value.lowestPrice}
+                </p>
+                <p className={"text-sm"}>
+                  <span>Highest: </span>
+                  {value.highestPrice}
+                </p>
+                <p className={"text-sm"}>
+                  <span>Avg: </span>${value.avgPrice}
+                </p>
+                <p className={"text-sm"}>
+                  <span>Vols: </span>
+                  {value.volumes.length}
+                </p>
+              </span>
+            </Link>
+          );
+        })}
       </div>
     </Card>
   );

@@ -13,7 +13,7 @@ export * from "./fetchers";
 export async function historyFromFirebaseFetcher() {
   const db = getFirestore();
   const ref = collection(db, "wallpapers/myData/history");
-  const q = query(ref, orderBy("timestamp", "desc"), limit(10));
+  const q = query(ref, orderBy("timestamp", "desc"), limit(6));
   return (await queryFirestore(q)) as HistoryElement[];
 }
 

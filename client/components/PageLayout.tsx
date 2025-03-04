@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import Cover from "@/features/dashboard/components/Cover";
+import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
 
 const PageLayout = ({
   children,
@@ -11,9 +13,12 @@ const PageLayout = ({
   className?: string;
 }) => {
   return (
-    <div className={"flex flex-col gap-8 px-1 lg:px-4 w-full "}>
-      <h1 className={"text-4xl font-bold"}>{title}</h1>
-      <div className={cn("flex justify-center w-full ", className)}>
+    <div className={"flex flex-col gap-8  w-full "}>
+      <FetcherWallpaperContainer>
+        <Cover />
+      </FetcherWallpaperContainer>
+      <h1 className={"text-4xl font-bold px-12"}>{title}</h1>
+      <div className={cn("flex justify-center w-full px-12 ", className)}>
         {children}
       </div>
     </div>

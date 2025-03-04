@@ -18,8 +18,7 @@ const useFeed = () => {
     {} as Record<string, Feed[]>,
   );
   const feedKeys = Object.keys(groupedByCategory);
-  console.log("feedKeys", feeds);
-  const NUMBER_OF_FEEDS = 21;
+  const NUMBER_OF_FEEDS = 6;
   const numberOfFeedsByCategory = Math.ceil(NUMBER_OF_FEEDS / feedKeys.length);
   const feedKeysByCategory = feedKeys
     .map((key) => {

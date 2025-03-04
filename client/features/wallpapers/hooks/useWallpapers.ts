@@ -84,7 +84,19 @@ const useWallpapers = () => {
     }
   };
 
+  const getRandomImage = () => {
+    const random = Math.floor(Math.random() * queueList.length);
+    return queueList[random];
+  };
+  const getLandscapeRandomImage = (): QueueElement => {
+    const random = Math.floor(Math.random() * landscape.length);
+    if (!landscape[random]) return getLandscapeRandomImage();
+    return landscape[random];
+  };
+
   return {
+    getLandscapeRandomImage,
+    getRandomImage,
     getNextQueueNumberOrder,
     getQueue,
     find,

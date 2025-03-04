@@ -4,7 +4,7 @@ import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 const Favorites = () => {
   const { favorites } = useBookmark();
   return (
-    <div className={"p-2 w-full flex flex-col gap-4"}>
+    <div className={"w-full flex flex-col gap-4"}>
       <h2 className={"text-lg font-semibold"}> Favorites</h2>
       <div className={"border-none"}>
         <div className={"flex flex-wrap justify-start gap-2 "}>

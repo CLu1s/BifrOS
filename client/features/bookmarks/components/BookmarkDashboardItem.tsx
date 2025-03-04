@@ -13,10 +13,10 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
         <img
           src={data.ogImage || data.favicon || "/favicon.svg"}
           alt={data.ogTitle}
-          className={"object-cover h-32 rounded-xl w-full"}
+          className={"object-cover h-28 rounded-xl w-full"}
         />
 
-        <div className={" col-span-4 flex flex-col gap-2 p-2"}>
+        <div className={" col-span-4 flex flex-col gap-2 px-2"}>
           <h2 className={"text-sm "}>{decodeURIComponent(data.ogTitle)}</h2>
         </div>
       </div>

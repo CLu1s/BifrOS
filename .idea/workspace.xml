@@ -4,16 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update manga display">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="update   display">
+      <change afterPath="$PROJECT_DIR$/client/app/scraper/kodansha/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/app/wallpapers/queue/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/dashboard/components/Cover.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/wallpapers/history/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/wallpapers/history/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/LastBookmarks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFetchers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/FetcherWallpaperContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/History.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/hooks/useWallpapers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/hooks/useWallpapers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -55,39 +66,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Shell Script.Firebase.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/features/wallpapers/components&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Firebase.executor": "Run",
+    "Shell Script.Unnamed.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros/client/app/scraper/kodansha",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;HTML&quot;,
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTML",
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/app/scraper/kodansha" />
+      <recent name="$PROJECT_DIR$/client/app/wallpapers/queue" />
       <recent name="$PROJECT_DIR$/client/features/wallpapers/components" />
       <recent name="$PROJECT_DIR$/client/features/feed/components" />
       <recent name="$PROJECT_DIR$/client/features/feed/hooks" />
-      <recent name="$PROJECT_DIR$/client/features/feed/lib" />
-      <recent name="$PROJECT_DIR$/client/features/feed/components" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" />
@@ -228,7 +239,8 @@
       <workItem from="1740930230254" duration="10505000" />
       <workItem from="1740970152682" duration="3966000" />
       <workItem from="1741013930191" duration="3993000" />
-      <workItem from="1741044468420" duration="2569000" />
+      <workItem from="1741044468420" duration="3847000" />
+      <workItem from="1741095684151" duration="10539000" />
     </task>
     <task id="LOCAL-00001" summary="add scrapper corner anime">
       <option name="closed" value="true" />
@@ -606,7 +618,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741014867412</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="update   display">
+      <option name="closed" value="true" />
+      <created>1741047095271</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1741047095271</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +634,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="impove iu" />
     <MESSAGE value="fix crashing error" />
     <MESSAGE value="add type image indicator" />
     <MESSAGE value="refactor layout" />
@@ -639,6 +658,19 @@
     <MESSAGE value="sort kodansha results" />
     <MESSAGE value="remove unsused pacja" />
     <MESSAGE value="update manga display" />
-    <option name="LAST_COMMIT_MESSAGE" value="update manga display" />
+    <MESSAGE value="update   display" />
+    <option name="LAST_COMMIT_MESSAGE" value="update   display" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx</url>
+          <line>37</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

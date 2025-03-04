@@ -45,7 +45,6 @@ const FetcherWallpaperContainer = ({
   ]);
 
   useEffect(() => {
-    console.log("historyData", historyData, allHistory);
     if (history.length !== historyData.length) {
       dispatch(setHistory(historyData));
     }
