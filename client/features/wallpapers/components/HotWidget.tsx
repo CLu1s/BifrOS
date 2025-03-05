@@ -41,7 +41,11 @@ export default async function HotWidget() {
   });
   return (
     <Card title={"Hot"}>
-      <div className={"grid grid-cols-5 gap-4 max-h-[700px] overflow-auto "}>
+      <div
+        className={
+          "grid grid-cols-2 xl:grid-cols-4 gap-4 max-h-[700px] overflow-auto "
+        }
+      >
         {images}
       </div>
     </Card>
