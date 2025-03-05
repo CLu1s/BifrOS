@@ -14,7 +14,10 @@ function Cover() {
   return (
     <div className="w-full h-96 bg-gray-800 flex ">
       {image && (
-        <img src={`/wh-proxy?url=${image.path}`} className={"object-cover"} />
+        <img
+          src={`/wh-proxy?url=${image.path}`}
+          className={"w-full object-cover"}
+        />
       )}
     </div>
   );
