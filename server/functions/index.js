@@ -106,9 +106,7 @@ const checkKodansha = onRequest(async (request, response) => {
     const newPromosIDs = new Set(responsePromos.ids);
     const newIDs = newPromosIDs.difference(dbIDs);
     const idToDel = dbIDs.difference(newPromosIDs);
-    console.log("newIDs", newIDs.size);
     if (newIDs.size > 0) {
-      console.log("New promos found", newIDs.size);
       const metrics = buildMetrics({
         startTime,
         status,
@@ -234,7 +232,7 @@ const getWallpaper = onRequest(async (request, response) => {
 
     try {
       // Extraer URL del cuerpo de la solicitud
-      const { type } = request.query;
+      const { type, keep } = request.query;
 
       if (!type) {
         return response.status(400).send("Missing 'type' in request body");
@@ -249,16 +247,18 @@ const getWallpaper = onRequest(async (request, response) => {
         });
         return response.status(200).json(result);
       }
-      const result = await getWallpaperFromQueue(type);
-      const save = saveWallpaperHistory(result);
-      const log = logActivityInDB({
-        type: "wallpaper",
-        description: `Wallpaper served: ${result.whPath}`,
-        timestamp: new Date().toISOString(),
-        metadata: { result },
-      });
+      const result = await getWallpaperFromQueue(type, keep);
 
-      await Promise.all([save, log]);
+      !keep &&
+        (await Promise.all([
+          saveWallpaperHistory(result),
+          logActivityInDB({
+            type: "wallpaper",
+            description: `Wallpaper served: ${result.whPath}`,
+            timestamp: new Date().toISOString(),
+            metadata: { result },
+          }),
+        ]));
 
       if ("whPath" in result) {
         return response.status(200).json({

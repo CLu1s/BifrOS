@@ -86,7 +86,7 @@ export const getCollections = async (id = "810757", page = 1) => {
   }
 };
 
-export const getWallpaperFromQueue = async (type) => {
+export const getWallpaperFromQueue = async (type, keep) => {
   const random = Math.random() >= 0.5 ? "portrait" : "landscape";
   const queueType = type === "any" ? random : type;
   try {
@@ -96,7 +96,9 @@ export const getWallpaperFromQueue = async (type) => {
       .collection(`${queueType}-queue`);
     const wallpaper = await ref.orderBy("order", "desc").limit(1).get();
     const wallpaperData = wallpaper.docs[0].data();
-    await ref.doc(wallpaper.docs[0].id).delete();
+    if (!keep) {
+      await ref.doc(wallpaper.docs[0].id).delete();
+    }
     return wallpaperData;
   } catch (e) {
     const newType = queueType === "portrait" ? "landscape" : "portrait";
@@ -106,7 +108,9 @@ export const getWallpaperFromQueue = async (type) => {
       .collection(`${newType}-queue`);
     const wallpaper = await ref.orderBy("order").limit(1).get();
     const wallpaperData = wallpaper.docs[0].data();
-    await ref.doc(wallpaper.docs[0].id).delete();
+    if (!keep) {
+      await ref.doc(wallpaper.docs[0].id).delete();
+    }
     return wallpaperData;
   }
 };
