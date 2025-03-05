@@ -1,3 +1,4 @@
+"use client";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 import BookmarkDashboardItem from "@/features/bookmarks/components/BookmarkDashboardItem";
 

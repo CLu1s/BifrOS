@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@heroui/react";
 import React, { useMemo } from "react";
 import {

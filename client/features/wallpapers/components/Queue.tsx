@@ -4,7 +4,7 @@ import { type QueueElement } from "@/features/wallpapers/types";
 import React from "react";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
-import Card, { ExtraButton } from "@/components/Card";
+import Card from "@/components/Card";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 
 const Queue = ({ extraButton, isWidget }: Props) => {
   const { queueList } = useWallpapers();
-  const list = isWidget ? queueList.slice(0, 12) : queueList;
+  const list = isWidget ? queueList.slice(0, 8) : queueList;
   let showQueue = list.map((image: QueueElement) => (
     <QueueImage key={image.id} image={image} />
   ));
@@ -30,8 +30,8 @@ const Queue = ({ extraButton, isWidget }: Props) => {
           className={cn(
             `grid grid-cols-2 gap-4`,
             isWidget
-              ? "md:grid-cols-4 2xl:grid-cols-6"
-              : "md:grid-cols-3 2xl:grid-cols-8",
+              ? "md:grid-cols-2 2xl:grid-cols-4"
+              : "md:grid-cols-3 2xl:grid-cols-4",
           )}
         >
           {showQueue}

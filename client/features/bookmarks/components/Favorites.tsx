@@ -1,3 +1,4 @@
+"use client";
 import { Image, Link } from "@heroui/react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 

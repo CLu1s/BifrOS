@@ -1,3 +1,4 @@
+"use client";
 import useFeed from "@/features/feed/hooks/useFeed";
 import useFetchers from "@/features/feed/hooks/useFetchers";
 import { useEffect } from "react";
