@@ -3,9 +3,12 @@ const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPER;
 const REVALIDATE = 3600;
 const fetcherWallpaper = async () => {
   try {
-    const response = await fetch(`${API_URL}?type=landscape&keep=true`, {
-      next: { revalidate: REVALIDATE },
-    });
+    const response = await fetch(
+      `${API_URL}?type=landscape&keep_in_queue=true`,
+      {
+        next: { revalidate: REVALIDATE },
+      },
+    );
     return response.json();
   } catch (e) {
     return null;

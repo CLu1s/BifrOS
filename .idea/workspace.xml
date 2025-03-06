@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="debugging out history">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Cover.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Cover.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,15 +228,7 @@
       <workItem from="1741116785524" duration="1244000" />
       <workItem from="1741178656057" duration="5128000" />
       <workItem from="1741184596973" duration="2142000" />
-      <workItem from="1741213969538" duration="11656000" />
-    </task>
-    <task id="LOCAL-00010" summary="improve ux wallpaper">
-      <option name="closed" value="true" />
-      <created>1733184703697</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1733184703697</updated>
+      <workItem from="1741213969538" duration="12863000" />
     </task>
     <task id="LOCAL-00011" summary="improve ux wallpaper">
       <option name="closed" value="true" />
@@ -621,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741273808760</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="debugging out history">
+      <option name="closed" value="true" />
+      <created>1741274828643</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1741274828643</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

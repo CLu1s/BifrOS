@@ -14,7 +14,7 @@ const PageLayout = ({
     <div className={"flex flex-col gap-8  w-full "}>
       <h1 className={"text-4xl font-bold px-12"}>{title}</h1>
       <div
-        className={cn("flex justify-center w-full px-4 xl:px-12 ", className)}
+        className={cn("flex justify-center w-full px-2 xl:px-12 ", className)}
       >
         {children}
       </div>

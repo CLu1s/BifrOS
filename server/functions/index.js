@@ -232,7 +232,7 @@ const getWallpaper = onRequest(async (request, response) => {
 
     try {
       // Extraer URL del cuerpo de la solicitud
-      const { type, keep } = request.query;
+      const { type, keep_in_queue } = request.query;
 
       if (!type) {
         return response.status(400).send("Missing 'type' in request body");
@@ -247,9 +247,9 @@ const getWallpaper = onRequest(async (request, response) => {
         });
         return response.status(200).json(result);
       }
-      const result = await getWallpaperFromQueue(type, keep);
+      const result = await getWallpaperFromQueue(type, keep_in_queue);
 
-      !keep &&
+      !keep_in_queue &&
         (await Promise.all([
           saveWallpaperHistory(result),
           logActivityInDB({
