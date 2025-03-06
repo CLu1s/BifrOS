@@ -25,7 +25,7 @@ const LastScraperResult = ({ isWidget }: Props) => {
     ([aKey, aValue], [bKey, bValue]) =>
       aValue.avgPrice > bValue.avgPrice ? 1 : -1,
   );
-  const seriesList = isWidget ? sortedSeries.slice(0, 10) : sortedSeries;
+  const seriesList = isWidget ? sortedSeries.slice(0, 12) : sortedSeries;
   // <Image
   //     src={"/proxy?url=" + element.thumbnails[0].url}
   //     alt={element.relativeName}
@@ -46,9 +46,9 @@ const LastScraperResult = ({ isWidget }: Props) => {
     >
       <div
         className={cn(
-          "grid grid-cols-2  gap-6 overflow-auto ",
+          "grid grid-cols-2  gap-2 overflow-auto ",
           isWidget
-            ? "lg:grid-cols-5  xl:grid-cols-5 2xl:grid-cols-5"
+            ? "lg:grid-cols-5  xl:grid-cols-4 2xl:grid-cols-8"
             : "lg:grid-cols-5  xl:grid-cols-6 2xl:grid-cols-10",
         )}
       >

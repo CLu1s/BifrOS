@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="fix feed errors" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add data structure">
+      <change afterPath="$PROJECT_DIR$/client/features/feed/class/Feeds.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/LatestFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -223,15 +230,7 @@
       <workItem from="1741116785524" duration="1244000" />
       <workItem from="1741178656057" duration="5128000" />
       <workItem from="1741184596973" duration="2142000" />
-      <workItem from="1741213969538" duration="3654000" />
-    </task>
-    <task id="LOCAL-00005" summary="fix dependenxies">
-      <option name="closed" value="true" />
-      <created>1732825335057</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1732825335057</updated>
+      <workItem from="1741213969538" duration="6959000" />
     </task>
     <task id="LOCAL-00006" summary="add more widgets to home">
       <option name="closed" value="true" />
@@ -617,7 +616,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741264454301</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="fix feed errors">
+      <option name="closed" value="true" />
+      <created>1741265243568</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1741265243569</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +643,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove unsused vars" />
     <MESSAGE value="migrating to shad" />
     <MESSAGE value="fix search bookmark" />
     <MESSAGE value="migrate jumbo" />
@@ -661,17 +667,7 @@
     <MESSAGE value="fix cover display" />
     <MESSAGE value="work in cover" />
     <MESSAGE value="fix feed errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix feed errors" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/features/feed/components/FeedElementRow.tsx</url>
-          <line>37</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="add data structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="add data structure" />
   </component>
 </project>

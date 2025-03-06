@@ -1,4 +1,4 @@
-import { Button, Link } from "@heroui/react";
+import { Link } from "@heroui/react";
 import { Feed } from "@/features/feed/types";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
 import { Bookmark } from "lucide-react";
@@ -30,14 +30,13 @@ export function FeedElementRow(props: { feed: Feed }) {
       target={"_blank"}
       className="grid grid-rows-1 relative mb-2"
     >
-      <div className="  grid grid-rows-2   gap-2">
-        <div className={"col-span-1 min-h-32 max-h-32"}>
-          <img
-            alt="Card background"
-            className=" h-full w-full object-cover  rounded-lg"
-            src={props.feed.imageUrl}
-          />
-        </div>
+      <div className="flex flex-col gap-2 w-full h-full relative">
+        <img
+          alt="Card background"
+          className="  w-full object-cover  rounded-lg  h-20 xl:h-32 2xl:h-40"
+          src={props.feed.imageUrl}
+        />
+
         <div className={"flex flex-col    "}>
           <p
             className={
@@ -46,12 +45,6 @@ export function FeedElementRow(props: { feed: Feed }) {
           >
             {props.feed.title}
           </p>
-
-          <div className={"flex  gap-4 col-span-4"}>
-            <p className="text-tiny font-medium text-neutral-500">
-              {props.feed.source}
-            </p>
-          </div>
         </div>
       </div>
       <div className="absolute top-0 z-20">

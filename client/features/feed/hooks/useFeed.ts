@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
 import { selectFeeds } from "@/features/feed/redux/feedSelector";
 import { Feed } from "@/features/feed/types";
+import { FeedList } from "@/features/feed/class/Feeds";
 
 const useFeed = () => {
   const feeds = useSelector(selectFeeds);
-
+  console.log(feeds);
+  const feedElements = FeedList.fromArray(feeds);
+  console.log(feedElements);
   const groupedByCategory = feeds.reduce(
     (acc, feed) => {
       const { category } = feed;
@@ -18,13 +21,9 @@ const useFeed = () => {
     {} as Record<string, Feed[]>,
   );
   const feedKeys = Object.keys(groupedByCategory);
-  const NUMBER_OF_FEEDS = 6;
-  const numberOfFeedsByCategory = Math.ceil(NUMBER_OF_FEEDS / feedKeys.length);
-  const feedKeysByCategory = feedKeys
-    .map((key) => {
-      return groupedByCategory[key].slice(0, numberOfFeedsByCategory);
-    })
-    .flat();
+  const ITEMS_PER_CATEGORY = 3;
+
+  const feedKeysByCategory = feedElements.getFeeds(ITEMS_PER_CATEGORY);
 
   const todayFeed = feeds.filter((feed) => {
     const today = new Date();

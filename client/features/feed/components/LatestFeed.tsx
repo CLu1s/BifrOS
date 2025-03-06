@@ -11,7 +11,7 @@ const LatestFeed = () => {
   const renderFeeds = useMemo(
     () =>
       mostRecentFeed.map((feed) => (
-        <FeedElementRow key={feed.id} feed={feed} />
+        <FeedElementRow key={feed.data.id} feed={feed.data} />
       )),
     [mostRecentFeed],
   );
@@ -22,7 +22,7 @@ const LatestFeed = () => {
       isLoading={isLoading}
       renderExtra={<ExtraButton href={"/feed"}>View All</ExtraButton>}
     >
-      <div className={"grid grid-cols-2   xl:grid-cols-3   gap-4"}>
+      <div className={"grid grid-cols-2   xl:grid-cols-3  gap-4"}>
         {renderFeeds}
       </div>
     </Card>
