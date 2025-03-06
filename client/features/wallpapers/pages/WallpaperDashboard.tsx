@@ -1,4 +1,4 @@
-// import Container from "@/features/wallpapers/components/Container";
+import Container from "@/features/wallpapers/components/Container";
 import Queue from "@/features/wallpapers/components/Queue";
 import History from "@/features/wallpapers/components/History";
 import PageLayout from "@/components/PageLayout";
@@ -106,10 +106,23 @@ const getUserConfig = async () => {
 };
 
 export default async function WallpaperDashboard() {
-  const [collections, userConfig] = await Promise.all([
+  const [collections, userConfig] = await Promise.allSettled([
     getAllCollections(),
     getUserConfig(),
   ]);
+
+  if (collections.status === "rejected") {
+    console.error(collections.reason);
+    return <div>Failed to fetch collections</div>;
+  }
+  if (userConfig.status === "rejected") {
+    console.error(userConfig.reason);
+    return <div>Failed to fetch user config</div>;
+  }
+
+  const collectionsJson = JSON.stringify(collections.value.data);
+  const userConfigJson = JSON.stringify(userConfig.value);
+
   return (
     <FetcherWallpaperContainer>
       <PageLayout
@@ -132,12 +145,12 @@ export default async function WallpaperDashboard() {
           <History showExtraButton isWidget />
         </div>
 
-        {/*<div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>*/}
-        {/*  <Container*/}
-        {/*    collectionsInfo={JSON.stringify(collections.data)}*/}
-        {/*    config={JSON.stringify(userConfig)}*/}
-        {/*  />*/}
-        {/*</div>*/}
+        <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>
+          <Container
+            collectionsInfo={collectionsJson}
+            config={userConfigJson}
+          />
+        </div>
       </PageLayout>
     </FetcherWallpaperContainer>
   );

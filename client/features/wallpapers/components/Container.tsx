@@ -6,8 +6,6 @@ import {
   setActiveCollection,
   setCollectionsInfo,
   setConfig,
-  setHistory,
-  setQueue,
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import DisplayCollection from "@/features/wallpapers/components/DisplayCollection";
 import { Button, ButtonGroup } from "@heroui/react";
