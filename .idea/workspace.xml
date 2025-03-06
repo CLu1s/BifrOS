@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add data structure">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="debugging out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,15 +226,7 @@
       <workItem from="1741116785524" duration="1244000" />
       <workItem from="1741178656057" duration="5128000" />
       <workItem from="1741184596973" duration="2142000" />
-      <workItem from="1741213969538" duration="9170000" />
-    </task>
-    <task id="LOCAL-00007" summary="add more widgets to home">
-      <option name="closed" value="true" />
-      <created>1733006547204</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1733006547204</updated>
+      <workItem from="1741213969538" duration="10166000" />
     </task>
     <task id="LOCAL-00008" summary="improve ux">
       <option name="closed" value="true" />
@@ -619,7 +612,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741268570729</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="debugging out">
+      <option name="closed" value="true" />
+      <created>1741271659895</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1741271659895</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +639,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="migrating to shad" />
     <MESSAGE value="fix search bookmark" />
     <MESSAGE value="migrate jumbo" />
     <MESSAGE value="new features" />
@@ -663,6 +663,7 @@
     <MESSAGE value="work in cover" />
     <MESSAGE value="fix feed errors" />
     <MESSAGE value="add data structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="add data structure" />
+    <MESSAGE value="debugging out" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugging out" />
   </component>
 </project>
