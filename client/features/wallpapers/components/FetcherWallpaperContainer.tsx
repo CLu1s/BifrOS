@@ -8,6 +8,7 @@ import {
 import { useDispatch } from "react-redux";
 import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
 import Spinner from "@/components/Spinner";
+
 const FetcherWallpaperContainer = ({
   children,
   allHistory,

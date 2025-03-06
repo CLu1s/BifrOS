@@ -6,6 +6,7 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import Providers from "@/providers";
 import AppSidebar from "@/components/AppSidebar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import Cover from "@/features/dashboard/components/Cover";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +45,10 @@ export default function RootLayout({
               <div className={"fixed bottom-12 left-5 z-20"}>
                 <SidebarTrigger />
               </div>
-              {children}
+              <div className={"flex flex-col w-full gap-4"}>
+                <Cover />
+                {children}
+              </div>
             </div>
           </Providers>
         </body>
