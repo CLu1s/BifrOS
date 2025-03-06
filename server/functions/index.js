@@ -10,7 +10,7 @@ import { getFirestore } from "firebase-admin/firestore";
 import cors from "cors";
 import { onRequest } from "firebase-functions/v2/https";
 import logger from "firebase-functions/logger";
-import { checkPromos, groupBy as kodanshaGroupBy } from "./lib/kodansha.js";
+import { checkPromos } from "./lib/kodansha.js";
 import {
   buildMetrics,
   getKodanshaPromos,
@@ -69,28 +69,6 @@ const corsMiddleware = cors({
   optionsSuccessStatus: 204, // Evita errores en algunos navegadores
 });
 
-function compareArrays(arr1, arr2) {
-  // Usar un Set para evitar duplicados en las diferencias
-  const differences = new Set();
-
-  // Agregar elementos que están en arr1 pero no en arr2
-  arr1.forEach((item) => {
-    if (!arr2.includes(item)) {
-      differences.add(item);
-    }
-  });
-
-  // Agregar elementos que están en arr2 pero no en arr1
-  arr2.forEach((item) => {
-    if (!arr1.includes(item)) {
-      differences.add(item);
-    }
-  });
-
-  // Convertir el Set en un array y retornarlo
-  return Array.from(differences);
-}
-
 const checkKodansha = onRequest(async (request, response) => {
   const startTime = Date.now();
   let status = "success";
@@ -107,7 +85,7 @@ const checkKodansha = onRequest(async (request, response) => {
     const newIDs = newPromosIDs.difference(dbIDs);
     const idToDel = dbIDs.difference(newPromosIDs);
     if (newIDs.size > 0) {
-      const metrics = buildMetrics({
+      buildMetrics({
         startTime,
         status,
         errorMessage: null,
