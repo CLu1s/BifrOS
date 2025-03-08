@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="debugging out history">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/functions/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +93,7 @@
       <recent name="$PROJECT_DIR$/client/features/wallpapers/hooks" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Shell Script.Firebase">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -226,15 +225,9 @@
       <workItem from="1741116785524" duration="1244000" />
       <workItem from="1741178656057" duration="5128000" />
       <workItem from="1741184596973" duration="2142000" />
-      <workItem from="1741213969538" duration="12927000" />
-    </task>
-    <task id="LOCAL-00012" summary="change max index">
-      <option name="closed" value="true" />
-      <created>1733333324015</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1733333324015</updated>
+      <workItem from="1741213969538" duration="13861000" />
+      <workItem from="1741303743442" duration="719000" />
+      <workItem from="1741354489383" duration="70000" />
     </task>
     <task id="LOCAL-00013" summary="rewrite galleries tabs">
       <option name="closed" value="true" />
@@ -620,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741276060203</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="debugging out history">
+      <option name="closed" value="true" />
+      <created>1741276108609</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1741276108609</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
