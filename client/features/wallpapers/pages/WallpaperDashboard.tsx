@@ -113,7 +113,7 @@ export default async function WallpaperDashboard() {
 
   if (collections.status === "rejected") {
     console.error(collections.reason);
-    return <div>Failed to fetch collections</div>;
+    return <div>Failed to fetch collections {collections.reason}</div>;
   }
   if (userConfig.status === "rejected") {
     console.error(userConfig.reason);

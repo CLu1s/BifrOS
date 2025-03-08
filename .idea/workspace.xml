@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="debugging out history">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,14 +228,7 @@
       <workItem from="1741213969538" duration="13861000" />
       <workItem from="1741303743442" duration="719000" />
       <workItem from="1741354489383" duration="70000" />
-    </task>
-    <task id="LOCAL-00013" summary="rewrite galleries tabs">
-      <option name="closed" value="true" />
-      <created>1733337608205</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1733337608205</updated>
+      <workItem from="1741405794723" duration="246000" />
     </task>
     <task id="LOCAL-00014" summary="fix index images error">
       <option name="closed" value="true" />
@@ -621,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741276108609</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="debugging out history">
+      <option name="closed" value="true" />
+      <created>1741405941247</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1741405941247</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
