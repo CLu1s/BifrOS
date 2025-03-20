@@ -14,7 +14,7 @@ interface Props {
 
 const Queue = ({ extraButton, isWidget }: Props) => {
   const { queueList } = useWallpapers();
-  const list = isWidget ? queueList.slice(0, 8) : queueList;
+  const list = isWidget ? queueList.slice(0, 15) : queueList;
   let showQueue = list.map((image: QueueElement) => (
     <QueueImage key={image.id} image={image} />
   ));
@@ -30,8 +30,8 @@ const Queue = ({ extraButton, isWidget }: Props) => {
           className={cn(
             `grid grid-cols-2 gap-4`,
             isWidget
-              ? "md:grid-cols-2 2xl:grid-cols-4"
-              : "md:grid-cols-3 2xl:grid-cols-4",
+              ? "md:grid-cols-3 2xl:grid-cols-5 "
+              : "md:grid-cols-3 2xl:grid-cols-6",
           )}
         >
           {showQueue}

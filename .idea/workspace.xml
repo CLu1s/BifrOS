@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add reason to errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,15 +233,7 @@
       <workItem from="1741354489383" duration="70000" />
       <workItem from="1741405794723" duration="1588000" />
       <workItem from="1741440339758" duration="9000" />
-      <workItem from="1742497060532" duration="1683000" />
-    </task>
-    <task id="LOCAL-00015" summary="improve bd reading">
-      <option name="closed" value="true" />
-      <created>1734108536493</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1734108536493</updated>
+      <workItem from="1742497060532" duration="2723000" />
     </task>
     <task id="LOCAL-00016" summary="aso;jdna">
       <option name="closed" value="true" />
@@ -625,7 +619,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741406051044</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="add reason to errors">
+      <option name="closed" value="true" />
+      <created>1742499008780</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1742499008780</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
