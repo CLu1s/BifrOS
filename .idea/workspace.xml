@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="debugging out history">
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add reason to errors">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/hooks/useFeed.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +94,7 @@
       <recent name="$PROJECT_DIR$/client/features/wallpapers/hooks" />
     </key>
   </component>
-  <component name="RunManager" selected="Shell Script.Firebase">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -228,15 +229,9 @@
       <workItem from="1741213969538" duration="13861000" />
       <workItem from="1741303743442" duration="719000" />
       <workItem from="1741354489383" duration="70000" />
-      <workItem from="1741405794723" duration="246000" />
-    </task>
-    <task id="LOCAL-00014" summary="fix index images error">
-      <option name="closed" value="true" />
-      <created>1733338727315</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1733338727315</updated>
+      <workItem from="1741405794723" duration="1588000" />
+      <workItem from="1741440339758" duration="9000" />
+      <workItem from="1742497060532" duration="1683000" />
     </task>
     <task id="LOCAL-00015" summary="improve bd reading">
       <option name="closed" value="true" />
@@ -622,7 +617,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741405941247</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="add reason to errors">
+      <option name="closed" value="true" />
+      <created>1741406051044</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1741406051044</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +644,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="migrate jumbo" />
     <MESSAGE value="new features" />
     <MESSAGE value="move button and add cols to dashboard" />
     <MESSAGE value="add more feeds and fix wallpaper cors" />
@@ -666,6 +668,7 @@
     <MESSAGE value="add data structure" />
     <MESSAGE value="debugging out" />
     <MESSAGE value="debugging out history" />
-    <option name="LAST_COMMIT_MESSAGE" value="debugging out history" />
+    <MESSAGE value="add reason to errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="add reason to errors" />
   </component>
 </project>

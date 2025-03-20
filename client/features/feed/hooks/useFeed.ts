@@ -5,9 +5,7 @@ import { FeedList } from "@/features/feed/class/Feeds";
 
 const useFeed = () => {
   const feeds = useSelector(selectFeeds);
-  console.log(feeds);
   const feedElements = FeedList.fromArray(feeds);
-  console.log(feedElements);
   const groupedByCategory = feeds.reduce(
     (acc, feed) => {
       const { category } = feed;
