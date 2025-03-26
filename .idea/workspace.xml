@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add reason to errors">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add auth to ui">
+      <change afterPath="$PROJECT_DIR$/client/features/authentication/components/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/authentication/hooks/useAuth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/firebase/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -233,15 +234,8 @@
       <workItem from="1741354489383" duration="70000" />
       <workItem from="1741405794723" duration="1588000" />
       <workItem from="1741440339758" duration="9000" />
-      <workItem from="1742497060532" duration="2723000" />
-    </task>
-    <task id="LOCAL-00016" summary="aso;jdna">
-      <option name="closed" value="true" />
-      <created>1734374909376</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1734374909376</updated>
+      <workItem from="1742497060532" duration="2807000" />
+      <workItem from="1743021140571" duration="2291000" />
     </task>
     <task id="LOCAL-00017" summary="fix build errors">
       <option name="closed" value="true" />
@@ -627,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742499008780</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="update galey grid">
+      <option name="closed" value="true" />
+      <created>1742500120872</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1742500120872</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,8 +648,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="new features" />
-    <MESSAGE value="move button and add cols to dashboard" />
     <MESSAGE value="add more feeds and fix wallpaper cors" />
     <MESSAGE value="update layouts" />
     <MESSAGE value="update loading state" />
@@ -671,6 +671,8 @@
     <MESSAGE value="debugging out" />
     <MESSAGE value="debugging out history" />
     <MESSAGE value="add reason to errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="add reason to errors" />
+    <MESSAGE value="update galey grid" />
+    <MESSAGE value="add auth to ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="add auth to ui" />
   </component>
 </project>
