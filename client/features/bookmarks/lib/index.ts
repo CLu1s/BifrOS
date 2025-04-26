@@ -12,3 +12,11 @@ export async function getBookmarksFromFirestore() {
     "bookmarker/myData/bookmarks",
   )) as Bookmark[];
 }
+
+export const getString = (title: string) => {
+  try {
+    return decodeURIComponent(title);
+  } catch (e) {
+    return title;
+  }
+};

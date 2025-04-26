@@ -1,4 +1,5 @@
 import { Bookmark } from "@/features/bookmarks/types";
+import { getString } from "@/features/bookmarks/lib";
 
 function BookmarkDashboardItem({ data }: { data: Bookmark }) {
   return (
@@ -17,7 +18,7 @@ function BookmarkDashboardItem({ data }: { data: Bookmark }) {
         />
 
         <div className={" col-span-4 flex flex-col gap-2 px-2"}>
-          <h2 className={"text-sm "}>{decodeURIComponent(data.ogTitle)}</h2>
+          <h2 className={"text-sm "}>{getString(data.ogTitle)}</h2>
         </div>
       </div>
     </a>

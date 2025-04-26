@@ -11,6 +11,7 @@ import { updateFirestore } from "@/firebase/services";
 import { useDispatch } from "react-redux";
 import { updateBookmark } from "@/features/bookmarks/redux/bookmarksSlice";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
+import { getString } from "@/features/bookmarks/lib";
 
 function BookmarkItem({ data }: { data: Bookmark }) {
   const { categories, deleteBookmark } = useBookmark();
@@ -60,13 +61,13 @@ function BookmarkItem({ data }: { data: Bookmark }) {
           </div>
 
           <div className={"flex-col gap-2"}>
-            <h2 className={"text-lg "}>{decodeURIComponent(data.ogTitle)}</h2>
+            <h2 className={"text-lg "}>{getString(data.ogTitle)}</h2>
             <p
               className={
                 "font-normal text-neutral-400 text-sm h-14 overflow-hidden"
               }
             >
-              {decodeURIComponent(data.ogDescription)}
+              {getString(data.ogDescription)}
             </p>
           </div>
         </div>
