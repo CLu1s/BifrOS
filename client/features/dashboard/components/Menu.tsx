@@ -49,7 +49,11 @@ export default function Menu() {
         </h1>
         <Favorites />
       </div>
-      <div className={"grid grid-cols-2 xl:grid-cols-8 gap-2"}>
+      <div
+        className={
+          "grid grid-cols-3 md:grid-cols-6 xl:grid-cols-8 gap-4 xl:gap-2"
+        }
+      >
         {links.map((link) => (
           <Button
             as={Link}

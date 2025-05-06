@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add mangas and favs links" />
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="clean code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,15 +242,7 @@
       <workItem from="1746106503486" duration="25000" />
       <workItem from="1746106534893" duration="11000" />
       <workItem from="1746488183940" duration="3636000" />
-      <workItem from="1746531835671" duration="3552000" />
-    </task>
-    <task id="LOCAL-00023" summary="remove unsused vars">
-      <option name="closed" value="true" />
-      <created>1736738377116</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1736738377116</updated>
+      <workItem from="1746531835671" duration="4036000" />
     </task>
     <task id="LOCAL-00024" summary="remove unsused vars">
       <option name="closed" value="true" />
@@ -632,7 +628,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746535480688</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="clean code">
+      <option name="closed" value="true" />
+      <created>1746535498342</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1746535498342</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,7 +666,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update wallpaper grid" />
     <MESSAGE value="migrate nextui to heroui and add image classes" />
     <MESSAGE value="reafactor classes image" />
     <MESSAGE value="update wll api" />
@@ -687,6 +690,7 @@
     <MESSAGE value="refactor menu layout" />
     <MESSAGE value="fix build" />
     <MESSAGE value="add mangas and favs links" />
-    <option name="LAST_COMMIT_MESSAGE" value="add mangas and favs links" />
+    <MESSAGE value="clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean code" />
   </component>
 </project>

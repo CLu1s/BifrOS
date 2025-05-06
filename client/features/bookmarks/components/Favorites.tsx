@@ -16,7 +16,7 @@ const Favorites = () => {
     })();
   }, []);
   return (
-    <div className={" flex flex-col gap-4"}>
+    <div className={"hidden md:flex flex-col gap-4"}>
       <div className={"border-none"}>
         <div className={"flex flex-wrap justify-start gap-2 "}>
           {favorites.length > 0 ? (
