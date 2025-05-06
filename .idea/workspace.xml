@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="fix build">
-      <change afterPath="$PROJECT_DIR$/client/app/mangas/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add mangas and favs links" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,15 +238,7 @@
       <workItem from="1746106503486" duration="25000" />
       <workItem from="1746106534893" duration="11000" />
       <workItem from="1746488183940" duration="3636000" />
-      <workItem from="1746531835671" duration="3528000" />
-    </task>
-    <task id="LOCAL-00022" summary="refactor layout">
-      <option name="closed" value="true" />
-      <created>1736738302280</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1736738302280</updated>
+      <workItem from="1746531835671" duration="3552000" />
     </task>
     <task id="LOCAL-00023" summary="remove unsused vars">
       <option name="closed" value="true" />
@@ -645,7 +624,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746532096248</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="add mangas and favs links">
+      <option name="closed" value="true" />
+      <created>1746535480688</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1746535480688</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,7 +662,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add padding" />
     <MESSAGE value="update wallpaper grid" />
     <MESSAGE value="migrate nextui to heroui and add image classes" />
     <MESSAGE value="reafactor classes image" />
@@ -700,6 +686,7 @@
     <MESSAGE value="fix bookmarks" />
     <MESSAGE value="refactor menu layout" />
     <MESSAGE value="fix build" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix build" />
+    <MESSAGE value="add mangas and favs links" />
+    <option name="LAST_COMMIT_MESSAGE" value="add mangas and favs links" />
   </component>
 </project>

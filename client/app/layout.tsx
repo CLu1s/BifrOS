@@ -4,7 +4,6 @@ import "./globals.css";
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import Providers from "@/providers";
-import Cover from "@/features/dashboard/components/Cover";
 import Menu from "@/features/dashboard/components/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
