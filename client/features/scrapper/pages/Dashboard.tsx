@@ -80,7 +80,7 @@ const ScrapperDashboard = () => {
   };
 
   return (
-    <PageLayout title={"Scrappers"}>
+    <PageLayout>
       <ControlPanel
         loadinState={loadinState}
         onPress={startScrapper}

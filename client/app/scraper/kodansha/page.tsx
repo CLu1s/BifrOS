@@ -4,7 +4,7 @@ import React from "react";
 
 export default function KosanshaPage() {
   return (
-    <PageLayout title={"Kodansha Results"}>
+    <PageLayout>
       <LastScraperResult />
     </PageLayout>
   );
