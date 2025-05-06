@@ -20,6 +20,11 @@ const links = [
     href: "/bookmarks",
   },
   {
+    icon: <BookMarked className={"h-4 w-4"} />,
+    label: "Kodansha",
+    href: "/mangas",
+  },
+  {
     icon: <Pickaxe className={"h-4 w-4"} />,
     label: "Scraper",
     href: "/scraper",
@@ -27,16 +32,23 @@ const links = [
 ];
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Favorites from "@/features/bookmarks/components/Favorites";
 
 export default function Menu() {
   const pathname = usePathname();
   const isCurrentPath = (path: string) => pathname === path;
-  console.log("Current path:", isCurrentPath(pathname), pathname);
   const currentLabel = links.find((link) => isCurrentPath(link.href))?.label;
 
   return (
     <div className={"flex flex-col w-full gap-4 px-8"}>
-      <h1 className={"text-4xl font-bold  "}>{currentLabel}</h1>
+      <div
+        className={"flex flex-col lg:flex-row  justify-between w-full gap-2"}
+      >
+        <h1 className={"text-4xl font-bold flex flex-col justify-center "}>
+          {currentLabel}
+        </h1>
+        <Favorites />
+      </div>
       <div className={"grid grid-cols-2 xl:grid-cols-8 gap-2"}>
         {links.map((link) => (
           <Button

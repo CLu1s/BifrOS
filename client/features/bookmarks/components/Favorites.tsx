@@ -1,12 +1,22 @@
 "use client";
 import { Image, Link } from "@heroui/react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
+import { useEffect } from "react";
+import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
+import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
+import { useDispatch } from "react-redux";
 
 const Favorites = () => {
+  const dispatch = useDispatch();
   const { favorites } = useBookmark();
+  useEffect(() => {
+    (async () => {
+      const data = await getBookmarksFromFirestore();
+      dispatch(setBookmarks(data));
+    })();
+  }, []);
   return (
-    <div className={"w-full flex flex-col gap-4"}>
-      <h2 className={"text-lg font-semibold"}> Favorites</h2>
+    <div className={" flex flex-col gap-4"}>
       <div className={"border-none"}>
         <div className={"flex flex-wrap justify-start gap-2 "}>
           {favorites.length > 0 ? (
@@ -20,8 +30,7 @@ const Favorites = () => {
                 <Image
                   src={favorite.favicon || "/favicon.svg"}
                   alt={favorite.ogTitle}
-                  height={45}
-                  className={"rounded   object-cover"}
+                  className={"rounded h-10 xl:h-8  object-cover"}
                 />
               </Link>
             ))

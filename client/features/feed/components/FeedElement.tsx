@@ -26,7 +26,7 @@ export function FeedElement(props: { feed: Feed }) {
       target={"_blank"}
       className="flex flex-col gap-4 w-full relative"
     >
-      <div className={"col-span-2 2xl:col-span-1 h-32 w-full"}>
+      <div className={"col-span-2 2xl:col-span-1  h-[200px] w-full"}>
         <img
           alt="Card background"
           className="w-full h-full object-cover  rounded "

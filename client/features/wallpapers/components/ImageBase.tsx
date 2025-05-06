@@ -74,9 +74,7 @@ export function ImageBase(props: GalleryImageBaseProps) {
         <Smartphone />
       </div>
       <img
-        className={
-          "min-h-[200px] max-h-[200px] h-full 2xl:max-h-[350px]  object-cover object-top"
-        }
+        className={"  h-[200px]  xl:h-[300px]  object-cover object-top"}
         loading="lazy"
         alt={image.data.url}
         src={image.getThumbnail()}

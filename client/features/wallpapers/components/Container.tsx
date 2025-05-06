@@ -46,10 +46,12 @@ const Container = ({ collectionsInfo, config }: Props) => {
 
   return (
     <div className={"flex flex-col "}>
-      <ButtonGroup className={"hidden lg:flex items-start justify-start"}>
+      <ButtonGroup
+        className={"hidden lg:flex items-start justify-start mb-4  "}
+      >
         {buttons}
       </ButtonGroup>
-      <div className={"lg:hidden grid-cols-2 grid gap-2"}>{buttons}</div>
+      <div className={"lg:hidden grid-cols-2 grid gap-2 "}>{buttons}</div>
       <DisplayCollection />
       <GalleryModal />
     </div>

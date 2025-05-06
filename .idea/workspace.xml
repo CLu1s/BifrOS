@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="fix build">
+      <change afterPath="$PROJECT_DIR$/client/app/mangas/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app/scraper/kodansha/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/scraper/kodansha/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/pages/DashboardContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/scrapper/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,15 +251,7 @@
       <workItem from="1746106503486" duration="25000" />
       <workItem from="1746106534893" duration="11000" />
       <workItem from="1746488183940" duration="3636000" />
-      <workItem from="1746531835671" duration="247000" />
-    </task>
-    <task id="LOCAL-00021" summary="refactor layout">
-      <option name="closed" value="true" />
-      <created>1736737946083</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1736737946083</updated>
+      <workItem from="1746531835671" duration="3528000" />
     </task>
     <task id="LOCAL-00022" summary="refactor layout">
       <option name="closed" value="true" />
@@ -637,11 +637,30 @@
       <option name="project" value="LOCAL" />
       <updated>1746532003852</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="fix build">
+      <option name="closed" value="true" />
+      <created>1746532096248</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1746532096248</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="GitHub.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

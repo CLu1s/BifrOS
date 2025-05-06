@@ -6,7 +6,7 @@ const FeedList = () => {
   const { feeds, feedKeys, todayFeed } = useFeed();
 
   const container =
-    "container m-auto grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 gap-2 lg:gap-4 lg:px-20";
+    "container m-auto grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 lg:gap-4 lg:px-20";
   const items = [
     <TabsContent
       key="today"

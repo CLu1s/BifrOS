@@ -46,10 +46,7 @@ const LastScraperResult = ({ isWidget }: Props) => {
     >
       <div
         className={cn(
-          "grid grid-cols-2  gap-2 overflow-auto ",
-          isWidget
-            ? "lg:grid-cols-5  xl:grid-cols-4 2xl:grid-cols-8"
-            : "lg:grid-cols-5  xl:grid-cols-6 2xl:grid-cols-10",
+          " grid grid-cols-2  gap-4 overflow-auto  lg:grid-cols-5  xl:grid-cols-6 ",
         )}
       >
         {seriesList.map(([key, value]) => {
