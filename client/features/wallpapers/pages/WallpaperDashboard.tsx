@@ -1,9 +1,6 @@
 import Container from "@/features/wallpapers/components/Container";
-import Queue from "@/features/wallpapers/components/Queue";
-import History from "@/features/wallpapers/components/History";
-import PageLayout from "@/components/PageLayout";
+
 import FetcherWallpaperContainer from "@/features/wallpapers/components/FetcherWallpaperContainer";
-import { ExtraButton } from "@/components/Card";
 import React from "react";
 
 const SEARCH_URL = "https://wallhaven.cc/api/v1/search?";
@@ -125,33 +122,7 @@ export default async function WallpaperDashboard() {
 
   return (
     <FetcherWallpaperContainer>
-      <PageLayout
-        title={"Wallpaper"}
-        className={"grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4"}
-      >
-        {/*<div className={"col-span-1 lg:col-span-2 2xl:col-span-2"}>*/}
-        {/*  <Jumbo />*/}
-        {/*</div>*/}
-
-        <div className={"col-span-1 lg:col-span-1 2xl:col-span-3"}>
-          <Queue
-            isWidget
-            extraButton={
-              <ExtraButton href={"/wallpapers/queue"}>See All</ExtraButton>
-            }
-          />
-        </div>
-        <div className={"col-span-1 lg:col-span-1 2xl:col-span-1"}>
-          <History showExtraButton isWidget />
-        </div>
-
-        <div className={"col-span-1 lg:col-span-3 xl:col-span-4"}>
-          <Container
-            collectionsInfo={collectionsJson}
-            config={userConfigJson}
-          />
-        </div>
-      </PageLayout>
+      <Container collectionsInfo={collectionsJson} config={userConfigJson} />
     </FetcherWallpaperContainer>
   );
 }

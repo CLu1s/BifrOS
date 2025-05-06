@@ -4,9 +4,8 @@ import "./globals.css";
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import Providers from "@/providers";
-import AppSidebar from "@/components/AppSidebar";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import Cover from "@/features/dashboard/components/Cover";
+import Menu from "@/features/dashboard/components/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,12 +40,9 @@ export default function RootLayout({
         <body className={` dark ${inter.className}  antialiased `}>
           <Providers>
             <div className={"flex flex-row w-full relative"}>
-              <AppSidebar />
-              <div className={"fixed bottom-12 left-5 z-20"}>
-                <SidebarTrigger />
-              </div>
               <div className={"flex flex-col w-full gap-4"}>
                 <Cover />
+                <Menu />
                 {children}
               </div>
             </div>

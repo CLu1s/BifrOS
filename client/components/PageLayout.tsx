@@ -1,16 +1,13 @@
 "use client";
-import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import React, { ReactNode } from "react";
 import useAuth from "@/features/authentication/hooks/useAuth";
 import Login from "@/features/authentication/components/Login";
+import Link from "next/link";
 
 const PageLayout = ({
   children,
-  className,
-  title,
 }: {
   children: ReactNode[] | ReactNode;
-  title: string;
   className?: string;
 }) => {
   const { user } = useAuth();
@@ -19,10 +16,16 @@ const PageLayout = ({
   }
   return (
     <div className={"flex flex-col gap-8  w-full "}>
-      <h1 className={"text-4xl font-bold px-12"}>{title}</h1>
-      <div
-        className={cn("flex justify-center w-full px-2 xl:px-12 ", className)}
-      >
+      <div className={"col-span-1 lg:col-span-2 2xl:col-span-4"}>
+        <Link href={"/wallpapers/queue"} className="w-full">
+          Queue
+        </Link>
+        /
+        <Link href={"/wallpapers/history"} className="w-full">
+          History
+        </Link>
+      </div>
+      <div className={"grid  grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4"}>
         {children}
       </div>
     </div>

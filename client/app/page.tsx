@@ -1,5 +1,5 @@
-import DashboardContainer from "@/features/dashboard/pages/DashboardContainer";
+import WallpaperDashboard from "@/features/wallpapers/pages/WallpaperDashboard";
 
 export default function Home() {
-  return <DashboardContainer />;
+  return <WallpaperDashboard />;
 }

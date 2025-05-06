@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="add auth to ui">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="refactor menu layout">
+      <change afterPath="$PROJECT_DIR$/client/app/wallpapers/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/BookmarkItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/wallpapers/history/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/wallpapers/history/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/wallpapers/queue/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/wallpapers/queue/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/components/FeedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/feed/page/FeedContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/feed/page/FeedContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Queue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,39 +61,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Shell Script.Firebase.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/app/scraper/kodansha&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Firebase.executor": "Run",
+    "Shell Script.Unnamed.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros/client/app/wallpapers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;HTML&quot;,
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTML",
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/app/wallpapers" />
       <recent name="$PROJECT_DIR$/client/app/scraper/kodansha" />
       <recent name="$PROJECT_DIR$/client/app/wallpapers/queue" />
       <recent name="$PROJECT_DIR$/client/features/wallpapers/components" />
       <recent name="$PROJECT_DIR$/client/features/feed/components" />
-      <recent name="$PROJECT_DIR$/client/features/feed/hooks" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" />
@@ -238,15 +249,11 @@
       <workItem from="1743096112109" duration="6000" />
       <workItem from="1743464289474" duration="4000" />
       <workItem from="1744992286934" duration="77000" />
-      <workItem from="1745678597163" duration="468000" />
-    </task>
-    <task id="LOCAL-00018" summary="impove iu">
-      <option name="closed" value="true" />
-      <created>1734532625683</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1734532625683</updated>
+      <workItem from="1745678597163" duration="531000" />
+      <workItem from="1745759755225" duration="603000" />
+      <workItem from="1746106503486" duration="25000" />
+      <workItem from="1746106534893" duration="11000" />
+      <workItem from="1746488183940" duration="3510000" />
     </task>
     <task id="LOCAL-00019" summary="fix crashing error">
       <option name="closed" value="true" />
@@ -632,7 +639,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743023438312</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="fix bookmarks">
+      <option name="closed" value="true" />
+      <created>1745679121809</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1745679121809</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,8 +666,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add more feeds and fix wallpaper cors" />
-    <MESSAGE value="update layouts" />
     <MESSAGE value="update loading state" />
     <MESSAGE value="add padding" />
     <MESSAGE value="update wallpaper grid" />
@@ -676,6 +689,8 @@
     <MESSAGE value="add reason to errors" />
     <MESSAGE value="update galey grid" />
     <MESSAGE value="add auth to ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="add auth to ui" />
+    <MESSAGE value="fix bookmarks" />
+    <MESSAGE value="refactor menu layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor menu layout" />
   </component>
 </project>

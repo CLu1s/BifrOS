@@ -28,7 +28,9 @@ export default function Card({
           {renderExtra}
         </div>
       </CardHeader>
-      <CardBody>{isLoading ? <Spinner /> : children}</CardBody>
+      <CardBody className={"w-full"}>
+        {isLoading ? <Spinner /> : children}
+      </CardBody>
     </CardUI>
   );
 }

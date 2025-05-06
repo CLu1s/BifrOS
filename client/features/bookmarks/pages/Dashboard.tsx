@@ -21,7 +21,6 @@ const BookmarksDashboard = () => {
     <div
       className={" flex flex-col justify-center align-middle gap-8 m-2 lg:m-10"}
     >
-      <h1 className={"text-2xl font-bold"}>Bookmarks</h1>
       <CreateNewBookmark />
       <Divider />
       <div

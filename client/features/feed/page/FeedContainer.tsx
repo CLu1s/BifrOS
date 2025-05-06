@@ -5,7 +5,6 @@ import useActions from "@/features/feed/hooks/useActions";
 import FeedList from "@/features/feed/components/FeedList";
 import useFeed from "@/features/feed/hooks/useFeed";
 import useFetchers from "@/features/feed/hooks/useFetchers";
-import PageLayout from "@/components/PageLayout";
 
 const FeedContainer = () => {
   const { setFeeds } = useActions();
@@ -23,11 +22,7 @@ const FeedContainer = () => {
     }
   }, [isLoading, isError, isValidating, data, feedsLength]);
 
-  return (
-    <PageLayout title={"Feed"}>
-      {isLoading ? <div>Loading</div> : <FeedList />}
-    </PageLayout>
-  );
+  return <div>{isLoading ? <div>Loading</div> : <FeedList />}</div>;
 };
 
 export default FeedContainer;

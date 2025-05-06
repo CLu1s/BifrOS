@@ -21,17 +21,13 @@ const Queue = ({ extraButton, isWidget }: Props) => {
 
   return (
     <Card title={`In Queue: ${queueList.length}`} renderExtra={extraButton}>
-      <div
-        className={
-          " w-full max-h-[600px] lg:max-h-[800px]  2xl:max-h-full overflow-auto   pb-10"
-        }
-      >
+      <div className={" w-full "}>
         <div
           className={cn(
             `grid grid-cols-2 gap-4`,
             isWidget
-              ? "md:grid-cols-3 2xl:grid-cols-5 "
-              : "md:grid-cols-3 2xl:grid-cols-6",
+              ? "md:grid-cols-4 2xl:grid-cols-5 "
+              : "md:grid-cols-4 2xl:grid-cols-6",
           )}
         >
           {showQueue}
