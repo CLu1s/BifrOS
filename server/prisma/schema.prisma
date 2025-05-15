@@ -1,0 +1,104 @@
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "../generated/prisma"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = "file:./dev.db"
+}
+
+model Wallpaper {
+    id          String   @id
+    url         String
+    shortUrl    String   @map("short_url")
+    views       Int
+    favorites   Int
+    source      String?
+        purity      String
+    category    String
+    dimensionX  Int      @map("dimension_x")
+    dimensionY  Int      @map("dimension_y")
+    resolution  String
+    ratio       String
+    fileSize    Int      @map("file_size")
+    fileType    String   @map("file_type")
+    createdAt   DateTime @map("created_at")
+    path        String
+
+    // Relaciones
+    uploader    User     @relation(fields: [uploaderId], references: [username])
+    uploaderId  String   @map("uploader_id")
+    thumbs      Thumbnail?
+        tags        TagOnWallpaper[]
+    colors      Color[]  // Relación con los colores
+
+@@map("wallpapers")
+}
+
+model User {
+    username    String    @id
+    group       String
+    avatarLarge String    @map("avatar_large")
+    avatarMedium String    @map("avatar_medium")
+    avatarSmall String    @map("avatar_small")
+    avatarTiny  String    @map("avatar_tiny")
+    wallpapers  Wallpaper[]
+
+@@map("users")
+}
+
+model Thumbnail {
+    id          String   @id @default(cuid())
+    large       String
+    original    String
+    small       String
+
+    // Relación con Wallpaper
+    wallpaper   Wallpaper @relation(fields: [wallpaperId], references: [id])
+    wallpaperId String    @unique
+
+@@map("thumbnails")
+}
+
+model Tag {
+    id          Int      @id
+    name        String   @unique
+    alias       String?
+        categoryId  Int      @map("category_id")
+    category    String
+    purity      String
+    createdAt   DateTime @map("created_at")
+
+    // Relación muchos a muchos con Wallpaper
+    wallpapers  TagOnWallpaper[]
+
+@@map("tags")
+}
+
+model TagOnWallpaper {
+    wallpaper   Wallpaper @relation(fields: [wallpaperId], references: [id])
+    wallpaperId String    @map("wallpaper_id")
+    tag         Tag       @relation(fields: [tagId], references: [id])
+    tagId       Int       @map("tag_id")
+
+@@id([wallpaperId, tagId])
+@@map("tags_on_wallpapers")
+}
+
+model Color {
+    id          Int      @id @default(autoincrement())
+    hexCode     String   @map("hex_code")
+
+    // Relación con Wallpaper
+    wallpaper   Wallpaper @relation(fields: [wallpaperId], references: [id])
+    wallpaperId String    @map("wallpaper_id")
+
+@@index([hexCode])
+@@map("colors")
+}

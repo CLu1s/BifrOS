@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="clean code">
+    <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="improve mobile ux">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bifros.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/bookmarks/components/Favorites.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +19,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
       </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
     </option>
   </component>
   <component name="Git.Settings">
@@ -49,53 +59,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Shell Script.Firebase.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/app/wallpapers&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Firebase.executor": "Run",
+    "Shell Script.Unnamed.executor": "Run",
+    "git-widget-placeholder": "feat/fastify",
+    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros/server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev (1).executor": "Run",
+    "npm.dev (2).executor": "Run",
+    "npm.dev (3).executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;HTML&quot;,
-      &quot;JSON&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTML",
+      "JSON"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/client/app/wallpapers" />
       <recent name="$PROJECT_DIR$/client/app/scraper/kodansha" />
       <recent name="$PROJECT_DIR$/client/app/wallpapers/queue" />
       <recent name="$PROJECT_DIR$/client/features/wallpapers/components" />
-      <recent name="$PROJECT_DIR$/client/features/feed/components" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/client/features/wallpapers/lib/index.ts" />
       <recent name="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/prisma" />
       <recent name="$PROJECT_DIR$/client/features/wallpapers/components" />
       <recent name="$PROJECT_DIR$/client/hooks" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/client/lib" />
-      <recent name="$PROJECT_DIR$/client/features/wallpapers/hooks" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.dev (3)">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -111,6 +125,36 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev (3)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
@@ -121,10 +165,32 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="npm.dev" />
+      <item itemvalue="npm.dev (3)" />
+      <item itemvalue="npm.dev (1)" />
+      <item itemvalue="npm.dev (2)" />
+      <item itemvalue="npm.start" />
       <item itemvalue="Shell Script.Firebase" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev (3)" />
+        <item itemvalue="npm.dev (2)" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.dev (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -242,15 +308,15 @@
       <workItem from="1746106503486" duration="25000" />
       <workItem from="1746106534893" duration="11000" />
       <workItem from="1746488183940" duration="3636000" />
-      <workItem from="1746531835671" duration="4036000" />
-    </task>
-    <task id="LOCAL-00024" summary="remove unsused vars">
-      <option name="closed" value="true" />
-      <created>1736738405722</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1736738405722</updated>
+      <workItem from="1746531835671" duration="4076000" />
+      <workItem from="1746590852086" duration="600000" />
+      <workItem from="1746883336572" duration="5000" />
+      <workItem from="1747059212478" duration="7416000" />
+      <workItem from="1747309951152" duration="785000" />
+      <workItem from="1747310742831" duration="2983000" />
+      <workItem from="1747313731745" duration="685000" />
+      <workItem from="1747314423318" duration="37000" />
+      <workItem from="1747314466767" duration="1847000" />
     </task>
     <task id="LOCAL-00025" summary="migrating to shad">
       <option name="closed" value="true" />
@@ -636,7 +702,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746535498342</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="improve mobile ux">
+      <option name="closed" value="true" />
+      <created>1746535989876</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1746535989876</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +740,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="migrate nextui to heroui and add image classes" />
     <MESSAGE value="reafactor classes image" />
     <MESSAGE value="update wll api" />
     <MESSAGE value="update wll api and wll dashboard" />
@@ -691,6 +764,7 @@
     <MESSAGE value="fix build" />
     <MESSAGE value="add mangas and favs links" />
     <MESSAGE value="clean code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean code" />
+    <MESSAGE value="improve mobile ux" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve mobile ux" />
   </component>
 </project>
