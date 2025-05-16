@@ -5,11 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbee0fc5-3c78-4cce-8ece-dd7a63314f07" name="Changes" comment="improve mobile ux">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bifros.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/features/wallpapers/classes/Wallhaven.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/default.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/default.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/edge.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/edge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/index-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/libquery_engine-darwin-arm64.dylib.node" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/edge-esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/edge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/index-browser.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/index-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/library.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/library.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/react-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/runtime/wasm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/schema.prisma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/wasm.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/generated/prisma/wasm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/prisma/migrations/20250515235223_init/migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/app.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/config/env.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/config/logger.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/config/prisma.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/wallhaven.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/wallpaper.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/wallpaper.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/wallpaper.routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/wallpaper.schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/modules/wallpapers/wallpaper.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/shared/lib/http-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/dashboard/components/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/hooks/useWallpapers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/hooks/useWallpapers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/lib/fetchers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/lib/fetchers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/dev.db" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/dev.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/dev.db-journal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/20250515123043_init/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/migrations/migration_lock.toml" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/migrations/migration_lock.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/server/prisma/schema.prisma" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +124,7 @@
     "npm.dev (1).executor": "Run",
     "npm.dev (2).executor": "Run",
     "npm.dev (3).executor": "Run",
+    "npm.dev UI.executor": "Run",
     "npm.dev.executor": "Run",
     "npm.start.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros/client/node_modules/prettier",
@@ -102,14 +152,14 @@
       <recent name="$PROJECT_DIR$/client/features/feed/components/FeedElement.tsx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/modules/wallpapers" />
       <recent name="$PROJECT_DIR$/server/prisma" />
       <recent name="$PROJECT_DIR$/client/features/wallpapers/components" />
       <recent name="$PROJECT_DIR$/client/hooks" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev (3)">
+  <component name="RunManager" selected="npm.dev UI">
     <configuration name="Firebase" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="firebase emulators:start" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -125,37 +175,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="dev (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="dev (3)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+    <configuration name="dev UI" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
       <scripts>
@@ -165,30 +185,24 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start" />
+        <script value="dev" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="npm.dev UI" />
       <item itemvalue="npm.dev" />
-      <item itemvalue="npm.dev (3)" />
-      <item itemvalue="npm.dev (1)" />
-      <item itemvalue="npm.dev (2)" />
-      <item itemvalue="npm.start" />
       <item itemvalue="Shell Script.Firebase" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev (3)" />
-        <item itemvalue="npm.dev (2)" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.dev (1)" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -316,7 +330,7 @@
       <workItem from="1747310742831" duration="2983000" />
       <workItem from="1747313731745" duration="685000" />
       <workItem from="1747314423318" duration="37000" />
-      <workItem from="1747314466767" duration="1847000" />
+      <workItem from="1747314466767" duration="25872000" />
     </task>
     <task id="LOCAL-00025" summary="migrating to shad">
       <option name="closed" value="true" />

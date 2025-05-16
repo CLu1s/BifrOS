@@ -1,3 +1,4 @@
+"use client";
 import {
   getHistory,
   landscapeQueue,
@@ -5,10 +6,7 @@ import {
   selectCollectionsInfo,
 } from "@/features/wallpapers/redux/wallpaperSelector";
 import { useDispatch, useSelector } from "react-redux";
-import type {
-  Image as ImageType,
-  QueueElement,
-} from "@/features/wallpapers/types";
+import type { QueueElement } from "@/features/wallpapers/types";
 import { deleteFromFirestore, saveOnFirestore } from "@/firebase/services";
 import {
   addToQueue,

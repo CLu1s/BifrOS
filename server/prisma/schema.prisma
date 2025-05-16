@@ -1,7 +1,4 @@
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// This is your Prisma schema file with all the changes discussed
 
 generator client {
     provider = "prisma-client-js"
@@ -13,92 +10,145 @@ datasource db {
     url      = "file:./dev.db"
 }
 
-model Wallpaper {
-    id          String   @id
-    url         String
-    shortUrl    String   @map("short_url")
-    views       Int
-    favorites   Int
-    source      String?
-        purity      String
-    category    String
-    dimensionX  Int      @map("dimension_x")
-    dimensionY  Int      @map("dimension_y")
-    resolution  String
-    ratio       String
-    fileSize    Int      @map("file_size")
-    fileType    String   @map("file_type")
-    createdAt   DateTime @map("created_at")
-    path        String
+// Cola de wallpapers pendientes de usar
+model WallpaperQueue {
+    id                String    @id @default(cuid())
+    wallhavenId       String    // ID externo de Wallhaven
+    imageUrl          String    // URL directa a la imagen
+    thumbnailUrl      String    // URL a la miniatura
+    addedAt           DateTime  @default(now())
+    priority          Int       @default(0)
+    deviceId          String?    // Dispositivo específico para el cual se encola
+    status            String    @default("pending") // pending, processing, completed
 
-    // Relaciones
-    uploader    User     @relation(fields: [uploaderId], references: [username])
-    uploaderId  String   @map("uploader_id")
-    thumbs      Thumbnail?
-        tags        TagOnWallpaper[]
-    colors      Color[]  // Relación con los colores
+    // Metadatos básicos de Wallhaven
+    purity            String    // sfw, sketchy, nsfw
+    resolution        String    // e.g., "1920x1080"
+    category          String    // e.g., "general", "anime", "people"
 
-@@map("wallpapers")
+    // Campos para análisis de IA
+    aiProcessingStatus String?  @default("pending") // pending, processing, completed, failed
+    aiTags             String?  // Tags generados por IA
+    aiColors           String?  // Colores detectados por IA, separados por coma
+    aiContentLabels    String?  // Etiquetas de contenido (landscape, portrait, etc.)
+    aiNsfwScore        Float?   // Probabilidad NSFW determinada por IA
+    aiProcessedAt      DateTime?
+
+    @@map("wallpaper_queue")
+    @@index([status, priority])
+    @@index([wallhavenId])
+    @@index([deviceId, status])
+    @@index([aiProcessingStatus])
 }
 
-model User {
-    username    String    @id
-    group       String
-    avatarLarge String    @map("avatar_large")
-    avatarMedium String    @map("avatar_medium")
-    avatarSmall String    @map("avatar_small")
-    avatarTiny  String    @map("avatar_tiny")
-    wallpapers  Wallpaper[]
+// Historial de wallpapers utilizados
+model WallpaperHistory {
+    id                String    @id @default(cuid())
+    wallhavenId       String    // ID externo de Wallhaven
+    imageUrl          String    // URL directa a la imagen
+    thumbnailUrl      String    // URL a la miniatura
+    usedAt            DateTime  @default(now())
+    deviceId          String    // En qué dispositivo se usó
+    duration          Int?      // Duración en minutos que estuvo como fondo
+    feedback          String?   // Feedback del usuario (liked, disliked, etc.)
 
-@@map("users")
+    // Metadatos básicos
+    purity            String    // sfw, sketchy, nsfw
+    resolution        String    // e.g., "1920x1080"
+    category          String    // e.g., "general", "anime", "people"
+
+    // Campos adicionales para análisis
+    tags              String?   // Tags separados por coma
+    colors            String?   // Colores principales separados por coma
+    aspectRatio       Float?    // Para análisis de preferencias de formato
+    fileSize          Int?      // Para análisis de consumo de datos
+    timeOfDay         Int?      // Hora del día cuando se usó (0-23)
+    dayOfWeek         Int?      // Día de la semana (0-6)
+
+    // Campos de preferencia/feedback
+    explicitRating    Int?      // Valoración usuario (1-5)
+    isFavorite        Boolean?  // Si lo marcó como favorito
+
+    @@map("wallpaper_history")
+    @@index([deviceId, usedAt])
+    @@index([wallhavenId])
+    @@index([timeOfDay])
+    @@index([dayOfWeek])
+    @@index([category])
 }
 
-model Thumbnail {
-    id          String   @id @default(cuid())
-    large       String
-    original    String
-    small       String
+// Wallpapers guardados localmente como favoritos
+model FavoriteWallpaper {
+    id                String    @id @default(cuid())
+    wallhavenId       String    // ID original de Wallhaven
+    originalUrl       String    // URL original para referencia
+    localPath         String    // Ruta local donde se almacena la imagen
+    thumbnailPath     String?   // Ruta a thumbnail local
+    addedAt           DateTime  @default(now())
+    userId            String    // Usuario que lo marcó como favorito
 
-    // Relación con Wallpaper
-    wallpaper   Wallpaper @relation(fields: [wallpaperId], references: [id])
-    wallpaperId String    @unique
+    // Metadatos
+    title             String?
+    description       String?
+    tags              String?   // Tags separados por coma
+    purity            String
+    resolution        String
+    category          String
+    size              Int       // Tamaño en bytes
 
-@@map("thumbnails")
+    // Campos para análisis de IA
+    aiTags            String?
+    aiColors          String?
+    aiContentLabels   String?
+    aiNsfwScore       Float?
+
+    @@map("favorite_wallpapers")
+    @@index([wallhavenId])
+    @@index([userId])
+    @@index([purity])
+    @@index([category])
 }
 
-model Tag {
-    id          Int      @id
-    name        String   @unique
-    alias       String?
-        categoryId  Int      @map("category_id")
-    category    String
-    purity      String
-    createdAt   DateTime @map("created_at")
+// Dispositivos registrados para gestión de colas
+model Device {
+    id                String    @id @default(cuid())
+    name              String    // Nombre amigable del dispositivo (e.g., "Mi Laptop", "Smartphone")
+    deviceIdentifier  String    @unique // Identificador único del dispositivo
+    platform          String    // Windows, MacOS, Android, iOS, etc.
+    resolution        String?   // Resolución de pantalla
+    lastSeen          DateTime  @default(now())
+    userPreferences   String?     // Preferencias del usuario para este dispositivo (como JSON)
 
-    // Relación muchos a muchos con Wallpaper
-    wallpapers  TagOnWallpaper[]
-
-@@map("tags")
+    @@map("devices")
+    @@index([deviceIdentifier])
 }
 
-model TagOnWallpaper {
-    wallpaper   Wallpaper @relation(fields: [wallpaperId], references: [id])
-    wallpaperId String    @map("wallpaper_id")
-    tag         Tag       @relation(fields: [tagId], references: [id])
-    tagId       Int       @map("tag_id")
+// Modelo para almacenar configuraciones del sistema
+model SystemSettings {
+    id                String    @id @default(cuid())
+    key               String    @unique
+    value             String    // Valor como string (incluso si es un JSON serializado)
+    updatedAt         DateTime  @updatedAt
 
-@@id([wallpaperId, tagId])
-@@map("tags_on_wallpapers")
+    @@map("system_settings")
+    @@index([key])
 }
 
-model Color {
-    id          Int      @id @default(autoincrement())
-    hexCode     String   @map("hex_code")
+// Modelo para tareas programadas
+model ScheduledTask {
+    id                String    @id @default(cuid())
+    type              String    // Tipo de tarea (refresh_queue, clear_history, analyze_images, etc.)
+    status            String    @default("pending") // pending, processing, completed, failed
+    data              String?     // Datos para la tarea
+    priority          Int       @default(0)
+    scheduledFor      DateTime  // Cuándo debe ejecutarse
+    createdAt         DateTime  @default(now())
+    startedAt         DateTime?
+    completedAt       DateTime?
+    lastError         String?   // Último error si falló
+    attempts          Int       @default(0) // Número de intentos
 
-    // Relación con Wallpaper
-    wallpaper   Wallpaper @relation(fields: [wallpaperId], references: [id])
-    wallpaperId String    @map("wallpaper_id")
-
-@@index([hexCode])
-@@map("colors")
+    @@map("scheduled_tasks")
+    @@index([type, status])
+    @@index([scheduledFor, status])
 }

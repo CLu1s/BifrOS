@@ -39,7 +39,7 @@ export default function RootLayout({
         <body className={` dark ${inter.className}  antialiased `}>
           <Providers>
             <div className={"flex flex-row w-full relative"}>
-              <div className={"flex flex-col w-full gap-4 py-10"}>
+              <div className={"flex flex-col w-full gap-4 "}>
                 <Menu />
                 {children}
               </div>

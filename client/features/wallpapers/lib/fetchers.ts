@@ -17,7 +17,7 @@ const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPERS_PAGE;
 
 export const fetchCollectionPage = ({ collectionID, index }: Props) => {
   return useSWR(
-    `${API_URL}?collection=${collectionID}&page=${index}`,
+    `${API_URL}api/wallhaven/hot-collection?collection=${collectionID}&page=${index}`,
     fetcher,
     {
       revalidateIfStale: false,

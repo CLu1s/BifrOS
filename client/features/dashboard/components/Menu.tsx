@@ -40,20 +40,8 @@ export default function Menu() {
   const currentLabel = links.find((link) => isCurrentPath(link.href))?.label;
 
   return (
-    <div className={"flex flex-col w-full gap-4 px-8"}>
-      <div
-        className={"flex flex-col lg:flex-row  justify-between w-full gap-2"}
-      >
-        <h1 className={"text-4xl font-bold flex flex-col justify-center "}>
-          {currentLabel}
-        </h1>
-        <Favorites />
-      </div>
-      <div
-        className={
-          "grid grid-cols-3 md:grid-cols-6 xl:grid-cols-8 gap-4 xl:gap-2"
-        }
-      >
+    <div className={"flex flex-col w-full gap-4 px-8  "}>
+      <div className={"grid grid-cols-3 md:grid-cols-6 xl:grid-cols-8  "}>
         {links.map((link) => (
           <Button
             as={Link}
@@ -74,6 +62,14 @@ export default function Menu() {
             </span>
           </Button>
         ))}
+      </div>
+      <div
+        className={"flex flex-col lg:flex-row  justify-between w-full gap-2"}
+      >
+        <h1 className={"text-4xl font-bold flex flex-col justify-center "}>
+          {currentLabel}
+        </h1>
+        <Favorites />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+"use client";
 import { useSelector } from "react-redux";
 import { selectActiveCollection } from "@/features/wallpapers/redux/wallpaperSelector";
 import InfiniteScroll from "react-infinite-scroll-component";
