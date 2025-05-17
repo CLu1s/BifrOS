@@ -1,11 +1,11 @@
 "use client";
 import { Card, CardBody, CardHeader } from "@heroui/react";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import useQueue from "@/features/wallpapers/hooks/useQueue";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
 import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 
 const NextInQueue = () => {
-  const { getQueue } = useWallpapers();
+  const { getQueue } = useQueue();
   const portrait = getQueue("portrait");
   const landscape = getQueue("landscape");
 

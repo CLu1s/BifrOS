@@ -1,40 +1,27 @@
 "use client";
-import { useSelector } from "react-redux";
-import { selectActiveCollection } from "@/features/wallpapers/redux/wallpaperSelector";
+
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useEffect, useState } from "react";
 import CollectionPage from "./CollectionPage";
+import useCollection from "@/features/wallpapers/hooks/useCollection";
 
 const DisplayCollection = () => {
-  const collection = useSelector(selectActiveCollection);
-  const [pagesCount, setPagesCount] = useState(1);
+  const { activeData, setCurrentPage, metadata } = useCollection();
   // const [config, setConfig] = useState<CollectionConfig>();
-  const [pages, setPages] = useState<Record<string, number | string>[]>([
-    {
-      collectionID: collection?.id ?? 0,
-      index: 1,
-    },
-  ]);
-  const totalPages = Math.ceil(
-    (collection?.count ?? 1) / (collection?.per_page ?? 24),
-  );
 
-  useEffect(() => {
-    setPagesCount(1);
-    setPages([
-      {
-        collectionID: collection?.id ?? 0,
-        index: 1,
-      },
-    ]);
-  }, [collection]);
+  const totalPages = metadata?.last_page ?? 1;
+  const currentPage = metadata?.current_page ?? 1;
+  // useEffect(() => {
+  //   setPagesCount(1);
+  //   setPages([
+  //     {
+  //       collectionID: activeCollection?.id ?? 0,
+  //       index: 1,
+  //     },
+  //   ]);
+  // }, [activeCollection]);
 
-  const renderPages = pages.map((page) => (
-    <CollectionPage
-      key={page.index}
-      collectionID={page.collectionID}
-      index={page.index as number}
-    />
+  const renderPages = activeData.map((page, index) => (
+    <CollectionPage key={index} images={page} />
   ));
 
   return (
@@ -47,17 +34,11 @@ const DisplayCollection = () => {
           scrollableTarget={"scrollableDiv"}
           dataLength={renderPages.length} //This is important field to render the next data
           next={() => {
-            const newIndex = pagesCount + 1;
-            setPagesCount(newIndex);
-            setPages((prevState) => [
-              ...prevState,
-              {
-                collectionID: collection?.id ?? 0,
-                index: newIndex,
-              },
-            ]);
+            const newIndex = currentPage + 1;
+            console.log("next", newIndex);
+            setCurrentPage(newIndex);
           }}
-          hasMore={pagesCount <= totalPages}
+          hasMore={currentPage <= totalPages}
           loader={<h4>perro...</h4>}
           endMessage={
             <div

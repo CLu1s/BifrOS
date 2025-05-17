@@ -6,7 +6,7 @@ import {
   setQueue,
 } from "@/features/wallpapers/redux/wallpaperSlice";
 import { useDispatch } from "react-redux";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import useQueue from "@/features/wallpapers/hooks/useQueue";
 import Spinner from "@/components/Spinner";
 
 const FetcherWallpaperContainer = ({
@@ -17,7 +17,7 @@ const FetcherWallpaperContainer = ({
   allHistory?: boolean;
 }) => {
   const dispatch = useDispatch();
-  const { queueList, history } = useWallpapers();
+  const { queueList, history } = useQueue();
   const {
     queue,
     isLoading,

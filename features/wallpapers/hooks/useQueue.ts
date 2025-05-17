@@ -16,7 +16,7 @@ import useFetchers from "@/features/wallpapers/hooks/useFetchers";
 import { orderQueue } from "@/features/wallpapers/lib";
 import { ImageWallpaper } from "@/features/wallpapers/classes/Image";
 
-const useWallpapers = () => {
+const useQueue = () => {
   const { revalidateCache } = useFetchers();
   const dispatch = useDispatch();
   const landscape = useSelector(landscapeQueue);
@@ -105,4 +105,4 @@ const useWallpapers = () => {
   };
 };
 
-export default useWallpapers;
+export default useQueue;

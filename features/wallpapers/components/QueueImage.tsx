@@ -1,7 +1,7 @@
 import React from "react";
 import type { QueueElement } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import useQueue from "@/features/wallpapers/hooks/useQueue";
 
 import {
   DropdownItemType,
@@ -17,7 +17,7 @@ export function QueueImage(props: {
   isHistory?: boolean;
 }) {
   const { openModal } = useActions();
-  const { removeImage, addImageToQueue } = useWallpapers();
+  const { removeImage, addImageToQueue } = useQueue();
   const { isHistory } = props;
 
   if (!props.image) return null;

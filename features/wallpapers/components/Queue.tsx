@@ -2,7 +2,7 @@
 
 import { type QueueElement } from "@/features/wallpapers/types";
 import React from "react";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import useQueue from "@/features/wallpapers/hooks/useQueue";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
 import Card from "@/components/Card";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Queue = ({ extraButton, isWidget }: Props) => {
-  const { queueList } = useWallpapers();
+  const { queueList } = useQueue();
   const list = isWidget ? queueList.slice(0, 15) : queueList;
   let showQueue = list.map((image: QueueElement) => (
     <QueueImage key={image.id} image={image} />

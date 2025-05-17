@@ -6,7 +6,7 @@ import {
   ImageBase,
   GalleryImageBaseProps,
 } from "@/features/wallpapers/components/ImageBase";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import useQueue from "@/features/wallpapers/hooks/useQueue";
 import { cn } from "@/lib/utils";
 import useActions from "@/features/wallpapers/hooks/useActions";
 
@@ -16,7 +16,7 @@ interface Props extends GalleryImageBaseProps {
 
 export function GalleryImage(props: Props) {
   const { image } = props;
-  const { queueList } = useWallpapers();
+  const { queueList } = useQueue();
   const { openModal } = useActions();
   const find = useMemo(
     () => queueList.find((el) => el.id === image.data.id),

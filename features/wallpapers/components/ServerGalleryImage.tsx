@@ -2,7 +2,7 @@
 
 import { GalleryImage } from "@/features/wallpapers/components/GalleryImage";
 import React from "react";
-import useWallpapers from "@/features/wallpapers/hooks/useWallpapers";
+import useQueue from "@/features/wallpapers/hooks/useQueue";
 import { ImageWallpaper } from "@/features/wallpapers/classes/Image";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 export default function ServerGalleryImage({ imageString }: Props) {
   const imageRaw = JSON.parse(imageString);
   const image = new ImageWallpaper(imageRaw);
-  const { addImageToQueue } = useWallpapers();
+  const { addImageToQueue } = useQueue();
   return (
     <GalleryImage
       key={image.data.id}

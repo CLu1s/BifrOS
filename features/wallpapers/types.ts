@@ -3,9 +3,6 @@ export interface CollectionInfo {
   label: string;
   views: number;
   public: 1 | 0;
-  count: number;
-  useRepeat: boolean;
-  per_page: number;
 }
 
 export interface Image {
@@ -65,6 +62,20 @@ export interface QueueElement extends Image {
   name?: string;
   addedAt: string;
   isActive: boolean;
+}
+
+export interface Meta {
+  current_page: number;
+  last_page: number;
+  per_page: string;
+  total: number;
+  query: string | null;
+  seed: string | null;
+}
+
+export interface CollectionResponse {
+  data: Image[];
+  meta: Meta;
 }
 
 export interface HistoryElement extends QueueElement {

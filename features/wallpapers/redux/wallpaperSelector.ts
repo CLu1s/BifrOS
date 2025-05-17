@@ -6,11 +6,6 @@ import { orderQueue } from "@/features/wallpapers/lib";
 export const selectWallpaperState = (state: RootState): WallpaperSlice =>
   state.wallpaper;
 
-export const selectLoadingState = createSelector(
-  selectWallpaperState,
-  (wallpaper) => wallpaper.loadingState,
-);
-
 export const selectConfig = createSelector(
   selectWallpaperState,
   (wallpaper) => wallpaper.config,
@@ -48,4 +43,16 @@ export const selectIsModalOpen = createSelector(
 export const getHistory = createSelector(
   selectWallpaperState,
   (wallpaper) => wallpaper.history,
+);
+
+export const selectPages = createSelector(selectWallpaperState, (wallpaper) => {
+  const { pages, activeCollection } = wallpaper;
+  return pages[activeCollection?.id || ""] || [];
+});
+export const selectMetadata = createSelector(
+  selectWallpaperState,
+  (wallpaper) => {
+    const { metadata, activeCollection } = wallpaper;
+    return metadata[activeCollection?.id || ""] || {};
+  },
 );

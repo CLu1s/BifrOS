@@ -1,19 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   CollectionInfo,
+  CollectionResponse,
   HistoryElement,
   Image,
+  Meta,
   QueueElement,
   QueueElementOld,
   Settings,
 } from "@/features/wallpapers/types";
-import {
-  ImageQueueAdapter,
-  ImageWallpaper,
-} from "@/features/wallpapers/classes/Image";
+
+interface Pages {
+  [key: string]: Image[][];
+}
+
+interface Metadatas {
+  [key: string]: Meta;
+}
 
 export type WallpaperSlice = {
-  loadingState: "idle" | "loading" | "success" | "error";
   config: Settings;
   collectionsInfo: CollectionInfo[];
   activeCollection: CollectionInfo | null;
@@ -21,10 +26,11 @@ export type WallpaperSlice = {
   isModalOpen: boolean;
   modalImage: Image | QueueElementOld | QueueElement | null;
   history: HistoryElement[];
+  pages: Pages;
+  metadata: Metadatas;
 };
 
 const initialState: WallpaperSlice = {
-  loadingState: "idle",
   config: {
     thumb_size: "",
     per_page: "",
@@ -46,18 +52,23 @@ const initialState: WallpaperSlice = {
   isModalOpen: false,
   modalImage: null,
   history: [],
+  pages: {},
+  metadata: {
+    default: {
+      total: 0,
+      current_page: 1,
+      last_page: 0,
+      per_page: "",
+      query: null,
+      seed: null,
+    },
+  },
 };
 
 const wallpaperSlice = createSlice({
   name: "scrapper",
   initialState,
   reducers: {
-    setLoadingState: (
-      state,
-      action: PayloadAction<"idle" | "loading" | "success" | "error">,
-    ) => {
-      state.loadingState = action.payload;
-    },
     setConfig: (state, action: PayloadAction<Settings>) => {
       state.config = { ...action.payload };
     },
@@ -114,11 +125,31 @@ const wallpaperSlice = createSlice({
     setHistory: (state, action) => {
       state.history = action.payload;
     },
+    addPage: (
+      state,
+      action: PayloadAction<{ collectionId: string; page: CollectionResponse }>,
+    ) => {
+      const { collectionId, page } = action.payload;
+      if (page.meta.current_page === state.metadata[collectionId]?.current_page)
+        return;
+      if (state.pages[collectionId]) {
+        state.pages[collectionId].push(page.data);
+      } else {
+        state.pages[collectionId] = [page.data];
+      }
+      state.metadata[collectionId] = page.meta;
+    },
+    addMetadata: (
+      state,
+      action: PayloadAction<{ collectionId: string; metadata: Meta }>,
+    ) => {
+      const { collectionId, metadata } = action.payload;
+      state.metadata[collectionId] = metadata;
+    },
   },
 });
 
 export const {
-  setLoadingState,
   setConfig,
   setActiveCollection,
   setCollectionsInfo,
@@ -128,6 +159,8 @@ export const {
   openModal,
   closeModal,
   setHistory,
+  addPage,
+  addMetadata,
 } = wallpaperSlice.actions;
 export const wallpaperReducer = wallpaperSlice.reducer;
 export default wallpaperSlice;
