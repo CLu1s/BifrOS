@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useActiveCollection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useCollection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useCollectionData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useCollectionsInitializer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/dashboard/components/Generals.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/dashboard/components/Generals.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/CollectionPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/CollectionPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/FetcherWallpaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/FetcherWallpaperContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/NextInQueue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/NextInQueue.tsx" afterDir="false" />
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="wallapaper pagination">
       <change beforePath="$PROJECT_DIR$/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/Queue.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ServerGalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ServerGalleryImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useWallpapers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useQueue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSelector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSelector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,11 +95,24 @@
       <option name="presentableId" value="Default" />
       <updated>1747398521767</updated>
       <workItem from="1747398522846" duration="15366000" />
-      <workItem from="1747434389092" duration="6429000" />
+      <workItem from="1747434389092" duration="6509000" />
     </task>
+    <task id="LOCAL-00001" summary="wallapaper pagination">
+      <option name="closed" value="true" />
+      <created>1747443618753</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747443618753</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="wallapaper pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="wallapaper pagination" />
   </component>
 </project>

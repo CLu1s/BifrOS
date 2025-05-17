@@ -15,7 +15,7 @@ interface Props {
 const Queue = ({ extraButton, isWidget }: Props) => {
   const { queueList } = useQueue();
   const list = isWidget ? queueList.slice(0, 15) : queueList;
-  let showQueue = list.map((image: QueueElement) => (
+  const showQueue = list.map((image: QueueElement) => (
     <QueueImage key={image.id} image={image} />
   ));
 
