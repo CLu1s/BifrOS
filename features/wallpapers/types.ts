@@ -95,7 +95,7 @@ export interface CollectionResponse {
 }
 
 export interface HistoryElement extends QueueElement {
-  timestamp: string;
+  usedAt: string;
 }
 
 export interface HistoryElementOld extends QueueElementOld {
