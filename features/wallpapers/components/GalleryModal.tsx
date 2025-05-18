@@ -1,3 +1,4 @@
+"use client";
 import {
   Button,
   Image,
@@ -14,23 +15,17 @@ import {
   selectIsModalOpen,
   selectModalImage,
 } from "@/features/wallpapers/redux/wallpaperSelector";
-import { QueueElement, Image as ImageType } from "@/features/wallpapers/types";
-import { ImageQueueFactory } from "@/features/wallpapers/classes/Image";
 
 const GalleryModal = () => {
   const { closeModal } = useActions();
   const isOpen = useSelector(selectIsModalOpen);
   const image = useSelector(selectModalImage);
   if (!image) return null;
-  const imageWallpaper = ImageQueueFactory.createImage(image);
-  const type = imageWallpaper.getType();
-  console.log(image, imageWallpaper.data);
-  const url = imageWallpaper.data.path;
 
   return (
     <Modal
       isOpen={isOpen}
-      size={type === "portrait" ? "xl" : "5xl"}
+      size={"4xl"}
       onOpenChange={(open) => !open && closeModal()}
     >
       <ModalContent>
@@ -40,12 +35,7 @@ const GalleryModal = () => {
               Modal Title
             </ModalHeader>
             <ModalBody>
-              <Image
-                key={image?.id}
-                alt={url}
-                src={`/wh-proxy?url=${url}
-`}
-              />
+              <Image alt={image} src={`${image}`} />
             </ModalBody>
             <ModalFooter>
               <Button

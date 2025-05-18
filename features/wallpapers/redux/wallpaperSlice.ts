@@ -6,7 +6,6 @@ import {
   Image,
   Meta,
   QueueElement,
-  QueueElementOld,
   Settings,
 } from "@/features/wallpapers/types";
 
@@ -24,7 +23,7 @@ export type WallpaperSlice = {
   activeCollection: CollectionInfo | null;
   queue: { portrait: QueueElement[]; landscape: QueueElement[] };
   isModalOpen: boolean;
-  modalImage: Image | QueueElementOld | QueueElement | null;
+  modalImage: string;
   history: HistoryElement[];
   pages: Pages;
   metadata: Metadatas;
@@ -50,7 +49,7 @@ const initialState: WallpaperSlice = {
     landscape: [],
   },
   isModalOpen: false,
-  modalImage: null,
+  modalImage: "",
   history: [],
   pages: {},
   metadata: {
@@ -111,16 +110,14 @@ const wallpaperSlice = createSlice({
       copy.splice(index, 1);
       state.queue[action.payload.type] = copy;
     },
-    openModal: (
-      state,
-      action: PayloadAction<Image | QueueElementOld | QueueElement>,
-    ) => {
+    openModal: (state, action: PayloadAction<string>) => {
+      console.log("open modal", action.payload);
       state.isModalOpen = true;
       state.modalImage = action.payload;
     },
     closeModal: (state) => {
       state.isModalOpen = false;
-      state.modalImage = null;
+      state.modalImage = "";
     },
     setHistory: (state, action) => {
       state.history = action.payload;

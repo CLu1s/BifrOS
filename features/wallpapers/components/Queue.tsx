@@ -1,11 +1,11 @@
 "use client";
 
 import { type QueueElement } from "@/features/wallpapers/types";
-import React from "react";
-import useQueue from "@/features/wallpapers/hooks/useQueue";
+import React, { useMemo } from "react";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
 import Card from "@/components/Card";
 import { cn } from "@/lib/utils";
+import useFetchQueue from "@/features/wallpapers/hooks/useFetchQueue";
 
 interface Props {
   extraButton?: React.ReactNode;
@@ -13,11 +13,14 @@ interface Props {
 }
 
 const Queue = ({ extraButton, isWidget }: Props) => {
-  const { queueList } = useQueue();
-  const list = isWidget ? queueList.slice(0, 15) : queueList;
-  const showQueue = list.map((image: QueueElement) => (
-    <QueueImage key={image.id} image={image} />
-  ));
+  const { queueList } = useFetchQueue();
+  const showQueue = useMemo(
+    () =>
+      queueList.map((image: QueueElement) => (
+        <QueueImage key={image.id} image={image} />
+      )),
+    [queueList],
+  );
 
   return (
     <Card title={`In Queue: ${queueList.length}`} renderExtra={extraButton}>

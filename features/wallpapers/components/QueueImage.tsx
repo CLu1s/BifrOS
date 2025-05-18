@@ -1,5 +1,5 @@
 import React from "react";
-import type { QueueElement } from "../types";
+import type { BaseImage, QueueElement } from "../types";
 import useActions from "@/features/wallpapers/hooks/useActions";
 import useQueue from "@/features/wallpapers/hooks/useQueue";
 
@@ -7,28 +7,30 @@ import {
   DropdownItemType,
   ImageBase,
 } from "@/features/wallpapers/components/ImageBase";
-import {
-  ImageHistory,
-  ImageQueueFactory,
-} from "@/features/wallpapers/classes/Image";
 
 export function QueueImage(props: {
   image: QueueElement;
   isHistory?: boolean;
 }) {
   const { openModal } = useActions();
-  const { removeImage, addImageToQueue } = useQueue();
+  const { removeImage } = useQueue();
   const { isHistory } = props;
 
-  if (!props.image) return null;
-  const imageQueue = ImageQueueFactory.createImage(props.image);
+  const { image } = props;
+  const imageQueue: BaseImage = {
+    isVertical: Number(image.resolution) < 1,
+    thumbnail: image.thumbnailUrl,
+    alt: image.wallhavenId,
+    imageUrl: image.imageUrl,
+    wallhavenId: image.wallhavenId,
+  };
 
   const items: DropdownItemType[] = [
     {
       key: "expand",
       label: "Expand",
       action: () => {
-        openModal(imageQueue.data);
+        openModal(imageQueue.imageUrl);
       },
     },
 
@@ -36,18 +38,17 @@ export function QueueImage(props: {
       key: "WH",
       label: "See on Wallhaven",
       action: () => {
-        window.open(imageQueue.data.url, "_blank");
+        window.open(`https://wallhaven.cc/w/${image.wallhavenId}`, "_blank");
       },
     },
   ];
-
-  if (isHistory && imageQueue instanceof ImageHistory) {
-    items.push({
-      key: "queue",
-      label: "Add to queue",
-      action: () => addImageToQueue(imageQueue),
-    });
-  }
+  // if(!isHistory) {
+  //   items.push({
+  //     key: "queue",
+  //     label: "Add to queue",
+  //     action: () => addImageToQueue(imageQueue),
+  //   });
+  // }
 
   if (!isHistory) {
     items.push({
@@ -56,5 +57,6 @@ export function QueueImage(props: {
       action: () => removeImage(props.image),
     });
   }
+
   return <ImageBase image={imageQueue} dropdownItems={items} />;
 }

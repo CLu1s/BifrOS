@@ -6,9 +6,9 @@ import {
   ImageBase,
   GalleryImageBaseProps,
 } from "@/features/wallpapers/components/ImageBase";
-import useQueue from "@/features/wallpapers/hooks/useQueue";
 import { cn } from "@/lib/utils";
 import useActions from "@/features/wallpapers/hooks/useActions";
+import useFetchQueue from "@/features/wallpapers/hooks/useFetchQueue";
 
 interface Props extends GalleryImageBaseProps {
   onPress: () => void;
@@ -16,11 +16,11 @@ interface Props extends GalleryImageBaseProps {
 
 export function GalleryImage(props: Props) {
   const { image } = props;
-  const { queueList } = useQueue();
+  const { queueList } = useFetchQueue();
   const { openModal } = useActions();
   const find = useMemo(
-    () => queueList.find((el) => el.id === image.data.id),
-    [queueList, image.data.id],
+    () => queueList.find((el) => el.wallhavenId === image.wallhavenId),
+    [queueList, image.wallhavenId],
   );
 
   const items: DropdownItemType[] = [
@@ -28,14 +28,14 @@ export function GalleryImage(props: Props) {
       key: "expand",
       label: "Expand",
       action: () => {
-        openModal(image.data);
+        openModal(image.imageUrl);
       },
     },
     {
       key: "WH",
       label: "See on Wallhaven",
       action: () => {
-        window.open(image.data.url, "_blank");
+        window.open(`https://wallhaven.cc/w/${image.wallhavenId}`, "_blank");
       },
     },
   ];

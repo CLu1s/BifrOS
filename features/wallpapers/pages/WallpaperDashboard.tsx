@@ -1,8 +1,6 @@
 import Container from "@/features/wallpapers/components/Container";
 import React from "react";
 
-
-
 const getCollections = async () => {
   const results = await fetch(
     `http://localhost:4000/api/wallhaven/collections`,
@@ -11,9 +9,7 @@ const getCollections = async () => {
 };
 
 export default async function WallpaperDashboard() {
-  const [collections,  ] = await Promise.allSettled([
-    getCollections(),
-  ]);
+  const [collections] = await Promise.allSettled([getCollections()]);
 
   if (collections.status === "rejected") {
     console.error(collections.reason);
@@ -22,9 +18,5 @@ export default async function WallpaperDashboard() {
 
   const collectionsJson = JSON.stringify(collections.value);
 
-  return (
-
-      <Container collectionsInfo={collectionsJson}   />
-
-  );
+  return <Container collectionsInfo={collectionsJson} />;
 }

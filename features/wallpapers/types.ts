@@ -5,6 +5,14 @@ export interface CollectionInfo {
   public: 1 | 0;
 }
 
+export interface BaseImage {
+  isVertical: boolean;
+  alt: string;
+  thumbnail: string;
+  wallhavenId: string;
+  imageUrl: string;
+}
+
 export interface Image {
   collection: number | string;
   category: string;
@@ -55,13 +63,21 @@ export type QueueElementOld = {
   path: string;
 };
 
-export interface QueueElement extends Image {
+export interface QueueElementInput {
+  wallhavenId: string;
+  imageUrl: string;
+  thumbnailUrl: string;
+  purity: string;
+  resolution: string;
+  category: string;
+  addedAt: Date;
+  priority: number;
+  deviceId?: string;
+  status: "pending" | "processing" | "completed";
+}
+
+export interface QueueElement extends QueueElementInput {
   id: string;
-  queue: "landscape-queue" | "portrait-queue";
-  order: number;
-  name?: string;
-  addedAt: string;
-  isActive: boolean;
 }
 
 export interface Meta {

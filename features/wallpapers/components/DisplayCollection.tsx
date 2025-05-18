@@ -3,26 +3,24 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import CollectionPage from "./CollectionPage";
 import useCollection from "@/features/wallpapers/hooks/useCollection";
+import { useCallback } from "react";
 
 const DisplayCollection = () => {
   const { activeData, setCurrentPage, metadata } = useCollection();
-  // const [config, setConfig] = useState<CollectionConfig>();
 
   const totalPages = metadata?.last_page ?? 1;
   const currentPage = metadata?.current_page ?? 1;
-  // useEffect(() => {
-  //   setPagesCount(1);
-  //   setPages([
-  //     {
-  //       collectionID: activeCollection?.id ?? 0,
-  //       index: 1,
-  //     },
-  //   ]);
-  // }, [activeCollection]);
 
   const renderPages = activeData.map((page, index) => (
     <CollectionPage key={index} images={page} />
   ));
+
+  const controlNextPage = useCallback(() => {
+    {
+      const newIndex = currentPage + 1;
+      setCurrentPage(newIndex);
+    }
+  }, [currentPage, setCurrentPage]);
 
   return (
     <div>
@@ -33,13 +31,9 @@ const DisplayCollection = () => {
         <InfiniteScroll
           scrollableTarget={"scrollableDiv"}
           dataLength={renderPages.length} //This is important field to render the next data
-          next={() => {
-            const newIndex = currentPage + 1;
-            console.log("next", newIndex);
-            setCurrentPage(newIndex);
-          }}
+          next={controlNextPage}
           hasMore={currentPage <= totalPages}
-          loader={<h4>perro...</h4>}
+          loader={<div className={"container m-auto"}>Cargando...</div>}
           endMessage={
             <div
               className={"font-semibold col-span-3 w-full m-auto text-center"}

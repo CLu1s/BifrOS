@@ -9,13 +9,10 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@heroui/react";
-import {
-  ImageQueueAdapter,
-  ImageWallpaper,
-} from "@/features/wallpapers/classes/Image";
+import { BaseImage } from "@/features/wallpapers/types";
 
 export interface GalleryImageBaseProps {
-  image: ImageWallpaper | ImageQueueAdapter;
+  image: BaseImage;
   className?: string;
   dropdownItems?: DropdownItemType[];
 }
@@ -28,7 +25,7 @@ export interface DropdownItemType {
 
 export function ImageBase(props: GalleryImageBaseProps) {
   const { dropdownItems, image } = props;
-  const isVertical = image.isVertical();
+  const isVertical = image.isVertical;
   return (
     <Card
       isFooterBlurred
@@ -76,8 +73,8 @@ export function ImageBase(props: GalleryImageBaseProps) {
       <img
         className={"  h-[200px]  xl:h-[300px]  object-cover object-top"}
         loading="lazy"
-        alt={image.data.url}
-        src={image.getThumbnail()}
+        alt={image.alt}
+        src={image.thumbnail}
       />
     </Card>
   );

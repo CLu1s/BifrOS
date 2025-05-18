@@ -2,7 +2,6 @@
 import DisplayCollection from "@/features/wallpapers/components/DisplayCollection";
 import { Button, ButtonGroup } from "@heroui/react";
 import { CollectionInfo } from "@/features/wallpapers/types";
-import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 import useCollection from "@/features/wallpapers/hooks/useCollection";
 
 type Props = {
@@ -36,7 +35,6 @@ const Container = ({ collectionsInfo }: Props) => {
       </ButtonGroup>
       <div className={"lg:hidden grid-cols-2 grid gap-2 "}>{buttons}</div>
       <DisplayCollection />
-      <GalleryModal />
     </div>
   );
 };

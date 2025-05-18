@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-const fetcher = (...args: any[]) =>
+export const fetcher = (...args: never[]) =>
   // @ts-expect-error sss
   fetch(...args, {
     headers: {
@@ -8,6 +8,7 @@ const fetcher = (...args: any[]) =>
       Accept: "application/json",
     },
   }).then((res) => res.json());
+
 interface Props {
   collectionID: string | number;
   // userConfig: CollectionConfig | undefined;
@@ -16,6 +17,7 @@ interface Props {
 const API_URL = process.env.NEXT_PUBLIC_GET_WALLPAPERS_PAGE;
 
 export const fetchCollectionPage = ({ collectionID, index }: Props) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   return useSWR(
     `${API_URL}api/wallhaven/hot-collection?collection=${collectionID}&page=${index}`,
     fetcher,

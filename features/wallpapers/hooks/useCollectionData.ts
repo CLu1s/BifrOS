@@ -9,6 +9,7 @@ import {
   selectPages,
 } from "@/features/wallpapers/redux/wallpaperSelector";
 import useActions from "@/features/wallpapers/hooks/useActions";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export function useCollectionData(
   currentPage: number,
@@ -20,6 +21,7 @@ export function useCollectionData(
   const metadata = useSelector(selectMetadata);
   const fetchedRef = useRef<{ [key: string]: Set<number> }>({});
   const { addPage, addMetadata } = useActions();
+
   useEffect(() => {
     if (!activeCollection) return;
 
@@ -45,7 +47,7 @@ export function useCollectionData(
     (async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/wallhaven/collections/${activeCollection.id}?page=${currentPage}`,
+          `${API_URL}/api/wallhaven/collections/${activeCollection.id}?page=${currentPage}`,
           {
             headers: {
               "Content-Type": "application/json",

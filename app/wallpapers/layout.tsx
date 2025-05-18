@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Button, ButtonGroup } from "@heroui/react";
+import GalleryModal from "@/features/wallpapers/components/GalleryModal";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,6 +23,7 @@ export default function RootLayout({
         </ButtonGroup>
       </div>
       <div className={"grid  grid-cols-1 px-8 gap-4"}>{children}</div>
+      <GalleryModal />
     </div>
   );
 }
