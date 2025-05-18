@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="remove old compomnets">
-      <change afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useFetchHistory.ts" afterDir="false" />
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add history">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useQueue.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/wallpapers/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,23 +47,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "server",
-    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros-client/features/wallpapers/hooks",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros-client/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros-client/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/features/wallpapers/hooks&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/features/wallpapers/hooks" />
@@ -106,7 +105,8 @@
       <workItem from="1747434389092" duration="11170000" />
       <workItem from="1747456422252" duration="248000" />
       <workItem from="1747489557267" duration="2013000" />
-      <workItem from="1747568393174" duration="10899000" />
+      <workItem from="1747568393174" duration="11224000" />
+      <workItem from="1747608685277" duration="1637000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -140,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747580600150</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add history">
+      <option name="closed" value="true" />
+      <created>1747606901865</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747606901865</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +158,7 @@
     <MESSAGE value="wallapaper pagination" />
     <MESSAGE value="add queue" />
     <MESSAGE value="remove old compomnets" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove old compomnets" />
+    <MESSAGE value="add history" />
+    <option name="LAST_COMMIT_MESSAGE" value="add history" />
   </component>
 </project>

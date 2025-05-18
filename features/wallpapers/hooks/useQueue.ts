@@ -30,7 +30,6 @@ const useQueue = () => {
 
   const addImageToQueue = async (wallpaper: ImageWallpaper) => {
     const image = wallpaper.data;
-    console.log("Adding image to queue", image);
     // const find = queueList.find((el) => el.id === image.data.id);
     // if (find) return;
 
@@ -43,9 +42,10 @@ const useQueue = () => {
       addedAt: new Date(),
       thumbnailUrl: image.thumbs.large,
       wallhavenId: image.id,
+      aspectRatio: Number(image.ratio),
       priority: 100, //getNextQueueNumberOrder(),
     };
-
+    console.log("Adding image to queue", element, Number(image.ratio));
     try {
       await fetch(`${API_URL}/api/wallpapers/queue`, {
         method: "POST",

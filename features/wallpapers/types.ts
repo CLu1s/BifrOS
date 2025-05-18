@@ -72,6 +72,7 @@ export interface QueueElementInput {
   category: string;
   addedAt: Date;
   priority: number;
+  aspectRatio: number;
   deviceId?: string;
   status: "pending" | "processing" | "completed";
 }
