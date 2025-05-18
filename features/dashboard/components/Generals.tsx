@@ -1,11 +1,11 @@
 import { Card, CardBody, CardHeader } from "@heroui/react";
-import useQueue from "@/features/wallpapers/hooks/useQueue";
 import useScrapper from "@/features/scrapper/hooks/useScrapper";
 import { format } from "date-fns";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
+import useFetchQueue from "@/features/wallpapers/hooks/useFetchQueue";
 
 const Generals = () => {
-  const { queueList } = useQueue();
+  const { queueList } = useFetchQueue();
   const { metrics, executions } = useScrapper();
   const { bookmarks } = useBookmark();
 

@@ -25,4 +25,4 @@ export async function allHistoryFromFirebaseFetcher() {
 }
 
 export const orderQueue = (a: QueueElement, b: QueueElement) =>
-  b.order - a.order;
+  b.priority - a.priority;
