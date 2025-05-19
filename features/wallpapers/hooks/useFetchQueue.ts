@@ -7,7 +7,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function useFetchQueue() {
   const { data, error, isLoading, mutate } = useSWR(
-    `${API_URL}/api/wallpapers/queue`,
+    `${API_URL}/api/wallpapers/queue?status=PENDING`,
     fetcher,
     {
       revalidateOnFocus: true, // Revalida al volver a la pestaña

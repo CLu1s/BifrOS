@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="improve styles">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/dashboard/components/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/pages/WallpaperDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/pages/WallpaperDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useFetchQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useFetchQueue.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +107,7 @@
       <workItem from="1747568393174" duration="11224000" />
       <workItem from="1747608685277" duration="2926000" />
       <workItem from="1747618847542" duration="5458000" />
-      <workItem from="1747657515677" duration="2142000" />
+      <workItem from="1747657515677" duration="4709000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -175,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747624266012</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add refactor">
+      <option name="closed" value="true" />
+      <created>1747666412267</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747666412267</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +194,7 @@
     <MESSAGE value="add history" />
     <MESSAGE value="add aspecratio" />
     <MESSAGE value="improve styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve styles" />
+    <MESSAGE value="add refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="add refactor" />
   </component>
 </project>
