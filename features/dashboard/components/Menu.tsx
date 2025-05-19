@@ -35,9 +35,8 @@ import { cn } from "@/lib/utils";
 
 export default function Menu() {
   const pathname = usePathname();
-  const isCurrentPath = (path: string) => pathname === path;
+  const isCurrentPath = (path: string) => pathname.includes(path);
   const currentLabel = links.find((link) => isCurrentPath(link.href))?.label;
-
   return (
     <div className={"flex flex-col w-full gap-4 px-4 xl:px-8 pt-2  "}>
       <div

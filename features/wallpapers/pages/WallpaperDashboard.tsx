@@ -1,5 +1,4 @@
 import Container from "@/features/wallpapers/components/Container";
-import React from "react";
 
 const getCollections = async () => {
   const results = await fetch(

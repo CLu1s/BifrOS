@@ -1,5 +1,12 @@
-import WallpaperDashboard from "@/features/wallpapers/pages/WallpaperDashboard";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  return <WallpaperDashboard />;
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/wallpapers");
+  }, [router]);
+  return null;
 }
