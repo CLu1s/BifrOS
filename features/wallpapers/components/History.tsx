@@ -11,7 +11,6 @@ import useFetchHistory from "@/features/wallpapers/hooks/useFetchHistory";
 
 const History = () => {
   const { historyList, isLoading } = useFetchHistory();
-  console.log("historyList", historyList);
   const showQueue = historyList.map((image: HistoryElement) => (
     <QueueImage key={image.id} image={image} isHistory />
   ));
