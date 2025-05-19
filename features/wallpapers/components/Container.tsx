@@ -29,6 +29,7 @@ const Container = ({ collectionsInfo }: Props) => {
   return (
     <div className={"flex flex-col "}>
       <ButtonGroup
+        size={"sm"}
         className={"hidden lg:flex items-start justify-start mb-4  "}
       >
         {buttons}

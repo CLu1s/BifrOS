@@ -3,19 +3,13 @@
 import { HistoryElement } from "@/features/wallpapers/types";
 import React from "react";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
-import Card, { ExtraButton } from "@/components/Card";
+import Card from "@/components/Card";
 
 import Spinner from "@/components/Spinner";
 import { cn } from "@/lib/utils";
 import useFetchHistory from "@/features/wallpapers/hooks/useFetchHistory";
 
-interface Props {
-  showExtraButton?: boolean;
-  allHistory?: boolean;
-  isWidget?: boolean;
-}
-
-const History = ({ showExtraButton }: Props) => {
+const History = () => {
   const { historyList, isLoading } = useFetchHistory();
   console.log("historyList", historyList);
   const showQueue = historyList.map((image: HistoryElement) => (
@@ -33,15 +27,8 @@ const History = ({ showExtraButton }: Props) => {
   }
 
   return (
-    <Card
-      // className={" px-10 w-[calc(100vw-4.5rem)]  xl:w-[calc(100vw-15rem)] "}
-      title={"History"}
-      renderExtra={
-        showExtraButton && (
-          <ExtraButton href={"/wallpapers/history"}>View More</ExtraButton>
-        )
-      }
-    >
+    <div className={" px-10 xls:px-28  2xl:px-32"}>
+      <h2 className={"text-2xl font-semibold m-10"}>History</h2>
       <div className={" h-[650px] xl:h-[800px] overflow-auto   pb-10"}>
         <div
           className={cn(
@@ -52,7 +39,7 @@ const History = ({ showExtraButton }: Props) => {
           {showQueue}
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
 export default History;

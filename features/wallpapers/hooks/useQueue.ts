@@ -45,7 +45,6 @@ const useQueue = () => {
       aspectRatio: Number(image.ratio),
       priority: 100, //getNextQueueNumberOrder(),
     };
-    console.log("Adding image to queue", element, Number(image.ratio));
     try {
       await fetch(`${API_URL}/api/wallpapers/queue`, {
         method: "POST",

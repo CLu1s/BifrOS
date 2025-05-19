@@ -3,16 +3,10 @@
 import { type QueueElement } from "@/features/wallpapers/types";
 import React, { useMemo } from "react";
 import { QueueImage } from "@/features/wallpapers/components/QueueImage";
-import Card from "@/components/Card";
 import { cn } from "@/lib/utils";
 import useFetchQueue from "@/features/wallpapers/hooks/useFetchQueue";
 
-interface Props {
-  extraButton?: React.ReactNode;
-  isWidget?: boolean;
-}
-
-const Queue = ({ extraButton, isWidget }: Props) => {
+const Queue = () => {
   const { queueList } = useFetchQueue();
   const showQueue = useMemo(
     () =>
@@ -23,20 +17,18 @@ const Queue = ({ extraButton, isWidget }: Props) => {
   );
 
   return (
-    <Card title={`In Queue: ${queueList.length}`} renderExtra={extraButton}>
-      <div className={" w-full "}>
-        <div
-          className={cn(
-            `grid grid-cols-2 gap-4`,
-            isWidget
-              ? "md:grid-cols-4 2xl:grid-cols-5 "
-              : "md:grid-cols-4 2xl:grid-cols-6",
-          )}
-        >
-          {showQueue}
-        </div>
+    <div className={" w-full "}>
+      <h2 className={"text-2xl font-semibold m-10"}>
+        In Queue: {queueList.length}
+      </h2>
+      <div
+        className={cn(
+          "m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-7  gap-4 md:gap-4  2xl:gap-6 px-10 xls:px-28  2xl:px-32",
+        )}
+      >
+        {showQueue}
       </div>
-    </Card>
+    </div>
   );
 };
 export default Queue;

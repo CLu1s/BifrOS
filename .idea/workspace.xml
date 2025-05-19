@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add history">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="improve styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/wallpapers/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/wallpapers/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/dashboard/components/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/dashboard/components/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/Container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/Queue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/Queue.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useQueue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +112,8 @@
       <workItem from="1747456422252" duration="248000" />
       <workItem from="1747489557267" duration="2013000" />
       <workItem from="1747568393174" duration="11224000" />
-      <workItem from="1747608685277" duration="1637000" />
+      <workItem from="1747608685277" duration="2926000" />
+      <workItem from="1747618847542" duration="5086000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -148,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747606901865</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add aspecratio">
+      <option name="closed" value="true" />
+      <created>1747610459777</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747610459777</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +174,8 @@
     <MESSAGE value="add queue" />
     <MESSAGE value="remove old compomnets" />
     <MESSAGE value="add history" />
-    <option name="LAST_COMMIT_MESSAGE" value="add history" />
+    <MESSAGE value="add aspecratio" />
+    <MESSAGE value="improve styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve styles" />
   </component>
 </project>

@@ -3,7 +3,6 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import CollectionPage from "./CollectionPage";
 import useCollection from "@/features/wallpapers/hooks/useCollection";
-import { useCallback } from "react";
 
 const DisplayCollection = () => {
   const { activeData, setCurrentPage, metadata } = useCollection();
@@ -15,17 +14,15 @@ const DisplayCollection = () => {
     <CollectionPage key={index} images={page} />
   ));
 
-  const controlNextPage = useCallback(() => {
-    {
-      const newIndex = currentPage + 1;
-      setCurrentPage(newIndex);
-    }
-  }, [currentPage, setCurrentPage]);
+  const controlNextPage = () => {
+    const newIndex = currentPage + 1;
+    setCurrentPage(newIndex);
+  };
 
   return (
     <div>
       <div
-        className="container m-auto max-h-[83vh] overflow-y-auto  flex flex-col  gap-4  p-6 "
+        className=" m-auto max-h-[85vh]  overflow-y-auto  flex flex-col   py-4 "
         id="scrollableDiv"
       >
         <InfiniteScroll
@@ -42,7 +39,7 @@ const DisplayCollection = () => {
             </div>
           }
           className={
-            "  m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4  gap-4 xl:gap-4 2xl:gap-8 w-full"
+            "m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-7  gap-4 md:gap-6 2xl:gap-6 md:px-10 xl:px-28  2xl:px-32"
           }
         >
           {renderPages}
