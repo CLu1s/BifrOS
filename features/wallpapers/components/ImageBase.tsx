@@ -1,66 +1,89 @@
 import { Card } from "@heroui/react";
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Smartphone } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-} from "@heroui/react";
+import { Smartphone, ExternalLink, EyeIcon } from "lucide-react";
+import { Button } from "@heroui/react";
+import useActions from "@/features/wallpapers/hooks/useActions";
+
 import { BaseImage } from "@/features/wallpapers/types";
 
 export interface GalleryImageBaseProps {
   image: BaseImage;
   className?: string;
-  dropdownItems?: DropdownItemType[];
+  extraButtons?: ExtraButton[];
 }
 
-export interface DropdownItemType {
+export interface ExtraButton {
   key: string;
-  label: string;
+  icon: React.ReactNode;
   action: () => void;
+  color?:
+    | "default"
+    | "danger"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning";
 }
 
 export function ImageBase(props: GalleryImageBaseProps) {
-  const { dropdownItems, image } = props;
+  const { extraButtons, image } = props;
   const isVertical = image.isVertical;
+  const { openModal } = useActions();
+
+  const VARIANT = "flat";
+
   return (
     <Card
       isFooterBlurred
       radius="lg"
       className={cn("relative m-auto w-full h-full", props.className)}
     >
-      {dropdownItems && (
-        <div className={"absolute top-2 left-2  z-40 w-full"}>
-          <Dropdown>
-            <DropdownTrigger>
-              <Button variant="ghost" size={"sm"}>
-                ...
+      <div className={"absolute top-2 left-2  z-40 w-full"}>
+        <div className={"flex gap-2"}>
+          <Button
+            isIconOnly
+            aria-label="see full"
+            variant={VARIANT}
+            size={"sm"}
+            onPress={() => {
+              openModal(image.imageUrl);
+            }}
+          >
+            <EyeIcon />
+          </Button>
+          <Button
+            isIconOnly
+            aria-label="wallhaven"
+            variant={VARIANT}
+            size={"sm"}
+            onPress={() => {
+              window.open(
+                `https://wallhaven.cc/w/${image.wallhavenId}`,
+                "_blank",
+              );
+            }}
+          >
+            <ExternalLink />
+          </Button>
+          {extraButtons &&
+            extraButtons.length > 0 &&
+            extraButtons.map((item: ExtraButton) => (
+              <Button
+                key={item.key}
+                isIconOnly
+                onPress={() => {
+                  item.action();
+                }}
+                color={item.color ?? "danger"}
+                variant={VARIANT}
+                size={"sm"}
+              >
+                {item.icon}
               </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              aria-label="Dynamic Actions"
-              items={dropdownItems}
-              onAction={(key) => {
-                const item = dropdownItems.find((el) => el.key === key);
-                item?.action();
-              }}
-            >
-              {(item) => (
-                <DropdownItem
-                  key={item.key}
-                  className={item.key === "delete" ? "text-danger" : ""}
-                  color={item.key === "delete" ? "danger" : "default"}
-                >
-                  {item.label}
-                </DropdownItem>
-              )}
-            </DropdownMenu>
-          </Dropdown>
+            ))}
         </div>
-      )}
+      </div>
 
       <div
         className={cn(

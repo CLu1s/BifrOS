@@ -26,13 +26,12 @@ const History = () => {
   }
 
   return (
-    <div className={" px-10 xls:px-28  2xl:px-32"}>
+    <div className={"  "}>
       <h2 className={"text-2xl font-semibold m-10"}>History</h2>
       <div className={" h-[650px] xl:h-[800px] overflow-auto   pb-10"}>
         <div
           className={cn(
-            ` grid grid-cols-2  gap-2 lg:gap-6`,
-            "md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6",
+            "m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-7  gap-4 md:gap-4  2xl:gap-6 px-10 xls:px-28  2xl:px-32",
           )}
         >
           {showQueue}

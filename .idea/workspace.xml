@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add refactor">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add filters to queue fetcher">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useFetchQueue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/hooks/useFetchQueue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/QueueImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/QueueImage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,29 +50,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/features/wallpapers/hooks&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "js.debugger.nextJs.config.created.client": "true",
+    "last_opened_file_path": "/Users/luis/Documents/Workspace/bifros-client/features/wallpapers/hooks",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/luis/Documents/Workspace/bifros-client/node_modules/prettier",
+    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
+    "ts.external.directory.path": "/Users/luis/Documents/Workspace/bifros-client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/features/wallpapers/hooks" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -88,7 +97,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.19416.2" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
       </set>
     </attachedChunks>
   </component>
@@ -107,7 +116,9 @@
       <workItem from="1747568393174" duration="11224000" />
       <workItem from="1747608685277" duration="2926000" />
       <workItem from="1747618847542" duration="5458000" />
-      <workItem from="1747657515677" duration="4709000" />
+      <workItem from="1747657515677" duration="6705000" />
+      <workItem from="1747743148581" duration="83000" />
+      <workItem from="1747743311403" duration="11492000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -181,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747666412267</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add filters to queue fetcher">
+      <option name="closed" value="true" />
+      <created>1747697708017</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747697708017</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +214,7 @@
     <MESSAGE value="add aspecratio" />
     <MESSAGE value="improve styles" />
     <MESSAGE value="add refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="add refactor" />
+    <MESSAGE value="add filters to queue fetcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="add filters to queue fetcher" />
   </component>
 </project>

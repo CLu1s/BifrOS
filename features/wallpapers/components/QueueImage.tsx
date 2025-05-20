@@ -1,18 +1,17 @@
 import React from "react";
 import type { BaseImage, QueueElement } from "../types";
-import useActions from "@/features/wallpapers/hooks/useActions";
 import useQueue from "@/features/wallpapers/hooks/useQueue";
 
 import {
-  DropdownItemType,
+  ExtraButton,
   ImageBase,
 } from "@/features/wallpapers/components/ImageBase";
+import { TrashIcon } from "lucide-react";
 
 export function QueueImage(props: {
   image: QueueElement;
   isHistory?: boolean;
 }) {
-  const { openModal } = useActions();
   const { removeImage } = useQueue();
   const { isHistory } = props;
 
@@ -25,23 +24,7 @@ export function QueueImage(props: {
     wallhavenId: image.wallhavenId,
   };
 
-  const items: DropdownItemType[] = [
-    {
-      key: "expand",
-      label: "Expand",
-      action: () => {
-        openModal(imageQueue.imageUrl);
-      },
-    },
-
-    {
-      key: "WH",
-      label: "See on Wallhaven",
-      action: () => {
-        window.open(`https://wallhaven.cc/w/${image.wallhavenId}`, "_blank");
-      },
-    },
-  ];
+  const items: ExtraButton[] = [];
   // if(!isHistory) {
   //   items.push({
   //     key: "queue",
@@ -53,10 +36,11 @@ export function QueueImage(props: {
   if (!isHistory) {
     items.push({
       key: "delete",
-      label: "Remove",
+      color: "danger",
+      icon: <TrashIcon />,
       action: () => removeImage(props.image),
     });
   }
 
-  return <ImageBase image={imageQueue} dropdownItems={items} />;
+  return <ImageBase image={imageQueue} extraButtons={items} />;
 }
