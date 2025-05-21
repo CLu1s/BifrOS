@@ -9,9 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className={"flex flex-col gap-4 w-full "}>
-      <div
-        className={"col-span-1 lg:col-span-2 2xl:col-span-4 px-4  xl:px-8  "}
-      >
+      <div className={"col-span-1 lg:col-span-2 2xl:col-span-4    px-4 "}>
         <ButtonGroup size={"sm"}>
           <Button as={Link} href={"/wallpapers"}>
             WallHaven
@@ -24,7 +22,7 @@ export default function RootLayout({
           </Button>
         </ButtonGroup>
       </div>
-      <div className={"grid  grid-cols-1 px-4 xl:px-8 gap-4"}>{children}</div>
+      <div className={"grid  grid-cols-1 px-4  "}>{children}</div>
       <GalleryModal />
     </div>
   );

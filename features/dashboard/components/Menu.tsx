@@ -38,13 +38,17 @@ export default function Menu() {
   const isCurrentPath = (path: string) => pathname.includes(path);
   const currentLabel = links.find((link) => isCurrentPath(link.href))?.label;
   return (
-    <div className={"flex flex-col w-full gap-4 px-4 xl:px-8 pt-2  "}>
+    <div className={"flex flex-col w-full gap-4 px-4  pt-2  "}>
       <div
         className={
           "flex flex-col md:flex-row w-full gap-2 float-end justify-between"
         }
       >
-        <h1 className={"text-5xl font-semibold flex flex-col justify-center "}>
+        <h1
+          className={
+            "text-5xl font-semibold flex flex-col justify-center text-center mb-8"
+          }
+        >
           {currentLabel}
         </h1>
         <div

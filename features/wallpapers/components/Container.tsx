@@ -18,7 +18,9 @@ const Container = ({ collectionsInfo }: Props) => {
 
   const buttons = collections.map((collection: CollectionInfo) => (
     <Button
+      size={"sm"}
       key={collection.id}
+      variant={"flat"}
       onPress={() => handleCollectionClick(collection)}
       color={activeCollection?.id == collection.id ? "primary" : "default"}
     >
@@ -34,7 +36,7 @@ const Container = ({ collectionsInfo }: Props) => {
       >
         {buttons}
       </ButtonGroup>
-      <div className={"lg:hidden grid-cols-2 grid gap-2 "}>{buttons}</div>
+      <div className={"lg:hidden grid-cols-3 grid gap-3 "}>{buttons}</div>
       <DisplayCollection />
     </div>
   );

@@ -1,11 +1,10 @@
-import { Button, Image } from "@heroui/react";
+import { Button, Image, Link, Card, CardBody, CardFooter } from "@heroui/react";
 import { Star, Trash2 } from "lucide-react";
 import { Bookmark } from "@/features/bookmarks/types";
 import { updateFirestore } from "@/firebase/services";
 import { useDispatch } from "react-redux";
 import { updateBookmark } from "@/features/bookmarks/redux/bookmarksSlice";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
-import { getString } from "@/features/bookmarks/lib";
 import useFetchBookmarks from "@/features/bookmarks/hooks/useFetchBookmarks";
 
 function BookmarkItem({ data }: { data: Bookmark }) {
@@ -28,36 +27,21 @@ function BookmarkItem({ data }: { data: Bookmark }) {
   };
 
   return (
-    <a
-      href={data.url}
-      target={"_blank"}
-      className={
-        "flex flex-col gap-4 w-full justify-between text-start hover:bg-neutral-700  p-4  border rounded-xl"
-      }
-    >
-      <div className={"flex  flex-col justify-between gap-4"}>
-        <div className={"flex flex-col gap-4"}>
-          <div className={"w-full h-full"}>
-            <Image
-              src={data.ogImage || data.favicon || "/vercel.svg"}
-              alt={data.title}
-              className={"min-h-full min-w-14 object-cover rounded"}
-            />
-          </div>
-
-          <div className={"flex-col gap-2"}>
-            <h2 className={"text-lg truncate"}>{getString(data.title)}</h2>
-            {/*<p*/}
-            {/*  className={*/}
-            {/*    "font-normal text-neutral-400 text-sm h-14 overflow-hidden"*/}
-            {/*  }*/}
-            {/*>*/}
-            {/*  {data.description}*/}
-            {/*</p>*/}
-          </div>
-        </div>
+    <Card as={Link} href={data.url} target={"_blank"}>
+      <CardBody className="overflow-visible p-0">
+        <Image
+          src={data.ogImage || data.favicon || "/vercel.svg"}
+          alt={data.title}
+          className="w-full object-cover h-[200px]"
+          radius="lg"
+          width="100%"
+        />
+      </CardBody>
+      <CardFooter className="text-small justify-between">
+        <h2 className={"text-lg truncate"}>{data.title}</h2>
         <div className={"flex gap-6"}>
           <Button
+            size={"sm"}
             variant={"bordered"}
             isIconOnly
             onPress={() => {
@@ -68,6 +52,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
             <Star />
           </Button>
           <Button
+            size={"sm"}
             variant={"bordered"}
             className={
               "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
@@ -82,8 +67,8 @@ function BookmarkItem({ data }: { data: Bookmark }) {
             <Trash2 />
           </Button>
         </div>
-      </div>
-    </a>
+      </CardFooter>
+    </Card>
   );
 }
 

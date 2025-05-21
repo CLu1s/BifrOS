@@ -3,6 +3,7 @@ import { QueueElement, QueueElementInput } from "@/features/wallpapers/types";
 
 import { ImageWallpaper } from "@/features/wallpapers/classes/Image";
 import useFetchQueue from "@/features/wallpapers/hooks/useFetchQueue";
+import { toast } from "react-hot-toast";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const useQueue = () => {
   // const info = useSelector(selectCollectionsInfo);
@@ -55,13 +56,8 @@ const useQueue = () => {
           ...element,
         }),
       });
-
-      // dispatch(
-      //   addToQueue({
-      //     element,
-      //     type,
-      //   }),
-      // );
+      await refreshQueue();
+      toast.success("Added to the queue");
     } catch (error) {
       console.log(error);
     }
