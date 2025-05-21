@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="improve bookmarks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/Categories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/hooks/useActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/bookmarks/hooks/useBookmark.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/hooks/useBookmark.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/lib/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/redux/bookmarksSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/redux/bookmarksSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +124,7 @@
       <workItem from="1747743148581" duration="83000" />
       <workItem from="1747743311403" duration="19902000" />
       <workItem from="1747786195610" duration="605000" />
-      <workItem from="1747829817433" duration="1522000" />
+      <workItem from="1747829817433" duration="1949000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -219,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747837175894</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="improve bookmarks">
+      <option name="closed" value="true" />
+      <created>1747837326828</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747837326828</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

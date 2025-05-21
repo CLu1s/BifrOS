@@ -1,7 +1,5 @@
 import {
-  selectActiveCategory,
   selectBookmarks,
-  selectCategories,
   selectFilterByTerm,
 } from "@/features/bookmarks/redux/bookmarkSelector";
 import { useSelector } from "react-redux";
@@ -15,8 +13,7 @@ const useBookmark = () => {
   const { addBookmark, setFilterByTerm } = useActions();
   const bookmarks = useSelector(selectBookmarks);
   const filterByTerm = useSelector(selectFilterByTerm);
-  const categories = useSelector(selectCategories);
-  const activeCategory = useSelector(selectActiveCategory);
+
   const numberOfBookmarksByCategory = useMemo(() => {
     return 0;
   }, []);
@@ -38,7 +35,7 @@ const useBookmark = () => {
             return a.createdAt > b.createdAt ? -1 : 1;
           })
       : [];
-  }, [bookmarks, activeCategory, filterByTerm]);
+  }, [bookmarks, filterByTerm]);
 
   const favorites = orderedBookmarks.filter((bookmark) => bookmark.isFavorite);
 
@@ -88,7 +85,6 @@ const useBookmark = () => {
   return {
     bookmarks: orderedBookmarks,
     favorites,
-    categories,
     numberOfBookmarksByCategory,
     createBookmark,
     filterByTerm,

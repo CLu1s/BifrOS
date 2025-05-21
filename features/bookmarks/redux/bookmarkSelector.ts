@@ -15,16 +15,6 @@ export const selectBookmarks = createSelector(
   (bookMarker) => bookMarker.bookmarks,
 );
 
-export const selectCategories = createSelector(
-  selectScrapper,
-  (bookMarker) => bookMarker.categories,
-);
-
-export const selectActiveCategory = createSelector(
-  selectScrapper,
-  (bookMarker) => bookMarker.selectedCategory,
-);
-
 export const selectFilterByTerm = createSelector(
   selectScrapper,
   (bookMarker) => bookMarker.filterByTerm,

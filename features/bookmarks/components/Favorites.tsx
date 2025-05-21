@@ -29,7 +29,7 @@ const Favorites = () => {
               >
                 <Image
                   src={favorite.favicon || "/favicon.svg"}
-                  alt={favorite.ogTitle}
+                  alt={favorite.title}
                   className={"rounded h-10 xl:h-8  object-cover"}
                 />
               </Link>
