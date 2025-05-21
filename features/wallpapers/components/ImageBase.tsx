@@ -47,7 +47,7 @@ export function ImageBase(props: GalleryImageBaseProps) {
             variant={VARIANT}
             size={"sm"}
             onPress={() => {
-              openModal(image.imageUrl);
+              openModal(image);
             }}
           >
             <EyeIcon />

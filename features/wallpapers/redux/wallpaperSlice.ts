@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
+  BaseImage,
   CollectionInfo,
   CollectionResponse,
   HistoryElement,
@@ -23,7 +24,7 @@ export type WallpaperSlice = {
   activeCollection: CollectionInfo | null;
   queue: { portrait: QueueElement[]; landscape: QueueElement[] };
   isModalOpen: boolean;
-  modalImage: string;
+  modalImage: BaseImage | null;
   history: HistoryElement[];
   pages: Pages;
   metadata: Metadatas;
@@ -49,7 +50,7 @@ const initialState: WallpaperSlice = {
     landscape: [],
   },
   isModalOpen: false,
-  modalImage: "",
+  modalImage: null,
   history: [],
   pages: {},
   metadata: {
@@ -110,14 +111,14 @@ const wallpaperSlice = createSlice({
       copy.splice(index, 1);
       state.queue[action.payload.type] = copy;
     },
-    openModal: (state, action: PayloadAction<string>) => {
+    openModal: (state, action: PayloadAction<BaseImage>) => {
       console.log("open modal", action.payload);
       state.isModalOpen = true;
       state.modalImage = action.payload;
     },
     closeModal: (state) => {
       state.isModalOpen = false;
-      state.modalImage = "";
+      state.modalImage = null;
     },
     setHistory: (state, action) => {
       state.history = action.payload;

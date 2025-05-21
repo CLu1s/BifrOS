@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="improve bookmarks">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="remove unused code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/BookmarkDashboardItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/BookmarkDashboardItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/Categories.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/Favorites.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/hooks/useActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/hooks/useActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/hooks/useBookmark.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/hooks/useBookmark.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/redux/bookmarksSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/redux/bookmarksSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/GalleryModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/GalleryModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +37,9 @@
     &quot;accountId&quot;: &quot;29bebfc9-2e93-4d4f-b799-d12d0ebfa10d&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -124,7 +124,7 @@
       <workItem from="1747743148581" duration="83000" />
       <workItem from="1747743311403" duration="19902000" />
       <workItem from="1747786195610" duration="605000" />
-      <workItem from="1747829817433" duration="1949000" />
+      <workItem from="1747829817433" duration="4380000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -230,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747837326828</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="remove unused code">
+      <option name="closed" value="true" />
+      <created>1747837794461</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747837794461</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +266,7 @@
     <MESSAGE value="add filters to queue fetcher" />
     <MESSAGE value="improve galleries" />
     <MESSAGE value="improve bookmarks" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve bookmarks" />
+    <MESSAGE value="remove unused code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unused code" />
   </component>
 </project>

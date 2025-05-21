@@ -21,7 +21,7 @@ const GalleryModal = () => {
   const isOpen = useSelector(selectIsModalOpen);
   const image = useSelector(selectModalImage);
   if (!image) return null;
-
+  console.log(image);
   return (
     <Modal
       isOpen={isOpen}
@@ -32,12 +32,15 @@ const GalleryModal = () => {
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
-              Modal Title
+              {image.wallhavenId}
             </ModalHeader>
             <ModalBody>
-              <Image alt={image} src={`${image}`} />
+              <Image alt={image.alt} src={`${image.imageUrl}`} />
             </ModalBody>
             <ModalFooter>
+              <a href={image.imageUrl} target={"_blank"}>
+                Visit source
+              </a>
               <Button
                 color="danger"
                 variant="light"
