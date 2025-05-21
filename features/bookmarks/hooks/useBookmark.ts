@@ -8,50 +8,34 @@ import { useSelector } from "react-redux";
 import { useMemo, useCallback } from "react";
 import { toast } from "react-hot-toast";
 import useActions from "./useActions";
-import { deleteFromFirestore } from "@/firebase/services";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const useBookmark = () => {
-  const { addBookmark, removeBookmark, setFilterByTerm } = useActions();
+  const { addBookmark, setFilterByTerm } = useActions();
   const bookmarks = useSelector(selectBookmarks);
   const filterByTerm = useSelector(selectFilterByTerm);
   const categories = useSelector(selectCategories);
   const activeCategory = useSelector(selectActiveCategory);
   const numberOfBookmarksByCategory = useMemo(() => {
-    return bookmarks.reduce(
-      (acc, bookmark) => {
-        if (!bookmark.category) return acc;
-        if (!acc[bookmark.category.id]) {
-          acc[bookmark.category.id] = 0;
-        }
-        acc[bookmark.category.id] += 1;
-        return acc;
-      },
-      {} as Record<string, number>,
-    );
-  }, [bookmarks]);
+    return 0;
+  }, []);
 
   const orderedBookmarks = useMemo(() => {
     return bookmarks.length > 0
       ? [...bookmarks]
-          .filter((i) => {
-            if (!activeCategory) return true;
-            return i.category?.id === activeCategory.id;
-          })
           .filter((bookmark) => {
             if (!filterByTerm) return true;
             console.log("bookmark", bookmark);
             return (
-              bookmark.ogTitle
+              bookmark.title
                 ?.toLowerCase()
                 .includes(filterByTerm.toLowerCase()) ||
-              bookmark.url.toLowerCase().includes(filterByTerm.toLowerCase()) ||
-              bookmark.ogDescription
-                .toLowerCase()
-                .includes(filterByTerm.toLowerCase())
+              bookmark.url.toLowerCase().includes(filterByTerm.toLowerCase())
             );
           })
           .sort((a, b) => {
-            return a.timestamp > b.timestamp ? -1 : 1;
+            return a.createdAt > b.createdAt ? -1 : 1;
           })
       : [];
   }, [bookmarks, activeCategory, filterByTerm]);
@@ -84,8 +68,21 @@ const useBookmark = () => {
   }, []);
 
   const deleteBookmark = useCallback(async (id: string) => {
-    removeBookmark(id);
-    await deleteFromFirestore(`bookmarker/myData/bookmarks/${id}`);
+    await fetch(`${API_URL}/api/bookmarks/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to delete bookmark");
+        }
+        return res.json();
+      })
+      .then(() => {
+        toast.success("Bookmark deleted");
+      })
+      .catch(() => {
+        toast.error("Failed to delete bookmark");
+      });
   }, []);
 
   return {

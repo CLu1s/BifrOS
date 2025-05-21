@@ -1,18 +1,19 @@
 "use client";
 import BookmarkItem from "./BookmarkItem";
-import useBookmark from "@/features/bookmarks/hooks/useBookmark";
+import useFetchBookmarks from "../hooks/useFetchBookmarks";
+import { Bookmark } from "@/features/bookmarks/types";
 
 function BookmarkContainer() {
-  const { bookmarks } = useBookmark();
-
-  const dataToRender = bookmarks.map((url) => {
-    return <BookmarkItem key={url.id} data={url} />;
+  const { bookmarks } = useFetchBookmarks();
+  console.log(bookmarks);
+  const dataToRender = bookmarks.map((bookmark: Bookmark) => {
+    return <BookmarkItem key={bookmark.id} data={bookmark} />;
   });
 
   return (
     <div className={"w-full"}>
       <h1>URLs</h1>
-      <div className={"flex flex-col 2xl:grid grid-cols-3 gap-2"}>
+      <div className={" grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4"}>
         {dataToRender}
       </div>
     </div>

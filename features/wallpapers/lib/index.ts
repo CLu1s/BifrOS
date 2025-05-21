@@ -8,7 +8,7 @@ import {
   limit,
 } from "firebase/firestore";
 
-export * from "./fetchers";
+export * from "../../../lib/fetchers";
 
 export async function historyFromFirebaseFetcher() {
   const db = getFirestore();
