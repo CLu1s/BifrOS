@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="remove unused code">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add feed page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/GalleryModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/GalleryModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/redux/wallpaperSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -57,7 +55,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/features/wallpapers/hooks&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/luis/Documents/Workspace/bifros-client/features/bookmarks/hooks&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -72,9 +70,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/features/bookmarks/hooks" />
       <recent name="$PROJECT_DIR$/features/wallpapers/hooks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/features/feed/hooks" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
@@ -125,6 +125,12 @@
       <workItem from="1747743311403" duration="19902000" />
       <workItem from="1747786195610" duration="605000" />
       <workItem from="1747829817433" duration="4380000" />
+      <workItem from="1747958328848" duration="407000" />
+      <workItem from="1748089833892" duration="6238000" />
+      <workItem from="1748144027988" duration="6000" />
+      <workItem from="1748148362709" duration="126000" />
+      <workItem from="1748172313927" duration="602000" />
+      <workItem from="1748222884641" duration="5037000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -238,7 +244,31 @@
       <option name="project" value="LOCAL" />
       <updated>1747837794461</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update ignore">
+      <option name="closed" value="true" />
+      <created>1747871654478</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747871654478</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add feed page">
+      <option name="closed" value="true" />
+      <created>1748228104198</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1748228104198</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add feed page">
+      <option name="closed" value="true" />
+      <created>1748228132411</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1748228132411</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +297,8 @@
     <MESSAGE value="improve galleries" />
     <MESSAGE value="improve bookmarks" />
     <MESSAGE value="remove unused code" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unused code" />
+    <MESSAGE value="update ignore" />
+    <MESSAGE value="add feed page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add feed page" />
   </component>
 </project>
