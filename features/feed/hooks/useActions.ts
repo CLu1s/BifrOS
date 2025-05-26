@@ -1,10 +1,10 @@
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
-import { setFeeds } from "@/features/feed/redux/feedSlice";
+import { setFeedHasMore } from "@/features/feed/redux/feedSlice";
 
 const useActions = () => {
   const dispatch = useDispatch();
-  const actions = bindActionCreators({ setFeeds }, dispatch);
+  const actions = bindActionCreators({ setFeedHasMore }, dispatch);
 
   return { ...actions };
 };

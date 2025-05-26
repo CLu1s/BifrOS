@@ -1,46 +1,34 @@
-import useFeed from "@/features/feed/hooks/useFeed";
-import { FeedElement } from "@/features/feed/components/FeedElement";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import useFetchSources from "@/features/feed/hooks/useFetchSources";
+import { useState } from "react";
+import FeedPageWrapper from "@/features/feed/components/FeedPageWrapper";
 
 const FeedList = () => {
-  const { feeds, feedKeys, todayFeed } = useFeed();
+  const [activeSource, setActiveSource] = useState("today");
+  const { sources } = useFetchSources();
 
-  const container =
-    "container m-auto grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2 lg:gap-4 lg:px-20";
-  const items = [
-    <TabsContent
-      key="today"
-      value="today"
-      className={"capitalize text-2xl font-bold"}
-    >
-      <div className={container}>
-        {todayFeed.map((feed) => {
-          return <FeedElement key={feed.id} feed={feed} />;
-        })}
-      </div>
-    </TabsContent>,
-  ];
-
-  const tabsTrigger = feedKeys.map((key) => {
+  const tabsTrigger = sources.map((source) => {
     return (
-      <TabsTrigger key={key} value={key}>
-        {key}
+      <TabsTrigger
+        key={source.id}
+        value={source.id}
+        onClick={() => {
+          setActiveSource(source.id);
+        }}
+      >
+        {source.name}
       </TabsTrigger>
     );
   });
 
-  const tabsContent = feedKeys.map((key) => {
+  const tabsContent = sources.map((source) => {
     return (
       <TabsContent
-        key={key}
-        value={key}
+        key={source.id}
+        value={source.id}
         className={"capitalize text-2xl font-bold"}
       >
-        <div className={container}>
-          {feeds[key].map((feed) => {
-            return <FeedElement key={feed.id} feed={feed} />;
-          })}
-        </div>
+        <FeedPageWrapper sourceId={activeSource} />
       </TabsContent>
     );
   });
@@ -52,7 +40,7 @@ const FeedList = () => {
           <TabsTrigger value="today">Today</TabsTrigger>
           {tabsTrigger}
         </TabsList>
-        {items.concat(tabsContent)}
+        {tabsContent}
       </Tabs>
     </div>
   );

@@ -1,57 +1,43 @@
 import { Link } from "@heroui/react";
+import { Article } from "@/features/feed/types";
 
-import { Button } from "@/components/ui/button";
-import { Feed } from "@/features/feed/types";
-import { Bookmark } from "lucide-react";
-import useBookmark from "@/features/bookmarks/hooks/useBookmark";
-
-export function FeedElement(props: { feed: Feed }) {
-  const { createBookmark, bookmarks, deleteBookmark } = useBookmark();
-
-  const findBookmark = (url: string) => {
-    return bookmarks.find((bookmark) => bookmark.url === url);
-  };
-
-  const saveBookmark = async (url: string, id: string) => {
-    if (findBookmark(url)) {
-      await deleteBookmark(id);
-      return;
-    }
-    await createBookmark(url, id);
-  };
-
+export function FeedElement(props: { article: Article }) {
+  const { article } = props;
+  const articleImage = article.imageUrl || article.thumbnailUrl || null;
   return (
     <Link
-      href={props.feed.link}
+      href={article.link}
       target={"_blank"}
       className="flex flex-col gap-4 w-full relative"
     >
-      <div className={"col-span-2 2xl:col-span-1  h-[200px] w-full"}>
-        <img
-          alt="Card background"
-          className="w-full h-full object-cover  rounded "
-          src={props.feed.imageUrl}
-        />
-      </div>
+      {articleImage && (
+        <div className={"col-span-2 2xl:col-span-1  h-[200px] w-full"}>
+          <img
+            alt="Card background"
+            className="w-full h-full object-cover  rounded "
+            src={articleImage}
+          />
+        </div>
+      )}
       <div className={"col-span-9"}>
-        {props.feed.title}
+        {article.title}
 
-        <p className="text-tiny font-medium">{props.feed.source}</p>
+        {/*<p className="text-tiny font-medium">{article.source}</p>*/}
         <small className="text-tiny text-default-500">
-          {new Date(props.feed.pubDate).toDateString()}
+          {new Date(article.pubDate).toDateString()}
         </small>
       </div>
-      <div className="absolute top-1 right-1 z-40">
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            saveBookmark(props.feed.link, props.feed.id);
-          }}
-          className={`${findBookmark(props.feed.link) && "text-yellow-500"} bg-gray-300/50`}
-        >
-          <Bookmark className={"h-6 w-6"} />
-        </Button>
-      </div>
+      {/*<div className="absolute top-1 right-1 z-40">*/}
+      {/*  <Button*/}
+      {/*    onClick={(e) => {*/}
+      {/*      e.preventDefault();*/}
+      {/*      saveBookmark(article.link, article.id);*/}
+      {/*    }}*/}
+      {/*    className={`${findBookmark(article.link) && "text-yellow-500"} bg-gray-300/50`}*/}
+      {/*  >*/}
+      {/*    <Bookmark className={"h-6 w-6"} />*/}
+      {/*  </Button>*/}
+      {/*</div>*/}
     </Link>
   );
 }
