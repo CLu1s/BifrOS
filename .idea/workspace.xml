@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add feed page">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="remove unused code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/feed/components/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/feed/components/FeedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +38,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -130,7 +132,8 @@
       <workItem from="1748144027988" duration="6000" />
       <workItem from="1748148362709" duration="126000" />
       <workItem from="1748172313927" duration="602000" />
-      <workItem from="1748222884641" duration="5037000" />
+      <workItem from="1748222884641" duration="6960000" />
+      <workItem from="1748348648154" duration="1416000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -268,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748228132411</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="remove unused code">
+      <option name="closed" value="true" />
+      <created>1748228640005</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1748228640005</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,9 +307,9 @@
     <MESSAGE value="add filters to queue fetcher" />
     <MESSAGE value="improve galleries" />
     <MESSAGE value="improve bookmarks" />
-    <MESSAGE value="remove unused code" />
     <MESSAGE value="update ignore" />
     <MESSAGE value="add feed page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add feed page" />
+    <MESSAGE value="remove unused code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unused code" />
   </component>
 </project>

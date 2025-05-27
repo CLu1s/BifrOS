@@ -1,11 +1,18 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useFetchSources from "@/features/feed/hooks/useFetchSources";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FeedPageWrapper from "@/features/feed/components/FeedPageWrapper";
 
 const FeedList = () => {
-  const [activeSource, setActiveSource] = useState("today");
   const { sources } = useFetchSources();
+  const [activeSource, setActiveSource] = useState<string>("");
+
+  useEffect(() => {
+    if (sources.length > 0 && !activeSource) {
+      setActiveSource(sources[0].id);
+    }
+  }, [sources, activeSource]);
+  console.log(activeSource);
 
   const tabsTrigger = sources.map((source) => {
     return (
@@ -26,7 +33,7 @@ const FeedList = () => {
       <TabsContent
         key={source.id}
         value={source.id}
-        className={"capitalize text-2xl font-bold"}
+        className={"capitalize text-2xl font-bold "}
       >
         <FeedPageWrapper sourceId={activeSource} />
       </TabsContent>
@@ -34,12 +41,9 @@ const FeedList = () => {
   });
 
   return (
-    <div className={"col-span-2 m-auto w-full px-8"}>
+    <div className={"col-span-2 m-auto w-full px-8 min-h-[calc(100vh-4rem)]"}>
       <Tabs defaultValue="anime" className="w-full">
-        <TabsList>
-          <TabsTrigger value="today">Today</TabsTrigger>
-          {tabsTrigger}
-        </TabsList>
+        <TabsList>{tabsTrigger}</TabsList>
         {tabsContent}
       </Tabs>
     </div>
