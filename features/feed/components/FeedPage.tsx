@@ -13,10 +13,11 @@ export default function FeedPage({ activeSource, page }: FeedPageProps) {
   const { setFeedHasMore } = useActions();
 
   useEffect(() => {
-    if (page >= meta.page || articles.length === 0) {
+    if (!meta.pages) return;
+    if (page >= meta.pages || articles.length === 0) {
       setFeedHasMore(false);
     }
-  }, [meta.page, articles.length, page, setFeedHasMore]);
+  }, [meta.pages, articles.length, page, setFeedHasMore]);
 
   const items = articles.map((feed) => {
     return <FeedElement key={feed.id} article={feed} />;

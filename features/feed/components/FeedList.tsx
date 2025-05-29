@@ -42,8 +42,10 @@ const FeedList = () => {
 
   return (
     <div className={"col-span-2 m-auto w-full px-8 min-h-[calc(100vh-4rem)]"}>
-      <Tabs defaultValue="anime" className="w-full">
-        <TabsList>{tabsTrigger}</TabsList>
+      <Tabs defaultValue={activeSource} className="w-full ">
+        <div className={"overflow-auto w-full "}>
+          <TabsList>{tabsTrigger}</TabsList>
+        </div>
         {tabsContent}
       </Tabs>
     </div>
