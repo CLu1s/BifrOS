@@ -6,13 +6,22 @@ import FeedPageWrapper from "@/features/feed/components/FeedPageWrapper";
 const FeedList = () => {
   const { sources } = useFetchSources();
   const [activeSource, setActiveSource] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (sources.length > 0 && !activeSource) {
       setActiveSource(sources[0].id);
+      setIsLoading(false);
     }
   }, [sources, activeSource]);
-  console.log(activeSource);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-full">
+        <p className="text-lg font-semibold">Loading...</p>
+      </div>
+    );
+  }
 
   const tabsTrigger = sources.map((source) => {
     return (
