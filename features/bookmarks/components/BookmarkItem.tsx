@@ -27,18 +27,21 @@ function BookmarkItem({ data }: { data: Bookmark }) {
   };
 
   return (
-    <Card as={Link} href={data.url} target={"_blank"}>
+    <Card>
       <CardBody className="overflow-visible p-0">
-        <Image
-          src={data.ogImage || data.favicon || "/vercel.svg"}
-          alt={data.title}
-          className="w-full object-cover h-[200px]"
-          radius="lg"
-          width="100%"
-        />
+        <Link href={data.url} target="_blank" className="w-full object-cover ">
+          <Image
+            src={data.ogImage || data.favicon || "/vercel.svg"}
+            alt={data.title}
+            radius="lg"
+            width="100%"
+          />
+        </Link>
       </CardBody>
       <CardFooter className="text-small justify-between">
-        <h2 className={"text-lg truncate"}>{data.title}</h2>
+        <Link href={data.url} target="_blank" className={"text-md  mr-2"}>
+          {data.title}
+        </Link>
         <div className={"flex gap-6"}>
           <Button
             size={"sm"}
@@ -58,8 +61,7 @@ function BookmarkItem({ data }: { data: Bookmark }) {
               "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
             }
             isIconOnly
-            onClick={async (e) => {
-              e.preventDefault();
+            onPress={async () => {
               await handleDelete();
               await revalidate();
             }}
