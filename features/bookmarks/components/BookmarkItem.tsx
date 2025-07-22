@@ -28,15 +28,16 @@ function BookmarkItem({ data }: { data: Bookmark }) {
 
   return (
     <Card>
-      <CardBody className="overflow-visible p-0">
-        <Link href={data.url} target="_blank" className="w-full object-cover ">
+      <CardBody className="overflow-visible p-0 w-full">
+        <a href={data.url} target="_blank" className={"w-full"}>
           <Image
             src={data.ogImage || data.favicon || "/vercel.svg"}
             alt={data.title}
             radius="lg"
+            className="w-full object-cover h-[250px] object-top"
             width="100%"
           />
-        </Link>
+        </a>
       </CardBody>
       <CardFooter className="text-small justify-between">
         <Link href={data.url} target="_blank" className={"text-md  mr-2"}>
