@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="fix delete button in bookmarks">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="fix images in bookmarks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/BookmarkItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/BookmarkItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +137,7 @@
       <workItem from="1748348648154" duration="2355000" />
       <workItem from="1748528282818" duration="1715000" />
       <workItem from="1748606455945" duration="616000" />
-      <workItem from="1753187873836" duration="1702000" />
+      <workItem from="1753187873836" duration="2333000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -306,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753189071846</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix images in bookmarks">
+      <option name="closed" value="true" />
+      <created>1753189617502</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1753189617502</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,6 +349,7 @@
     <MESSAGE value="fix feed layout" />
     <MESSAGE value="improve feed experience" />
     <MESSAGE value="fix delete button in bookmarks" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix delete button in bookmarks" />
+    <MESSAGE value="fix images in bookmarks" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix images in bookmarks" />
   </component>
 </project>

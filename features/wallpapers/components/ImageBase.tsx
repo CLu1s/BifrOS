@@ -37,7 +37,7 @@ export function ImageBase(props: GalleryImageBaseProps) {
     <Card
       isFooterBlurred
       radius="lg"
-      className={cn("relative m-auto w-full h-full", props.className)}
+      className={cn("relative m-auto w-full h-full min-h-72", props.className)}
     >
       <div className={"absolute top-2 left-2  z-40 w-full"}>
         <div className={"flex gap-2"}>
@@ -94,7 +94,7 @@ export function ImageBase(props: GalleryImageBaseProps) {
         <Smartphone />
       </div>
       <img
-        className={"    h-[200px]  object-cover object-top"}
+        className={"w-full h-full object-cover object-center"}
         loading="lazy"
         alt={image.alt}
         src={image.thumbnail}

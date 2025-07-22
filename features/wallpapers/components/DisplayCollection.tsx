@@ -39,7 +39,7 @@ const DisplayCollection = () => {
             </div>
           }
           className={
-            "m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3   xl:grid-cols-4  2xl:grid-cols-5  gap-4 md:gap-6 2xl:gap-6 md:px-10 xl:px-12  2xl:px-32"
+            "m-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3   xl:grid-cols-4  2xl:grid-cols-5  gap-4   md:px-2  2xl:px-32"
           }
         >
           {renderPages}
