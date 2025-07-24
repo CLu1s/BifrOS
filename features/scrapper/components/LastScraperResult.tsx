@@ -1,85 +1,76 @@
 "use client";
 import { Link, Image } from "@heroui/react";
-import Card, { ExtraButton } from "@/components/Card";
-import { useEffect, useState } from "react";
-import { getScraperDocsFromFirebase } from "@/features/scrapper/lib";
-import { Manga } from "@/features/scrapper/types";
-import { MangaList } from "@/features/scrapper/classes/MangaList";
+import Card from "@/components/Card";
 import { cn } from "@/lib/utils";
-interface Props {
-  isWidget?: boolean;
-}
+import useGetKodansha from "@/features/scrapper/hooks/useGetKodansha";
 
-const LastScraperResult = ({ isWidget }: Props) => {
-  const [data, setData] = useState<Manga[]>([]);
+const LastScraperResult = () => {
+  const { kodanshaList, isLoading } = useGetKodansha();
 
-  useEffect(() => {
-    (async () => {
-      const data = (await getScraperDocsFromFirebase()) as unknown as Manga[];
-      setData(data.sort((a, b) => a.volumeName.localeCompare(b.volumeName)));
-    })();
-  }, []);
+  console.log(kodanshaList, isLoading);
+  if (isLoading) {
+    return (
+      <Card title={"Last Kodansha Results"}>
+        <div className="flex items-center justify-center h-32">
+          <p>Loading...</p>
+        </div>
+      </Card>
+    );
+  }
 
-  const series = new MangaList(data).getSeries();
-  const sortedSeries = Array.from(series).sort(
-    ([aKey, aValue], [bKey, bValue]) =>
-      aValue.avgPrice > bValue.avgPrice ? 1 : -1,
-  );
-  const seriesList = isWidget ? sortedSeries.slice(0, 12) : sortedSeries;
-  // <Image
-  //     src={"/proxy?url=" + element.thumbnails[0].url}
-  //     alt={element.relativeName}
-  //     width={150}
-  //     height={200}
-  // />;
-  const difference = series.size - seriesList.length;
-
-  const buttonText = difference > 0 ? `View ${difference} More` : "View More";
   return (
-    <Card
-      title={"Last Kodansha Results"}
-      renderExtra={
-        isWidget && (
-          <ExtraButton href={"/scraper/kodansha"}>{buttonText}</ExtraButton>
-        )
-      }
-    >
+    <Card title={"Last Kodansha Results"}>
       <div
         className={cn(
-          " grid grid-cols-2  gap-4 overflow-auto  lg:grid-cols-5  xl:grid-cols-6 ",
+          " grid grid-cols-2  gap-4 overflow-auto  lg:grid-cols-5  xl:grid-cols-5 ",
         )}
       >
-        {seriesList.map(([key, value]) => {
+        {kodanshaList.map((item: any) => {
           return (
             <Link
-              key={key}
-              href={value.url}
+              key={item.title}
+              href={item.seriesReadableUrl}
               target={"_blank"}
               className={"flex flex-col text-left gap-2"}
             >
               <Image
-                src={"/proxy?url=" + value.thumbnail}
-                alt={key}
+                src={"/proxy?url=" + item.thumbnails[0].url}
+                alt={item.thumbnails[0].url}
                 className={"w-full"}
               />
               <h3 className={"text-sm font-semibold text-left w-full"}>
-                {value.title}
+                {item.title}
               </h3>
+              <p className={"text-sm"}>
+                <span>Generes: </span>
+                {item.genres.map((gen: any) => (
+                  <span
+                    key={gen.id}
+                    className={"text-xs px-2 py-1 rounded mr-1"}
+                  >
+                    {gen.name}
+                  </span>
+                ))}
+              </p>
               <span className={"flex flex-wrap justify-between w-full"}>
                 <p className={"text-sm"}>
                   <span>Lowest: </span>
-                  {value.lowestPrice}
+                  {item.lowestPrice}
                 </p>
                 <p className={"text-sm"}>
                   <span>Highest: </span>
-                  {value.highestPrice}
+                  {item.highestPrice}
                 </p>
                 <p className={"text-sm"}>
-                  <span>Avg: </span>${value.avgPrice}
+                  <span>Avg: </span>${item.averagePrice}
                 </p>
                 <p className={"text-sm"}>
                   <span>Vols: </span>
-                  {value.volumes.length}
+                  {item.totalVols}
+                </p>
+                <p className={"text-sm"}>
+                  <span>Total: </span>
+                  {item.totalPrice}
                 </p>
               </span>
             </Link>
