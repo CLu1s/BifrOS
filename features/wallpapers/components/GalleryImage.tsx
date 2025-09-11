@@ -24,7 +24,7 @@ export function GalleryImage(props: Props) {
     <div className={"relative"}>
       <ImageBase
         {...props}
-        className={cn(!!find ? "border-green-700 border" : "border-none  ")}
+        className={cn(!!find ? "border-green-700 border" : "border-none")}
       />
       <div className={"absolute bottom-2  z-40 w-full"}>
         <Button

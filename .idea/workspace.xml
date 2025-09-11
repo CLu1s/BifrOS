@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="update kodansha">
-      <change afterPath="$PROJECT_DIR$/features/scrapper/hooks/useGetKodansha.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/scrapper/components/LastScraperResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/scrapper/components/LastScraperResult.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/DisplayCollection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/GalleryImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/GalleryImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/GalleryModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/GalleryModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/components/ImageBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,10 +95,15 @@
       <scripts>
         <script value="dev" />
       </scripts>
-      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v22.14.0/bin/node" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v22.19.0/bin/node" />
+      <package-manager value="pnpm" />
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Next.js: debug client-side" />
+      <item itemvalue="npm.dev" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />

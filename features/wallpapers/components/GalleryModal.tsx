@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Link,
 } from "@heroui/react";
 import React from "react";
 import useActions from "@/features/wallpapers/hooks/useActions";
@@ -22,10 +23,11 @@ const GalleryModal = () => {
   const image = useSelector(selectModalImage);
   if (!image) return null;
   console.log(image);
+  const { isVertical } = image;
   return (
     <Modal
       isOpen={isOpen}
-      size={"4xl"}
+      size={isVertical ? "xl" : "5xl"}
       onOpenChange={(open) => !open && closeModal()}
     >
       <ModalContent>
@@ -35,15 +37,29 @@ const GalleryModal = () => {
               {image.wallhavenId}
             </ModalHeader>
             <ModalBody>
-              <Image alt={image.alt} src={`${image.imageUrl}`} />
+              <div className={"w-full h-full flex justify-center items-center"}>
+                <Image
+                  alt={image.alt}
+                  src={`/proxy?url=${image.imageUrl}`}
+                  className={"max-h-[80vh] m-auto"}
+                />
+              </div>
             </ModalBody>
             <ModalFooter>
-              <a href={image.imageUrl} target={"_blank"}>
+              <Button
+                showAnchorIcon
+                as={Link}
+                color="primary"
+                href={image.imageUrl}
+                target={"_blank"}
+                variant="solid"
+              >
                 Visit source
-              </a>
+              </Button>
+
               <Button
                 color="danger"
-                variant="light"
+                variant="solid"
                 onPress={() => {
                   closeModal();
                   onClose();
