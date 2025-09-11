@@ -2,7 +2,7 @@ import Container from "@/features/wallpapers/components/Container";
 
 const getCollections = async () => {
   const results = await fetch(
-    `http://localhost:4000/api/wallhaven/collections`,
+    `https://api.luisluis.dev/api/wallhaven/collections`,
   );
   return await results.json();
 };
