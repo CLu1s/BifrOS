@@ -1,0 +1,9 @@
+ignoredBuiltDependencies:
+  - '@firebase/util'
+  - sharp
+
+onlyBuiltDependencies:
+  - '@heroui/shared-utils'
+  - esbuild
+  - protobufjs
+  - unrs-resolver
