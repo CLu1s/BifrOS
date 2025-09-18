@@ -1,20 +1,10 @@
 "use client";
 import { Image, Link } from "@heroui/react";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
-import { useEffect } from "react";
-import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
-import { setBookmarks } from "@/features/bookmarks/redux/bookmarksSlice";
-import { useDispatch } from "react-redux";
 
 const Favorites = () => {
-  const dispatch = useDispatch();
   const { favorites } = useBookmark();
-  useEffect(() => {
-    (async () => {
-      const data = await getBookmarksFromFirestore();
-      dispatch(setBookmarks(data));
-    })();
-  }, []);
+
   return (
     <div className={"hidden md:flex flex-col gap-4"}>
       <div className={"border-none"}>

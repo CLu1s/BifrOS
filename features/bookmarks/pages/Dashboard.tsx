@@ -1,20 +1,11 @@
 "use client";
-import { useEffect } from "react";
 import CreateNewBookmark from "@/features/bookmarks/components/CreateNewBookmark";
 
 import BookmarkContainer from "@/features/bookmarks/components/BookmarkContainer";
-import { getBookmarksFromFirestore } from "@/features/bookmarks/lib";
 // import Categories from "@/features/bookmarks/components/Categories";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Divider } from "@heroui/react";
 const BookmarksDashboard = () => {
-  useEffect(() => {
-    (async () => {
-      const data = await getBookmarksFromFirestore();
-      console.log(data);
-    })();
-  }, []);
-
   return (
     <div
       className={" flex flex-col justify-center align-middle gap-8 m-2 lg:m-10"}

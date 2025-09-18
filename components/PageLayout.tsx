@@ -1,7 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
-import useAuth from "@/features/authentication/hooks/useAuth";
-import Login from "@/features/authentication/components/Login";
+
 import Link from "next/link";
 
 const PageLayout = ({
@@ -10,10 +9,6 @@ const PageLayout = ({
   children: ReactNode[] | ReactNode;
   className?: string;
 }) => {
-  const { user } = useAuth();
-  if (!user) {
-    return <Login />;
-  }
   return (
     <div className={"flex flex-col gap-8  w-full "}>
       <div className={"col-span-1 lg:col-span-2 2xl:col-span-4"}>

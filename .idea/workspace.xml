@@ -4,10 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="add pnpm files">
+    <list default="true" id="d1a722ab-adbe-4b67-a182-93350004fb93" name="Changes" comment="remove firebase from project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scraper/kodansha/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scraper/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/PageLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/PageLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/authentication/components/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/authentication/hooks/useAuth.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/BookmarkItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/BookmarkItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/BookmarkWidget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/BookmarkWidget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/components/Favorites.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/components/Favorites.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/bookmarks/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/bookmarks/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/scrapper/lib/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/scrapper/pages/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/scrapper/pages/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/hooks/useFetchers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/wallpapers/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/wallpapers/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/adminFirebase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/auth.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/firebase-config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/firestoreTestUtils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/helpers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/services.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firestore-debug.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/providers/FirebaseProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/providers/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/providers/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +169,7 @@
       <workItem from="1753187873836" duration="3372000" />
       <workItem from="1753297292074" duration="2769000" />
       <workItem from="1757709486575" duration="568000" />
+      <workItem from="1758219711552" duration="1297000" />
     </task>
     <task id="LOCAL-00001" summary="wallapaper pagination">
       <option name="closed" value="true" />
@@ -394,6 +419,7 @@
     <MESSAGE value="update kodansha" />
     <MESSAGE value="update packages and fix img" />
     <MESSAGE value="add pnpm files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pnpm files" />
+    <MESSAGE value="remove firebase from project" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove firebase from project" />
   </component>
 </project>

@@ -1,7 +1,6 @@
 import { Button, Image, Link, Card, CardBody, CardFooter } from "@heroui/react";
 import { Star, Trash2 } from "lucide-react";
 import { Bookmark } from "@/features/bookmarks/types";
-import { updateFirestore } from "@/firebase/services";
 import { useDispatch } from "react-redux";
 import { updateBookmark } from "@/features/bookmarks/redux/bookmarksSlice";
 import useBookmark from "@/features/bookmarks/hooks/useBookmark";
@@ -20,9 +19,6 @@ function BookmarkItem({ data }: { data: Bookmark }) {
   };
 
   const markAsFavorite = async () => {
-    await updateFirestore(`bookmarker/myData/bookmarks/${data.id}`, {
-      isFavorite: !data.isFavorite,
-    });
     dispatch(updateBookmark({ ...data, isFavorite: !data.isFavorite }));
   };
 
