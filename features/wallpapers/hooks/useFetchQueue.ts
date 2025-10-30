@@ -22,8 +22,20 @@ export default function useFetchQueue() {
       console.error("Error al refrescar la cola:", error);
     }
   }, [mutate]);
+
+  // Sort by priority (higher priority first), then by addedAt (newer first)
+  const sortedQueueList = (data?.data as QueueElement[]) || [];
+  sortedQueueList.sort((a, b) => {
+    // First sort by priority (descending)
+    if (b.priority !== a.priority) {
+      return b.priority - a.priority;
+    }
+    // If priorities are equal, sort by date (newest first)
+    return new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime();
+  });
+
   return {
-    queueList: (data?.data as QueueElement[]) || [],
+    queueList: sortedQueueList,
     isLoading,
     error,
     refreshQueue,

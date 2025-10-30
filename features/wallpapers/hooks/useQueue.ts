@@ -63,10 +63,50 @@ const useQueue = () => {
     }
   };
 
+  const updatePriority = async (imageId: string, newPriority: number) => {
+    try {
+      await fetch(`${API_URL}/api/wallpapers/queue/${imageId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          priority: newPriority,
+        }),
+      });
+      await refreshQueue();
+    } catch (error) {
+      console.log(error);
+      toast.error("Error updating priority");
+    }
+  };
+
+  const bulkUpdatePriorities = async (updates: { id: string; priority: number }[]) => {
+    try {
+      await Promise.all(
+        updates.map(({ id, priority }) =>
+          fetch(`${API_URL}/api/wallpapers/queue/${id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ priority }),
+          })
+        )
+      );
+      await refreshQueue();
+    } catch (error) {
+      console.log(error);
+      toast.error("Error updating priorities");
+    }
+  };
+
   return {
     // find,
     removeImage,
     addImageToQueue,
+    updatePriority,
+    bulkUpdatePriorities,
   };
 };
 
